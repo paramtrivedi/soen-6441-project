@@ -28,25 +28,25 @@ public class boardCard {
 		this.des=des;
 	}
 	
-	public boolean action_Card_Assassination(){
+	public boolean card_Assassination(){
 		return ablity.get(0);
 	}
-	public boolean action_Card_Remove_Trouble_Marker(){
+	public boolean card_Remove_Trouble_Marker(){
 		return ablity.get(1);
 	}
-	public boolean action_Card_Money(){
+	public boolean card_Money(){
 		return ablity.get(2);
 	}
-	public boolean action_Card_Scroll(){
+	public boolean card_Scroll(){
 		return ablity.get(3);
 	}
-	public boolean action_Card_Event(){
+	public boolean card_Event(){
 		return ablity.get(4);
 	}
-	public boolean action_Card_Play_Another_Card(){
+	public boolean card_Play_Another_Card(){
 		return ablity.get(5);
 	}
-	public boolean action_Card_Interrupt(){
+	public boolean card_Interrupt(){
 		return ablity.get(6);
 	}
 	public String get_Description(){
