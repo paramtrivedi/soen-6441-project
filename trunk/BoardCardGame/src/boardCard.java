@@ -42,25 +42,25 @@ public class boardCard {
 	 * Getters 
 	 *******************************************************************/
 	
-	public boolean card_Assassination(){
+	public boolean Assassination(){
 		return ability.get(0);
 	}
-	public boolean card_Remove_Trouble_Marker(){
+	public boolean Remove_Trouble_Marker(){
 		return ability.get(1);
 	}
-	public boolean card_Money(){
+	public boolean Money(){
 		return ability.get(2);
 	}
-	public boolean card_Scroll(){
+	public boolean Scroll(){
 		return ability.get(3);
 	}
-	public boolean card_Event(){
+	public boolean Event(){
 		return ability.get(4);
 	}
-	public boolean card_Play_Another_Card(){
+	public boolean Play_Another_Card(){
 		return ability.get(5);
 	}
-	public boolean card_Interrupt(){
+	public boolean Interrupt(){
 		return ability.get(6);
 	}
 	/**
