@@ -3,7 +3,9 @@ import java.util.Vector;
 
 
 public class Player {
-	
+	/*******************************************************************
+	 * Attributes
+	 *******************************************************************/
 	protected int money;
 	protected String color;
 	protected int minion;
