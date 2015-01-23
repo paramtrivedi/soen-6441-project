@@ -1,5 +1,5 @@
 import java.util.Random;
-import java.util.Set;
+import java.util.Vector;
 
 
 public class Player {
@@ -8,16 +8,24 @@ public class Player {
 	protected int minion;
 	protected int personalityCard;
 	
-	public int gain_card(Set<Integer> g, Set<Integer>b){
-		Set<Integer> green=g;
-		Set<Integer> brown=b;
+	public int gain_card(Vector<Integer> g, Vector<Integer>b){
+		Vector<Integer> green=g;
+		Vector<Integer> brown=b;
 		Random rn=new Random();
+		int total;
+		int randomNum;
 		if(!green.isEmpty())
 		{
-			int total=green.size();
-			int randomNum=rn.nextInt()%total;
-					
+			total=green.size();
+			randomNum=rn.nextInt()%total;
+			return green.get(randomNum);
+			
+		} else if(!brown.isEmpty())
+		{
+			total=brown.size();
+			randomNum=rn.nextInt()%total;
+			return brown.get(randomNum);
 		}
-		return 1;
+		else return -1;
 	}
 }
