@@ -8,23 +8,28 @@ public class Player {
 	protected int minion;
 	protected int personalityCard;
 	
-	public int gain_card(Vector<Integer> g, Vector<Integer>b){
+	public int gain_boardcard(Vector<Integer> g, Vector<Integer>b){
 		Vector<Integer> green=g;
 		Vector<Integer> brown=b;
 		Random rn=new Random();
 		int total;
 		int randomNum;
+		int cardNum;
 		if(!green.isEmpty())
 		{
 			total=green.size();
 			randomNum=rn.nextInt()%total;
-			return green.get(randomNum);
+			cardNum=green.get(randomNum);
+			green.remove(randomNum);
+			return cardNum;
 			
 		} else if(!brown.isEmpty())
 		{
 			total=brown.size();
 			randomNum=rn.nextInt()%total;
-			return brown.get(randomNum);
+			cardNum=brown.get(randomNum);
+			brown.remove(randomNum);
+			return cardNum;
 		}
 		else return -1;
 	}
