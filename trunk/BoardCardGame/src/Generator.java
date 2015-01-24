@@ -3,13 +3,14 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Hashtable;
+import java.util.Vector;
 
 
 public class Generator {
 	public static void main(String arg[]){
 		Hashtable<Integer, boardCard> ht=new Hashtable<Integer,boardCard>();
 		try {
-			
+			//Get all the information of the board from txt
 			BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 			String line;
 			String[] info;
@@ -23,7 +24,7 @@ public class Generator {
 				ht.put(counter, bc);
 				counter++;
 			}
-			System.out.println(ht.size());
+			//System.out.println(ht.size());
 			br.close();
 			BufferedWriter bw=new BufferedWriter(new FileWriter("Information.txt"));
 			bw.write("ID\tNAME\tA\tR\tS\tM\tE\tP\tI");
@@ -43,6 +44,19 @@ public class Generator {
 				bw.newLine();
 			}
 			bw.close();
+			
+			//5 random card for one player
+			Vector<Integer> greenCard=new Vector<Integer>();
+			Vector<Integer> brownCard=new Vector<Integer>();
+			for(int i=0;i<101;i++)
+				if(i<48) greenCard.add(i);
+				else brownCard.add(i);
+			Player play1=new Player();
+			for(int i=0;i<5;i++)
+			{
+				int cardNum=play1.gain_boardcard(greenCard, brownCard);
+				System.out.println(cardNum+"\t"+ht.get(cardNum).Name());
+			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
