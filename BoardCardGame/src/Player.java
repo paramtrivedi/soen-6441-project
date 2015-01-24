@@ -18,26 +18,26 @@ public class Player {
 		//invoke the function to choose a Personality Card
 	}
 	public int gain_boardcard(Vector<Integer> g, Vector<Integer>b){
-		Vector<Integer> green=g;
-		Vector<Integer> brown=b;
+		//Vector<Integer> green=g;
+		//Vector<Integer> brown=b;
 		Random rn=new Random();
 		int total;
 		int randomNum;
 		int cardNum;
-		if(!green.isEmpty())
+		if(!g.isEmpty())
 		{
-			total=green.size();
-			randomNum=rn.nextInt()%total;
-			cardNum=green.get(randomNum);
-			green.remove(randomNum);
+			total=g.size();
+			randomNum=rn.nextInt(total);
+			cardNum=g.get(randomNum);
+			g.remove(randomNum);
 			return cardNum;
 			
-		} else if(!brown.isEmpty())
+		} else if(!b.isEmpty())
 		{
-			total=brown.size();
-			randomNum=rn.nextInt()%total;
-			cardNum=brown.get(randomNum);
-			brown.remove(randomNum);
+			total=b.size();
+			randomNum=48+rn.nextInt(total);
+			cardNum=b.get(randomNum);
+			b.remove(randomNum);
 			return cardNum;
 		}
 		else return -1;
