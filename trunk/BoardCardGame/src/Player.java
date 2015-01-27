@@ -7,7 +7,7 @@ public class Player {
 	 * Attributes
 	 *******************************************************************/
 	protected int money;
-	protected String color;
+	//protected String color;
 	protected int minion;
 	protected int personalityCard;
 	
