@@ -46,9 +46,64 @@ public class CityCard {
 			return true;
 		}else return false;
 	}
+	public boolean putTM(){
+		if(troubleMaker)
+			return false;
+		else{
+			troubleMaker=true;
+			return true;
+		}
+	}
+	public boolean removeTM(){
+		if(!troubleMaker)
+			return false;
+		else{
+			troubleMaker=false;
+			return true;
+		}
+	}
+	public boolean build(Player p){
+		if(building==-1){
+			building=p.id;
+			return true;
+		}
+		else
+			return false;
+	}
+	public boolean destory(Player p){
+		if(building!=-1){
+			building=-1;
+			return true;
+		}
+		else
+			return false;
+	}
+	public boolean putDemon(){
+		demons++;
+		return true;
+	}
+	public boolean removeDemon(){
+		if(demons>0){
+			demons--;
+			return true;
+		}else return false;
+	}
+	public boolean putTrolls(){
+		trolls++;
+		return true;
+	}
+	public boolean removeTrolls(){
+		if(trolls>0){
+			trolls--;
+			return true;
+		}else return false;
+	}
 	public String toString(){
 		String s="";
-		
+		s=s+name+" "+owener+" ";
+		for(int i=0;i<4;i++)
+			s=s+minions.get(i)+" ";
+		s=s+troubleMaker+" "+building+" "+demons+" "+trolls;
 		return s;
 	}
 	
