@@ -6,12 +6,14 @@ public class Player {
 	/*******************************************************************
 	 * Attributes
 	 *******************************************************************/
+	protected int id;
 	protected int money;
 	//protected String color;
 	protected int minion;
 	protected int personalityCard;
 	
-	public Player(){
+	public Player(int id){
+		this.id=id;
 		money=50;
 		//invoke the function to choose a color
 		minion=3;
