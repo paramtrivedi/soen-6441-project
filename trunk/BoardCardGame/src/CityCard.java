@@ -32,6 +32,20 @@ public class CityCard {
 		this.trolls=trolls;
 	}
 	
+	public boolean putMinion(Player p){
+		//if (true){
+			this.minions.set(p.id, minions.get(p.id)+1);
+			return true;
+		//}
+	}
+	public boolean removeMinion(Player p){
+		int n=minions.get(p.id);
+		if(n>0)
+		{
+			this.minions.set(p.id, minions.get(p.id)-1);
+			return true;
+		}else return false;
+	}
 	public String toString(){
 		String s="";
 		
