@@ -170,7 +170,7 @@ public class CityCard {
 	}
 	public String toString(){
 		String s="";
-		s=s+name+"\t"+owner+"\t";
+		s=s+String.format("%20s", name)+"\t"+owner+"\t";
 		for(int i=0;i<4;i++)
 			s=s+minions.get(i)+"\t";
 		s=s+troubleMaker+"\t"+building+"\t"+demons+"\t"+trolls;
