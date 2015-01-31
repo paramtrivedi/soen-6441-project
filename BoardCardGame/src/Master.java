@@ -582,18 +582,18 @@ public class Master {
 	public static int ChooseCity(){
 		int input=0;
 		System.out.println("Select the one city(1-12):");
-		System.out.println(" 1. "+cityCards.get(0).Name());
-		System.out.println(" 2. "+cityCards.get(1).Name());
-		System.out.println(" 3. "+cityCards.get(2).Name());
-		System.out.println(" 4. "+cityCards.get(3).Name());
-		System.out.println(" 5. "+cityCards.get(4).Name());
-		System.out.println(" 6. "+cityCards.get(5).Name());
-		System.out.println(" 7. "+cityCards.get(6).Name());
-		System.out.println(" 8. "+cityCards.get(7).Name());
-		System.out.println(" 9. "+cityCards.get(8).Name());
-		System.out.println("10. "+cityCards.get(9).Name());
-		System.out.println("11. "+cityCards.get(10).Name());
-		System.out.println("12. "+cityCards.get(11).Name());
+		System.out.println(" 0. "+cityCards.get(0).Name());
+		System.out.println(" 1. "+cityCards.get(1).Name());
+		System.out.println(" 2. "+cityCards.get(2).Name());
+		System.out.println(" 3. "+cityCards.get(3).Name());
+		System.out.println(" 4. "+cityCards.get(4).Name());
+		System.out.println(" 5. "+cityCards.get(5).Name());
+		System.out.println(" 6. "+cityCards.get(6).Name());
+		System.out.println(" 7. "+cityCards.get(7).Name());
+		System.out.println(" 8. "+cityCards.get(8).Name());
+		System.out.println(" 9. "+cityCards.get(9).Name());
+		System.out.println("10. "+cityCards.get(10).Name());
+		System.out.println("11. "+cityCards.get(11).Name());
 		do{	
 			while (!scan.hasNextInt()){
 				System.out.println("Invalid Input!! Please try again...");
