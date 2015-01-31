@@ -14,10 +14,11 @@ public class Player {
 	protected PersonalityCard personalityCard;
 	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
 	
-	public Player(int id,Vector<PersonalityCard> personalitycards,Vector<boardCard> greencard, Vector<boardCard>browncard){
-		this.id=id;
+	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<boardCard> greencard, Vector<boardCard>browncard){
+		String[] info=information.split("-");
+		this.id=Integer.parseInt(info[0].substring(6,7));
 		money=50;
-		//invoke the function to choose a color
+		this.color=info[1];
 		minion=3;
 		personalityCard=this.gain_personalityCard(personalitycards);
 		for(int i=0;i<5;i++)
