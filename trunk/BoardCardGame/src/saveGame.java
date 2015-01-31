@@ -5,13 +5,14 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
 public class saveGame {
 	private static Scanner scan;
 
-	public static void save(Vector<CityCard> city){
+	public static void save(Vector<CityCard> city, ArrayList<Player> gamer){
 		try{
 			scan = new Scanner(System.in);
 			File f;
@@ -26,7 +27,10 @@ public class saveGame {
 			}while(f.exists());
 			BufferedWriter output = new BufferedWriter(new FileWriter(f));
 			for(int i=0; i < 12; i++){
-				output.write(city.get(i).toString());
+				output.write(city.get(i).toString()+"\n");
+			}
+			for(int j=0; j < gamer.size(); j++){
+				output.write(gamer.toString()+"\n");
 			}
 			output.close();
 			System.out.println("file is created");
