@@ -581,7 +581,6 @@ public class Master {
 	}
 	public static int ChooseCity(){
 		int input=0;
-		System.out.println("Select the one city(1-12):");
 		System.out.println(" 0. "+cityCards.get(0).Name());
 		System.out.println(" 1. "+cityCards.get(1).Name());
 		System.out.println(" 2. "+cityCards.get(2).Name());
@@ -594,16 +593,17 @@ public class Master {
 		System.out.println(" 9. "+cityCards.get(9).Name());
 		System.out.println("10. "+cityCards.get(10).Name());
 		System.out.println("11. "+cityCards.get(11).Name());
+		System.out.println("Select the one city(0-11):");
 		do{	
 			while (!scan.hasNextInt()){
 				System.out.println("Invalid Input!! Please try again...");
 				scan.next();
 			}
 			input = scan.nextInt();
-			if (input <=0){
+			if (input < 0){
 				System.out.println("Please enter a positive number!!!");
-			}else if(input>12)
-				System.out.println("Please enter a number less than 13!!!");
+			}else if(input >= 12)
+				System.out.println("Please enter a number less than 12!!!");
 			
 		} while (input < 0 || input >= 12);
 		return input;
