@@ -22,6 +22,10 @@ public class CityCard {
 	public CityCard(int id, String name){
 		this.id=id;
 		this.name=name;
+		minions.add(0);
+		minions.add(0);
+		minions.add(0);
+		minions.add(0);
 		owner=-1;
 		troubleMaker=false;
 		building=false;
