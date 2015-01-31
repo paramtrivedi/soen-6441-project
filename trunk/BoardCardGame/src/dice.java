@@ -3,24 +3,17 @@ import java.util.Random;
 
 public class dice
 {
-	void roll()
+	public int roll()
 	{
 		Random ran = new Random();
 		
-		int number;
+		int number = 0;
 		
 		for(int counter = 1; counter <= 1; counter++)
 		{
 			number= 1 + ran.nextInt(12);
-			System.out.println(number);
 		}
+		return number;
 	}
-	
-		
-public static void main(String args[])
-{
-	dice d = new dice();
-	d.roll();
-}
 }
  
