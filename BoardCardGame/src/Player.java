@@ -24,21 +24,24 @@ public class Player {
 		minion=3;
 		personalityCard=this.gain_personalityCard(personalitycards);
 		System.out.println("Player"+this.getID()+" get personality card:"+this.personalityCard.toString());
-		//String greenInfo="",brownInfo="";
+		String greenInfo="",brownInfo="";
 		for(int i=0;i<5;i++)
 		{
 			boardCard temp=this.gain_boardcard(greencard,browncard);
 			
 			if(temp.Id()<48){
 				numGreenCard++;
-				//greenInfo+=temp.Id()+;
+				greenInfo+=temp.Name()+"  ";
 			}
-			else numBrownCard++;
+			else{
+				numBrownCard++;
+				brownInfo+=temp.Name()+"  ";
+			}
 			holdingCards.add(temp);
 		}
 		System.out.println("Player"+this.getID()+" has "+holdingCards.size()+" Board Cards:");
-		System.out.println("\t"+numGreenCard+" Green Cards;");
-		System.out.println("\t"+numBrownCard+" Brown Cards;");
+		System.out.println("\t"+numGreenCard+" Green Cards "+ greenInfo+";");
+		System.out.println("\t"+numBrownCard+" Brown Cards "+ brownInfo+";");
 		
 		
 	}
