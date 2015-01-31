@@ -631,13 +631,13 @@ public class Master {
 		case 3:
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
-			tempCityCard.putMinion(playerList.get(num));
+			tempCityCard.putMinion(playerList.get(num-1));
 			break;
 
 		case 4:
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
-			tempCityCard.build(playerList.get(num));
+			tempCityCard.build(playerList.get(num-1));
 			break;
 		case 5:
 			numCity=ChooseCity();
@@ -659,7 +659,7 @@ public class Master {
 		case 8:
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
-			tempCityCard.removeMinion(playerList.get(num));
+			tempCityCard.removeMinion(playerList.get(num-1));
 			break;
 		case 9:
 			numCity=ChooseCity();
