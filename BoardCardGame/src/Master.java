@@ -476,6 +476,19 @@ public class Master {
 					}
 				}
 			}
+			int maxPlayer=-1,max=0;
+			dice rollDice = new dice();
+			for(int i=0; i<players; i++){
+				System.out.println("Player "+(i+1)+ " rolls the dice: ");
+				int num = rollDice.roll();
+				System.out.println("Player "+(i+1)+ " got the number: "+num);
+				if(num > max) 
+				{
+					max=num;
+					maxPlayer=i;
+				}
+			}
+			System.out.println("Player "+(maxPlayer+1)+" got highest number "+max+" so he can play first.");
 		}
 	}
 }
