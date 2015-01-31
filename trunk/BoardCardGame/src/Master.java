@@ -605,7 +605,7 @@ public class Master {
 			}else if(input>12)
 				System.out.println("Please enter a number less than 13!!!");
 			
-		} while (input <= 0 || input > 12);
+		} while (input < 0 || input >= 12);
 		return input;
 	}
 	public static void playGames(int num,ArrayList<Player> playerList){
