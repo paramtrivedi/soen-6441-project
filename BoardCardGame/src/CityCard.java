@@ -172,5 +172,9 @@ public class CityCard {
 		s=s+troubleMaker+" "+building+" "+demons+" "+trolls;
 		return s;
 	}
+	public String Name()
+	{
+		return name;
+	}
 	
 }
