@@ -89,7 +89,7 @@ public class Player {
 	public int getID(){
 		return id;
 	}
-	public String color(){
+	public String Color(){
 		return color;
 	}
 }
