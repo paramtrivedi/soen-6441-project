@@ -23,7 +23,8 @@ public class Player {
 		this.color=info[1];
 		minion=3;
 		personalityCard=this.gain_personalityCard(personalitycards);
-		String greenInfo="",brownInfo="";
+		System.out.println("Player"+this.getID()+" get personality card:"+this.personalityCard.toString());
+		//String greenInfo="",brownInfo="";
 		for(int i=0;i<5;i++)
 		{
 			boardCard temp=this.gain_boardcard(greencard,browncard);
@@ -76,7 +77,7 @@ public class Player {
 			card=personalitycards.get(randomNum);
 			personalitycards.remove(randomNum);
 			
-			System.out.println("Player"+this.getID()+" get personality card:"+this.personalityCard.toString());
+			
 			
 		} 
 		return card;
@@ -84,5 +85,8 @@ public class Player {
 	
 	public int getID(){
 		return id;
+	}
+	public String color(){
+		return color;
 	}
 }
