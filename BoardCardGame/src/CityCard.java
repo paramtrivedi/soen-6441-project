@@ -80,7 +80,7 @@ public class CityCard {
 		//}
 	}
 	public boolean removeMinion(Player p){
-		int n=minions.get(p.id);
+		int n=minions.get(p.id-1);
 		if(n>0)
 		{
 			System.out.println("One minion of Player "+p.getID()+" removed from "+name);
