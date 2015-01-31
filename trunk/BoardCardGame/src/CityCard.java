@@ -2,30 +2,38 @@ import java.util.Vector;
 
 
 public class CityCard {
-	protected int id;
+	protected int id;			
 	protected String name;
-	protected int owener;
-	protected Vector<Integer> minions=new Vector<Integer>(4);
-	protected boolean troubleMaker;
-	protected int building;
-	protected int demons;
-	protected int trolls;
-	
+	protected int owner;		//No owner -1
+	protected Vector<Integer> minions=new Vector<Integer>(4);// number of minions for each players
+	protected boolean troubleMaker;//Have trouble maker or not 
+	protected boolean building;	//Have building or not
+	protected int demons;		//number of demons in the city
+	protected int trolls;		//number of trolls in the city
+	/**
+	 * Constructs an instance of CityCard class with the given parameters.
+	 * 
+	 * This constructor will create a particular CityCard with the id, the name.
+	 * 
+	 * @param id
+	 * @param name
+	 * 
+	 */
 	public CityCard(int id, String name){
 		this.id=id;
 		this.name=name;
-		owener=-1;
+		owner=-1;
 		troubleMaker=false;
-		building=-1;
+		building=false;
 		demons=0;
 		trolls=0;
 	
 	}
 	
-	public CityCard(int id, String name, int owener,Vector<Integer> minions, boolean tm, int building,int demons,int trolls){
+	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean tm, boolean building,int demons,int trolls){
 		this.id=id;
 		this.name=name;
-		this.owener=owener;
+		this.owner=owner;
 		this.troubleMaker=tm;
 		this.building=building;
 		this.demons=demons;
@@ -63,16 +71,18 @@ public class CityCard {
 		}
 	}
 	public boolean build(Player p){
-		if(building==-1){
-			building=p.id;
+		if(!building){
+			building=true;
+			owner=p.id;
 			return true;
 		}
 		else
 			return false;
 	}
-	public boolean destory(Player p){
-		if(building!=-1){
-			building=-1;
+	public boolean destory(){
+		if(building){
+			building=false;
+			owner=-1;
 			return true;
 		}
 		else
@@ -100,7 +110,7 @@ public class CityCard {
 	}
 	public String toString(){
 		String s="";
-		s=s+name+" "+owener+" ";
+		s=s+name+" "+owner+" ";
 		for(int i=0;i<4;i++)
 			s=s+minions.get(i)+" ";
 		s=s+troubleMaker+" "+building+" "+demons+" "+trolls;
