@@ -547,7 +547,7 @@ public class Master {
 				}
 			}
 			System.out.println("Player "+(maxPlayer+1)+" got highest number "+max+" so he can play first.");
-			playGames(maxPlayer,playerList);
+			playGames(maxPlayer+1,playerList);
 		}
 	}
 	
@@ -615,7 +615,7 @@ public class Master {
 		CityCard tempCityCard;
 		boolean quit = false;
 		do{
-			System.out.println("Player "+(num+1)+" Start to Play:");
+			System.out.println("Player "+num+" Start to Play:");
 			input=Menu();
 		
 		switch (input) {
