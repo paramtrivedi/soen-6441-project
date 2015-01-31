@@ -1,8 +1,6 @@
-
-
 import java.util.Scanner;
 
-public class sGame {
+public class Master {
 
 	private static Scanner scan;
 	private static String [] colors;
@@ -30,7 +28,7 @@ public class sGame {
 			switch (input) {
 			case 1:
 				System.out.println("Enter number of players: (WARNING: Minimum 2 players and Maximum 4 players)");
-				sGame.newGame();
+				Master.newGame();
 				break;
 
 			case 2:
@@ -49,6 +47,10 @@ public class sGame {
 		System.out.println("Bye-bye!!!");
 	}
 
+	/*
+	 * newGame method functionality is to take valid no. of players and
+	 * chooses their color 
+	 */
 	public static void newGame(){
 		int players = 0;
 		String first;
@@ -68,7 +70,7 @@ public class sGame {
 
 		if (players != 2 && players != 3 && players != 4){
 			System.out.println("Please enter number between 2 and 4!!!");
-			sGame.newGame();
+			Master.newGame();
 		} else {
 			colors = new String [players];
 			for (int i = 0; i < players; i++){
