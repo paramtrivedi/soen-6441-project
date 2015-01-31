@@ -87,4 +87,5 @@ public class boardCard {
 		return id;
 	}
 	
+	
 }

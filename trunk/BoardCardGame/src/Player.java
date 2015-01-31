@@ -16,15 +16,30 @@ public class Player {
 	
 	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<boardCard> greencard, Vector<boardCard>browncard){
 		String[] info=information.split("-");
+		int numGreenCard = 0,numBrownCard = 0;
 		this.id=Integer.parseInt(info[0].substring(6,7));
 		money=50;
+		System.out.println("Player"+this.getID()+" has "+money+" Ankh-Morpork dollors.");
 		this.color=info[1];
 		minion=3;
 		personalityCard=this.gain_personalityCard(personalitycards);
+		String greenInfo="",brownInfo="";
 		for(int i=0;i<5;i++)
 		{
-			holdingCards.add(this.gain_boardcard(greencard,browncard));
+			boardCard temp=this.gain_boardcard(greencard,browncard);
+			
+			if(temp.Id()<48){
+				numGreenCard++;
+				//greenInfo+=temp.Id()+;
+			}
+			else numBrownCard++;
+			holdingCards.add(temp);
 		}
+		System.out.println("Player"+this.getID()+" has "+holdingCards.size()+" Board Cards:");
+		System.out.println("\t"+numGreenCard+" Green Cards;");
+		System.out.println("\t"+numBrownCard+" Brown Cards;");
+		
+		
 	}
 	public boardCard gain_boardcard(Vector<boardCard> g, Vector<boardCard>b){
 		Random rn=new Random();
@@ -61,8 +76,13 @@ public class Player {
 			card=personalitycards.get(randomNum);
 			personalitycards.remove(randomNum);
 			
+			System.out.println("Player"+this.getID()+" get personality card:"+this.personalityCard.toString());
 			
 		} 
 		return card;
+	}
+	
+	public int getID(){
+		return id;
 	}
 }
