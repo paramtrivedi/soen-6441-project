@@ -622,7 +622,7 @@ public class Master {
 		switch (input) {
 		case 1:
 			System.out.println("Saving...");
-			saveGame.save(cityCards);
+			saveGame.save(cityCards, playerList);
 			break;
 
 		case 2:
