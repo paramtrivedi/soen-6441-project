@@ -7,6 +7,7 @@ public class Master {
 	private static String [] colors;
 	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 	private static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
+	private static int bank = 2000;
 
 	public static void main(String[] args) {
 
@@ -80,6 +81,7 @@ public class Master {
 			System.out.println("Please enter number between 2 and 4!!!");
 			Master.newGame();
 		} else {
+			bank = bank - (players*50);
 			colors = new String [players];
 			for (int i = 0; i < players; i++){
 				if (i == 0){
