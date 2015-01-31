@@ -14,6 +14,7 @@ public class Master {
 	private static Vector<boardCard> greenCard = new Vector<boardCard>(48);
 	private static Vector<boardCard> brownCard = new Vector<boardCard>(53);
 	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
+	private static ArrayList<Player> playerList=new ArrayList<Player>();
 	private static int bank = 2000;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -100,7 +101,7 @@ public class Master {
 	 * chooses their color 
 	 */
 	public static void newGame(){
-		ArrayList<Player> playerList=new ArrayList<Player>();
+		
 		int players = 0;
 		String first;
 		String second;
