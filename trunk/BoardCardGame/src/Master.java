@@ -689,7 +689,7 @@ public class Master {
 			System.out.println("Invalid input!!! Please do right selection...");
 			break;
 		}
-		num=num%playerList.size();
+		num=num%playerList.size()+1;
 	}while(!quit);
 	System.out.println("Bye-bye!!!");
 	}

@@ -19,11 +19,11 @@ public class Player {
 		int numGreenCard = 0,numBrownCard = 0;
 		this.id=Integer.parseInt(info[0].substring(6,7));
 		money=50;
-		System.out.println("Player"+this.getID()+" has "+money+" Ankh-Morpork dollors.");
+		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollors.");
 		this.color=info[1];
 		minion=3;
 		personalityCard=this.gain_personalityCard(personalitycards);
-		System.out.println("Player"+this.getID()+" get personality card:"+this.personalityCard.toString());
+		System.out.println("Player "+this.getID()+" get personality card:"+this.personalityCard.toString());
 		String greenInfo="",brownInfo="";
 		for(int i=0;i<5;i++)
 		{
@@ -39,7 +39,7 @@ public class Player {
 			}
 			holdingCards.add(temp);
 		}
-		System.out.println("Player"+this.getID()+" has "+holdingCards.size()+" Board Cards:");
+		System.out.println("Player "+this.getID()+" has "+holdingCards.size()+" Board Cards:");
 		System.out.println("\t"+numGreenCard+" Green Cards: "+ greenInfo+";");
 		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo+";");
 		
