@@ -45,6 +45,7 @@ public class saveGame {
 	        BufferedReader br = new BufferedReader(new InputStreamReader(in));
 	        String strLine;
 
+	        System.out.println("Loading....");
 	        while ((strLine = br.readLine()) != null){
 	            System.out.println (strLine);
 	        }
