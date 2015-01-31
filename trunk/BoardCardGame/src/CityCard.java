@@ -70,6 +70,7 @@ public class CityCard {
 	 */
 	public boolean putMinion(Player p){
 		//if (true){
+		System.out.println("Player"+p.getID()+" add one minion in "+name);
 			this.minions.set(p.id, minions.get(p.id)+1);
 			return true;
 		//}
@@ -78,63 +79,90 @@ public class CityCard {
 		int n=minions.get(p.id);
 		if(n>0)
 		{
+			System.out.println("One minion of Player"+p.getID()+" is removed from "+name);
 			this.minions.set(p.id, minions.get(p.id)-1);
 			return true;
-		}else return false;
+		}else {
+			System.out.println("Player"+p.getID()+" does not have any minions in "+name);
+			return false;
+		}
 	}
 	public boolean putTM(){
-		if(troubleMaker)
+		if(troubleMaker){
+			System.out.println("One trouble maker already exists in "+name);
 			return false;
+		}
 		else{
+			System.out.println("One trouble maker come to "+name);
 			troubleMaker=true;
 			return true;
 		}
 	}
 	public boolean removeTM(){
-		if(!troubleMaker)
+		if(!troubleMaker){
+			System.out.println("No trouble maker exists in "+name);
 			return false;
+		}
 		else{
+			System.out.println("One trouble maker is removed from "+name);
 			troubleMaker=false;
 			return true;
 		}
 	}
 	public boolean build(Player p){
 		if(!building){
+			System.out.println("One building is built in "+name);
 			building=true;
 			owner=p.id;
 			return true;
 		}
-		else
+		else{
+			System.out.println("There is one building existing in "+name);
 			return false;
+		}
 	}
 	public boolean destory(){
 		if(building){
+			System.out.println("One building is destoried in "+name);
 			building=false;
 			owner=-1;
 			return true;
 		}
-		else
+		else{
+			System.out.println("No bulding can be destoried in "+name);
 			return false;
+		}
+			
 	}
 	public boolean putDemon(){
 		demons++;
+		System.out.println("One demon comes to "+name);
 		return true;
 	}
 	public boolean removeDemon(){
 		if(demons>0){
 			demons--;
+			System.out.println("One demon is beaten in "+name);
 			return true;
-		}else return false;
+		}else {
+			System.out.println("No demon can be remove from "+name);
+			return false;
+		}
 	}
 	public boolean putTrolls(){
 		trolls++;
+		System.out.println("One troll is added to "+name);
 		return true;
 	}
 	public boolean removeTrolls(){
 		if(trolls>0){
 			trolls--;
+			System.out.println("One troll is remove from "+name);
 			return true;
-		}else return false;
+		}else {
+			System.out.println("No troll can be remove from "+name);
+			return false;
+		}
 	}
 	public String toString(){
 		String s="";
