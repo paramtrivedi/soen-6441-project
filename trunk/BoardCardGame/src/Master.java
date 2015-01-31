@@ -615,7 +615,7 @@ public class Master {
 		CityCard tempCityCard;
 		boolean quit = false;
 		do{
-			System.out.println("Player"+num+" Start to Play:");
+			System.out.println("Player"+(num+1)+" Start to Play:");
 			input=Menu();
 		
 		switch (input) {
