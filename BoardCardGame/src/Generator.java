@@ -51,11 +51,11 @@ public class Generator {
 			for(int i=0;i<101;i++)
 				if(i<48) greenCard.add(i);
 				else brownCard.add(i);
-			Player play1=new Player(1);
+			//Player play1=new Player(1);
 			for(int i=0;i<5;i++)
 			{
-				int cardNum=play1.gain_boardcard(greenCard, brownCard);
-				System.out.println(cardNum+"\t"+ht.get(cardNum).Name());
+				//int cardNum=play1.gain_boardcard(greenCard, brownCard);
+				//System.out.println(cardNum+"\t"+ht.get(cardNum).Name());
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
