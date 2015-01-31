@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Vector;
 
 
@@ -75,6 +76,7 @@ public class CityCard {
 	public boolean putMinion(Player p){
 		//if (true){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
+		p.setMinion(1);
 			this.minions.set(p.id-1, minions.get(p.id-1)+1);
 			return true;
 		//}
@@ -85,6 +87,7 @@ public class CityCard {
 		{
 			System.out.println("One minion of Player "+p.getID()+" removed from "+name);
 			this.minions.set(p.id-1, minions.get(p.id-1)-1);
+			p.setMinion(-1);
 			return true;
 		}else {
 			System.out.println("Player "+p.getID()+" does not have any minions in "+name);
@@ -116,6 +119,7 @@ public class CityCard {
 	public boolean build(Player p){
 		if(!building){
 			System.out.println("One building is built in "+name);
+			p.setBuilding(1);
 			building=true;
 			owner=p.id;
 			return true;
@@ -125,10 +129,11 @@ public class CityCard {
 			return false;
 		}
 	}
-	public boolean destory(){
+	public boolean destory(ArrayList<Player> playerList){
 		if(building){
-			System.out.println("One building is destoried in "+name);
+			System.out.println("Player "+owner+"'s building is destoried in "+name);
 			building=false;
+			playerList.get(owner-1).setBuilding(-1);
 			owner=-1;
 			return true;
 		}
@@ -170,7 +175,11 @@ public class CityCard {
 	}
 	public String toString(){
 		String s="";
-		s=s+String.format("%20s", name)+"\t"+owner+"\t";
+		s=s+String.format("%20s", name)+"\t";
+		if(owner==-1)
+			s=s+"None\t";
+		else
+			s=s+owner+"\t";
 		for(int i=0;i<4;i++)
 			s=s+minions.get(i)+"\t";
 		s=s+troubleMaker+"\t"+building+"\t"+demons+"\t"+trolls;
