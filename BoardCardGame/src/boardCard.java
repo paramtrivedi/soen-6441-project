@@ -9,7 +9,6 @@ public class boardCard {
 	protected String des;
 	
 	/**
-	 * 
 	 * Constructs an instance of boardCard class with the given parameters.
 	 * 
 	 * This constructor will create a particular board card with the id,
