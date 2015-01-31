@@ -10,7 +10,8 @@ public class Player {
 	protected int id;
 	protected int money;
 	protected String color;
-	protected int minion;
+	protected int minion,building;
+	
 	protected PersonalityCard personalityCard;
 	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
 	
@@ -21,7 +22,8 @@ public class Player {
 		money=50;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollors.");
 		this.color=info[1];
-		minion=3;
+		minion=0;
+		building=0;
 		personalityCard=this.gain_personalityCard(personalitycards);
 		System.out.println("Player "+this.getID()+" get personality card:"+this.personalityCard.toString());
 		String greenInfo="",brownInfo="";
@@ -85,11 +87,39 @@ public class Player {
 		} 
 		return card;
 	}
-	
+	public String toString(){
+		String s="";
+		s=s+"Player "+this.getID()+"\t"+color+"\t"+this.personalityCard+"\n";
+		boardCard temp;
+		String greenInfo="",brownInfo="";
+		for(int i=0;i<holdingCards.size();i++)
+		{
+			 temp=holdingCards.get(i);
+			
+			if(temp.Id()<48){
+				greenInfo+=temp.Id()+"  ";
+			}
+			else{
+				brownInfo+=temp.Id()+"  ";
+			}
+		}
+		s=s+"Green Card: "+greenInfo+"\n";
+		s=s+"Brown Card: "+brownInfo+"\n";
+		s=s+"Money: "+money+" Ankh-Morpork dollors\n";
+		s=s+"Number of Minions\t"+minion+"\n";
+		s=s+"Number of Building\t"+building+"\n";
+		return s;
+	}
 	public int getID(){
 		return id;
 	}
 	public String Color(){
 		return color;
+	}
+	public void setMinion(int x){
+		minion+=x;
+	}
+	public void setBuilding(int x){
+		building+=x;
 	}
 }
