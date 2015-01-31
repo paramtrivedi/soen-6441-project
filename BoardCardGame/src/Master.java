@@ -1,15 +1,23 @@
 import java.util.Scanner;
+import java.util.Vector;
 
 public class Master {
 
 	private static Scanner scan;
 	private static String [] colors;
+	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
+	private static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
 
 	public static void main(String[] args) {
 
 		int input = 0;
 		scan = new Scanner(System.in);
 		boolean quit = false;
+		for (int i=0; i<7; i++){
+			String dummy = cards[i];
+			PersonalityCard temp = new PersonalityCard (dummy);
+			card.add(temp);
+		}
 		do{
 			System.out.println("Select the one of the options:");
 			System.out.println("0. Exit");
