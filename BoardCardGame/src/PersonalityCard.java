@@ -8,9 +8,7 @@ public class PersonalityCard {
 		
 	}
 	public String toString(){
-		
 		return name;
-		
 	}
 		
 }
