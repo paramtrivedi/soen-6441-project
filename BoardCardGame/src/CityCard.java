@@ -6,10 +6,10 @@ public class CityCard {
 	protected String name;
 	protected int owner;		//No owner -1
 	protected Vector<Integer> minions=new Vector<Integer>(4);// number of minions for each players
-	protected boolean troubleMaker;//Have trouble maker or not 
-	protected boolean building;	//Have building or not
-	protected int demons;		//number of demons in the city
-	protected int trolls;		//number of trolls in the city
+	protected boolean troubleMaker; 
+	protected boolean building;	
+	protected int demons;		
+	protected int trolls;		
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
 	 * 
@@ -27,19 +27,47 @@ public class CityCard {
 		building=false;
 		demons=0;
 		trolls=0;
-	
 	}
 	
-	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean tm, boolean building,int demons,int trolls){
+	/**
+	 * Constructs an instance of CityCard class with the given parameters.
+	 * 
+	 * This constructor will create a particular CityCard with id, name.
+	 * the owner, number of minions for each player, existence of trouble maker and building,
+	 * number of demons and trolls
+	 * @param id
+	 * @param name
+	 * @param owner
+	 * @param minions
+	 * @param troublemaker
+	 * @param building
+	 * @param demons
+	 * @param trolls
+	 */
+	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls){
 		this.id=id;
 		this.name=name;
 		this.owner=owner;
-		this.troubleMaker=tm;
+		this.troubleMaker=troublemaker;
 		this.building=building;
 		this.demons=demons;
 		this.trolls=trolls;
 	}
-	
+	/**
+	 * Constructs an instance of CityCard class with the given parameters.
+	 * 
+	 * This constructor will create a particular CityCard with id, name.
+	 * the owner, number of minions for each player, existence of trouble maker and building,
+	 * number of demons and trolls
+	 * @param id
+	 * @param name
+	 * @param owner
+	 * @param minions
+	 * @param troublemaker
+	 * @param building
+	 * @param demons
+	 * @param trolls
+	 */
 	public boolean putMinion(Player p){
 		//if (true){
 			this.minions.set(p.id, minions.get(p.id)+1);
