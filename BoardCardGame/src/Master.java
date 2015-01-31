@@ -681,6 +681,8 @@ public class Master {
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
 			tempCityCard.removeTrolls();
+			break;
+
 		case 0:
 			quit = true;
 			break;
