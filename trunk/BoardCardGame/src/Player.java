@@ -40,8 +40,8 @@ public class Player {
 			holdingCards.add(temp);
 		}
 		System.out.println("Player"+this.getID()+" has "+holdingCards.size()+" Board Cards:");
-		System.out.println("\t"+numGreenCard+" Green Cards "+ greenInfo+";");
-		System.out.println("\t"+numBrownCard+" Brown Cards "+ brownInfo+";");
+		System.out.println("\t"+numGreenCard+" Green Cards: "+ greenInfo+";");
+		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo+";");
 		
 		
 	}
