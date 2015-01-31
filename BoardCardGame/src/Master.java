@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -18,6 +19,7 @@ public class Master {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		int input = 0;
+		
 		scan = new Scanner(System.in);
 		boolean quit = false;
 		for (int i=0; i<7; i++){
@@ -25,6 +27,21 @@ public class Master {
 			PersonalityCard temp = new PersonalityCard (dummy);
 			card.add(temp);
 		}
+		
+		cityCards.add(new CityCard(1,"Dolly Sister"));
+		cityCards.add(new CityCard(2,"Unreal Estate"));
+		cityCards.add(new CityCard(3,"Dragon's Landing"));
+		cityCards.add(new CityCard(4,"Small Gods"));
+		cityCards.add(new CityCard(5,"The Scours"));
+		cityCards.add(new CityCard(6,"The Hippo"));
+		cityCards.add(new CityCard(7,"The Shades"));
+		cityCards.add(new CityCard(8,"Dimwell"));
+		cityCards.add(new CityCard(9,"Longwall"));
+		cityCards.add(new CityCard(10,"isle of Gods"));
+		cityCards.add(new CityCard(11,"Seven Sleepers"));
+		cityCards.add(new CityCard(12,"Nap Hill"));
+		
+		
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
@@ -85,6 +102,7 @@ public class Master {
 	 * chooses their color 
 	 */
 	public static void newGame(){
+		ArrayList<Player> playerList=new ArrayList<Player>();
 		int players = 0;
 		String first;
 		String second;
@@ -472,8 +490,11 @@ public class Master {
 						fourth = "red";
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
+						playerList.add(gamer4);
 						bank = bank - 50;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
+						
+						
 					}
 				}
 			}
@@ -490,10 +511,11 @@ public class Master {
 				}
 			}
 			System.out.println("Player "+(maxPlayer+1)+" got highest number "+max+" so he can play first.");
+			playGames(maxPlayer,playerList);
 		}
 	}
 	
-	public int Menu(){
+	public static int Menu(){
 		int input=0;
 		System.out.println("Select the one of the options(0-12):");
 		System.out.println(" 0. Exit");
@@ -521,7 +543,7 @@ public class Master {
 		} while (input <= -1);
 		return input;
 	}
-	public int ChooseCity(){
+	public static int ChooseCity(){
 		int input=0;
 		System.out.println("Select the one city(1-12):");
 		
@@ -551,7 +573,7 @@ public class Master {
 		} while (input <= 0 || input > 12);
 		return input;
 	}
-	public void playGames(Player player){
+	public static void playGames(int num,ArrayList<Player> playerList){
 		
 		int input = 0;
 		int numCity;
@@ -559,6 +581,7 @@ public class Master {
 		//scan = new Scanner(System.in);
 		boolean quit = false;
 		do{
+			System.out.println("Player"+num+" Start to Play:");
 			input=Menu();
 		
 		switch (input) {
@@ -573,13 +596,13 @@ public class Master {
 		case 3:
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
-			tempCityCard.putMinion(player);
+			tempCityCard.putMinion(playerList.get(num));
 			break;
 
 		case 4:
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
-			tempCityCard.build(player);
+			tempCityCard.build(playerList.get(num));
 			break;
 		case 5:
 			numCity=ChooseCity();
@@ -601,7 +624,7 @@ public class Master {
 		case 8:
 			numCity=ChooseCity();
 			tempCityCard=cityCards.get(numCity);
-			tempCityCard.removeMinion(player);
+			tempCityCard.removeMinion(playerList.get(num));
 			break;
 		case 9:
 			numCity=ChooseCity();
@@ -632,6 +655,7 @@ public class Master {
 			System.out.println("Invalid input!!! Please do right selection...");
 			break;
 		}
+		num=num%playerList.size();
 	}while(!quit);
 	System.out.println("Bye-bye!!!");
 	}
