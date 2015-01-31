@@ -7,30 +7,6 @@ import java.io.FileWriter;
 
 
 public class MainClass {	
-	//CityCard cc=new CityCard(""1,);
-	String playerid= "11";
-	String playerName = "JTanna";
-	
-	String randomcards = "3";
-	
-	String[] saveInformation = {playerid, playerName, randomcards};
-	int pidLoc= 0;
-	int plNLoc= 1;
-	int rdcarLoc= 2;
-	
-	
-	public MainClass()
-	{
-		//readPlayer("PlayerSave.txt");
-		updatePlayerStats();
-		savePlayer("PlayerSave.txt");
-		
-		File f = new File("PlayerSave.txt");
-		
-		 
-		
-		
-	}
 	
 	private void updatePlayerStats()
 	{
