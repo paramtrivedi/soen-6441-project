@@ -12,6 +12,7 @@ public class Master {
 	private static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
 	private static Vector<boardCard> greenCard = new Vector<boardCard>(48);
 	private static Vector<boardCard> brownCard = new Vector<boardCard>(53);
+	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	private static int bank = 2000;
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -491,4 +492,148 @@ public class Master {
 			System.out.println("Player "+(maxPlayer+1)+" got highest number "+max+" so he can play first.");
 		}
 	}
+	
+	public int Menu(){
+		int input=0;
+		System.out.println("Select the one of the options(0-12):");
+		System.out.println(" 0. Exit");
+		System.out.println(" 1. Save Game");
+		System.out.println(" 2. Load Game");
+		System.out.println(" 3. Put Minion");
+		System.out.println(" 4. Put Building");
+		System.out.println(" 5. Put Trouble Maker");
+		System.out.println(" 6. Put Demon");
+		System.out.println(" 7. Put Troll");
+		System.out.println(" 8. Remove Minion");
+		System.out.println(" 9. Remove Building");
+		System.out.println("10. Remove Trouble Maker");
+		System.out.println("11. Remove Demon");
+		System.out.println("12. Remove Troll");
+		do{	
+			while (!scan.hasNextInt()){
+				System.out.println("Invalid Input!! Please try again...");
+				scan.next();
+			}
+			input = scan.nextInt();
+			if (input < 0){
+				System.out.println("Please enter a positive number!!!");
+			}
+		} while (input <= -1);
+		return input;
+	}
+	public int ChooseCity(){
+		int input=0;
+		System.out.println("Select the one city(1-12):");
+		
+		System.out.println(" 1. "+cityCards.get(1).Name());
+		System.out.println(" 2. "+cityCards.get(2).Name());
+		System.out.println(" 3. "+cityCards.get(3).Name());
+		System.out.println(" 4. "+cityCards.get(4).Name());
+		System.out.println(" 5. "+cityCards.get(5).Name());
+		System.out.println(" 6. "+cityCards.get(6).Name());
+		System.out.println(" 7. "+cityCards.get(7).Name());
+		System.out.println(" 8. "+cityCards.get(8).Name());
+		System.out.println(" 9. "+cityCards.get(9).Name());
+		System.out.println("10. "+cityCards.get(10).Name());
+		System.out.println("11. "+cityCards.get(11).Name());
+		System.out.println("12. "+cityCards.get(12).Name());
+		do{	
+			while (!scan.hasNextInt()){
+				System.out.println("Invalid Input!! Please try again...");
+				scan.next();
+			}
+			input = scan.nextInt();
+			if (input <=0){
+				System.out.println("Please enter a positive number!!!");
+			}else if(input>12)
+				System.out.println("Please enter a number less than 13!!!");
+			
+		} while (input <= 0 || input > 12);
+		return input;
+	}
+	public void playGames(Player player){
+		
+		int input = 0;
+		int numCity;
+		CityCard tempCityCard;
+		//scan = new Scanner(System.in);
+		boolean quit = false;
+		do{
+			input=Menu();
+		
+		switch (input) {
+		case 1:
+			System.out.println("Saving...");
+			//MainClass.savePlay();
+			break;
+
+		case 2:
+			System.out.println("Loading...");
+			break;
+		case 3:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.putMinion(player);
+			break;
+
+		case 4:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.build(player);
+			break;
+		case 5:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.putTM();
+			break;
+
+		case 6:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.putDemon();
+			break;
+		case 7:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.putTrolls();
+			break;
+
+		case 8:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.removeMinion(player);
+			break;
+		case 9:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.destory();
+			break;
+
+		case 10:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.removeTM();
+			break;
+		case 11:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.removeDemon();
+			break;
+
+		case 12:
+			numCity=ChooseCity();
+			tempCityCard=cityCards.get(numCity);
+			tempCityCard.removeTrolls();
+		case 0:
+			quit = true;
+			break;
+
+		default:
+			System.out.println("Invalid input!!! Please do right selection...");
+			break;
+		}
+	}while(!quit);
+	System.out.println("Bye-bye!!!");
+	}
+	
 }
