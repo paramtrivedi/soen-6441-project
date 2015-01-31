@@ -5,16 +5,15 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 
-public class MainClass {
-	
+
+public class MainClass {	
+	//CityCard cc=new CityCard(""1,);
 	String playerid= "11";
 	String playerName = "JTanna";
 	
 	String randomcards = "3";
 	
 	String[] saveInformation = {playerid, playerName, randomcards};
-	//String[] saveInformation1 ={playername, percard};
-	
 	int pidLoc= 0;
 	int plNLoc= 1;
 	int rdcarLoc= 2;
@@ -25,6 +24,12 @@ public class MainClass {
 		//readPlayer("PlayerSave.txt");
 		updatePlayerStats();
 		savePlayer("PlayerSave.txt");
+		
+		File f = new File("PlayerSave.txt");
+		
+		 
+		
+		
 	}
 	
 	private void updatePlayerStats()
@@ -33,9 +38,17 @@ public class MainClass {
 		playerid = saveInformation [pidLoc];
 		playerName = saveInformation [plNLoc];
 		randomcards = saveInformation [rdcarLoc];
-		System.out.println(playerid);
-		System.out.println(playerName);
-		System.out.println(randomcards);
+		
+
+		File f = new File("PlayerSave.txt");
+		 if(f.exists()){
+			  System.out.println("File existed.....Please Give another Name");
+		  }else{
+			  System.out.println(playerid);
+				System.out.println(playerName);
+				System.out.println(randomcards);
+			 	}
+		
 		
 	}
 	
@@ -66,7 +79,7 @@ public class MainClass {
 				
 			}
 		}
-		private void savePlayer(String filePath)
+		public void savePlayer(String filePath)
 		{
 			File outputFile;
 			BufferedWriter outputWriter;
@@ -83,6 +96,8 @@ public class MainClass {
 					
 				}
 				outputWriter.close();
+				
+				
 			}
 			catch (Exception e)
 			{
@@ -92,7 +107,11 @@ public class MainClass {
 		}
 		 public static void main(String args[])
 		 {
+			 
 			 new MainClass();
+			 
+			 
+			 
 		 }
 	}
 	
