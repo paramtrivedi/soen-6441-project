@@ -28,7 +28,6 @@ public class CityCard {
 	 * @param name
 	 * 
 	 */
-
 	public CityCard(int id, String name){
 		this.id=id;
 		this.name=name;
@@ -69,7 +68,13 @@ public class CityCard {
 		this.trolls=trolls;
 	}
 
-	
+	/**
+	 * 
+	 * The method put the minions in the game.
+	 * 
+	 * @param p
+	 * @return true or false.
+	 */
 	public boolean putMinion(Player p){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
 		p.setMinion(1);
@@ -77,6 +82,12 @@ public class CityCard {
 		return true;
 	}
 
+	/**
+	 * This method removes the minions.
+	 * 
+	 * @param p
+	 * @return true or false.
+	 */
 	public boolean removeMinion(Player p){
 		int n=minions.get(p.id-1);
 		if(n>0)
@@ -91,6 +102,12 @@ public class CityCard {
 		}
 	}
 
+	/**
+	 * 
+	 * The method judges the trouble maker exist or not.
+	 * 
+	 * @return true or false
+	 */
 	public boolean putTM(){
 		if(troubleMaker){
 			System.out.println("One trouble maker already exists in "+name);
@@ -103,6 +120,12 @@ public class CityCard {
 		}
 	}
 
+	/**
+	 * 
+	 * The method removes the trouble maker.
+	 * 
+	 * @return true or false
+	 */
 	public boolean removeTM(){
 		if(!troubleMaker){
 			System.out.println("No trouble maker exists in "+name);
@@ -115,6 +138,13 @@ public class CityCard {
 		}
 	}
 
+	/**
+	 * 
+	 * The method builds the buildings.
+	 * 
+	 * @param p
+	 * @return true or false
+	 */
 	public boolean build(Player p){
 		if(!building){
 			System.out.println("One building is built in "+name);
@@ -130,8 +160,10 @@ public class CityCard {
 	}
 	/**
 	 * 
+	 * The method destroys the buildings.
+	 * 
 	 * @param playerList
-	 * @return
+	 * @return true or false
 	 */
 	public boolean destory(ArrayList<Player> playerList){
 		if(building){
@@ -148,12 +180,24 @@ public class CityCard {
 
 	}
 
+	/**
+	 * 
+	 * The method add demons.
+	 * 
+	 * @return true or false
+	 */
 	public boolean putDemon(){
 		demons++;
 		System.out.println("One demon comes to "+name);
 		return true;
 	}
 
+	/**
+	 * 
+	 * The method removes demons.
+	 * 
+	 * @return true or false
+	 */
 	public boolean removeDemon(){
 		if(demons>0){
 			demons--;
@@ -165,12 +209,24 @@ public class CityCard {
 		}
 	}
 
+	/**
+	 * 
+	 * This method add trolls.
+	 * 
+	 * @return true or false
+	 */
 	public boolean putTrolls(){
 		trolls++;
 		System.out.println("One troll is added to "+name);
 		return true;
 	}
 
+	/**
+	 * 
+	 * The method removes the trolls.
+	 * 
+	 * @return true or false.
+	 */
 	public boolean removeTrolls(){
 		if(trolls>0){
 			trolls--;
