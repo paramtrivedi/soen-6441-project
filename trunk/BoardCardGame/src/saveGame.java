@@ -26,6 +26,7 @@ public class saveGame {
 				}
 			}while(f.exists());
 			BufferedWriter output = new BufferedWriter(new FileWriter(f));
+			output.write(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\tTrouble Maker\tBuilding\tDemon\tTroll\n");
 			for(int i=0; i < 12; i++){
 				output.write(city.get(i).toString()+"\n");
 			}
