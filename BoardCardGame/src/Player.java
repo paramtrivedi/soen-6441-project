@@ -43,9 +43,8 @@ public class Player {
 		System.out.println("Player "+this.getID()+" has "+holdingCards.size()+" Board Cards:");
 		System.out.println("\t"+numGreenCard+" Green Cards: "+ greenInfo);
 		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo);
-
-
 	}
+	
 	public boardCard gain_boardcard(Vector<boardCard> g, Vector<boardCard>b){
 		Random rn=new Random();
 		int total;
