@@ -1,10 +1,16 @@
 import java.util.Vector;
 
-
+/**
+ * 
+ * This class generates board cards.
+ * 
+ * @author 
+ * @version 1.00, 1 February 2015
+ *
+ */
 public class boardCard {
 	protected String name;
 	protected int id;
-	//protected boolean type;
 	protected Vector<Boolean> ability=new Vector<Boolean>(7);
 	protected String des;
 	
@@ -22,11 +28,7 @@ public class boardCard {
 	public boardCard(int id, String name, int num_ability,String des){
 		this.id=id;
 		this.name=name;
-		/*if(id<=48)
-			type=true;
-		else 
-			type=false;
-		*/
+		
 		for(int i=0;i<7;i++)
 		{
 			if (num_ability%2==1)
