@@ -195,7 +195,8 @@ public class CityCard {
 			s=s+owner+"\t";
 		for(int i=0;i<4;i++)
 			s=s+minions.get(i)+"\t";
-		s=s+String.format("%15s", troubleMaker)+"\t"+building+"\t"+demons+"\t"+trolls;
+		s=s+String.format("%10s", troubleMaker)+"\t"+building+"\t";
+		s=s+String.format("%10s", demons)+"\t"+trolls;
 		return s;
 	}
 
