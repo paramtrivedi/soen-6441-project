@@ -2,7 +2,7 @@
  * 
  * This class provides the name of personality cards for output.
  * 
- * @author 
+ * @author Zixi Quan
  * @version 1.00, 1 February 2015
  *
  */
