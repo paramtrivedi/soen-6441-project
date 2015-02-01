@@ -33,7 +33,7 @@ public class CityCard {
 		demons=0;
 		trolls=0;
 	}
-	
+
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
 	 * 
@@ -77,8 +77,8 @@ public class CityCard {
 		//if (true){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
 		p.setMinion(1);
-			this.minions.set(p.id-1, minions.get(p.id-1)+1);
-			return true;
+		this.minions.set(p.id-1, minions.get(p.id-1)+1);
+		return true;
 		//}
 	}
 	public boolean removeMinion(Player p){
@@ -141,7 +141,7 @@ public class CityCard {
 			System.out.println("No bulding can be destoried in "+name);
 			return false;
 		}
-			
+
 	}
 	public boolean putDemon(){
 		demons++;
@@ -189,5 +189,5 @@ public class CityCard {
 	{
 		return name;
 	}
-	
+
 }

@@ -20,7 +20,7 @@ public class Master {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		int input = 0;
-		
+
 		scan = new Scanner(System.in);
 		boolean quit = false;
 		for (int i=0; i<7; i++){
@@ -28,7 +28,7 @@ public class Master {
 			PersonalityCard temp = new PersonalityCard (dummy);
 			card.add(temp);
 		}
-		
+
 		cityCards.add(new CityCard(1,"Dolly Sister"));
 		cityCards.add(new CityCard(2,"Unreal Estate"));
 		cityCards.add(new CityCard(3,"Dragon's Landing"));
@@ -41,7 +41,7 @@ public class Master {
 		cityCards.add(new CityCard(10,"isle of Gods"));
 		cityCards.add(new CityCard(11,"Seven Sleepers"));
 		cityCards.add(new CityCard(12,"Nap Hill"));
-		
+
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
@@ -101,7 +101,7 @@ public class Master {
 	 * chooses their color 
 	 */
 	public static void newGame(){
-		
+
 		int players = 0;
 		String first;
 		String second;
@@ -551,7 +551,7 @@ public class Master {
 			playGames(maxPlayer+1,playerList);
 		}
 	}
-	
+
 	public static int Menu(){
 		int input=0;
 		System.out.println("Select the one of the options(0-12):");
@@ -605,12 +605,12 @@ public class Master {
 				System.out.println("Please enter a positive number!!!");
 			}else if(input >= 12)
 				System.out.println("Please enter a number less than 12!!!");
-			
+
 		} while (input < 0 || input >= 12);
 		return input;
 	}
 	public static void playGames(int num,ArrayList<Player> playerList){
-		
+
 		int input = 0;
 		int numCity;
 		CityCard tempCityCard;
@@ -618,85 +618,85 @@ public class Master {
 		do{
 			System.out.println("Player "+num+" Start to Play:");
 			input=Menu();
-		
-		switch (input) {
-		case 1:
-			System.out.println("Saving...");
-			saveGame.save(cityCards, playerList);
-			break;
 
-		case 2:
-			saveGame.load();
-			break;
-		case 3:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.putMinion(playerList.get(num-1));
-			break;
+			switch (input) {
+			case 1:
+				System.out.println("Saving...");
+				saveGame.save(cityCards, playerList);
+				break;
 
-		case 4:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.build(playerList.get(num-1));
-			break;
-		case 5:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.putTM();
-			break;
+			case 2:
+				saveGame.load();
+				break;
+			case 3:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.putMinion(playerList.get(num-1));
+				break;
 
-		case 6:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.putDemon();
-			break;
-		case 7:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.putTrolls();
-			break;
+			case 4:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.build(playerList.get(num-1));
+				break;
+			case 5:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.putTM();
+				break;
 
-		case 8:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.removeMinion(playerList.get(num-1));
-			break;
-		case 9:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.destory(playerList);
-			break;
+			case 6:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.putDemon();
+				break;
+			case 7:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.putTrolls();
+				break;
 
-		case 10:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.removeTM();
-			break;
-		case 11:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.removeDemon();
-			break;
+			case 8:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.removeMinion(playerList.get(num-1));
+				break;
+			case 9:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.destory(playerList);
+				break;
 
-		case 12:
-			numCity=ChooseCity();
-			tempCityCard=cityCards.get(numCity);
-			tempCityCard.removeTrolls();
-			break;
+			case 10:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.removeTM();
+				break;
+			case 11:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.removeDemon();
+				break;
 
-		case 0:
-			quit = true;
-			break;
+			case 12:
+				numCity=ChooseCity();
+				tempCityCard=cityCards.get(numCity);
+				tempCityCard.removeTrolls();
+				break;
 
-		default:
-			System.out.println("Invalid input!!! Please do right selection...");
-			break;
-		}
-		num=num%playerList.size()+1;
-	}while(!quit);
-	System.out.println("Bye-bye!!!");
+			case 0:
+				quit = true;
+				break;
+
+			default:
+				System.out.println("Invalid input!!! Please do right selection...");
+				break;
+			}
+			num=num%playerList.size()+1;
+		}while(!quit);
+		System.out.println("Bye-bye!!!");
 	}
-	
+
 	public static int bank(){
 		return bank;
 	}

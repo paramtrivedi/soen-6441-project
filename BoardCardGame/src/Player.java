@@ -11,10 +11,10 @@ public class Player {
 	protected int money;
 	protected String color;
 	protected int minion,building;
-	
+
 	protected PersonalityCard personalityCard;
 	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
-	
+
 	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<boardCard> greencard, Vector<boardCard>browncard){
 		String[] info=information.split("-");
 		int numGreenCard = 0,numBrownCard = 0;
@@ -30,7 +30,7 @@ public class Player {
 		for(int i=0;i<5;i++)
 		{
 			boardCard temp=this.gain_boardcard(greencard,browncard);
-			
+
 			if(temp.Id()<48){
 				numGreenCard++;
 				greenInfo+=temp.Name()+"  ";
@@ -44,8 +44,8 @@ public class Player {
 		System.out.println("Player "+this.getID()+" has "+holdingCards.size()+" Board Cards:");
 		System.out.println("\t"+numGreenCard+" Green Cards: "+ greenInfo+";");
 		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo+";");
-		
-		
+
+
 	}
 	public boardCard gain_boardcard(Vector<boardCard> g, Vector<boardCard>b){
 		Random rn=new Random();
@@ -58,15 +58,15 @@ public class Player {
 			randomNum=rn.nextInt(total);
 			card=g.get(randomNum);
 			g.remove(randomNum);
-			
-			
+
+
 		} else if(!b.isEmpty())
 		{
 			total=b.size();
 			randomNum=48+rn.nextInt(total);
 			card=b.get(randomNum);
 			b.remove(randomNum);
-			
+
 		}
 		return card;
 	}
@@ -81,9 +81,9 @@ public class Player {
 			randomNum=rn.nextInt(total);
 			card=personalitycards.get(randomNum);
 			personalitycards.remove(randomNum);
-			
-			
-			
+
+
+
 		} 
 		return card;
 	}
@@ -94,8 +94,8 @@ public class Player {
 		String greenInfo="",brownInfo="";
 		for(int i=0;i<holdingCards.size();i++)
 		{
-			 temp=holdingCards.get(i);
-			
+			temp=holdingCards.get(i);
+
 			if(temp.Id()<48){
 				greenInfo+=temp.Id()+"  ";
 			}
