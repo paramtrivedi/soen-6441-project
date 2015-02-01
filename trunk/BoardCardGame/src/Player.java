@@ -3,8 +3,11 @@ import java.util.Random;
 import java.util.Vector;
 
 /**
+ * Player class is to give each player a personality card, fifty dollars, 
+ * green cards and brown cards.
  * 
- * @author quanzixi
+ * @author 
+ * @version 1.00, 1 February 2015
  *
  */
 
@@ -20,6 +23,8 @@ public class Player {
 	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
     
 	/**
+	 * 
+	 * The Player method 
 	 * 
 	 * @param information
 	 * @param personalitycards
@@ -59,9 +64,11 @@ public class Player {
 	
 	/**
 	 * 
+	 * The gain_boardcard method is for each player to get a random boardcard.
+	 * 
 	 * @param g
 	 * @param b
-	 * @return
+	 * @return card
 	 */
 	public boardCard gain_boardcard(Vector<boardCard> g, Vector<boardCard>b){
 		Random rn=new Random();
@@ -86,6 +93,8 @@ public class Player {
 
 	/**
 	 * 
+	 * The gain_personalityCard is used for each player to get a personality card.
+	 * 
 	 * @param personalitycards
 	 * @return
 	 */
@@ -105,7 +114,7 @@ public class Player {
 	}
 
 	/**
-	 * 
+	 * The method is used for output.
 	 */
 	public String toString(){
 		String s="";
