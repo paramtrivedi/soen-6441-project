@@ -3,7 +3,7 @@ import java.util.Random;
 /**
  * This class rolls the dice.
  * 
- * @author 
+ * @author Jay Tanna
  * @version 1.00, 1 February 2015
  *
  */
