@@ -30,7 +30,7 @@ public class saveGame {
 				output.write(city.get(i).toString()+"\n");
 			}
 			for(int j=0; j < gamer.size(); j++){
-				output.write(gamer.toString()+"\n");
+				output.write(gamer.get(j)+"\n");
 			}
 			int bank = Master.bank();
 			output.write("Total Bank have " + bank + " Ankh-Morpork dollors.");
