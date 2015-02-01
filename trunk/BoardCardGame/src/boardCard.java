@@ -4,7 +4,7 @@ import java.util.Vector;
  * 
  * This class generates board cards.
  * 
- * @author 
+ * @author Shu Liu
  * @version 1.00, 1 February 2015
  *
  */
