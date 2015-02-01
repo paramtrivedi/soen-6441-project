@@ -19,7 +19,7 @@ public class Player {
 		int numGreenCard = 0,numBrownCard = 0;
 		this.id=Integer.parseInt(info[0].substring(6,7));
 		money=50;
-		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollors.");
+		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
 		this.color=info[1];
 		minion=0;
 		building=0;
@@ -99,7 +99,7 @@ public class Player {
 		}
 		s=s+"Green Card: "+greenInfo+"\n";
 		s=s+"Brown Card: "+brownInfo+"\n";
-		s=s+"Money: "+money+" Ankh-Morpork dollors\n";
+		s=s+"Money: "+money+" Ankh-Morpork dollars\n";
 		s=s+"Number of Minions\t"+minion+"\n";
 		s=s+"Number of Building\t"+building+"\n";
 		return s;

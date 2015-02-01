@@ -33,7 +33,7 @@ public class saveGame {
 				output.write(gamer.get(j)+"\n");
 			}
 			int bank = Master.bank();
-			output.write("Total Bank have " + bank + " Ankh-Morpork dollors.");
+			output.write("Total Bank have " + bank + " Ankh-Morpork dollars.");
 			output.close();
 			System.out.println("file is created!!!");
 		} catch(Exception e){
