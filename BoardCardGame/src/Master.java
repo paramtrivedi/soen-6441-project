@@ -8,7 +8,7 @@ import java.util.Vector;
 /**
  * This class runs first to start the game.
  * 
- * @author 
+ * @author Mohit Pujara
  * @version 1.00, 1 February 2015
  */
 
@@ -111,9 +111,10 @@ public class Master {
 		System.out.println("Bye-bye!!!");
 	}
 
-	/*
-	 * newGame method functionality is to take valid no. of players and
-	 * chooses their color 
+	/**
+	 * 
+	 * The newGame method initiates the new game.
+	 * 
 	 */
 	public static void newGame(){
 
