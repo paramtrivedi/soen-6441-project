@@ -62,22 +62,7 @@ public class CityCard {
 		this.trolls=trolls;
 	}
 
-	/**
-	 * Constructs an instance of CityCard class with the given parameters.
-	 * 
-	 * This constructor will create a particular CityCard with id, name.
-	 * the owner, number of minions for each player, existence of trouble maker and building,
-	 * number of demons and trolls
-	 * @param id
-	 * @param name
-	 * @param owner
-	 * @param minions
-	 * @param troublemaker
-	 * @param building
-	 * @param demons
-	 * @param trolls
-	 */
-
+	
 	public boolean putMinion(Player p){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
 		p.setMinion(1);
@@ -136,7 +121,11 @@ public class CityCard {
 			return false;
 		}
 	}
-
+	/**
+	 * 
+	 * @param playerList
+	 * @return
+	 */
 	public boolean destory(ArrayList<Player> playerList){
 		if(building){
 			System.out.println("Player "+owner+"'s building is destoried in "+name);
@@ -185,7 +174,9 @@ public class CityCard {
 			return false;
 		}
 	}
-
+	/**
+	 * 
+	 */
 	public String toString(){
 		String s="";
 		s=s+String.format("%20s", name)+"\t";
