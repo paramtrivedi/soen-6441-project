@@ -63,7 +63,6 @@ public class Player {
 			randomNum=48+rn.nextInt(total);
 			card=b.get(randomNum);
 			b.remove(randomNum);
-
 		}
 		return card;
 	}
@@ -85,7 +84,7 @@ public class Player {
 
 	public String toString(){
 		String s="";
-		s=s+"Player "+this.getID()+"\t"+color+"\t"+this.personalityCard+"\n";
+		s=s+"Player "+this.getID()+"\t Color: "+color+"\t Personality Card: "+this.personalityCard+"\n";
 		boardCard temp;
 		String greenInfo="",brownInfo="";
 		for(int i=0;i<holdingCards.size();i++)
