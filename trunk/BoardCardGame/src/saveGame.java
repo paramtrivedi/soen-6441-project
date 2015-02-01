@@ -9,9 +9,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
+/**
+ * 
+ * The saveGame class saves the file of the game and loads the game.
+ * 
+ * @author 
+ * @version 1.00, 1 February 2015
+ */
+
 public class saveGame {
 	private static Scanner scan;
 
+	/**
+	 * 
+	 * This method saves all the information about the game.
+	 * 
+	 * @param city
+	 * @param gamer
+	 */
 	public static void save(Vector<CityCard> city, ArrayList<Player> gamer){
 		try{
 			scan = new Scanner(System.in);
@@ -42,6 +57,11 @@ public class saveGame {
 		}
 	}
 
+	/**
+	 * 
+	 * This method loads the game.
+	 * 
+	 */
 	public static void load(){
 		try{
 			scan = new Scanner(System.in);
