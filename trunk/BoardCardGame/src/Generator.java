@@ -44,7 +44,7 @@ public class Generator {
 				bw.newLine();
 			}
 			bw.close();
-			
+
 			//5 random card for one player
 			Vector<Integer> greenCard=new Vector<Integer>();
 			Vector<Integer> brownCard=new Vector<Integer>();
@@ -61,6 +61,6 @@ public class Generator {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 }

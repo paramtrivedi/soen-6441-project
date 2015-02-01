@@ -7,7 +7,7 @@ public class boardCard {
 	//protected boolean type;
 	protected Vector<Boolean> ability=new Vector<Boolean>(7);
 	protected String des;
-	
+
 	/**
 	 * Constructs an instance of boardCard class with the given parameters.
 	 * 
@@ -26,7 +26,7 @@ public class boardCard {
 			type=true;
 		else 
 			type=false;
-		*/
+		 */
 		for(int i=0;i<7;i++)
 		{
 			if (num_ability%2==1)
@@ -40,7 +40,7 @@ public class boardCard {
 	/*******************************************************************
 	 * Getters 
 	 *******************************************************************/
-	
+
 	public boolean Assassination(){
 		return ability.get(0);
 	}
@@ -86,6 +86,6 @@ public class boardCard {
 	public int Id(){
 		return id;
 	}
-	
-	
+
+
 }
