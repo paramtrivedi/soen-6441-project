@@ -1,6 +1,14 @@
 
 package test;
-import org.
-public class boardCardTest {
+import static org.junit.Assert.*;
+
+import org.junit.*;
+
+public class boardCardTest  {
 	@Test
+	public void testMethod(){
+		assertEquals(1,1);
+	}
+
+	
 }
