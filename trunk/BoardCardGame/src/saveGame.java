@@ -13,7 +13,7 @@ import java.util.Vector;
  * 
  * The saveGame class saves the file of the game and loads the game.
  * 
- * @author 
+ * @author Jay Tanna
  * @version 1.00, 1 February 2015
  */
 
