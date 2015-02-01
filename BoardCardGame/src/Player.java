@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Vector;
 
+/**
+ * 
+ * @author quanzixi
+ *
+ */
 
 public class Player {
 	/*******************************************************************
@@ -13,7 +18,14 @@ public class Player {
 	protected int minion,building;
 	protected PersonalityCard personalityCard;
 	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
-
+    
+	/**
+	 * 
+	 * @param information
+	 * @param personalitycards
+	 * @param greencard
+	 * @param browncard
+	 */
 	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<boardCard> greencard, Vector<boardCard>browncard){
 		String[] info=information.split("-");
 		int numGreenCard = 0,numBrownCard = 0;
@@ -45,6 +57,12 @@ public class Player {
 		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo);
 	}
 	
+	/**
+	 * 
+	 * @param g
+	 * @param b
+	 * @return
+	 */
 	public boardCard gain_boardcard(Vector<boardCard> g, Vector<boardCard>b){
 		Random rn=new Random();
 		int total;
@@ -66,6 +84,11 @@ public class Player {
 		return card;
 	}
 
+	/**
+	 * 
+	 * @param personalitycards
+	 * @return
+	 */
 	public PersonalityCard gain_personalityCard(Vector<PersonalityCard> personalitycards){
 		Random rn=new Random();
 		int total;
@@ -81,6 +104,9 @@ public class Player {
 		return card;
 	}
 
+	/**
+	 * 
+	 */
 	public String toString(){
 		String s="";
 		s=s+"Player "+this.getID()+"\t Color: "+color+"\t Personality Card: "+this.personalityCard+"\n";
