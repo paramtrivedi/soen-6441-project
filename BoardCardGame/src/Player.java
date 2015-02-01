@@ -11,7 +11,6 @@ public class Player {
 	protected int money;
 	protected String color;
 	protected int minion,building;
-
 	protected PersonalityCard personalityCard;
 	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
 
@@ -58,8 +57,6 @@ public class Player {
 			randomNum=rn.nextInt(total);
 			card=g.get(randomNum);
 			g.remove(randomNum);
-
-
 		} else if(!b.isEmpty())
 		{
 			total=b.size();
@@ -70,6 +67,7 @@ public class Player {
 		}
 		return card;
 	}
+
 	public PersonalityCard gain_personalityCard(Vector<PersonalityCard> personalitycards){
 		Random rn=new Random();
 		int total;
@@ -81,12 +79,10 @@ public class Player {
 			randomNum=rn.nextInt(total);
 			card=personalitycards.get(randomNum);
 			personalitycards.remove(randomNum);
-
-
-
 		} 
 		return card;
 	}
+
 	public String toString(){
 		String s="";
 		s=s+"Player "+this.getID()+"\t"+color+"\t"+this.personalityCard+"\n";
