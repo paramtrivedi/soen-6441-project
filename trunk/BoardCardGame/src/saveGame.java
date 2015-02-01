@@ -49,7 +49,7 @@ public class saveGame {
 			String file = scan.next();
 			File f = new File(file+".txt");
 			if (!f.exists()){
-				System.out.println("File already exists. Please give another name!!!");
+				System.out.println("File not exists. Please give another name!!!");
 				saveGame.load();
 			}
 
