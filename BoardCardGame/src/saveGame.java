@@ -32,6 +32,8 @@ public class saveGame {
 			for(int j=0; j < gamer.size(); j++){
 				output.write(gamer.toString()+"\n");
 			}
+			int bank = Master.bank();
+			output.write("Total Bank have " + bank + " Ankh-Morpork dollors.");
 			output.close();
 			System.out.println("file is created");
 		} catch(Exception e){
