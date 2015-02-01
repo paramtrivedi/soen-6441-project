@@ -19,14 +19,10 @@ public class boardCard {
 	 * @param num_ablity
 	 * @param des
 	 */
+
 	public boardCard(int id, String name, int num_ability,String des){
 		this.id=id;
 		this.name=name;
-		/*if(id<=48)
-			type=true;
-		else 
-			type=false;
-		 */
 		for(int i=0;i<7;i++)
 		{
 			if (num_ability%2==1)
@@ -37,6 +33,7 @@ public class boardCard {
 		}
 		this.des=des;
 	}
+
 	/*******************************************************************
 	 * Getters 
 	 *******************************************************************/
@@ -44,48 +41,58 @@ public class boardCard {
 	public boolean Assassination(){
 		return ability.get(0);
 	}
+
 	public boolean Remove_Trouble_Marker(){
 		return ability.get(1);
 	}
+
 	public boolean Money(){
 		return ability.get(2);
 	}
+
 	public boolean Scroll(){
 		return ability.get(3);
 	}
+
 	public boolean Event(){
 		return ability.get(4);
 	}
+
 	public boolean Play_Another_Card(){
 		return ability.get(5);
 	}
+
 	public boolean Interrupt(){
 		return ability.get(6);
 	}
+
 	/**
 	 * Gets the description in the board card.
 	 * 
 	 * @return description
 	 */
+
 	public String Description(){
 		return des;
 	}
+
 	/**
 	 * Gets the name in the board card.
 	 * 
 	 * @return name
 	 */
+
 	public String Name(){
 		return name;
 	}
+
 	/**
 	 * Gets the id in the board card.
 	 * 
 	 * @return id
 	 */
+
 	public int Id(){
 		return id;
 	}
-
-
 }
