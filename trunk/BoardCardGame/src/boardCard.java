@@ -1,5 +1,8 @@
 import java.util.Vector;
-
+/**
+ * 
+ *
+ */
 
 public class boardCard {
 	protected String name;
