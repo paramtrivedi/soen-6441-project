@@ -628,6 +628,7 @@ public class Master {
 			case 2:
 				saveGame.load();
 				break;
+
 			case 3:
 				numCity=ChooseCity();
 				tempCityCard=cityCards.get(numCity);
@@ -639,6 +640,7 @@ public class Master {
 				tempCityCard=cityCards.get(numCity);
 				tempCityCard.build(playerList.get(num-1));
 				break;
+
 			case 5:
 				numCity=ChooseCity();
 				tempCityCard=cityCards.get(numCity);
@@ -650,6 +652,7 @@ public class Master {
 				tempCityCard=cityCards.get(numCity);
 				tempCityCard.putDemon();
 				break;
+
 			case 7:
 				numCity=ChooseCity();
 				tempCityCard=cityCards.get(numCity);
@@ -661,6 +664,7 @@ public class Master {
 				tempCityCard=cityCards.get(numCity);
 				tempCityCard.removeMinion(playerList.get(num-1));
 				break;
+
 			case 9:
 				numCity=ChooseCity();
 				tempCityCard=cityCards.get(numCity);
@@ -672,6 +676,7 @@ public class Master {
 				tempCityCard=cityCards.get(numCity);
 				tempCityCard.removeTM();
 				break;
+
 			case 11:
 				numCity=ChooseCity();
 				tempCityCard=cityCards.get(numCity);
