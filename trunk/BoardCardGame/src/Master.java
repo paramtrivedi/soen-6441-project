@@ -696,4 +696,8 @@ public class Master {
 	}while(!quit);
 	System.out.println("Bye-bye!!!");
 	}
+	
+	public static int bank(){
+		return bank;
+	}
 }
