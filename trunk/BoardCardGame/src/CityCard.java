@@ -11,6 +11,7 @@ public class CityCard {
 	protected boolean building;	
 	protected int demons;		
 	protected int trolls;		
+
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
 	 * 
@@ -20,6 +21,7 @@ public class CityCard {
 	 * @param name
 	 * 
 	 */
+
 	public CityCard(int id, String name){
 		this.id=id;
 		this.name=name;
@@ -49,6 +51,7 @@ public class CityCard {
 	 * @param demons
 	 * @param trolls
 	 */
+
 	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls){
 		this.id=id;
 		this.name=name;
@@ -58,6 +61,7 @@ public class CityCard {
 		this.demons=demons;
 		this.trolls=trolls;
 	}
+
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
 	 * 
@@ -73,14 +77,14 @@ public class CityCard {
 	 * @param demons
 	 * @param trolls
 	 */
+
 	public boolean putMinion(Player p){
-		//if (true){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
 		p.setMinion(1);
 		this.minions.set(p.id-1, minions.get(p.id-1)+1);
 		return true;
-		//}
 	}
+
 	public boolean removeMinion(Player p){
 		int n=minions.get(p.id-1);
 		if(n>0)
@@ -94,6 +98,7 @@ public class CityCard {
 			return false;
 		}
 	}
+
 	public boolean putTM(){
 		if(troubleMaker){
 			System.out.println("One trouble maker already exists in "+name);
@@ -105,6 +110,7 @@ public class CityCard {
 			return true;
 		}
 	}
+
 	public boolean removeTM(){
 		if(!troubleMaker){
 			System.out.println("No trouble maker exists in "+name);
@@ -116,6 +122,7 @@ public class CityCard {
 			return true;
 		}
 	}
+
 	public boolean build(Player p){
 		if(!building){
 			System.out.println("One building is built in "+name);
@@ -129,6 +136,7 @@ public class CityCard {
 			return false;
 		}
 	}
+
 	public boolean destory(ArrayList<Player> playerList){
 		if(building){
 			System.out.println("Player "+owner+"'s building is destoried in "+name);
@@ -143,11 +151,13 @@ public class CityCard {
 		}
 
 	}
+
 	public boolean putDemon(){
 		demons++;
 		System.out.println("One demon comes to "+name);
 		return true;
 	}
+
 	public boolean removeDemon(){
 		if(demons>0){
 			demons--;
@@ -158,11 +168,13 @@ public class CityCard {
 			return false;
 		}
 	}
+
 	public boolean putTrolls(){
 		trolls++;
 		System.out.println("One troll is added to "+name);
 		return true;
 	}
+
 	public boolean removeTrolls(){
 		if(trolls>0){
 			trolls--;
@@ -173,6 +185,7 @@ public class CityCard {
 			return false;
 		}
 	}
+
 	public String toString(){
 		String s="";
 		s=s+String.format("%20s", name)+"\t";
@@ -185,9 +198,9 @@ public class CityCard {
 		s=s+troubleMaker+"\t"+building+"\t"+demons+"\t"+trolls;
 		return s;
 	}
+
 	public String Name()
 	{
 		return name;
 	}
-
 }
