@@ -5,6 +5,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Vector;
 
+/**
+ * This class runs first to start the game.
+ * 
+ * @author 
+ * @version 1.00, 1 February 2015
+ */
+
 public class Master {
 
 	private static Scanner scan;
@@ -17,6 +24,14 @@ public class Master {
 	private static ArrayList<Player> playerList=new ArrayList<Player>();
 	private static int bank = 2000;
 
+	/**
+	 * 
+	 * The main method initiates the game.
+	 * 
+	 * @param args
+	 * @throws NumberFormatException
+	 * @throws IOException
+	 */
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		int input = 0;
@@ -580,6 +595,11 @@ public class Master {
 		} while (input <= -1);
 		return input;
 	}
+	
+	/**
+	 * This method chooses a city.
+	 * @return integer 
+	 */
 	public static int ChooseCity(){
 		int input=0;
 		System.out.println(" 0. "+cityCards.get(0).Name());
@@ -609,6 +629,14 @@ public class Master {
 		} while (input < 0 || input >= 12);
 		return input;
 	}
+	
+	/**
+	 * 
+	 * This method plays the game.
+	 * 
+	 * @param num
+	 * @param playerList
+	 */
 	public static void playGames(int num,ArrayList<Player> playerList){
 
 		int input = 0;
