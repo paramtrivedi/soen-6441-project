@@ -2,6 +2,11 @@ import java.util.ArrayList;
 import java.util.Vector;
 
 
+/**
+ * This class generates the city cards, personality cards
+ * @author Shu Liu and Zixi Quan
+ *
+ */
 public class CityCard {
 	protected int id;			
 	protected String name;
