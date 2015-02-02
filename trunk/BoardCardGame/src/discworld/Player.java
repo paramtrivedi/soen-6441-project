@@ -97,7 +97,7 @@ public class Player {
 	 * The gain_personalityCard is used for each player to get a personality card.
 	 * 
 	 * @param personalitycards
-	 * @return
+	 * @return card
 	 */
 	public PersonalityCard gain_personalityCard(Vector<PersonalityCard> personalitycards){
 		Random rn=new Random();
