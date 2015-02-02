@@ -26,17 +26,17 @@ public class boardCard {
 	 * @param num_ablity
 	 * @param des
 	 */
-	public boardCard(int id, String name, int num_ability,String des){
+	public boardCard(int id, String name, int num_ablity,String des){
 		this.id=id;
 		this.name=name;
 		
 		for(int i=0;i<7;i++)
 		{
-			if (num_ability%2==1)
+			if (num_ablity%2==1)
 				this.ability.add(true);
 			else
 				this.ability.add(false);
-			num_ability/=2;
+			num_ablity/=2;
 		}
 		this.des=des;
 	}
