@@ -254,7 +254,9 @@ public class CityCard {
 		s=s+String.format("%10s", demons)+"\t"+trolls;
 		return s;
 	}
-
+	public int getDemon(){
+		return demons;
+	}
 	public String Name()
 	{
 		return name;
