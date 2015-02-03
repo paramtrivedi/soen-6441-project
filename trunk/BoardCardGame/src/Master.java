@@ -32,6 +32,7 @@ public class Master {
 	 * @throws NumberFormatException
 	 * @throws IOException
 	 */
+	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
 		int input = 0;
@@ -47,6 +48,7 @@ public class Master {
 		cityCards.add(new CityCard(1,"Dolly Sister"));
 		cityCards.add(new CityCard(2,"Unreal Estate"));
 		cityCards.add(new CityCard(3,"Dragon's Landing"));
+
 		cityCards.add(new CityCard(4,"Small Gods"));
 		cityCards.add(new CityCard(5,"The Scours"));
 		cityCards.add(new CityCard(6,"The Hippo"));
