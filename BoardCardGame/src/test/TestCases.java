@@ -89,15 +89,22 @@ public class TestCases {
 		boolean res = new CityCard(1, "Dolly Sister").build(p);
 		assertTrue(res);
 	}
-	
+	/*
+	 * The method checks whether the Player can add the demons at that specific 
+ * City Area .
+	 */
 	@Test
 	public void test4(){
 		
 		CityCard cc = new CityCard(1, "Dolly Sister");
 		cc.putDemon();
-		//assertTrue(res);
+	
 		assertEquals(cc.getDemon(),1);
 	}
+	/*
+	 * The method checks whether the Player1 can put the Minions at Dolly Sister 
+	 * or not.
+	 */
 	
 	@Test
 	public void test5(){
