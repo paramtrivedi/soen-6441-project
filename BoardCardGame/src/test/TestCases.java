@@ -2,7 +2,6 @@ package test;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -84,7 +83,6 @@ public class TestCases {
 	@Test
 	public void test3(){
 		String information = "player1-blue";
-		
 		Player p = new Player(information, personalitycards, greenCard, brownCard);
 		boolean res = new CityCard(1, "Dolly Sister").build(p);
 		assertTrue(res);
@@ -95,10 +93,8 @@ public class TestCases {
 	 */
 	@Test
 	public void test4(){
-		
 		CityCard cc = new CityCard(1, "Dolly Sister");
 		cc.putDemon();
-	
 		assertEquals(cc.getDemon(),1);
 	}
 	/*
@@ -109,12 +105,8 @@ public class TestCases {
 	@Test
 	public void test5(){
 		String information = "player1-blue";
-		
 		Player p = new Player(information, personalitycards, greenCard, brownCard);
 		boolean res = new CityCard(1, "Dolly Sister").putMinion(p);
-		
-
-
 		assertTrue(res);
 	}
 }
