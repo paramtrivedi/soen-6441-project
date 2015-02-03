@@ -21,7 +21,7 @@ public class TestCases {
 	Vector<PersonalityCard> personalitycards;
 	Vector<boardCard> brownCard;
 	Vector<boardCard> greenCard;
-	@Before
+		@Before
 	public void initialize() throws NumberFormatException, IOException{
 		String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 
@@ -52,7 +52,10 @@ public class TestCases {
 		}
 		
 	}
-	
+	/* The method checks that whether the number we got from roll() function 
+	 * of the dice is greater than Zero or Not 
+		*/
+	 
 	@Test
 	public void test1(){
 		dice d=new dice();
@@ -65,13 +68,18 @@ public class TestCases {
 		}
 		assertTrue(res);
 	}
-
+/*The method checks whether the Player can destroy the buildings at that specific 
+ * City Area .
+ * */
+ 
 	@Test
 	public void test2(){
 		ArrayList<Player> playerList = new ArrayList<Player>();
 		boolean res = new CityCard(2,"Unreal Estate").destory(playerList);
 		assertFalse(res);
 	}
+	/*The method checks whether the Player can build the buildings at that specific 
+	 * City Area .*/
 
 	@Test
 	public void test3(){
