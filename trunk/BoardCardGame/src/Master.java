@@ -25,7 +25,6 @@ public class Master {
 	private static int bank = 2000;
 
 	/**
-	 * 
 	 * The main method initiates the game.
 	 * 
 	 * @param args
@@ -114,7 +113,6 @@ public class Master {
 	}
 
 	/**
-	 * 
 	 * The newGame method initiates the new game.
 	 * 
 	 */
@@ -634,7 +632,6 @@ public class Master {
 	}
 	
 	/**
-	 * 
 	 * This method plays the game.
 	 * 
 	 * @param num
