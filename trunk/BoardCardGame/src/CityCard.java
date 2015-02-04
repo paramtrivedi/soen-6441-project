@@ -69,7 +69,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method put the minions in the game.
 	 * 
 	 * @param p
@@ -103,7 +102,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method judges the trouble maker exist or not.
 	 * 
 	 * @return true or false
@@ -121,7 +119,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method removes the trouble maker.
 	 * 
 	 * @return true or false
@@ -139,7 +136,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method builds the buildings.
 	 * 
 	 * @param p
@@ -159,7 +155,6 @@ public class CityCard {
 		}
 	}
 	/**
-	 * 
 	 * The method destroys the buildings.
 	 * 
 	 * @param playerList
@@ -181,7 +176,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method add demons.
 	 * 
 	 * @return true or false
@@ -193,7 +187,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method removes demons.
 	 * 
 	 * @return true or false
@@ -210,7 +203,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * This method add trolls.
 	 * 
 	 * @return true or false
@@ -222,7 +214,6 @@ public class CityCard {
 	}
 
 	/**
-	 * 
 	 * The method removes the trolls.
 	 * 
 	 * @return true or false.
@@ -237,6 +228,7 @@ public class CityCard {
 			return false;
 		}
 	}
+	
 	/**
 	 * 
 	 */
