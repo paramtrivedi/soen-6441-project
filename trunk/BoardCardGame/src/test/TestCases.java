@@ -98,7 +98,7 @@ public class TestCases {
 		assertEquals(cc.getDemon(),1);
 	}
 	/*
-	 * The method checks whether the Player1 can put the Minions at Dolly Sister 
+	 * The method checks whether the Player can put the Minions at that specific area
 	 * or not.
 	 */
 	
