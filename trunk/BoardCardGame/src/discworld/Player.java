@@ -7,7 +7,7 @@ import java.util.Vector;
  * Player class is to give each player a personality card, fifty dollars, 
  * green cards and brown cards.
  * 
- * @author Shu Liu
+ * @author Shu Liu and Zixi Quan
  * @version 1.00, 1 February 2015
  *
  */
@@ -25,7 +25,7 @@ public class Player {
     
 	/**
 	 * 
-	 * The Player method 
+	 * The Player constructor
 	 * 
 	 * @param information
 	 * @param personalitycards
