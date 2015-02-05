@@ -1,5 +1,6 @@
 package discworld;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -71,7 +72,8 @@ public class Master {
 		eventCards.add(new EventCard("Bloody Stupid Johnson"));
 		eventCards.add(new EventCard("Trolls"));
 		eventCards.add(new EventCard("Earthquake"));
-		
+		greenCard.clear();
+		brownCard.clear();
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
@@ -129,9 +131,11 @@ public class Master {
 	/**
 	 * 
 	 * The newGame method initiates the new game.
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 * 
 	 */
-	public static void newGame(){
+	public static void newGame() throws NumberFormatException, IOException{
 
 		int players = 0;
 		String first;
@@ -652,8 +656,10 @@ public class Master {
 	 * 
 	 * @param num
 	 * @param playerList
+	 * @throws IOException 
+	 * @throws NumberFormatException 
 	 */
-	public static void playGames(int num,ArrayList<Player> playerList){
+	public static void playGames(int num,ArrayList<Player> playerList) throws NumberFormatException, IOException{
 
 		int input = 0;
 		int numCity;
@@ -743,6 +749,50 @@ public class Master {
 			}
 			num=num%playerList.size()+1;
 		}while(!quit);
+		playerList.clear();
+		cityCards.clear();
+		cityCards.add(new CityCard(1,"Dolly Sister"));
+		cityCards.add(new CityCard(2,"Unreal Estate"));
+		cityCards.add(new CityCard(3,"Dragon's Landing"));
+		cityCards.add(new CityCard(4,"Small Gods"));
+		cityCards.add(new CityCard(5,"The Scours"));
+		cityCards.add(new CityCard(6,"The Hippo"));
+		cityCards.add(new CityCard(7,"The Shades"));
+		cityCards.add(new CityCard(8,"Dimwell"));
+		cityCards.add(new CityCard(9,"Longwall"));
+		cityCards.add(new CityCard(10,"isle of Gods"));
+		cityCards.add(new CityCard(11,"Seven Sleepers"));
+		cityCards.add(new CityCard(12,"Nap Hill"));
+		eventCards.clear();
+		eventCards.add(new EventCard("The Dragon"));
+		eventCards.add(new EventCard("Flood"));
+		eventCards.add(new EventCard("Fire"));
+		eventCards.add(new EventCard("Fog"));
+		eventCards.add(new EventCard("Riots"));
+		eventCards.add(new EventCard("Explosion"));
+		eventCards.add(new EventCard("Mysterious Murders!"));
+		eventCards.add(new EventCard("Demons from the Dungeon Dimensions"));
+		eventCards.add(new EventCard("Subsidence"));
+		eventCards.add(new EventCard("Bloody Stupid Johnson"));
+		eventCards.add(new EventCard("Trolls"));
+		eventCards.add(new EventCard("Earthquake"));
+		
+		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
+		String line;
+		String[] info;
+		boardCard bc;
+		int counter=0;
+		while((line=br.readLine())!=null)
+		{
+			info=line.split(" ");
+			bc=new boardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
+			if(counter < 48){
+				greenCard.add(bc);
+			} else {
+				brownCard.add(bc);
+			}
+			counter++;
+		}
 		System.out.println("Bye-bye!!!");
 	}
 
