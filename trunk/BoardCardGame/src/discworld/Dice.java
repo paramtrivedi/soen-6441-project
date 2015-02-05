@@ -8,7 +8,7 @@ import java.util.Random;
  * @version 1.00, 1 February 2015
  *
  */
-public class dice
+public class Dice
 {
 	/**
 	 * The method rolls to get the random number of the dice.
