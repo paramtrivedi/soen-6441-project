@@ -3,9 +3,9 @@ import java.util.Vector;
 
 
 /**
- * This class generates the city cards and personality cards
+ * This class generates the city cards 
  * 
- * @author Shu Liu and Zixi Quan
+ * @author Shu Liu 
  * @version 1.00, 1 February 2015
  *
  */
