@@ -21,7 +21,7 @@ public class Player {
 	protected String color;
 	protected int minion,building;
 	protected PersonalityCard personalityCard;
-	protected ArrayList<boardCard> holdingCards=new  ArrayList<boardCard>();
+	protected ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
     
 	/**
 	 * 
@@ -32,7 +32,7 @@ public class Player {
 	 * @param greencard
 	 * @param browncard
 	 */
-	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<boardCard> greencard, Vector<boardCard>browncard){
+	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
 		String[] info=information.split("-");
 		int numGreenCard = 0,numBrownCard = 0;
 		this.id=Integer.parseInt(info[0].substring(6,7));
@@ -46,7 +46,7 @@ public class Player {
 		String greenInfo="",brownInfo="";
 		for(int i=0;i<5;i++)
 		{
-			boardCard temp=this.gain_boardcard(greencard,browncard);
+			BoardCard temp=this.gain_boardcard(greencard,browncard);
 
 			if(temp.Id()<48){
 				numGreenCard++;
@@ -71,11 +71,11 @@ public class Player {
 	 * @param b
 	 * @return card
 	 */
-	public boardCard gain_boardcard(Vector<boardCard> g, Vector<boardCard>b){
+	public BoardCard gain_boardcard(Vector<BoardCard> g, Vector<BoardCard>b){
 		Random rn=new Random();
 		int total;
 		int randomNum;
-		boardCard card=null;
+		BoardCard card=null;
 		if(!g.isEmpty())
 		{
 			total=g.size();
@@ -120,7 +120,7 @@ public class Player {
 	public String toString(){
 		String s="";
 		s=s+"Player "+this.getID()+"\t Color: "+color+"\t Personality Card: "+this.personalityCard+"\n";
-		boardCard temp;
+		BoardCard temp;
 		String greenInfo="",brownInfo="";
 		for(int i=0;i<holdingCards.size();i++)
 		{

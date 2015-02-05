@@ -13,29 +13,29 @@ import org.junit.Test;
 import discworld.CityCard;
 import discworld.PersonalityCard;
 import discworld.Player;
-import discworld.boardCard;
-import discworld.dice;
+import discworld.BoardCard;
+import discworld.Dice;
 
 public class TestCases {
 	Vector<PersonalityCard> personalitycards;
-	Vector<boardCard> brownCard;
-	Vector<boardCard> greenCard;
+	Vector<BoardCard> brownCard;
+	Vector<BoardCard> greenCard;
 		@Before
 	public void initialize() throws NumberFormatException, IOException{
 		String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 
-		greenCard = new Vector<boardCard>(48);
-		brownCard = new Vector<boardCard>(53);
+		greenCard = new Vector<BoardCard>(48);
+		brownCard = new Vector<BoardCard>(53);
 		personalitycards = new Vector<PersonalityCard>(7);
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
-		boardCard bc;
+		BoardCard bc;
 		int counter=0;
 		while((line=br.readLine())!=null)
 		{
 			info=line.split(" ");
-			bc=new boardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
+			bc=new BoardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
 			if(counter < 48){
 				greenCard.add(bc);
 			} else {
@@ -57,7 +57,7 @@ public class TestCases {
 	 
 	@Test
 	public void test1(){
-		dice d=new dice();
+		Dice d=new Dice();
 		int result = d.roll();
 		boolean res;
 		if(result>0){

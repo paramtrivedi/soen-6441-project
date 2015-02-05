@@ -21,8 +21,8 @@ public class Master {
 	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 	private static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
 	private static Vector<EventCard> eventCards = new Vector<EventCard>(12);
-	private static Vector<boardCard> greenCard = new Vector<boardCard>(48);
-	private static Vector<boardCard> brownCard = new Vector<boardCard>(53);
+	private static Vector<BoardCard> greenCard = new Vector<BoardCard>(48);
+	private static Vector<BoardCard> brownCard = new Vector<BoardCard>(53);
 	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	private static ArrayList<Player> playerList=new ArrayList<Player>();
 	private static int bank = 2000;
@@ -77,12 +77,12 @@ public class Master {
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
-		boardCard bc;
+		BoardCard bc;
 		int counter=0;
 		while((line=br.readLine())!=null)
 		{
 			info=line.split(" ");
-			bc=new boardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
+			bc=new BoardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
 			if(counter < 48){
 				greenCard.add(bc);
 			} else {
@@ -113,7 +113,7 @@ public class Master {
 				break;
 
 			case 2:
-				saveGame.load();
+				SaveGame.load();
 				break;
 
 			case 0:
@@ -571,7 +571,7 @@ public class Master {
 				}
 			}
 			int maxPlayer=-1,max=0;
-			dice rollDice = new dice();
+			Dice rollDice = new Dice();
 			for(int i=0; i<players; i++){
 				System.out.println("Player "+(i+1)+ " rolls the dice: ");
 				int num = rollDice.roll();
@@ -672,11 +672,11 @@ public class Master {
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
-				saveGame.save(cityCards, playerList);
+				SaveGame.save(cityCards, playerList);
 				break;
 
 			case 2:
-				saveGame.load();
+				SaveGame.load();
 				break;
 
 			case 3:
@@ -780,12 +780,12 @@ public class Master {
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
-		boardCard bc;
+		BoardCard bc;
 		int counter=0;
 		while((line=br.readLine())!=null)
 		{
 			info=line.split(" ");
-			bc=new boardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
+			bc=new BoardCard(counter,info[0],Integer.parseInt(info[1]),info[2]);
 			if(counter < 48){
 				greenCard.add(bc);
 			} else {

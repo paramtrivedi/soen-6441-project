@@ -17,7 +17,7 @@ import java.util.Vector;
  * @version 1.00, 1 February 2015
  */
 
-public class saveGame {
+public class SaveGame {
 	private static Scanner scan;
 
 	/**
@@ -70,7 +70,7 @@ public class saveGame {
 			File f = new File(file+".txt");
 			if (!f.exists()){
 				System.out.println("File not exists. Please give another name!!!");
-				saveGame.load();
+				SaveGame.load();
 			}
 
 			FileInputStream fstream = new  FileInputStream(f);
