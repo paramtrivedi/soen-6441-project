@@ -19,6 +19,7 @@ public class Master {
 	private static String [] colors;
 	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 	private static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
+	private static Vector<EventCard> eventCards = new Vector<EventCard>(12);
 	private static Vector<boardCard> greenCard = new Vector<boardCard>(48);
 	private static Vector<boardCard> brownCard = new Vector<boardCard>(53);
 	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
