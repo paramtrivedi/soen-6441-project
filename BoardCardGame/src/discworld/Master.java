@@ -59,6 +59,19 @@ public class Master {
 		cityCards.add(new CityCard(11,"Seven Sleepers"));
 		cityCards.add(new CityCard(12,"Nap Hill"));
 
+		eventCards.add(new EventCard("The Dragon"));
+		eventCards.add(new EventCard("Flood"));
+		eventCards.add(new EventCard("Fire"));
+		eventCards.add(new EventCard("Fog"));
+		eventCards.add(new EventCard("Riots"));
+		eventCards.add(new EventCard("Explosion"));
+		eventCards.add(new EventCard("Mysterious Murders!"));
+		eventCards.add(new EventCard("Demons from the Dungeon Dimensions"));
+		eventCards.add(new EventCard("Subsidence"));
+		eventCards.add(new EventCard("Bloody Stupid Johnson"));
+		eventCards.add(new EventCard("Trolls"));
+		eventCards.add(new EventCard("Earthquake"));
+		
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
