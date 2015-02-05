@@ -239,7 +239,7 @@ public class CityCard {
 		}
 	}
 	/**
-	 * 
+	 * Convert all the information of a specific city card to string
 	 */
 	public String toString(){
 		String s="";
@@ -254,9 +254,19 @@ public class CityCard {
 		s=s+String.format("%10s", demons)+"\t"+trolls;
 		return s;
 	}
+	
+	/**
+	 * This method gets the number of the demons.
+	 * @return integer
+	 */
 	public int getDemon(){
 		return demons;
 	}
+	
+	/**
+	 * This method returns the name.
+	 * @return string
+	 */
 	public String Name()
 	{
 		return name;
