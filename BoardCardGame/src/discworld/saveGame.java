@@ -11,7 +11,6 @@ import java.util.Scanner;
 import java.util.Vector;
 
 /**
- * 
  * The saveGame class saves the file of the game and loads the game.
  * 
  * @author Jay Tanna
