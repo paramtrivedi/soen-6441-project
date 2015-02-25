@@ -36,11 +36,11 @@ public class Player {
 		String[] info=information.split("-");
 		int numGreenCard = 0,numBrownCard = 0;
 		this.id=Integer.parseInt(info[0].substring(6,7));
-		money=50;
+		money=10;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
 		this.color=info[1];
-		minion=0;
-		building=0;
+		minion=12;
+		building=6;
 		personalityCard=this.gain_personalityCard(personalitycards);
 		System.out.println("Player "+this.getID()+" get personality card:"+this.personalityCard.toString());
 		String greenInfo="",brownInfo="";
