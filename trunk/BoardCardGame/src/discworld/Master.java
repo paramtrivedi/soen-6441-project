@@ -25,7 +25,7 @@ public class Master {
 	private static Vector<BoardCard> brownCard = new Vector<BoardCard>(53);
 	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	private static ArrayList<Player> playerList=new ArrayList<Player>();
-	private static int bank = 2000;
+	private static int bank = 200;
 
 	/**
 	 * 
@@ -170,7 +170,7 @@ public class Master {
 					colors[i] = "player" + (i+1) + "-" + first;
 					Player gamer1 = new Player (colors[i], card, greenCard, brownCard);
 					playerList.add(gamer1);
-					bank = bank - 50;
+					bank = bank - 10;
 					System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 				} else if(i == 1){
 					String[] values = colors[i-1].split("-");
@@ -184,7 +184,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer2);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (values[1].equalsIgnoreCase("red")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue, Green and Yellow)");
@@ -196,7 +196,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer2);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (values[1].equalsIgnoreCase("green")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue, Red and Yellow)");
@@ -208,7 +208,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer2);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (values[1].equalsIgnoreCase("yellow")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue, Red and Green)");
@@ -220,7 +220,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer2);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					}
 				} else if (i == 2){
@@ -236,7 +236,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("green")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Red and Yellow)");
@@ -248,7 +248,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Red and Green)");
@@ -260,7 +260,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("green")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue and Yellow)");
@@ -272,7 +272,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue and Green)");
@@ -284,7 +284,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Green and Yellow)");
@@ -296,7 +296,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue and Red)");
@@ -308,7 +308,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Red and Yellow)");
@@ -320,7 +320,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("red")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue and Yellow)");
@@ -332,7 +332,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Red and Green)");
@@ -344,7 +344,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("red")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue and Green)");
@@ -356,7 +356,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("green")){
 						System.out.println("Player "+ (i+1) + " select your color: (Choose From Blue and Red)");
@@ -368,7 +368,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer3);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					}
 				} else if (i == 3){
@@ -381,7 +381,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -389,7 +389,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
@@ -397,7 +397,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
@@ -405,7 +405,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -413,7 +413,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
@@ -421,7 +421,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
@@ -429,7 +429,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
@@ -437,7 +437,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -445,7 +445,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
@@ -453,7 +453,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
@@ -461,7 +461,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -469,7 +469,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -477,7 +477,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
@@ -485,7 +485,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
@@ -493,7 +493,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
@@ -501,7 +501,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
@@ -509,7 +509,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
@@ -517,7 +517,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -525,7 +525,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
@@ -533,7 +533,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
@@ -541,7 +541,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
@@ -549,7 +549,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
@@ -557,7 +557,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
@@ -565,7 +565,7 @@ public class Master {
 						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], card, greenCard, brownCard);
 						playerList.add(gamer4);
-						bank = bank - 50;
+						bank = bank - 10;
 						System.out.println("Total Bank holds: "+bank+" Ankh-Morpork dollars.");
 					}
 				}
