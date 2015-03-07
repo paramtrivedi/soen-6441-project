@@ -19,6 +19,7 @@ public class CityCard {
 	protected boolean building;	
 	protected int demons;		
 	protected int trolls;		
+	protected byte [] nearestCity;
 
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
@@ -29,9 +30,10 @@ public class CityCard {
 	 * @param name
 	 * 
 	 */
-	public CityCard(int id, String name){
+	public CityCard(int id, String name, byte [] nearestCity){
 		this.id=id;
 		this.name=name;
+		this.nearestCity=nearestCity;
 		minions.add(0);
 		minions.add(0);
 		minions.add(0);
@@ -240,10 +242,32 @@ public class CityCard {
 			trolls--;
 			System.out.println("One troll is remove from "+name);
 			return true;
-		}else {
+		} else {
 			System.out.println("No troll can be remove from "+name);
 			return false;
 		}
+	}
+	
+	/*
+	 * Checking the adjacent city that has minions or not and return true(if it has) otherwise false.
+	 */
+	
+	public boolean adjacentCheck(Vector<CityCard> CityCards, Player p){
+		boolean flag = false;
+		if(this.minions.get(p.getID()-1) >= 1)
+		{
+			for(int i=0; i < this.nearestCity.length; i++)
+			{
+				int values = CityCards.get(nearestCity[i]-1).minions.get(p.id-1);
+				if (values >= 1)
+				{
+					putMinion(p);
+					flag = true;
+					return flag;
+				}
+			}
+		}
+		return flag;
 	}
 	/**
 	 * Convert all the information of a specific city card to string
