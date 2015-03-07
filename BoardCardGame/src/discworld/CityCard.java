@@ -248,8 +248,10 @@ public class CityCard {
 		}
 	}
 	
-	/*
-	 * Checking the adjacent city that has minions or not and return true(if it has) otherwise false.
+	/**
+	 * Checking the adjacent city that has minion or not
+	 * 
+	 * @return boolean
 	 */
 	
 	public boolean adjacentCheck(Vector<CityCard> CityCards, Player p){
