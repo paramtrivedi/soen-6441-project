@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
 
@@ -569,7 +570,7 @@ public class Master {
 				}
 			}
 			int maxPlayer=-1,max=0;
-			Dice rollDice = new Dice();
+			Master rollDice = new Master();
 			for(int i=0; i<players; i++){
 				System.out.println("Player "+(i+1)+ " rolls the dice: ");
 				int num = rollDice.roll();
@@ -747,6 +748,7 @@ public class Master {
 			}
 			num=num%playerList.size()+1;
 		}while(!quit);
+		bank = 120;
 		playerList.clear();
 		cityCards.clear();
 		cityCards.add(new CityCard(1,"Dolly Sister", new byte[]{2,3,12}));
@@ -793,6 +795,24 @@ public class Master {
 		}
 		br.close();
 		System.out.println("Bye-bye!!!");
+	}
+	
+	/**
+	 * The method rolls to get the random number of the dice.
+	 * 
+	 * @return integer
+	 */
+	public int roll()
+	{
+		Random ran = new Random();
+
+		int number = 0;
+
+		for(int counter = 1; counter <= 1; counter++)
+		{
+			number= 1 + ran.nextInt(12);
+		}
+		return number;
 	}
 
 	public static int bank(){
