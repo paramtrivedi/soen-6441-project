@@ -80,6 +80,13 @@ public class CityCard {
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
 		p.setMinion(-1);
 		this.minions.set(p.id-1, minions.get(p.id-1)+1);
+		int tempSumMin=0;
+		for(int i=0;i<4;i++)
+		{
+			tempSumMin+=minions.get(i);
+		}
+		if(tempSumMin>1 )
+			putTM();
 		return true;
 	}
 
