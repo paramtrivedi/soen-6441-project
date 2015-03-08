@@ -11,7 +11,7 @@ import java.util.Vector;
  * This class runs first to start the game.
  * 
  * @author Mohit Pujara
- * @version 1.00, 1 February 2015
+ * @version 2.00, 12 March 2015
  */
 
 public class Master {
