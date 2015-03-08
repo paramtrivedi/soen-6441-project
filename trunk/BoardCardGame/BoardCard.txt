@@ -1,101 +1,101 @@
-people 0 null
-history 0 null
-way 0 null
-art 0 null
-world 0 null
-information 0 null
-map 0 null
-two 0 null
-family 0 null
-government 0 null
-health 0 null
-system 0 null
-computer 0 null
-meat 0 null
-year 0 null
-thanks 0 null
-music 0 null
-person 0 null
-reading 0 null
-method 0 null
-data 0 null
-food 0 null
-understanding 0 null
-theory 0 null
-law 0 null
-bird 0 null
-literature 0 null
-problem 0 null
-software 0 null
-control 0 null
-knowledge 0 null
-power 0 null
-ability 0 null
-economics 0 null
-love 0 null
-internet 0 null
-television 0 null
-science 0 null
-library 0 null
-nature 0 null
-fact 0 null
-product 0 null
-idea 0 null
-temperature 0 null
-investment 0 null
-area 0 null
-society 0 null
-activity 0 null
-story 0 null
-industry 0 null
-media 0 null
-thing 0 null
-oven 0 null
-community 0 null
-definition 0 null
-safety 0 null
-quality 0 null
-development 0 null
-language 0 null
-management 0 null
-player 0 null
-variety 0 null
-video 0 null
-week 0 null
-security 0 null
-country 0 null
-exam 0 null
-movie 0 null
-organization 0 null
-equipment 0 null
-physics 0 null
-analysis 0 null
-policy 0 null
-series 0 null
-thought 0 null
-basis 0 null
-boyfriend 0 null
-direction 0 null
-strategy 0 null
-technology 0 null
-army 0 null
-camera 0 null
-freedom 0 null
-paper 0 null
-environment 0 null
-child 0 null
-instance 0 null
-month 0 null
-truth 0 null
-marketing 0 null
-university 0 null
-writing 0 null
-article 0 null
-department 64 null
-difference 32 null
-goal 16 null
-news 8 null
-audience 4 null
-fishing 2 null
-time 1 null
-killer 0 null
+people 0 1  0 1 null
+history 0 1  null
+way 0 1  null
+art 0 1  null
+world 0 1  null
+information 0 1  null
+map 0 1  null
+two 0 1  null
+family 0 1  null
+government 0 1  null
+health 0 1  null
+system 0 1  null
+computer 0 1  null
+meat 0 1  null
+year 0 1  null
+thanks 0 1  null
+music 0 1  null
+person 0 1  null
+reading 0 1  null
+method 0 1  null
+data 0 1  null
+food 0 1  null
+understanding 0 1  null
+theory 0 1  null
+law 0 1  null
+bird 0 1  null
+literature 0 1  null
+problem 0 1  null
+software 0 1  null
+control 0 1  null
+knowledge 0 1  null
+power 0 1  null
+ability 0 1  null
+economics 0 1  null
+love 0 1  null
+internet 0 1  null
+television 0 1  null
+science 0 1  null
+library 0 1  null
+nature 0 1  null
+fact 0 1  null
+product 0 1  null
+idea 0 1  null
+temperature 0 1  null
+investment 0 1  null
+area 0 1  null
+society 0 1  null
+activity 0 1  null
+story 0 1  null
+industry 0 1  null
+media 0 1  null
+thing 0 1  null
+oven 0 1  null
+community 0 1  null
+definition 0 1  null
+safety 0 1  null
+quality 0 1  null
+development 0 1  null
+language 0 1  null
+management 0 1  null
+player 0 1  null
+variety 0 1  null
+video 0 1  null
+week 0 1  null
+security 0 1  null
+country 0 1  null
+exam 0 1  null
+movie 0 1  null
+organization 0 1  null
+equipment 0 1  null
+physics 0 1  null
+analysis 0 1  null
+policy 0 1  null
+series 0 1  null
+thought 0 1  null
+basis 0 1  null
+boyfriend 0 1  null
+direction 0 1  null
+strategy 0 1  null
+technology 0 1  null
+army 0 1  null
+camera 0 1  null
+freedom 0 1  null
+paper 0 1  null
+environment 0 1  null
+child 0 1  null
+instance 0 1  null
+month 0 1  null
+truth 0 1  null
+marketing 0 1  null
+university 0 1  null
+writing 0 1  null
+article 0 1  null
+department 64 1 null
+difference 32 2 null
+goal 16 3 null
+news 8 8 null
+audience 4 4 null
+fishing 2 3 null
+time 1 2 null
+killer 0 1  null
