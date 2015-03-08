@@ -183,7 +183,7 @@ public class Player {
 			}while(input<13 && input >0 && cities.get(input).owner==this.id);
 			scan.close();
 			city.build(this);
-			cities.get(input-1).destory(this);
+			cities.get(input-1).destroy(this);
 
 		}
 		else{

@@ -51,14 +51,14 @@ public class CityCard {
 	 * This constructor will create a particular CityCard with id, name.
 	 * the owner, number of minions for each player, existence of trouble maker and building,
 	 * number of demons and trolls
-	 * @param id
-	 * @param name
-	 * @param owner
-	 * @param minions
-	 * @param troublemaker
-	 * @param building
-	 * @param demons
-	 * @param trolls
+	 * @param id 	
+	 * @param name	The name of the city
+	 * @param owner	The owner of the city
+	 * @param minions	Vector of minions records the minions for each player
+	 * @param troublemaker	Contains trouble maker or not
+	 * @param building	The city has build or not
+	 * @param demons	The city has demons or not
+	 * @param trolls	The city has trolls or not
 	 */
 
 	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls){
@@ -75,8 +75,8 @@ public class CityCard {
 	 * 
 	 * The method put the minions in the game.
 	 * 
-	 * @param p
-	 * @return true or false.
+	 * @param p	The player whose minions is put in the city.
+	 * @return If the player put a minion then return true, otherwise return false.
 	 */
 	public boolean putMinion(Player p){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
@@ -93,10 +93,10 @@ public class CityCard {
 	}
 
 	/**
-	 * This method removes the minions.
+	 * This method is used for removing one minion for a player.
 	 * 
-	 * @param p
-	 * @return true or false.
+	 * @param p The player whose minions is removed
+	 * @return  If the player' minions is removed then return true, otherwise return false.
 	 */
 	public boolean removeMinion(Player p){
 		int n=minions.get(p.id-1);
@@ -114,9 +114,10 @@ public class CityCard {
 
 	/**
 	 * 
-	 * The method judges the trouble maker exist or not.
+	 * If there is no trouble maker in the city, then put one. 
+	 * Otherwise, output trouble maker exists 
 	 * 
-	 * @return true or false
+	 * @return If trouble maker is put, then return true, otherwise return false.
 	 */
 	public boolean putTM(){
 		if(troubleMaker){
@@ -132,9 +133,10 @@ public class CityCard {
 
 	/**
 	 * 
-	 * The method removes the trouble maker.
+	 * If there is a trouble maker in the city, then remove is. 
+	 * Otherwise, output trouble maker does not exist. 
 	 * 
-	 * @return true or false
+	 * @return If trouble maker is removed, then return true, otherwise return false.
 	 */
 	public boolean removeTM(){
 		if(!troubleMaker){
@@ -150,10 +152,13 @@ public class CityCard {
 
 	/**
 	 * 
-	 * The method builds the buildings.
+	 * If there is no building in the city, 
+	 * then build one for the player and change the owner for the city. 
+	 * Otherwise, output building exists. 
 	 * 
-	 * @param p
-	 * @return true or false
+	 * @param p The player who want to build a building.
+	 * @return If building is built, then return true, otherwise return false.
+	 * 
 	 */
 	public boolean build(Player p){
 		if(!building){
@@ -170,12 +175,14 @@ public class CityCard {
 	}
 	/**
 	 * 
-	 * The method destroys the buildings.
+	 * If there is a building in the city, 
+	 * then destroy one for the player and change the owner for the city. 
+	 * Otherwise, output building does not exists. 
 	 * 
-	 * @param playerList
-	 * @return true or false
+	 * @param player
+	 * @return If one building is destroyed, then return true.
 	 */
-	public boolean destory(Player player){
+	public boolean destroy(Player player){
 		if(building){
 			System.out.println("Player "+owner+"'s building is destoried in "+name);
 			building=false;
@@ -290,15 +297,15 @@ public class CityCard {
 	
 	/**
 	 * This method gets the number of the demons.
-	 * @return integer
+	 * @return The number of demon
 	 */
 	public int getDemon(){
 		return demons;
 	}
 	
 	/**
-	 * This method returns the name.
-	 * @return string
+	 * Get the name.
+	 * @return the name of the city
 	 */
 	public String Name()
 	{
