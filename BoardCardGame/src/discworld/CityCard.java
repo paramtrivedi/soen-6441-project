@@ -103,7 +103,7 @@ public class CityCard {
 		if(n>0)
 		{
 			System.out.println("One minion of Player "+p.getID()+" removed from "+name);
-			this.minions.set(p.id-1, minions.get(p.id-1)-1);
+			this.minions.set(p.getID()-1, minions.get(p.getID()-1)-1);
 			p.setMinion(+1);
 			return true;
 		}else {
