@@ -1,6 +1,7 @@
 package discworld;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 import java.util.Vector;
 
 /**
@@ -146,10 +147,64 @@ public class Player {
 	public String Color(){
 		return color;
 	}
+	public boolean putMinion(CityCard city,ArrayList<CityCard> cities){
+		if(minion==0 )
+		{
+			System.out.println("You need to remove one minion from following cities:");
+			for(int i=0;i<12;i++)
+				if(cities.get(i).minions.get(this.id-1)>0)
+					System.out.println(cities.get(i).id+"/t"+cities.get(i).Name());
+			Scanner scan = new Scanner(System.in);
+			int input;
+			do{
+				input=scan.nextInt();
+			}while(input<13 && input >0 && cities.get(input-1).minions.get(this.id-1)>0);
+			scan.close();
+			city.putMinion(this);
+			cities.get(input-1).removeMinion(this);
+
+		}
+		else{
+			city.putMinion(this);
+		}
+		return true;
+	}
+	public boolean putBuilding(CityCard city,ArrayList<CityCard> cities){
+		if(building==0 )
+		{
+			System.out.println("You need to remove one minion from following cities:");
+			for(int i=0;i<12;i++)
+				if(cities.get(i).building && cities.get(i).owner==this.id )
+					System.out.println(cities.get(i).id+"/t"+cities.get(i).Name());
+			Scanner scan = new Scanner(System.in);
+			int input;
+			do{
+				input=scan.nextInt();
+			}while(input<13 && input >0 && cities.get(input).owner==this.id);
+			scan.close();
+			city.build(this);
+			cities.get(input-1).destory(this);
+
+		}
+		else{
+			city.putMinion(this);
+		}
+		return true;
+	}
 	public void setMinion(int x){
 		minion+=x;
+		if (minion<0)
+		{
+			System.out.println("PLayer "+ id+ ": need to remove"+(0-minion)+" minions from other cities.");
+		}
+		
 	}
+	
 	public void setBuilding(int x){
 		building+=x;
+		if (minion<0)
+		{
+			System.out.println("PLayer "+ id+ ": need to remove"+(0-building)+" buildings from other cities.");
+		}
 	}
 }
