@@ -169,6 +169,39 @@ public class Player {
 		}
 		return true;
 	}
+	public boolean interrupt()
+	{	
+		boolean flag=false;
+		for(int i=0;i<holdingCards.size();i++)
+			if(holdingCards.get(i).Interrupt())
+			{
+				flag=true;
+				break;
+			}
+		if(flag){
+			System.out.println("Do you want to interrupt?(Y/N)");
+			Scanner scan=new Scanner(System.in);
+			String input;
+			do{
+				input=scan.next().toUpperCase();
+			}while(input.length()==1 && (input.equals("Y")|| input.equals("N")));
+			if(input.equals("Y"))
+			{
+				for(int i=0;i<holdingCards.size();i++)
+					if(holdingCards.get(i).Interrupt())
+					{
+						System.out.println(i+"/t"+holdingCards.get(i).Name());
+						
+					}
+				int num;
+				do{
+					num=scan.nextInt();
+				}while(num>=0 && num<holdingCards.size()&&holdingCards.get(num).Interrupt());
+				return true;
+			}
+		}
+		return false;
+	}
 	public boolean putBuilding(CityCard city,ArrayList<CityCard> cities){
 		if(building==0 )
 		{

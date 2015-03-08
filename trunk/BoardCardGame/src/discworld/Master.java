@@ -26,6 +26,7 @@ public class Master {
 	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	private static ArrayList<Player> playerList=new ArrayList<Player>();
 	private static int bank = 120;
+	
 
 	/**
 	 * 
@@ -588,7 +589,7 @@ public class Master {
 
 	public static int Menu(){
 		int input=0;
-		System.out.println("Select the one of the options(0-12):");
+		System.out.println("Select the one of the options(0-13):");
 		System.out.println(" 0. Exit");
 		System.out.println(" 1. Save Game");
 		System.out.println(" 2. Load Game");
@@ -602,6 +603,8 @@ public class Master {
 		System.out.println("10. Remove Trouble Maker");
 		System.out.println("11. Remove Demon");
 		System.out.println("12. Remove Troll");
+		
+		
 		do{	
 			while (!scan.hasNextInt()){
 				System.out.println("Invalid Input!! Please try again...");
@@ -737,7 +740,9 @@ public class Master {
 				tempCityCard=cityCards.get(numCity);
 				tempCityCard.removeTrolls();
 				break;
-
+			
+			
+			
 			case 0:
 				quit = true;
 				break;
@@ -814,7 +819,10 @@ public class Master {
 		}
 		return number;
 	}
-
+	
+	
+	
+	
 	public static int bank(){
 		return bank;
 	}
