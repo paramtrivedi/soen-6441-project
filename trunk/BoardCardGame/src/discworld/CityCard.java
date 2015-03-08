@@ -175,11 +175,11 @@ public class CityCard {
 	 * @param playerList
 	 * @return true or false
 	 */
-	public boolean destory(ArrayList<Player> playerList){
+	public boolean destory(Player player){
 		if(building){
 			System.out.println("Player "+owner+"'s building is destoried in "+name);
 			building=false;
-			playerList.get(owner-1).setBuilding(+1);
+			player.setBuilding(+1);
 			owner=-1;
 			return true;
 		}
