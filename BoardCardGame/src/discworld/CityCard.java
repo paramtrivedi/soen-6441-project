@@ -1,5 +1,5 @@
 package discworld;
-import java.util.ArrayList;
+
 import java.util.Vector;
 
 
@@ -254,13 +254,13 @@ public class CityCard {
 			return false;
 		}
 	}
-	
+
 	/**
 	 * Checking the adjacent city that has minion or not
 	 * 
-	 * @return boolean
+	 * @return true or false
 	 */
-	
+
 	public boolean adjacentCheck(Vector<CityCard> CityCards, Player p){
 		boolean flag = false;
 		if(this.minions.get(p.getID()-1) >= 1)
@@ -294,7 +294,7 @@ public class CityCard {
 		s=s+String.format("%10s", demons)+"\t"+trolls;
 		return s;
 	}
-	
+
 	/**
 	 * This method gets the number of the demons.
 	 * @return The number of demon
@@ -302,7 +302,7 @@ public class CityCard {
 	public int getDemon(){
 		return demons;
 	}
-	
+
 	/**
 	 * Get the name.
 	 * @return the name of the city
