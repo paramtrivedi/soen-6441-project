@@ -717,7 +717,7 @@ public class Master {
 			case 9:
 				numCity=ChooseCity();
 				tempCityCard=cityCards.get(numCity);
-				tempCityCard.destory(playerList.get(num-1));
+				tempCityCard.destroy(playerList.get(num-1));
 				break;
 
 			case 10:
