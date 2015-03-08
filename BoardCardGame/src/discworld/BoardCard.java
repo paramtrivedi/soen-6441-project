@@ -12,9 +12,9 @@ import java.util.Vector;
 public class BoardCard {
 	protected String name;
 	protected int id;
-	protected Vector<Boolean> ability=new Vector<Boolean>(7);
+	protected Vector<Boolean> ability=new Vector<Boolean>(6);
 	protected String des;
-	
+	protected int money;
 	/**
 	 * Constructs an instance of boardCard class with the given parameters.
 	 * 
@@ -26,11 +26,11 @@ public class BoardCard {
 	 * @param num_ablity
 	 * @param des
 	 */
-	public BoardCard(int id, String name, int num_ablity,String des){
+	public BoardCard(int id, String name, int num_ablity,int money,String des){
 		this.id=id;
 		this.name=name;
 		
-		for(int i=0;i<7;i++)
+		for(int i=0;i<6;i++)
 		{
 			if (num_ablity%2==1)
 				this.ability.add(true);
@@ -38,6 +38,7 @@ public class BoardCard {
 				this.ability.add(false);
 			num_ablity/=2;
 		}
+		this.money=money;
 		this.des=des;
 	}
 	/*******************************************************************
