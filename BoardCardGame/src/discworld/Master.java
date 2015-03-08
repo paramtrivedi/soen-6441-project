@@ -614,7 +614,7 @@ public class Master {
 		} while (input <= -1);
 		return input;
 	}
-	
+
 	/**
 	 * This method chooses a city.
 	 * @return integer 
@@ -648,7 +648,7 @@ public class Master {
 		} while (input < 0 || input >= 12);
 		return input;
 	}
-	
+
 	/**
 	 * 
 	 * This method plays the game.
@@ -776,7 +776,7 @@ public class Master {
 		eventCards.add(new EventCard("Bloody Stupid Johnson"));
 		eventCards.add(new EventCard("Trolls"));
 		eventCards.add(new EventCard("Earthquake"));
-		
+
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
 		String[] info;
@@ -796,7 +796,7 @@ public class Master {
 		br.close();
 		System.out.println("Bye-bye!!!");
 	}
-	
+
 	/**
 	 * The method rolls to get the random number of the dice.
 	 * 
