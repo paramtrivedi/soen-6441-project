@@ -197,7 +197,13 @@ public class Player {
 				do{
 					num=scan.nextInt();
 				}while(num>=0 && num<holdingCards.size()&&holdingCards.get(num).Interrupt());
+				scan.close();
 				return true;
+			}
+			else 
+			{
+				scan.close();
+				return false;
 			}
 		}
 		return false;
