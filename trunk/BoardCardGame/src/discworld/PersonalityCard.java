@@ -8,14 +8,19 @@ package discworld;
  *
  */
 public class PersonalityCard {
-
+	protected int id;
 	protected String name;
-	public PersonalityCard( String name){
+	public PersonalityCard(int id, String name){
+		this.id=id;
 		this.name=name;
 	}
 	
+	public int ID(){
+		return id;
+	}
 	public String toString(){
 		return name;
 	}
-
+	
+	
 }

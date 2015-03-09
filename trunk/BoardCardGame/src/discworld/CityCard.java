@@ -312,4 +312,24 @@ public class CityCard {
 	{
 		return name;
 	}
+	
+	public int minionNum(Player p){
+		return minions.get(p.ID()-1);
+	}
+	public int pieces(Player p){
+		if(building && owner==p.ID())
+			return minionNum(p)+1;
+		else return minionNum(p);
+	}
+	public int Demon(){
+		return demons;
+	}
+	public int Troll(){
+		return trolls;
+	}
+
+	public boolean containTroubleMaker() {
+		
+		return this.troubleMaker;
+	}
 }
