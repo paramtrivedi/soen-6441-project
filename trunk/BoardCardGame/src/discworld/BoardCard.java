@@ -5,7 +5,7 @@ import java.util.Vector;
  * 
  * This class generates board cards.
  * 
- * @author Shu Liu
+ * @author Shu Liu and Zixi Quan
  * @version 1.00, 1 February 2015
  *
  */
@@ -45,7 +45,13 @@ public class BoardCard {
 	 * Getters 
 	 *******************************************************************/
 	
-	public boolean Assassination(){
+	public boolean Assassination(CityCard cityCard, Player p){
+		if(cityCard.troubleMaker)
+		{
+			int numPlayer = p.id;
+			if(cityCard.minions.get(numPlayer-1)>0)
+				cityCard.removeMinion(p);
+		}
 		return ability.get(0);
 	}
 	public boolean Remove_Trouble_Marker(){
