@@ -147,21 +147,21 @@ public class Player {
 	public String Color(){
 		return color;
 	}
-	public boolean putMinion(CityCard city,ArrayList<CityCard> cities){
+	public boolean putMinion(CityCard city,Vector<CityCard> cityCards){
 		if(minion==0 )
 		{
 			System.out.println("You need to remove one minion from following cities:");
 			for(int i=0;i<12;i++)
-				if(cities.get(i).minions.get(this.id-1)>0)
-					System.out.println(cities.get(i).id+"/t"+cities.get(i).Name());
+				if(cityCards.get(i).minions.get(this.id-1)>0)
+					System.out.println(cityCards.get(i).id+"/t"+cityCards.get(i).Name());
 			Scanner scan = new Scanner(System.in);
 			int input;
 			do{
 				input=scan.nextInt();
-			}while(input<13 && input >0 && cities.get(input-1).minions.get(this.id-1)>0);
+			}while(input<13 && input >0 && cityCards.get(input-1).minions.get(this.id-1)>0);
 			scan.close();
 			city.putMinion(this);
-			cities.get(input-1).removeMinion(this);
+			cityCards.get(input-1).removeMinion(this);
 
 		}
 		else{
