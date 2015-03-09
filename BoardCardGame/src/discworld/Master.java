@@ -583,6 +583,13 @@ public class Master {
 				}
 			}
 			System.out.println("Player "+(maxPlayer+1)+" got highest number "+max+" so he can play first.");
+			//initialize the minion at the beginning
+			for(int i=0;i<playerList.size();i++)
+			{
+				playerList.get(i).putMinion(cityCards.get(0), cityCards);
+				playerList.get(i).putMinion(cityCards.get(4), cityCards);
+				playerList.get(i).putMinion(cityCards.get(6), cityCards);
+			}
 			playGames(maxPlayer+1,playerList);
 		}
 	}
