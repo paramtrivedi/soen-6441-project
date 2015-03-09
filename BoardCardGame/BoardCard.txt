@@ -1,4 +1,4 @@
-people 0 1  0 1 null
+people 0 1 null
 history 0 1  null
 way 0 1  null
 art 0 1  null
@@ -39,13 +39,13 @@ science 0 1  null
 library 0 1  null
 nature 0 1  null
 fact 0 1  null
-product 0 1  null
-idea 0 1  null
+product 0 1 null
+idea 0 1 null
 temperature 0 1  null
 investment 0 1  null
 area 0 1  null
-society 0 1  null
-activity 0 1  null
+society 0 1 null
+activity 0 1 null
 story 0 1  null
 industry 0 1  null
 media 0 1  null
