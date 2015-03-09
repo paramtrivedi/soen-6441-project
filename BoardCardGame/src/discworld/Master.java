@@ -874,11 +874,8 @@ public class Master {
 			else return false;
 		case 6:
 			return (p.Money()>50);
-			
-		
 		}
 		return true;
-		
 	}
 	
 	public static int bank(){
