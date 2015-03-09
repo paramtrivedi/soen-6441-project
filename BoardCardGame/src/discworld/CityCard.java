@@ -108,6 +108,7 @@ public class CityCard {
 			return true;
 		}else {
 			System.out.println("Player "+p.getID()+" does not have any minions in "+name);
+			removeTM();
 			return false;
 		}
 	}
