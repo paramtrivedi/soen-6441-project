@@ -3,6 +3,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.Vector;
@@ -19,13 +20,13 @@ public class Master {
 	private static Scanner scan;
 	private static String [] colors;
 	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
-	private static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
-	private static Vector<EventCard> eventCards = new Vector<EventCard>(12);
+	public static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
+	public static ArrayList<EventCard> eventCards = new ArrayList<EventCard>(12);
 	private static Vector<BoardCard> greenCard = new Vector<BoardCard>(48);
 	private static Vector<BoardCard> brownCard = new Vector<BoardCard>(53);
 	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	private static ArrayList<Player> playerList=new ArrayList<Player>();
-	private static int bank = 120;
+	public static int bank = 120;
 	
 
 	/**
@@ -44,7 +45,7 @@ public class Master {
 		boolean quit = false;
 		for (int i=0; i<7; i++){
 			String dummy = cards[i];
-			PersonalityCard temp = new PersonalityCard (dummy);
+			PersonalityCard temp = new PersonalityCard (i,dummy);
 			card.add(temp);
 		}
 		cityCards.add(new CityCard(1,"Dolly Sister", new byte[]{2,3,12}));
@@ -72,6 +73,7 @@ public class Master {
 		eventCards.add(new EventCard("Bloody Stupid Johnson"));
 		eventCards.add(new EventCard("Trolls"));
 		eventCards.add(new EventCard("Earthquake"));
+		Collections.shuffle(eventCards);
 		greenCard.clear();
 		brownCard.clear();
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
@@ -828,7 +830,56 @@ public class Master {
 	}
 	
 	
-	
+	public static boolean winCheck(Player p){
+		int counter=0;
+		boolean controlFlag=true;
+		int numPlayer=playerList.size();
+		CityCard tempCity=null;
+		switch(p.personalityCard()){
+		case 0:
+		case 1:
+		case 2:
+			for(int i=0;i<12;i++)
+			{
+				tempCity=cityCards.get(i);
+				if(tempCity.pieces(p)>tempCity.Troll() && tempCity.Demon()==0)
+				{
+					for(int j=0;j<numPlayer;j++)
+						if(p.ID()!=j+1 && cityCards.get(i).pieces(p)<cityCards.get(i).pieces(playerList.get(j)))
+							controlFlag=false;
+				}else controlFlag=false;
+				if(controlFlag) counter++;
+			}
+			if(playerList.size()==2 )
+				if (counter<6)
+					return false;
+				else return true;
+			else
+				if(counter<8-numPlayer)
+					return false;
+				else return true;
+		case 3:
+			for(int i=0;i<12;i++)
+				if(cityCards.get(i).minionNum(p)>0)
+					counter++;
+			if(counter>=13-numPlayer) return true;
+			else return false;
+		case 4:
+			return (greenCard.size()+brownCard.size()==0);
+		case 5:
+			for(int i=0;i<12;i++)
+				if(cityCards.get(i).containTroubleMaker())
+					counter++;
+			if(counter>=8) return true;
+			else return false;
+		case 6:
+			return (p.Money()>50);
+			
+		
+		}
+		return true;
+		
+	}
 	
 	public static int bank(){
 		return bank;

@@ -57,8 +57,9 @@ public class BoardCard {
 	public boolean Remove_Trouble_Marker(){
 		return ability.get(1);
 	}
-	public boolean Money(){
-		return ability.get(2);
+	public int Money(){
+		
+		return money;
 	}
 	public boolean Scroll(){
 		return ability.get(3);
@@ -67,6 +68,7 @@ public class BoardCard {
 		return ability.get(4);
 	}
 	public boolean Play_Another_Card(){
+		
 		return ability.get(5);
 	}
 	public boolean Interrupt(){

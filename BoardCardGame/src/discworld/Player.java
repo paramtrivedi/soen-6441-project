@@ -230,20 +230,24 @@ public class Player {
 		}
 		return true;
 	}
-	public void setMinion(int x){
+	void setMinion(int x){
 		minion+=x;
-		if (minion<0)
-		{
-			System.out.println("PLayer "+ id+ ": need to remove"+(0-minion)+" minions from other cities.");
-		}
 		
 	}
 	
 	public void setBuilding(int x){
 		building+=x;
-		if (minion<0)
-		{
-			System.out.println("PLayer "+ id+ ": need to remove"+(0-building)+" buildings from other cities.");
-		}
+	}
+	
+	public int personalityCard(){
+		return personalityCard.ID();
+	}
+	
+	public int ID(){
+		return this.id;
+	}
+
+	public int Money() {
+		return money;
 	}
 }
