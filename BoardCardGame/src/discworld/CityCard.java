@@ -12,41 +12,23 @@ import java.util.Vector;
  */
 public class CityCard 
 {	
-	/**
-	* It gives the id for the city card.
-	*/
+	/** It gives the id for the city card. */
 	private int id;	
-	/**
-	* It gives the name to the city card.
-	*/	
+	/** It gives the name to the city card.	*/	
 	private String name;
-	/**
-	* It gives the name of the owner of the city card.
-	*/	
+	/** It gives the name of the owner of the city card. */	
 	private int owner;		
-	/**
-	* It gives the  number of minions for each players.
-	*/	
+	/** It gives the  number of minions for each players. */	
 	private Vector<Integer> minions=new Vector<Integer>(4);
-	/**
-	* It gives whether the specified city card contains trouble marker or not.
-	*/
+	/**  It gives whether the specified city card contains trouble marker or not. */
 	private boolean troubleMaker; 
-	/**
-	* It gives whether the specified city card contains any building or not.
-	*/
+	/** It gives whether the specified city card contains any building or not.*/
 	private boolean building;	
-	/**
-	* It gives the  number of demons for particular city card.
-	*/	
+	/** It gives the  number of demons for particular city card. */	
 	private int demons;	
-	/**
-	* It gives the  number of trolls for particular city card.
-	*/	
+	/** It gives the  number of trolls for particular city card. */	
 	private int trolls;		
-	/**
-	* It shows the  number of nearest city for particular city card.
-	*/	
+	/** It shows the  name of nearest city for particular city card. */	
 	private byte [] nearestCity;
 
 	/**
@@ -205,7 +187,6 @@ public class CityCard
 		}
 	}
 	/**
-	 * 
 	 * If there is a building in the city, 
 	 * then destroy one for the player and change the owner for the city. 
 	 * Otherwise, output building does not exists. 
@@ -229,9 +210,7 @@ public class CityCard
 	}
 
 	/**
-	 * 
 	 * The method add demons.
-	 * 
 	 * @return true or false
 	 */
 	public boolean putDemon(){
@@ -241,9 +220,7 @@ public class CityCard
 	}
 
 	/**
-	 * 
 	 * The method removes demons.
-	 * 
 	 * @return true or false
 	 */
 	public boolean removeDemon(){
@@ -257,11 +234,9 @@ public class CityCard
 		}
 	}
 
-	/**
-	 * 
+	/** 
 	 * This method add trolls.
-	 * 
-	 * @return true or false
+	 *  @return true or false
 	 */
 	public boolean putTrolls(){
 		trolls++;
@@ -270,9 +245,7 @@ public class CityCard
 	}
 
 	/**
-	 * 
 	 * The method removes the trolls.
-	 * 
 	 * @return true or false.
 	 */
 	public boolean removeTrolls(){
@@ -288,7 +261,8 @@ public class CityCard
 
 	/**
 	 * Checking the adjacent city that has minion or not
-	 * 
+	 * @param CityCards
+	 * @param p
 	 * @return true or false
 	 */
 
@@ -309,9 +283,7 @@ public class CityCard
 		}
 		return flag;
 	}
-	/**
-	 * Convert all the information of a specific city card to string
-	 */
+	/** Convert all the information of a specific city card to string */
 	public String toString(){
 		String s="";
 		s=s+String.format("%20s", name)+"\t";
@@ -342,23 +314,47 @@ public class CityCard
 	{
 		return name;
 	}
+	/**
+	 * Get the number of minions for a player.
+	 * @param p
+	 */
 	
-	public int minionNum(Player p){
+	public int minionNum(Player p)
+	{
 		return getMinions().get(p.ID()-1);
+		
 	}
+	/**
+	 * It gives the number of pieces by checking id and building for a player.
+	 * @param p
+	 * @return the number of minions
+	 */
 	public int pieces(Player p){
 		if(isBuilding() && getOwner()==p.ID())
 			return minionNum(p)+1;
 		else return minionNum(p);
 	}
-	public int Demon(){
+	/**
+	 * Get the number of demons for a player.
+	 * @return demons
+	 */
+	
+	public int Demon()
+	{
 		return demons;
 	}
-	public int Troll(){
+	/**
+	 * Get the number of trolls for a player.
+	 * @return trolls
+	 */
+	public int Troll()
+	{
 		return trolls;
 	}
+	/**Check whether there is a trouble marker in a city or not .*/
 
-	public boolean containTroubleMaker() {
+	public boolean containTroubleMaker()
+	{
 		
 		return this.isTroubleMaker();
 	}
