@@ -374,13 +374,10 @@ public class CityCard
 	public Vector<Integer> getMinions() {
 		return minions;
 	}
-
 	
 	public int getId() {
 		return id;
 	}
-
-	
 
 	public boolean isBuilding() {
 		return building;
