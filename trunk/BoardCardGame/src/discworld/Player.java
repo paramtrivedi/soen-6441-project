@@ -25,10 +25,6 @@ public class Player {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public int getMoney() {
 		return money;
 	}
@@ -309,7 +305,7 @@ public class Player {
 		boolean playNextCard=false;
 		Scanner scan=new Scanner(System.in);
 		BoardCard.Symbols s;
-		int index;
+		int indexSym, indexCity;
 		do{
 			
 			numSym=b.allSymbols().size();
@@ -320,12 +316,49 @@ public class Player {
 					s=b.allSymbols().get(i);
 					System.out.println((i+1)+". "+s.name());
 				}
-				index=scan.nextInt();
-			}while(index>0 && index<=numSym);
-			s=b.allSymbols().get(index-1);
-			if (s== BoardCard.Symbols.Assassination);
+				indexSym=scan.nextInt();
+			}while(indexSym>0 && indexSym<=numSym);
 			
 			
+			s=b.allSymbols().get(indexSym-1);
+			if (s== BoardCard.Symbols.Assassination)
+			{
+				do{
+			
+					for(int i=0;i<12;i++)
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+					indexCity=scan.nextInt();
+				}while(indexCity>0 &&indexCity<12 && b.Assassination(Master.cityCards.get(indexCity), this));
+				for(int i=0;i<indexSym;i++)
+					b.allSymbols().remove(i);
+			}
+			else if (s==BoardCard.Symbols.Building)
+			{
+				do{
+					
+					for(int i=0;i<12;i++)
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+					indexCity=scan.nextInt();
+				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get(indexCity-1).build(this));
+				for(int i=0;i<indexSym;i++)
+					b.allSymbols().remove(i);
+			}else if(s==BoardCard.Symbols.Money){
+				money+=b.Money();
+				Master.bank-=b.Money();
+				for(int i=0;i<indexSym;i++)
+					b.allSymbols().remove(i);
+			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
+			{
+				do{
+					
+					for(int i=0;i<12;i++)
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+					indexCity=scan.nextInt();
+				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get(indexCity-1).removeTM());
+				for(int i=0;i<indexSym;i++)
+					b.allSymbols().remove(i);
+				
+			}else if(s==)
 		}while(true);
 			
 	}
