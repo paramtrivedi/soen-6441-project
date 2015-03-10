@@ -595,6 +595,7 @@ public class Master {
 			playGames(maxPlayer+1,playerList);
 		}
 	}
+	/** This method will show all the option what player can do.*/
 
 	public static int Menu(){
 		int input=0;
@@ -829,7 +830,10 @@ public class Master {
 		return number;
 	}
 	
-	
+	/** 
+	 * This method checks the winning condition of an player 
+	 * @param p
+	 */
 	public static boolean winCheck(Player p){
 		int counter=0;
 		boolean controlFlag=true;
