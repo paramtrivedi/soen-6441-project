@@ -17,12 +17,12 @@ public class Player {
 	/*******************************************************************
 	 * Attributes
 	 *******************************************************************/
-	protected int id;
-	protected int money;
-	protected String color;
-	protected int minion,building;
-	protected PersonalityCard personalityCard;
-	protected ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
+	private int id;
+	private int money;
+	private String color;
+	private int minion,building;
+	private PersonalityCard personalityCard;
+	private ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
     
 	/**
 	 * 
@@ -152,13 +152,13 @@ public class Player {
 		{
 			System.out.println("You need to remove one minion from following cities:");
 			for(int i=0;i<12;i++)
-				if(cityCards.get(i).minions.get(this.id-1)>0)
-					System.out.println(cityCards.get(i).id+"/t"+cityCards.get(i).Name());
+				if(cityCards.get(i).getMinions().get(this.id-1)>0)
+					System.out.println(cityCards.get(i).getId()+"/t"+cityCards.get(i).Name());
 			Scanner scan = new Scanner(System.in);
 			int input;
 			do{
 				input=scan.nextInt();
-			}while(input<13 && input >0 && cityCards.get(input-1).minions.get(this.id-1)>0);
+			}while(input<13 && input >0 && cityCards.get(input-1).getMinions().get(this.id-1)>0);
 			scan.close();
 			city.putMinion(this);
 			cityCards.get(input-1).removeMinion(this);
@@ -213,13 +213,13 @@ public class Player {
 		{
 			System.out.println("You need to remove one minion from following cities:");
 			for(int i=0;i<12;i++)
-				if(cities.get(i).building && cities.get(i).owner==this.id )
-					System.out.println(cities.get(i).id+"/t"+cities.get(i).Name());
+				if(cities.get(i).isBuilding() && cities.get(i).getOwner()==this.id )
+					System.out.println(cities.get(i).getId()+"/t"+cities.get(i).Name());
 			Scanner scan = new Scanner(System.in);
 			int input;
 			do{
 				input=scan.nextInt();
-			}while(input<13 && input >0 && cities.get(input).owner==this.id);
+			}while(input<13 && input >0 && cities.get(input).getOwner()==this.id);
 			scan.close();
 			city.build(this);
 			cities.get(input-1).destroy(this);

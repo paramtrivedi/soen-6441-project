@@ -11,15 +11,15 @@ import java.util.Vector;
  *
  */
 public class CityCard {
-	protected int id;			
-	protected String name;
-	protected int owner;		//No owner -1
-	protected Vector<Integer> minions=new Vector<Integer>(4);// number of minions for each players
-	protected boolean troubleMaker; 
-	protected boolean building;	
-	protected int demons;		
-	protected int trolls;		
-	protected byte [] nearestCity;
+	private int id;			
+	private String name;
+	private int owner;		//No owner -1
+	private Vector<Integer> minions=new Vector<Integer>(4);// number of minions for each players
+	private boolean troubleMaker; 
+	private boolean building;	
+	private int demons;		
+	private int trolls;		
+	private byte [] nearestCity;
 
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
@@ -31,16 +31,16 @@ public class CityCard {
 	 * 
 	 */
 	public CityCard(int id, String name, byte [] nearestCity){
-		this.id=id;
+		this.setId(id);
 		this.name=name;
 		this.nearestCity=nearestCity;
-		minions.add(0);
-		minions.add(0);
-		minions.add(0);
-		minions.add(0);
-		owner=-1;
-		troubleMaker=false;
-		building=false;
+		getMinions().add(0);
+		getMinions().add(0);
+		getMinions().add(0);
+		getMinions().add(0);
+		setOwner(-1);
+		setTroubleMaker(false);
+		setBuilding(false);
 		demons=0;
 		trolls=0;
 	}
@@ -62,11 +62,11 @@ public class CityCard {
 	 */
 
 	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls){
-		this.id=id;
+		this.setId(id);
 		this.name=name;
-		this.owner=owner;
-		this.troubleMaker=troublemaker;
-		this.building=building;
+		this.setOwner(owner);
+		this.setTroubleMaker(troublemaker);
+		this.setBuilding(building);
 		this.demons=demons;
 		this.trolls=trolls;
 	}
@@ -81,11 +81,11 @@ public class CityCard {
 	public boolean putMinion(Player p){
 		System.out.println("Player "+p.getID()+" added one minion in "+name);
 		p.setMinion(-1);
-		this.minions.set(p.id-1, minions.get(p.id-1)+1);
+		this.getMinions().set(p.getID()-1, getMinions().get(p.getID()-1)+1);
 		int tempSumMin=0;
 		for(int i=0;i<4;i++)
 		{
-			tempSumMin+=minions.get(i);
+			tempSumMin+=getMinions().get(i);
 		}
 		if(tempSumMin>1 )
 			putTM();
@@ -99,11 +99,11 @@ public class CityCard {
 	 * @return  If the player' minions is removed then return true, otherwise return false.
 	 */
 	public boolean removeMinion(Player p){
-		int n=minions.get(p.id-1);
+		int n=getMinions().get(p.getID()-1);
 		if(n>0)
 		{
 			System.out.println("One minion of Player "+p.getID()+" removed from "+name);
-			this.minions.set(p.getID()-1, minions.get(p.getID()-1)-1);
+			this.getMinions().set(p.getID()-1, getMinions().get(p.getID()-1)-1);
 			p.setMinion(+1);
 			return true;
 		}else {
@@ -121,13 +121,13 @@ public class CityCard {
 	 * @return If trouble maker is put, then return true, otherwise return false.
 	 */
 	public boolean putTM(){
-		if(troubleMaker){
+		if(isTroubleMaker()){
 			System.out.println("One trouble maker already exists in "+name);
 			return false;
 		}
 		else{
 			System.out.println("One trouble maker come to "+name);
-			troubleMaker=true;
+			setTroubleMaker(true);
 			return true;
 		}
 	}
@@ -140,13 +140,13 @@ public class CityCard {
 	 * @return If trouble maker is removed, then return true, otherwise return false.
 	 */
 	public boolean removeTM(){
-		if(!troubleMaker){
+		if(!isTroubleMaker()){
 			System.out.println("No trouble maker exists in "+name);
 			return false;
 		}
 		else{
 			System.out.println("One trouble maker is removed from "+name);
-			troubleMaker=false;
+			setTroubleMaker(false);
 			return true;
 		}
 	}
@@ -162,11 +162,11 @@ public class CityCard {
 	 * 
 	 */
 	public boolean build(Player p){
-		if(!building){
+		if(!isBuilding()){
 			System.out.println("One building is built in "+name);
 			p.setBuilding(-1);
-			building=true;
-			owner=p.id;
+			setBuilding(true);
+			setOwner(p.getID());
 			return true;
 		}
 		else{
@@ -184,11 +184,11 @@ public class CityCard {
 	 * @return If one building is destroyed, then return true.
 	 */
 	public boolean destroy(Player player){
-		if(building){
-			System.out.println("Player "+owner+"'s building is destoried in "+name);
-			building=false;
+		if(isBuilding()){
+			System.out.println("Player "+getOwner()+"'s building is destoried in "+name);
+			setBuilding(false);
 			player.setBuilding(+1);
-			owner=-1;
+			setOwner(-1);
 			return true;
 		}
 		else{
@@ -264,11 +264,11 @@ public class CityCard {
 
 	public boolean adjacentCheck(Vector<CityCard> CityCards, Player p){
 		boolean flag = false;
-		if(this.minions.get(p.getID()-1) >= 1)
+		if(this.getMinions().get(p.getID()-1) >= 1)
 		{
 			for(int i=0; i < this.nearestCity.length; i++)
 			{
-				int values = CityCards.get(nearestCity[i]-1).minions.get(p.id-1);
+				int values = CityCards.get(nearestCity[i]-1).getMinions().get(p.getID()-1);
 				if (values >= 1)
 				{
 					putMinion(p);
@@ -285,13 +285,13 @@ public class CityCard {
 	public String toString(){
 		String s="";
 		s=s+String.format("%20s", name)+"\t";
-		if(owner==-1)
+		if(getOwner()==-1)
 			s=s+"None\t";
 		else
-			s=s+owner+"\t";
+			s=s+getOwner()+"\t";
 		for(int i=0;i<4;i++)
-			s=s+minions.get(i)+"\t";
-		s=s+String.format("%10s", troubleMaker)+"\t"+building+"\t";
+			s=s+getMinions().get(i)+"\t";
+		s=s+String.format("%10s", isTroubleMaker())+"\t"+isBuilding()+"\t";
 		s=s+String.format("%10s", demons)+"\t"+trolls;
 		return s;
 	}
@@ -314,10 +314,10 @@ public class CityCard {
 	}
 	
 	public int minionNum(Player p){
-		return minions.get(p.ID()-1);
+		return getMinions().get(p.ID()-1);
 	}
 	public int pieces(Player p){
-		if(building && owner==p.ID())
+		if(isBuilding() && getOwner()==p.ID())
 			return minionNum(p)+1;
 		else return minionNum(p);
 	}
@@ -330,6 +330,46 @@ public class CityCard {
 
 	public boolean containTroubleMaker() {
 		
-		return this.troubleMaker;
+		return this.isTroubleMaker();
+	}
+
+	public boolean isTroubleMaker() {
+		return troubleMaker;
+	}
+
+	public void setTroubleMaker(boolean troubleMaker) {
+		this.troubleMaker = troubleMaker;
+	}
+
+	public Vector<Integer> getMinions() {
+		return minions;
+	}
+
+	public void setMinions(Vector<Integer> minions) {
+		this.minions = minions;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public boolean isBuilding() {
+		return building;
+	}
+
+	public void setBuilding(boolean building) {
+		this.building = building;
+	}
+
+	public int getOwner() {
+		return owner;
+	}
+
+	public void setOwner(int owner) {
+		this.owner = owner;
 	}
 }

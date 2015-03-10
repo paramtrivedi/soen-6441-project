@@ -9,7 +9,7 @@ package discworld;
  */
 public class PersonalityCard {
 	protected int id;
-	protected String name;
+	private String name;
 	public PersonalityCard(int id, String name){
 		this.id=id;
 		this.name=name;

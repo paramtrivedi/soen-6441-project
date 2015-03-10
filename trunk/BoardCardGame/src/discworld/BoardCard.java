@@ -46,10 +46,10 @@ public class BoardCard {
 	 *******************************************************************/
 	
 	public boolean Assassination(CityCard cityCard, Player p){
-		if(cityCard.troubleMaker)
+		if(cityCard.isTroubleMaker())
 		{
-			int numPlayer = p.id;
-			if(cityCard.minions.get(numPlayer-1)>0)
+			int numPlayer = p.getID();
+			if(cityCard.getMinions().get(numPlayer-1)>0)
 				cityCard.removeMinion(p);
 		}
 		return ability.get(0);
