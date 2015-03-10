@@ -24,7 +24,7 @@ public class Master {
 	public static ArrayList<EventCard> eventCards = new ArrayList<EventCard>(12);
 	private static Vector<BoardCard> greenCard = new Vector<BoardCard>(48);
 	private static Vector<BoardCard> brownCard = new Vector<BoardCard>(53);
-	private static Vector<CityCard> cityCards=new Vector<CityCard>(12);
+	public static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	private static ArrayList<Player> playerList=new ArrayList<Player>();
 	public static int bank = 120;
 	
@@ -842,7 +842,7 @@ public class Master {
 			for(int i=0;i<12;i++)
 			{
 				tempCity=cityCards.get(i);
-				if(tempCity.pieces(p)>tempCity.Troll() && tempCity.Demon()==0)
+				if(tempCity.pieces(p)>tempCity.getTrolls() && tempCity.getDemons()==0)
 				{
 					for(int j=0;j<numPlayer;j++)
 						if(p.ID()!=j+1 && cityCards.get(i).pieces(p)<cityCards.get(i).pieces(playerList.get(j)))
@@ -881,4 +881,5 @@ public class Master {
 	public static int bank(){
 		return bank;
 	}
+	
 }
