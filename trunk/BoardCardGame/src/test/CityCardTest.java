@@ -25,7 +25,7 @@ public class CityCardTest {
     @Test
     public void putMinion()
     {
-    
+    	
     }
     
     @Test
@@ -43,7 +43,7 @@ public class CityCardTest {
     @Test
     public void destroy()
     {
-    	
+    	c.de
     }
     
     @Test
