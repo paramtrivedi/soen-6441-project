@@ -174,17 +174,18 @@ public class SaveGame {
 				int owner = ((Long)cityObj.get("owner")).intValue();
 				String name = (String)cityObj.get("name");
 				int id = ((Long)cityObj.get("id")).intValue();
-				boolean TM = Boolean.getBoolean((String)cityObj.get("troublemaker"));
+				//boolean TM = Boolean.getBoolean((String)cityObj.get("troublemaker"));
+				boolean TM = (Boolean)cityObj.get("troublemaker");
 				
 				JSONArray cityArray = (JSONArray)cityObj.get("minions");
 				Vector<Integer> minions = new Vector<Integer>();
 				for(int k=0; k < cityArray.size(); k++)
 				{
-					minions.add(Integer.parseInt((String)cityArray.get(k)));
+					minions.add(((Long)cityArray.get(k)).intValue());
 				}
-				boolean build = Boolean.getBoolean((String)cityObj.get("building"));
-				int trolls = Integer.parseInt((String)cityObj.get("trolls"));
-				int demons = Integer.parseInt((String)cityObj.get("demons"));
+				boolean build = (Boolean)cityObj.get("building");
+				int trolls = ((Long)cityObj.get("trolls")).intValue();
+				int demons = ((Long)cityObj.get("demons")).intValue();
 				JSONArray cArray = (JSONArray)cityObj.get("nearestcity");
 				byte[] nCity = new byte[cArray.size()];
 				for(int m=0; m < cArray.size(); m++)
@@ -200,20 +201,20 @@ public class SaveGame {
 			for(int j=0; j < player.size(); j++)
 			{
 				JSONObject playerObj = (JSONObject)player.get(j);
-				int money = Integer.parseInt((String)playerObj.get("money"));
+				int money = ((Long)playerObj.get("money")).intValue();
 				String color = (String)playerObj.get("color");
-				int id = Integer.parseInt((String)playerObj.get("id"));
-				int minion = Integer.parseInt((String)playerObj.get("minion"));
+				int id = ((Long)playerObj.get("id")).intValue();
+				int minion = ((Long)playerObj.get("minion")).intValue();
 				JSONObject PC = (JSONObject)playerObj.get("personalityCard");
 				PersonalityCard pCard = new PersonalityCard(Integer.parseInt((String)PC.get("id")),(String)PC.get("name"));
-				int build = Integer.parseInt((String)playerObj.get("building"));
+				int build = ((Long)playerObj.get("building")).intValue();
 				JSONArray holdC = (JSONArray)player.get(j);
 				ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
 				for(int k=0;k<holdC.size();k++)
 				{
 					JSONObject hCardObj = (JSONObject)holdC.get(k);
-					int hMoney = Integer.parseInt((String)hCardObj.get("money"));
-					int hId = Integer.parseInt((String)hCardObj.get("id"));
+					int hMoney = ((Long)hCardObj.get("money")).intValue();
+					int hId = ((Long)hCardObj.get("id")).intValue();
 					String hName = (String)hCardObj.get("name");
 					String hDesc = (String)hCardObj.get("description");
 					JSONArray hAbility = (JSONArray)hCardObj.get("ability");
@@ -229,7 +230,7 @@ public class SaveGame {
 				gamer.add(p);
 			}
 			
-			int bank = Integer.parseInt((String)jsonObject.get("bank"));
+			int bank = ((Long)jsonObject.get("bank")).intValue();
 			/*FileInputStream fstream = new  FileInputStream(f);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
