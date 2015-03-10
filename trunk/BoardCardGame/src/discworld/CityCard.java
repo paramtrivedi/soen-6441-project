@@ -10,8 +10,15 @@ import java.util.Vector;
  * @version 2.00, 12 March 2015
  *
  */
-public class CityCard {
-	private int id;			
+public class CityCard 
+{	
+	/**
+	* It gives the id for the city card.
+	*/
+	private int id;	
+	/**
+	* It gives the name to the city card.
+	*/	
 	private String name;
 	private int owner;		//No owner -1
 	private Vector<Integer> minions=new Vector<Integer>(4);// number of minions for each players
