@@ -14,7 +14,7 @@ import java.util.Vector;
  */
 
 public class Player {
-	
+
 	protected int id;
 	protected int money;
 	protected String color;
@@ -65,7 +65,7 @@ public class Player {
 
 	private PersonalityCard personalityCard;
 	private ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
-    
+
 	/**
 	 * 
 	 * The Player constructor shows all the information,name of personality cards,
@@ -119,7 +119,7 @@ public class Player {
 	 * @param personalityCard It shows the name of the personalityCard of a player
 	 * @param holdingCards It shows the name of all the holdingCards
 	 */
-	
+
 	public Player(int id, int money, String color, int minion, int building,
 			PersonalityCard personalityCard, ArrayList<BoardCard> holdingCards) {
 		super();
@@ -242,8 +242,8 @@ public class Player {
 		}
 		return true;
 	}
-/** This method will allow player to interrupt or play his card even if it is not his turn.  */
-	
+	/** This method will allow player to interrupt or play his card even if it is not his turn.  */
+
 	public boolean interrupt()
 	{	
 		boolean flag=false;
@@ -253,7 +253,7 @@ public class Player {
 				flag=true;
 				break;
 			}
-		
+
 		if(flag){
 			System.out.println("Do you want to interrupt?(Y/N)");
 			Scanner scan=new Scanner(System.in);
@@ -267,7 +267,7 @@ public class Player {
 					if(holdingCards.get(i).Interrupt())
 					{
 						System.out.println(i+"/t"+holdingCards.get(i).Name());
-						
+
 					}
 				int num;
 				do{
@@ -284,8 +284,8 @@ public class Player {
 			}
 		}
 		return false;
-		
-		
+
+
 	}
 	/** 
 	 * It will refill the player holdingCards by 5.
@@ -297,9 +297,9 @@ public class Player {
 		{
 			System.out.println("Player "+this.getID()+" needs to refill");
 			holdingCards.add(gain_boardcard(g,b));
-			
+
 		}
-		
+
 	}
 	/** 
 	 * This method will allow a player to build a building in a particular city
@@ -329,15 +329,17 @@ public class Player {
 		}
 		return true;
 	}
-	
+
 	public boolean playCard(BoardCard b){
 		int numSym=0;
 		boolean playNextCard=false;
 		Scanner scan=new Scanner(System.in);
 		BoardCard.Symbols s;
+		boolean rondomEventFlag=b.Event();
+		String con;
 		int indexSym, indexCity;
 		do{
-			
+
 			numSym=b.allSymbols().size();
 			do{
 				System.out.println("Choose a symbol from following(1-"+numSym+"):");
@@ -348,28 +350,36 @@ public class Player {
 				}
 				indexSym=scan.nextInt();
 			}while(indexSym>0 && indexSym<=numSym);
-			
-			
+
+
 			s=b.allSymbols().get(indexSym-1);
 			if (s== BoardCard.Symbols.Assassination)
 			{
 				do{
-			
+
 					for(int i=0;i<12;i++)
-						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i
+
+								+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && b.Assassination(Master.cityCards.get(indexCity), this));
+				}while(indexCity>0 &&indexCity<12 && b.Assassination
+
+						(Master.cityCards.get(indexCity), this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 			}
 			else if (s==BoardCard.Symbols.Building)
 			{
 				do{
-					
+
 					for(int i=0;i<12;i++)
-						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i
+
+								+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get(indexCity-1).build(this));
+				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get
+
+						(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 			}else if(s==BoardCard.Symbols.Money){
@@ -380,31 +390,67 @@ public class Player {
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
 			{
 				do{
-					
+
 					for(int i=0;i<12;i++)
-						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i
+
+								+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get(indexCity-1).removeTM());
+				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get
+
+						(indexCity-1).removeTM());
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
-				
-			}else if(s==)
-		}while(true);
-			
+
+			}else if(s==BoardCard.Symbols.Minion){
+				do{
+					for(int i=0;i<12;i++)
+						System.out.println((i
+
+								+1)+"."+Master.cityCards.get(i).getId());
+					indexCity=scan.nextInt();
+				}while(indexCity>0 &&indexCity<12 && this.putMinion
+
+						(Master.cityCards.get(indexCity-1), Master.cityCards));
+				for(int i=0;i<indexSym;i++)
+					b.allSymbols().remove(i);
+
+			}else if(s==BoardCard.Symbols.Scroll){
+				System.out.println("Scroll");
+				;//now do nothing
+			}else if (s==BoardCard.Symbols.PlayCard)
+			{
+				playNextCard=true;
+			}
+
+			if(rondomEventFlag){
+				System.out.println(Master.eventCards.get(0).toString()+" happens.");
+				Master.eventCards.remove(0);
+			}
+			con=null;
+			while(!(con.equals("Y")||con.equals("N")))
+			{
+				System.out.println("Do you want to use other Symbols of the card?(Y/N)");
+				con=scan.next().trim().toUpperCase();
+			};
+		}while(!b.allSymbols().isEmpty() || con.equals("Y"));
+		scan.close();
+		return playNextCard;
+
 	}
 	void setMinion(int x){
 		minion+=x;
-		
+
 	}
-	
+
 	public void setBuilding(int x){
 		building+=x;
 	}
-	
+
 	public int personalityCard(){
 		return personalityCard.ID();
 	}
-	
+
 	public int ID(){
 		return this.id;
 	}
