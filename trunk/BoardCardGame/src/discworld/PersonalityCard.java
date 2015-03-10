@@ -8,17 +8,33 @@ package discworld;
  *
  */
 public class PersonalityCard {
+	/** It gives the to the personality card. */
 	protected int id;
+	/** It gives the name to the personality card.	*/
 	private String name;
+	/** 
+	 * It  construct the personality card with the id and name.
+	 * @param id
+	 * @param name	
+	 */
 	public PersonalityCard(int id, String name){
 		this.id=id;
 		this.name=name;
 	}
-	
-	public int ID(){
+	/**
+	 *  It returns id of the personality card.	
+	 *  return id
+	 */
+	public int ID()
+	{
 		return id;
 	}
-	public String toString(){
+	/**
+	 *  It converts name to string.	
+	 *  return name
+	 */
+	public String toString()
+	{
 		return name;
 	}
 	
