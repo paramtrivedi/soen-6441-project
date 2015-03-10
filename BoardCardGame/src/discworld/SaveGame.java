@@ -25,7 +25,7 @@ import org.json.simple.parser.JSONParser;
  */
 
 public class SaveGame {
-	private static Scanner scan;
+	protected static Scanner scan;
 
 	/**
 	 * 

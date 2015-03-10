@@ -14,13 +14,11 @@ import java.util.Vector;
  */
 
 public class Player {
-	/*******************************************************************
-	 * Attributes
-	 *******************************************************************/
-	private int id;
-	private int money;
-	private String color;
-	private int minion,building;
+	
+	protected int id;
+	protected int money;
+	protected String color;
+	protected int minion,building;
 	public int getId() {
 		return id;
 	}
@@ -107,6 +105,20 @@ public class Player {
 		System.out.println("\t"+numGreenCard+" Green Cards: "+ greenInfo);
 		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo);
 	}
+	/**
+	 * Constructs an instance of player class with the given parameters.
+	 * 
+	 * This constructor will create a player with the id,money,color,
+	 * minion,building,personalityCard and the holdingCards.
+	 * 
+	 * @param id  The id of the player
+	 * @param money It shows how much amount a player has
+	 * @param color  It shows the color of the player
+	 * @param minion  It shows the number of minions a player have
+	 * @param building It shows the number of buildings a player have
+	 * @param personalityCard It shows the name of the personalityCard of a player
+	 * @param holdingCards It shows the name of all the holdingCards
+	 */
 	
 	public Player(int id, int money, String color, int minion, int building,
 			PersonalityCard personalityCard, ArrayList<BoardCard> holdingCards) {
@@ -122,7 +134,7 @@ public class Player {
 
 	/**
 	 * 
-	 * The gain_boardcard method is for each player to get a random boardcard.
+	 * The gain_boardcard method is for each player to get a random BoardCard.
 	 * 
 	 * @param g
 	 * @param b
@@ -171,9 +183,7 @@ public class Player {
 		return card;
 	}
 
-	/**
-	 * The method is used for output.
-	 */
+	/** The method is used for output. */
 	public String toString(){
 		String s="";
 		s=s+"Player "+this.getID()+"\t Color: "+color+"\t Personality Card: "+this.personalityCard+"\n";
@@ -200,9 +210,16 @@ public class Player {
 	public int getID(){
 		return id;
 	}
-	public String Color(){
+	public String Color()
+	{
 		return color;
 	}
+	/** 
+	 * This method allows the player to put a minion in a city
+	 * @param city
+	 * @param cityCards
+	 * @return
+	 */
 	public boolean putMinion(CityCard city,Vector<CityCard> cityCards){
 		if(minion==0 )
 		{
@@ -225,6 +242,8 @@ public class Player {
 		}
 		return true;
 	}
+/** This method will allow player to interrupt or play his card even if it is not his turn.  */
+	
 	public boolean interrupt()
 	{	
 		boolean flag=false;
@@ -268,6 +287,11 @@ public class Player {
 		
 		
 	}
+	/** 
+	 * It will refill the player holdingCards by 5.
+	 * @param g
+	 * @param b
+	 */
 	public void refill(Vector<BoardCard> g,Vector<BoardCard> b) {
 		if(holdingCards.size()<5)
 		{
@@ -277,6 +301,11 @@ public class Player {
 		}
 		
 	}
+	/** 
+	 * This method will allow a player to build a building in a particular city
+	 * @param city
+	 * @param cities
+	 */
 
 	public boolean putBuilding(CityCard city,ArrayList<CityCard> cities){
 		if(building==0 )
@@ -300,6 +329,9 @@ public class Player {
 		}
 		return true;
 	}
+	/** 
+	 * It will allow to play a card 
+	 * */
 	public boolean playCard(BoardCard b){
 		int numSym=0;
 		boolean playNextCard=false;

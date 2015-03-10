@@ -8,7 +8,7 @@ package discworld;
  *
  */
 public class PersonalityCard {
-	/** It gives the to the personality card. */
+	/** It gives the id to the personality card. */
 	protected int id;
 	/** It gives the name to the personality card.	*/
 	private String name;
