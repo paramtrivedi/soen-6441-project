@@ -7,9 +7,10 @@ import org.junit.Test;
 import discworld.BoardCard;
 public class BoardCardTest {
 	private BoardCard b;
+	//private CityCard c;
 	@Before
 	public void initialize(){
-		BoardCard b=new BoardCard(2,"SSS","MR",3,null);
+		b=new BoardCard(2,"SSS","MR",3,null);
 	}
 	@Test
 	public void ConstructorTest()
@@ -19,5 +20,9 @@ public class BoardCardTest {
 		assertEquals(BoardCard.Symbols.Minion,b.allSymbols().get(1));
 		assertEquals(3, b.Money());
 	}
-	
+	@Test
+	public void AssassinationTest()
+	{
+		
+	}
 }
