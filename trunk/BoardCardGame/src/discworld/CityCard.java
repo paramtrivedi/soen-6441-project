@@ -42,7 +42,7 @@ public class CityCard
 	 * 
 	 */
 	public CityCard(int id, String name, byte [] nearestCity){
-		this.setId(id);
+		this.id=id;
 		this.name=name;
 		this.nearestCity=nearestCity;
 		getMinions().add(0);
@@ -73,7 +73,7 @@ public class CityCard
 	 */
 
 	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls,byte [] nearestCity){
-		this.setId(id);
+		this.id=id;
 		this.name=name;
 		this.setOwner(owner);
 		this.setTroubleMaker(troublemaker);
@@ -133,7 +133,7 @@ public class CityCard
 	 * @return If trouble maker is put, then return true, otherwise return false.
 	 */
 	public boolean putTM(){
-		if(isTroubleMaker()){
+		if(containTroubleMaker()){
 			System.out.println("One trouble maker already exists in "+name);
 			return false;
 		}
@@ -152,7 +152,7 @@ public class CityCard
 	 * @return If trouble maker is removed, then return true, otherwise return false.
 	 */
 	public boolean removeTM(){
-		if(!isTroubleMaker()){
+		if(!containTroubleMaker()){
 			System.out.println("No trouble maker exists in "+name);
 			return false;
 		}
@@ -293,17 +293,9 @@ public class CityCard
 			s=s+getOwner()+"\t";
 		for(int i=0;i<4;i++)
 			s=s+getMinions().get(i)+"\t";
-		s=s+String.format("%10s", isTroubleMaker())+"\t"+isBuilding()+"\t";
+		s=s+String.format("%10s", containTroubleMaker())+"\t"+isBuilding()+"\t";
 		s=s+String.format("%10s", demons)+"\t"+trolls;
 		return s;
-	}
-
-	/**
-	 * This method gets the number of the demons.
-	 * @return The number of demon
-	 */
-	public int getDemon(){
-		return demons;
 	}
 
 	/**
@@ -334,34 +326,16 @@ public class CityCard
 			return minionNum(p)+1;
 		else return minionNum(p);
 	}
-	/**
-	 * Get the number of demons for a player.
-	 * @return demons
-	 */
 	
-	public int Demon()
-	{
-		return demons;
-	}
-	/**
-	 * Get the number of trolls for a player.
-	 * @return trolls
-	 */
-	public int Troll()
-	{
-		return trolls;
-	}
 	/**Check whether there is a trouble marker in a city or not .*/
 
 	public boolean containTroubleMaker()
 	{
 		
-		return this.isTroubleMaker();
+		return this.troubleMaker;
 	}
 
-	public boolean isTroubleMaker() {
-		return troubleMaker;
-	}
+	
 
 	public void setTroubleMaker(boolean troubleMaker) {
 		this.troubleMaker = troubleMaker;
@@ -379,10 +353,7 @@ public class CityCard
 		return demons;
 	}
 
-	public void setDemons(int demons) {
-		this.demons = demons;
-	}
-
+	
 	public int getTrolls() {
 		return trolls;
 	}
@@ -403,17 +374,12 @@ public class CityCard
 		return minions;
 	}
 
-	public void setMinions(Vector<Integer> minions) {
-		this.minions = minions;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	
 
 	public boolean isBuilding() {
 		return building;
