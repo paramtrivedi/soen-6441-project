@@ -178,6 +178,7 @@ public class Player {
 				flag=true;
 				break;
 			}
+		
 		if(flag){
 			System.out.println("Do you want to interrupt?(Y/N)");
 			Scanner scan=new Scanner(System.in);
@@ -198,6 +199,7 @@ public class Player {
 					num=scan.nextInt();
 				}while(num>=0 && num<holdingCards.size()&&holdingCards.get(num).Interrupt());
 				scan.close();
+				holdingCards.remove(num);
 				return true;
 			}
 			else 
@@ -207,7 +209,19 @@ public class Player {
 			}
 		}
 		return false;
+		
+		
 	}
+	public void refill(Vector<BoardCard> g,Vector<BoardCard> b) {
+		if(holdingCards.size()<5)
+		{
+			System.out.println("Player "+this.getID()+" needs to refill");
+			holdingCards.add(gain_boardcard(g,b));
+			
+		}
+		
+	}
+
 	public boolean putBuilding(CityCard city,ArrayList<CityCard> cities){
 		if(building==0 )
 		{
