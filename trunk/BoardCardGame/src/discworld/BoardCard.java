@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BoardCard {
 	protected String name;
 	protected int id;
-	static enum Symbols{Minion,Building,Assassination,RemoveTroubleMaker,Money,Scroll,Event,PlayCard,Interrupt};
+	public static enum Symbols{Minion,Building,Assassination,RemoveTroubleMaker,Money,Scroll,Event,PlayCard,Interrupt};
 	protected ArrayList<Symbols> symbol=new ArrayList<Symbols>();
 	protected String des;
 	protected int money;
