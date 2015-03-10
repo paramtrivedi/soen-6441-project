@@ -21,6 +21,54 @@ public class Player {
 	private int money;
 	private String color;
 	private int minion,building;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getMoney() {
+		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public PersonalityCard getPersonalityCard() {
+		return personalityCard;
+	}
+
+	public void setPersonalityCard(PersonalityCard personalityCard) {
+		this.personalityCard = personalityCard;
+	}
+
+	public ArrayList<BoardCard> getHoldingCards() {
+		return holdingCards;
+	}
+
+	public void setHoldingCards(ArrayList<BoardCard> holdingCards) {
+		this.holdingCards = holdingCards;
+	}
+
+	public int getMinion() {
+		return minion;
+	}
+
+	public int getBuilding() {
+		return building;
+	}
+
 	private PersonalityCard personalityCard;
 	private ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
     
@@ -64,6 +112,18 @@ public class Player {
 		System.out.println("\t"+numBrownCard+" Brown Cards: "+ brownInfo);
 	}
 	
+	public Player(int id, int money, String color, int minion, int building,
+			PersonalityCard personalityCard, ArrayList<BoardCard> holdingCards) {
+		super();
+		this.id = id;
+		this.money = money;
+		this.color = color;
+		this.minion = minion;
+		this.building = building;
+		this.personalityCard = personalityCard;
+		this.holdingCards = holdingCards;
+	}
+
 	/**
 	 * 
 	 * The gain_boardcard method is for each player to get a random boardcard.

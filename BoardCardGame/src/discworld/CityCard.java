@@ -90,7 +90,7 @@ public class CityCard
 	 * @param trolls	The city has trolls or not
 	 */
 
-	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls){
+	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls,byte [] nearestCity){
 		this.setId(id);
 		this.name=name;
 		this.setOwner(owner);
@@ -98,6 +98,7 @@ public class CityCard
 		this.setBuilding(building);
 		this.demons=demons;
 		this.trolls=trolls;
+		this.nearestCity = nearestCity;
 	}
 
 	/**
@@ -368,6 +369,38 @@ public class CityCard
 
 	public void setTroubleMaker(boolean troubleMaker) {
 		this.troubleMaker = troubleMaker;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getDemons() {
+		return demons;
+	}
+
+	public void setDemons(int demons) {
+		this.demons = demons;
+	}
+
+	public int getTrolls() {
+		return trolls;
+	}
+
+	public void setTrolls(int trolls) {
+		this.trolls = trolls;
+	}
+
+	public byte[] getNearestCity() {
+		return nearestCity;
+	}
+
+	public void setNearestCity(byte[] nearestCity) {
+		this.nearestCity = nearestCity;
 	}
 
 	public Vector<Integer> getMinions() {
