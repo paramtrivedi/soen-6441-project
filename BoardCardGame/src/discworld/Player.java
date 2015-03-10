@@ -304,6 +304,31 @@ public class Player {
 		}
 		return true;
 	}
+	public boolean playCard(BoardCard b){
+		int numSym=0;
+		boolean playNextCard=false;
+		Scanner scan=new Scanner(System.in);
+		BoardCard.Symbols s;
+		int index;
+		do{
+			
+			numSym=b.allSymbols().size();
+			do{
+				System.out.println("Choose a symbol from following(1-"+numSym+"):");
+				for(int i=0;i<numSym;i++)
+				{
+					s=b.allSymbols().get(i);
+					System.out.println((i+1)+". "+s.name());
+				}
+				index=scan.nextInt();
+			}while(index>0 && index<=numSym);
+			s=b.allSymbols().get(index-1);
+			if (s== BoardCard.Symbols.Assassination);
+			
+			
+		}while(true);
+			
+	}
 	void setMinion(int x){
 		minion+=x;
 		

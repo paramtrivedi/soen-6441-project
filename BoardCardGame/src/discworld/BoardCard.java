@@ -1,18 +1,20 @@
 package discworld;
-import java.util.Vector;
+import java.util.ArrayList;
+
 
 /**
  * 
  * This class generates board cards.
  * 
  * @author Shu Liu and Zixi Quan
- * @version 1.00, 1 February 2015
+ * @version 2.00, 10 March 2015
  *
  */
 public class BoardCard {
 	protected String name;
 	protected int id;
-	protected Vector<Boolean> ability=new Vector<Boolean>(7);
+	static enum Symbols{Minion,Building,Assassination,RemoveTM,Money,Scroll,Event,PlayCard,Interrupt};
+	protected ArrayList<Symbols> symbol=new ArrayList<Symbols>();
 	protected String des;
 	protected int money;
 	/**
@@ -26,17 +28,25 @@ public class BoardCard {
 	 * @param num_ablity
 	 * @param des
 	 */
-	public BoardCard(int id, String name, int num_ablity,int money,String des){
+	public BoardCard(int id, String name, String s_Symbols,int money,String des){
 		this.id=id;
 		this.name=name;
 		
-		for(int i=0;i<7;i++)
+		for(int i=0;i<s_Symbols.length();i++)
 		{
-			if (num_ablity%2==1)
-				this.ability.add(true);
-			else
-				this.ability.add(false);
-			num_ablity/=2;
+			char s=s_Symbols.toUpperCase().charAt(i);
+			switch(s){
+			case 'M':	symbol.add(Symbols.Minion);break;
+			case 'B':	symbol.add(Symbols.Building);break;
+			case 'A':	symbol.add(Symbols.Assassination);break;
+			case 'R':	symbol.add(Symbols.RemoveTM);break;
+			case 'E':	symbol.add(Symbols.Event);break;
+			case 'S':	symbol.add(Symbols.Scroll);break;
+			case 'P':	symbol.add(Symbols.PlayCard);break;
+			case 'I':	symbol.add(Symbols.Interrupt);break;
+			case 'D':	symbol.add(Symbols.Money);break;		
+			}		
+			
 		}
 		this.money=money;
 		this.des=des;
@@ -63,27 +73,28 @@ public class BoardCard {
 			if(cityCard.getMinions().get(numPlayer-1)>0)
 				cityCard.removeMinion(p);
 		}
-		return ability.get(0);
+		return symbol.contains(Symbols.Assassination);
 	}
 	public boolean Remove_Trouble_Marker(){
-		return ability.get(1);
+		return symbol.contains(Symbols.RemoveTM);
 	}
 	public int Money(){
-		
+		if(symbol.contains(Symbols.Money))
 		return money;
+		else return 0;
 	}
 	public boolean Scroll(){
-		return ability.get(3);
+		return symbol.contains(Symbols.Scroll);
 	}
 	public boolean Event(){
-		return ability.get(4);
+		return symbol.contains(Symbols.Event);
 	}
 	public boolean Play_Another_Card(){
 		
-		return ability.get(5);
+		return symbol.contains(Symbols.PlayCard);
 	}
 	public boolean Interrupt(){
-		return ability.get(6);
+		return symbol.contains(Symbols.Interrupt);
 	}
 	/**
 	 * Gets the description in the board card.
@@ -108,6 +119,9 @@ public class BoardCard {
 	 */
 	public int Id(){
 		return id;
+	}
+	public ArrayList<Symbols> allSymbols(){
+		return symbol;
 	}
 	
 	
