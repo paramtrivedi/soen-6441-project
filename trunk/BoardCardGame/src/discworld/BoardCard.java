@@ -41,6 +41,17 @@ public class BoardCard {
 		this.money=money;
 		this.des=des;
 	}
+	
+	public BoardCard(String name, int id, Vector<Boolean> ability, String des,
+			int money) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.ability = ability;
+		this.des = des;
+		this.money = money;
+	}
+
 	/*******************************************************************
 	 * Getters 
 	 *******************************************************************/
