@@ -20,21 +20,43 @@ public class CityCard
 	* It gives the name to the city card.
 	*/	
 	private String name;
-	private int owner;		//No owner -1
-	private Vector<Integer> minions=new Vector<Integer>(4);// number of minions for each players
+	/**
+	* It gives the name of the owner of the city card.
+	*/	
+	private int owner;		
+	/**
+	* It gives the  number of minions for each players.
+	*/	
+	private Vector<Integer> minions=new Vector<Integer>(4);
+	/**
+	* It gives whether the specified city card contains trouble marker or not.
+	*/
 	private boolean troubleMaker; 
+	/**
+	* It gives whether the specified city card contains any building or not.
+	*/
 	private boolean building;	
-	private int demons;		
+	/**
+	* It gives the  number of demons for particular city card.
+	*/	
+	private int demons;	
+	/**
+	* It gives the  number of trolls for particular city card.
+	*/	
 	private int trolls;		
+	/**
+	* It shows the  number of nearest city for particular city card.
+	*/	
 	private byte [] nearestCity;
 
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
 	 * 
-	 * This constructor will create a particular CityCard with the id, the name.
+	 * This constructor will create a particular CityCard with the id, the name and the nearest cities to it.
 	 * 
 	 * @param id
 	 * @param name
+	 * @param nearestCity
 	 * 
 	 */
 	public CityCard(int id, String name, byte [] nearestCity){
