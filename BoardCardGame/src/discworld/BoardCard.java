@@ -51,6 +51,17 @@ public class BoardCard {
 		this.money=money;
 		this.des=des;
 	}
+	/**
+	 * Constructs an instance of boardCard class with the given parameters.
+	 * 
+	 * This constructor will create a particular board card with the name,
+	 * the id, the sym and the description.
+	 * 
+	 * @param name
+	 * @param id
+	 * @param sym
+	 * @param des
+	 */
 	
 	public BoardCard(String name, int id,  ArrayList<Symbols> sym, String des,
 			int money) {
@@ -65,7 +76,11 @@ public class BoardCard {
 	/*******************************************************************
 	 * Getters 
 	 *******************************************************************/
-	
+	/** 
+	 * This method will assassinate a minion of another player
+	 * @param cityCard
+	 * @param p 
+	 * */
 	public boolean Assassination(CityCard cityCard, Player p){
 		if(cityCard.containTroubleMaker())
 		{
