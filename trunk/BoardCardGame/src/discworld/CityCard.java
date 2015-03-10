@@ -62,7 +62,7 @@ public class CityCard
 	 * This constructor will create a particular CityCard with id, name.
 	 * the owner, number of minions for each player, existence of trouble maker and building,
 	 * number of demons and trolls
-	 * @param id 	
+	 * @param id 	The id of the city
 	 * @param name	The name of the city
 	 * @param owner	The owner of the city
 	 * @param minions	Vector of minions records the minions for each player
@@ -70,6 +70,7 @@ public class CityCard
 	 * @param building	The city has build or not
 	 * @param demons	The city has demons or not
 	 * @param trolls	The city has trolls or not
+	 * @param nearestCity Adjacent cities to the given city
 	 */
 
 	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls,byte [] nearestCity){
@@ -146,7 +147,7 @@ public class CityCard
 
 	/**
 	 * 
-	 * If there is a trouble maker in the city, then remove is. 
+	 * If there is a trouble maker in the city, then remove it. 
 	 * Otherwise, output trouble maker does not exist. 
 	 * 
 	 * @return If trouble maker is removed, then return true, otherwise return false.

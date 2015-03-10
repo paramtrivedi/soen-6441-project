@@ -46,7 +46,7 @@ public class TestCases {
 		br.close();
 		for (int i=0; i<7; i++){
 			String dummy = cards[i];
-			PersonalityCard temp = new PersonalityCard (dummy);
+			PersonalityCard temp = new PersonalityCard (1,dummy);
 			personalitycards.add(temp);
 		}
 		
@@ -84,7 +84,7 @@ public class TestCases {
 	public void test3(){
 		String information = "player1-blue";
 		Player p = new Player(information, personalitycards, greenCard, brownCard);
-		boolean res = new CityCard(1, "Dolly Sister").build(p);
+		boolean res = new CityCard(1, "Dolly Sister",).build(p);
 		assertTrue(res);
 	}
 	/*
