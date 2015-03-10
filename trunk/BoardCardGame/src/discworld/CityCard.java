@@ -13,23 +13,23 @@ import java.util.Vector;
 public class CityCard 
 {	
 	/** It gives the id for the city card. */
-	private int id;	
+	protected int id;	
 	/** It gives the name to the city card.	*/	
-	private String name;
+	protected String name;
 	/** It gives the name of the owner of the city card. */	
-	private int owner;		
+	protected int owner;		
 	/** It gives the  number of minions for each players. */	
-	private Vector<Integer> minions=new Vector<Integer>(4);
+	protected Vector<Integer> minions=new Vector<Integer>(4);
 	/**  It gives whether the specified city card contains trouble marker or not. */
-	private boolean troubleMaker; 
+	protected boolean troubleMaker; 
 	/** It gives whether the specified city card contains any building or not.*/
-	private boolean building;	
+	protected boolean building;	
 	/** It gives the  number of demons for particular city card. */	
-	private int demons;	
+	protected int demons;	
 	/** It gives the  number of trolls for particular city card. */	
-	private int trolls;		
+	protected int trolls;		
 	/** It shows the  name of nearest city for particular city card. */	
-	private byte [] nearestCity;
+	protected byte [] nearestCity;
 
 	/**
 	 * Constructs an instance of CityCard class with the given parameters.
