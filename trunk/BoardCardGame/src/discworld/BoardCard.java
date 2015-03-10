@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class BoardCard {
 	protected String name;
 	protected int id;
-	static enum Symbols{Minion,Building,Assassination,RemoveTM,Money,Scroll,Event,PlayCard,Interrupt};
+	static enum Symbols{Minion,Building,Assassination,RemoveTroubleMaker,Money,Scroll,Event,PlayCard,Interrupt};
 	protected ArrayList<Symbols> symbol=new ArrayList<Symbols>();
 	protected String des;
 	protected int money;
@@ -39,7 +39,7 @@ public class BoardCard {
 			case 'M':	symbol.add(Symbols.Minion);break;
 			case 'B':	symbol.add(Symbols.Building);break;
 			case 'A':	symbol.add(Symbols.Assassination);break;
-			case 'R':	symbol.add(Symbols.RemoveTM);break;
+			case 'R':	symbol.add(Symbols.RemoveTroubleMaker);break;
 			case 'E':	symbol.add(Symbols.Event);break;
 			case 'S':	symbol.add(Symbols.Scroll);break;
 			case 'P':	symbol.add(Symbols.PlayCard);break;
@@ -67,17 +67,19 @@ public class BoardCard {
 	 *******************************************************************/
 	
 	public boolean Assassination(CityCard cityCard, Player p){
-		if(cityCard.isTroubleMaker())
+		if(cityCard.containTroubleMaker())
 		{
 			int numPlayer = p.getID();
 			if(cityCard.getMinions().get(numPlayer-1)>0)
 				cityCard.removeMinion(p);
+			return true;
+		}else {
+			System.out.println(cityCard.getName()+" does not have any trouble maker.");
+			return false;
 		}
-		return symbol.contains(Symbols.Assassination);
+		
 	}
-	public boolean Remove_Trouble_Marker(){
-		return symbol.contains(Symbols.RemoveTM);
-	}
+	
 	public int Money(){
 		if(symbol.contains(Symbols.Money))
 		return money;
