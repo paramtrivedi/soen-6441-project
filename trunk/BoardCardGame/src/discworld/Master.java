@@ -84,7 +84,7 @@ public class Master {
 		while((line=br.readLine())!=null)
 		{
 			info=line.split(" ");
-			bc=new BoardCard(counter,info[0],Integer.parseInt(info[1]),Integer.parseInt(info[2]),info[3]);
+			bc=new BoardCard(counter,info[0],info[1],Integer.parseInt(info[2]),info[3]);
 			if(counter < 48){
 				greenCard.add(bc);
 			} else {
@@ -799,7 +799,7 @@ public class Master {
 		while((line=br.readLine())!=null)
 		{
 			info=line.split(" ");
-			bc=new BoardCard(counter,info[0],Integer.parseInt(info[1]),Integer.parseInt(info[2]),info[3]);
+			bc=new BoardCard(counter,info[0],info[1],Integer.parseInt(info[2]),info[3]);
 			if(counter < 48){
 				greenCard.add(bc);
 			} else {
