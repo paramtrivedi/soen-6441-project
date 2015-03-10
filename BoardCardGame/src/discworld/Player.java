@@ -68,8 +68,8 @@ public class Player {
     
 	/**
 	 * 
-	 * The Player constructor
-	 * 
+	 * The Player constructor shows all the information,name of personality cards,
+	 * greencard and browncard 
 	 * @param information
 	 * @param personalitycards
 	 * @param greencard
@@ -329,9 +329,7 @@ public class Player {
 		}
 		return true;
 	}
-	/** 
-	 * It will allow to play a card 
-	 * */
+	
 	public boolean playCard(BoardCard b){
 		int numSym=0;
 		boolean playNextCard=false;
