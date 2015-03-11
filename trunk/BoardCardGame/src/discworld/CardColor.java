@@ -5,8 +5,8 @@ package discworld;
  *
  */
 public enum CardColor {
-	Blue,
-	Red,
-	Green,
-	Yellow
+	blue,
+	red,
+	green,
+	yellow
 }

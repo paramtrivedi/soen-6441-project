@@ -133,13 +133,13 @@ public class Master {
 	public static CardColor getColor(String color)
 	{
 		if (color.toLowerCase().equals("red"))
-			return CardColor.Red;
+			return CardColor.red;
 		else if (color.toLowerCase().equals("green"))
-			return CardColor.Green;
+			return CardColor.green;
 		else if (color.toLowerCase().equals("blue"))
-			return CardColor.Blue;
+			return CardColor.blue;
 		else if (color.toLowerCase().equals("yellow"))
-			return CardColor.Yellow;
+			return CardColor.yellow;
 		else
 			return null;
 

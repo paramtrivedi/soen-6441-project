@@ -248,6 +248,7 @@ public class SaveGame {
 				JSONObject playerObj = (JSONObject)player.get(j);
 				int money = ((Long)playerObj.get("money")).intValue();
 				String color = (String)playerObj.get("color");
+				CardColor pColor = CardColor.valueOf(color);
 				int id = ((Long)playerObj.get("id")).intValue();
 				int minion = ((Long)playerObj.get("minion")).intValue();
 				JSONObject PC = (JSONObject)playerObj.get("personalityCard");
@@ -277,7 +278,7 @@ public class SaveGame {
 					BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
 					holdingCards.add(b);
 				}
-				Player p = new Player(id, money, color, minion, build, pCard, holdingCards);
+				Player p = new Player(id, money, pColor, minion, build, pCard, holdingCards);
 				gamer.add(p);
 			}
 			
