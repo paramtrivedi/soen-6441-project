@@ -366,9 +366,7 @@ public class Player {
 
 								+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && b.Assassination
-
-						(Master.cityCards.get(indexCity), this));
+				}while(indexCity<=0 ||indexCity>12 ||! b.Assassination(Master.cityCards.get(indexCity), this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 			}
@@ -381,9 +379,7 @@ public class Player {
 
 								+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get
-
-						(indexCity-1).build(this));
+				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 			}else if(s==BoardCard.Symbols.Dollar){
@@ -398,9 +394,7 @@ public class Player {
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get
-
-						(indexCity-1).removeTM());
+				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 
@@ -409,7 +403,7 @@ public class Player {
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
+				}while(indexCity<=0 ||indexCity>12 ||! this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 
