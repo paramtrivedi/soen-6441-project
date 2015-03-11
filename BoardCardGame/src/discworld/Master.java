@@ -48,18 +48,18 @@ public class Master {
 			PersonalityCard temp = new PersonalityCard (i,dummy);
 			card.add(temp);
 		}
-		cityCards.add(new CityCard(1,"Dolly Sister", new byte[]{2,3,12}));
-		cityCards.add(new CityCard(2,"Unreal Estate", new byte[]{1,3,4,10,11,12}));
-		cityCards.add(new CityCard(3,"Dragon's Landing", new byte[]{1,2,4}));
-		cityCards.add(new CityCard(4,"Small Gods", new byte[]{2,3,5,6,10}));
-		cityCards.add(new CityCard(5,"The Scours", new byte[]{4,6,7,10}));
-		cityCards.add(new CityCard(6,"The Hippo", new byte[]{4,5,7}));
-		cityCards.add(new CityCard(7,"The Shades", new byte[]{5,6,8}));
-		cityCards.add(new CityCard(8,"Dimwell", new byte[]{5,7,9}));
-		cityCards.add(new CityCard(9,"Longwall", new byte[]{8,10,11}));
-		cityCards.add(new CityCard(10,"isle of Gods", new byte[]{2,4,5,9,11}));
-		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12}));
-		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11}));
+		cityCards.add(new CityCard(1,"Dolly Sister", new byte[]{2,3,12},6));
+		cityCards.add(new CityCard(2,"Unreal Estate", new byte[]{1,3,4,10,11,12},18));
+		cityCards.add(new CityCard(3,"Dragon's Landing", new byte[]{1,2,4},12));
+		cityCards.add(new CityCard(4,"Small Gods", new byte[]{2,3,5,6,10},18));
+		cityCards.add(new CityCard(5,"The Scours", new byte[]{4,6,7,10},6));
+		cityCards.add(new CityCard(6,"The Hippo", new byte[]{4,5,7},12));
+		cityCards.add(new CityCard(7,"The Shades", new byte[]{5,6,8},6));
+		cityCards.add(new CityCard(8,"Dimwell", new byte[]{5,7,9},6));
+		cityCards.add(new CityCard(9,"Longwall", new byte[]{8,10,11},12));
+		cityCards.add(new CityCard(10,"isle of Gods", new byte[]{2,4,5,9,11},12));
+		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12},18));
+		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11},12));
 
 		eventCards.add(new EventCard("The Dragon"));
 		eventCards.add(new EventCard("Flood"));
@@ -707,12 +707,14 @@ public class Master {
 					ArrayList <BoardCard> tempList=playerList.get(num-1).getHoldingCards();
 					for(int i=0;i<tempList.size();i++)
 						System.out.println((i+1)+". "+tempList);
-					Scanner s=new Scanner(System.in);
+					
 					int indexCard;
-					System.out.println("Chooing a card")
+					System.out.println("Chooing a card(1-"+tempList.size()+")");
+					
 					do{
-						index
-					}while(index);
+						indexCard=scan.nextInt();
+					}while(indexCard<1 && indexCard>=tempList.size());
+					playCard=playerList.get(num-1).playCard(tempList.get(indexCard-1));
 				}else
 					System.out.println("You have already play a card.");
 				break;
@@ -728,50 +730,6 @@ public class Master {
 				tempCityCard.putTM();
 				break;
 
-			case 6:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.putDemon();
-				break;
-
-			case 7:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.putTrolls();
-				break;
-
-			case 8:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.removeMinion(playerList.get(num-1));
-				break;
-
-			case 9:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.destroy(playerList.get(num-1));
-				break;
-
-			case 10:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.removeTM();
-				break;
-
-			case 11:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.removeDemon();
-				break;
-
-			case 12:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.removeTrolls();
-				break;
-
-
-
 			case 0:
 				quit = true;
 				break;
@@ -785,18 +743,18 @@ public class Master {
 		bank = 120;
 		playerList.clear();
 		cityCards.clear();
-		cityCards.add(new CityCard(1,"Dolly Sister", new byte[]{2,3,12}));
-		cityCards.add(new CityCard(2,"Unreal Estate", new byte[]{1,3,4,10,11,12}));
-		cityCards.add(new CityCard(3,"Dragon's Landing", new byte[]{1,2,4}));
-		cityCards.add(new CityCard(4,"Small Gods", new byte[]{2,3,5,6,10}));
-		cityCards.add(new CityCard(5,"The Scours", new byte[]{4,6,7,10}));
-		cityCards.add(new CityCard(6,"The Hippo", new byte[]{4,5,7}));
-		cityCards.add(new CityCard(7,"The Shades", new byte[]{5,6,8}));
-		cityCards.add(new CityCard(8,"Dimwell", new byte[]{5,7,9}));
-		cityCards.add(new CityCard(9,"Longwall", new byte[]{8,10,11}));
-		cityCards.add(new CityCard(10,"isle of Gods", new byte[]{2,4,5,9,11}));
-		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12}));
-		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11}));
+		cityCards.add(new CityCard(1,"Dolly Sister", new byte[]{2,3,12},6));
+		cityCards.add(new CityCard(2,"Unreal Estate", new byte[]{1,3,4,10,11,12},18));
+		cityCards.add(new CityCard(3,"Dragon's Landing", new byte[]{1,2,4},12));
+		cityCards.add(new CityCard(4,"Small Gods", new byte[]{2,3,5,6,10},18));
+		cityCards.add(new CityCard(5,"The Scours", new byte[]{4,6,7,10},6));
+		cityCards.add(new CityCard(6,"The Hippo", new byte[]{4,5,7},12));
+		cityCards.add(new CityCard(7,"The Shades", new byte[]{5,6,8},6));
+		cityCards.add(new CityCard(8,"Dimwell", new byte[]{5,7,9},6));
+		cityCards.add(new CityCard(9,"Longwall", new byte[]{8,10,11},12));
+		cityCards.add(new CityCard(10,"isle of Gods", new byte[]{2,4,5,9,11},12));
+		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12},18));
+		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11},12));
 		eventCards.clear();
 		eventCards.add(new EventCard("The Dragon"));
 		eventCards.add(new EventCard("Flood"));
