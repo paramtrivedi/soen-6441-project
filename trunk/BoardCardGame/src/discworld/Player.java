@@ -242,7 +242,11 @@ public class Player {
 		}
 		return true;
 	}
-	/** This method will allow player to interrupt or play his card even if it is not his turn.  */
+	/** 
+	 *This method will allow player to interrupt or play his card even if it is not
+	 * his turn.
+	 * @author JayTanna
+	 */
 
 	public boolean interrupt()
 	{	
@@ -289,6 +293,7 @@ public class Player {
 	}
 	/** 
 	 * It will refill the player holdingCards by 5.
+	 *  @author Jay Tanna
 	 * @param g
 	 * @param b
 	 */
