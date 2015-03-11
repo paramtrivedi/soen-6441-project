@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class BoardCard {
 	protected String name;
 	protected int id;
-	public static enum Symbols{Minion,Building,Assassination,RemoveTroubleMaker,Money,Scroll,Event,PlayCard,Interrupt};
+	public static enum Symbols{Minion,Building,Assassination,RemoveTroubleMaker,Dollar,Scroll,Event,PlayCard,Interrupt};
 	protected ArrayList<Symbols> symbol=new ArrayList<Symbols>();
 	protected String des;
-	protected int money;
+	protected int dollar;
 	/**
 	 * Constructs an instance of boardCard class with the given parameters.
 	 * 
@@ -28,7 +28,7 @@ public class BoardCard {
 	 * @param num_ablity
 	 * @param des
 	 */
-	public BoardCard(int id, String name, String s_Symbols,int money,String des){
+	public BoardCard(int id, String name, String s_Symbols,int dollar,String des){
 		this.id=id;
 		this.name=name;
 		
@@ -44,11 +44,11 @@ public class BoardCard {
 			case 'S':	symbol.add(Symbols.Scroll);break;
 			case 'P':	symbol.add(Symbols.PlayCard);break;
 			case 'I':	symbol.add(Symbols.Interrupt);break;
-			case 'D':	symbol.add(Symbols.Money);break;		
+			case 'D':	symbol.add(Symbols.Dollar);break;		
 			}		
 			
 		}
-		this.money=money;
+		this.dollar=dollar;
 		this.des=des;
 	}
 	/**
@@ -64,13 +64,13 @@ public class BoardCard {
 	 */
 	
 	public BoardCard(String name, int id,  ArrayList<Symbols> sym, String des,
-			int money) {
+			int dollar) {
 		super();
 		this.name = name;
 		this.id = id;
 		this.symbol = sym;
 		this.des = des;
-		this.money = money;
+		this.dollar = dollar;
 	}
 
 	/*******************************************************************
@@ -96,9 +96,9 @@ public class BoardCard {
 		
 	}
 	
-	public int Money(){
-		if(symbol.contains(Symbols.Money))
-		return money;
+	public int dollar(){
+		if(symbol.contains(Symbols.Dollar))
+		return dollar;
 		else return 0;
 	}
 	public boolean Scroll(){
@@ -141,6 +141,4 @@ public class BoardCard {
 	public ArrayList<Symbols> allSymbols(){
 		return symbol;
 	}
-	
-	
 }

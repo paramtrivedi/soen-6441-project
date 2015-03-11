@@ -386,9 +386,9 @@ public class Player {
 						(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
-			}else if(s==BoardCard.Symbols.Money){
-				money+=b.Money();
-				Master.bank-=b.Money();
+			}else if(s==BoardCard.Symbols.Dollar){
+				money+=b.dollar();
+				Master.bank-=b.dollar();
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
