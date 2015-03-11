@@ -78,6 +78,7 @@ public class BoardCard {
 	 *******************************************************************/
 	/** 
 	 * This method will assassinate a minion of another player
+	 * @author zixi quan
 	 * @param cityCard
 	 * @param p 
 	 * */
