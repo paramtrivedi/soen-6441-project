@@ -25,7 +25,7 @@ public class MasterTest {
 		
 	}
 	
-	@Test
+	/*@Test
 	public void newGame ()
 	{
 		
@@ -41,7 +41,7 @@ public class MasterTest {
 	public void playGames()
 	{
 		
-	}
+	}*/
 	
 	@Test
 	public void roll()
