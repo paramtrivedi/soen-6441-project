@@ -680,8 +680,6 @@ public class Master {
 	public static void playGames(int num,ArrayList<Player> playerList) throws NumberFormatException, IOException{
 
 		int input = 0;
-		int numCity;
-		CityCard tempCityCard;
 		boolean quit = false;
 		do{
 			System.out.println("Player "+num+" Start to Play:");
@@ -725,11 +723,8 @@ public class Master {
 				break;
 
 			case 5:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.putTM();
+				playerList.get(num-1).refill(greenCard, brownCard);
 				break;
-
 			case 0:
 				quit = true;
 				break;
@@ -738,7 +733,11 @@ public class Master {
 				System.out.println("Invalid input!!! Please do right selection...");
 				break;
 			}
-			num=num%playerList.size()+1;
+			if(input==5)
+			{
+				display(cityCards,playerList.get(num-1));
+				num=num%playerList.size()+1;
+			}
 		}while(!quit);
 		bank = 120;
 		playerList.clear();
@@ -863,14 +862,13 @@ public class Master {
 		return bank;
 	}
 
-	public static void display(Vector<CityCard> city, ArrayList<Player> gamer){
+	public static void display(Vector<CityCard> city, Player player){
 		System.out.println(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\t  Trouble Maker\tBuilding\tDemon\tTroll\n");
 		for(int i=0; i < 12; i++){
 			System.out.println(city.get(i).toString()+"\n");
 		}
-		for(int j=0; j < gamer.size(); j++){
-			System.out.println(gamer.get(j)+"\n");
-		}
+		System.out.println(player+"\n");
+		
 		int bank = Master.bank();
 		System.out.println("Total Bank have " + bank + " Ankh-Morpork dollars.");
 	}
