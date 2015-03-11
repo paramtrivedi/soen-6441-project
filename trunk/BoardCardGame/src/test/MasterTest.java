@@ -6,14 +6,17 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import discworld.CityCard;
+import discworld.Player;
 import discworld.Master;
+
 
 public class MasterTest {
 	private Master m;
+	private Player player;
 	@Before
 	public void initialize(){
-		Master m=new Master();
+		m=new Master();
+		player = new Player();
 	}
 	
 	@Test
@@ -43,12 +46,20 @@ public class MasterTest {
 	@Test
 	public void roll()
 	{
-		
+		int result = m.roll();
+		boolean res;
+		if(result>0){
+			res = true;
+		} else{
+			res = false;
+		}
+		assertTrue(res);
 	}
 	
 	@Test
 	public void winCheck()
 	{
-		
+		boolean res = m.winCheck(player);
+		assertTrue(res);
 	}
 }
