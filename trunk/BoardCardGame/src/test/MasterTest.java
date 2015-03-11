@@ -2,21 +2,28 @@ package test;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import discworld.BoardCard;
+import discworld.CardColor;
 import discworld.Player;
 import discworld.Master;
+import discworld.PersonalityCard;
 
 
 public class MasterTest {
 	private Master m;
 	private Player player;
+	private PersonalityCard p;
+	ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
 	@Before
 	public void initialize(){
 		m=new Master();
-		player = new Player();
+		new Player(2,200,CardColor.Blue,2,3,p,holdingCards);
+		player = new Player(2,200,CardColor.Blue,2,3,p,holdingCards);
 	}
 	
 	@Test
