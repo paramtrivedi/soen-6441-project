@@ -69,7 +69,7 @@ public class SaveGame {
 				jo.put("building", city.get(i).isBuilding());
 				jo.put("demons", city.get(i).getDemons());
 				jo.put("trolls", city.get(i).getTrolls());
-				System.out.println(city.get(i).getTrolls());
+				jo.put("benefit", city.get(i).getBenefit());
 
 				JSONArray near = new JSONArray();
 				byte[] b = city.get(i).getNearestCity();
@@ -230,13 +230,14 @@ public class SaveGame {
 				boolean build = (Boolean)cityObj.get("building");
 				int trolls = ((Long)cityObj.get("trolls")).intValue();
 				int demons = ((Long)cityObj.get("demons")).intValue();
+				int benefit = ((Long)cityObj.get("benefit")).intValue();
 				JSONArray cArray = (JSONArray)cityObj.get("nearestcity");
 				byte[] nCity = new byte[cArray.size()];
 				for(int m=0; m < cArray.size(); m++)
 				{
 					nCity[m] = ((Long)cArray.get(m)).byteValue();
 				}
-				CityCard c = new CityCard(id, name, owner, minions, TM, build, demons, trolls,null);
+				CityCard c = new CityCard(id, name, owner, minions, TM, build, demons, trolls, nCity, benefit);
 				city.add(c);
 			}
 
