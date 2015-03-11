@@ -12,24 +12,15 @@ import java.util.Vector;
  */
 public class CityCard 
 {	
-	protected int benefit;
-	/** It gives the id for the city card. */
-	protected int id;	
-	/** It gives the name to the city card.	*/	
-	protected String name;
-	/** It gives the name of the owner of the city card. */	
-	protected int owner;		
-	/** It gives the  number of minions for each players. */	
-	protected Vector<Integer> minions=new Vector<Integer>(4);
-	/**  It gives whether the specified city card contains trouble marker or not. */
-	protected boolean troubleMaker; 
-	/** It gives whether the specified city card contains any building or not.*/
-	protected boolean building;	
-	/** It gives the  number of demons for particular city card. */	
-	protected int demons;	
-	/** It gives the  number of trolls for particular city card. */	
-	protected int trolls;		
-	/** It shows the  name of nearest city for particular city card. */	
+	protected int benefit;	
+	protected int id;		
+	protected String name;	
+	protected int owner;			
+	protected Vector<Integer> minions=new Vector<Integer>(4);	
+	protected boolean troubleMaker; 	
+	protected boolean building;		
+	protected int demons;			
+	protected int trolls;			
 	protected byte [] nearestCity;
 
 	/**
@@ -72,6 +63,7 @@ public class CityCard
 	 * @param demons	The city has demons or not
 	 * @param trolls	The city has trolls or not
 	 * @param nearestCity Adjacent cities to the given city
+	 * @param benefit	The benefit a player can have by having a building at that city
 	 */
 
 	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls,byte [] nearestCity, int benefit){
