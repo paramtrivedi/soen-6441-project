@@ -20,6 +20,7 @@ public class CityCardTest {
 		assertEquals(2, c.getId());
 		assertTrue(c.Name().equals("SSS"));
 		assertEquals(3, c.getNearestCity().length);	
+		assertEquals(3, c.getNearestCity()[1]);	
 	}
 	
     @Test
@@ -43,7 +44,7 @@ public class CityCardTest {
     @Test
     public void destroy()
     {
-    	c.de
+    	//c.de
     }
     
     @Test

@@ -41,7 +41,7 @@ public class CityCard
 	 * @param nearestCity
 	 * 
 	 */
-	public CityCard(int id, String name, byte [] nearestCity){
+	public CityCard(int id, String name, byte [] nearestCity,int benifit){
 		this.id=id;
 		this.name=name;
 		this.nearestCity=nearestCity;
@@ -54,6 +54,7 @@ public class CityCard
 		setBuilding(false);
 		demons=0;
 		trolls=0;
+		this.benifit=benifit;
 	}
 
 	/**
