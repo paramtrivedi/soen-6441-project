@@ -17,7 +17,7 @@ public class Player {
 
 	protected int id;
 	protected int money;
-	protected String color;
+	protected CardColor color;
 	protected int minion,building;
 	public int getId() {
 		return id;
@@ -31,11 +31,11 @@ public class Player {
 		this.money = money;
 	}
 
-	public String getColor() {
+	public CardColor getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(CardColor color) {
 		this.color = color;
 	}
 
@@ -80,7 +80,7 @@ public class Player {
 		this.id=Integer.parseInt(information.substring(6,7));
 		money=10;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
-		this.color=cardcolor.name();
+		this.color=cardcolor;
 		minion=12;
 		building=6;
 		personalityCard=this.gain_personalityCard(personalitycards);
@@ -119,7 +119,7 @@ public class Player {
 	 * @param holdingCards It shows the name of all the holdingCards
 	 */
 
-	public Player(int id, int money, String color, int minion, int building,
+	public Player(int id, int money, CardColor color, int minion, int building,
 			PersonalityCard personalityCard, ArrayList<BoardCard> holdingCards) {
 		super();
 		this.id = id;
@@ -209,7 +209,7 @@ public class Player {
 	public int getID(){
 		return id;
 	}
-	public String Color()
+	public CardColor Color()
 	{
 		return color;
 	}
