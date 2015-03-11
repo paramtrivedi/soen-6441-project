@@ -394,4 +394,7 @@ public class CityCard
 	public void setOwner(int owner) {
 		this.owner = owner;
 	}
+	public int getBenifit(){
+		return benifit;
+	}
 }
