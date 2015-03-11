@@ -13,17 +13,34 @@ import discworld.PersonalityCard;
 import discworld.Player;
 
 public class PlayerTest {
-	private Player p;
-	//private CityCard c;
+	private Player player;
+	private PersonalityCard p;
+	private CityCard c;
+	Vector<PersonalityCard>personalitycards = new Vector<PersonalityCard>(7);
 	@Before
 	public void initialize(){
-		p=new Player("player1-blue",);
+		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
+		c = new CityCard(1, "Dolly Sister",new byte[]{2,3,12},6);
+		String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
+		p = new PersonalityCard(2,"MARS");
+		player=new Player(2,200,"blue",2,3,p,holdingCards);
+		for (int i=0; i<7; i++){
+			String dummy = cards[i];
+			PersonalityCard temp = new PersonalityCard (1,dummy);
+			personalitycards.add(temp);
+		}
 	}
 	
 	@Test
 	public void ConstructorTest()
 	{
-	
+		assertEquals(2, player.getID());
+		assertEquals(200, player.getMoney());
+		assertEquals("blue",player.getColor());
+		assertEquals(2, player.getMinion());
+		assertEquals(3, player.getBuilding());
+		assertEquals(p,player.getPersonalityCard());
+		//assertEquals(holdingCards,player.getHoldingCards());
 	}
 	
 	@Test
@@ -33,9 +50,9 @@ public class PlayerTest {
 	}
 	
 	@Test
-	public PersonalityCard gain_personalityCard()
+	public void gain_personalityCard()
 	{
-		
+		//boolean res = player.gain_personalityCard(personalitycards);
 	}
 	
 	@Test
@@ -44,10 +61,11 @@ public class PlayerTest {
 		
 	}
 	
-	//@Test
-	//public boolean putBuilding(CityCard city,ArrayList<CityCard> cities)
-	//{
-		
-	//}
+	@Test
+	public void putBuilding()
+	{
+		boolean res = c.build(player);
+		assertTrue(res);
+	}
 
 }

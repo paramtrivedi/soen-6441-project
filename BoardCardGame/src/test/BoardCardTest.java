@@ -18,7 +18,7 @@ public class BoardCardTest {
 		assertEquals(2, b.Id());
 		assertTrue(b.Name().equals("SSS"));
 		assertEquals(BoardCard.Symbols.Minion,b.allSymbols().get(1));
-		assertEquals(3, b.Money());
+		assertEquals(3, b.dollar());
 	}
 	@Test
 	public void AssassinationTest()
