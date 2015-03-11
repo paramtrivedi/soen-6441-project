@@ -132,19 +132,17 @@ public class Master {
 
 	public static CardColor getColor(String color)
 	{
-		switch(color.toLowerCase())
-		{
-		case "red":
+		if (color.toLowerCase().equals("red"))
 			return CardColor.Red;
-		case "green":
+		else if (color.toLowerCase().equals("green"))
 			return CardColor.Green;
-		case "blue":
+		else if (color.toLowerCase().equals("blue"))
 			return CardColor.Blue;
-		case "yellow":
+		else if (color.toLowerCase().equals("yellow"))
 			return CardColor.Yellow;
-		default:	
+		else
 			return null;
-		}
+
 	}
 
 	/**
@@ -616,22 +614,13 @@ public class Master {
 
 	public static int Menu(){
 		int input=0;
-		System.out.println("Select the one of the options(0-13):");
+		System.out.println("Select the one of the options(0-5):");
 		System.out.println(" 0. Exit");
 		System.out.println(" 1. Save Game");
 		System.out.println(" 2. Load Game");
-		System.out.println(" 3. Put Minion");
-		System.out.println(" 4. Put Building");
-		System.out.println(" 5. Put Trouble Maker");
-		System.out.println(" 6. Put Demon");
-		System.out.println(" 7. Put Troll");
-		System.out.println(" 8. Remove Minion");
-		System.out.println(" 9. Remove Building");
-		System.out.println("10. Remove Trouble Maker");
-		System.out.println("11. Remove Demon");
-		System.out.println("12. Remove Troll");
-
-
+		System.out.println(" 3. Play a Card");
+		System.out.println(" 4. Get the benifits");
+		System.out.println(" 5. Finish this turn and refill the card");
 		do{	
 			while (!scan.hasNextInt()){
 				System.out.println("Invalid Input!! Please try again...");
@@ -641,7 +630,7 @@ public class Master {
 			if (input < 0){
 				System.out.println("Please enter a positive number!!!");
 			}
-		} while (input <= -1);
+		} while (input <= -1 || input>5);
 		return input;
 	}
 
@@ -697,7 +686,11 @@ public class Master {
 		do{
 			System.out.println("Player "+num+" Start to Play:");
 			input=Menu();
-
+			boolean playCard=true;
+			int benifit=0;
+			for(int i=0;i<12;i++)
+				if(cityCards.get(i).getOwner()==num)
+					benifit+=cityCards.get(i).benifit;
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
@@ -709,15 +702,19 @@ public class Master {
 				break;
 
 			case 3:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.putMinion(playerList.get(num-1));
+				if(playCard)
+				{
+					ArrayList <BoardCard> tempList=playerList.get(num-1).getHoldingCards();
+					for(int i=0;i<tempList.size();i++)
+						System.out.println((i+1)+". "+tempList);
+					Scanner s=new Scanner(System.in);
+				}else
+					System.out.println("You have already play a card.");
 				break;
 
 			case 4:
-				numCity=ChooseCity();
-				tempCityCard=cityCards.get(numCity);
-				tempCityCard.build(playerList.get(num-1));
+				playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benifit);
+				bank-=bank-benifit;
 				break;
 
 			case 5:
