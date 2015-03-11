@@ -110,7 +110,7 @@ public class SaveGame {
 						gSymbol.add(bc.symbol.get(a).name());
 					}
 					hObj.put("symbol", gSymbol);
-					hObj.put("money", gamer.get(j).getHoldingCards().get(k).money);
+					hObj.put("money", gamer.get(j).getHoldingCards().get(k).dollar);
 					hObj.put("description", gamer.get(j).getHoldingCards().get(k).des);
 					hArr.add(hObj);
 				}
@@ -118,23 +118,48 @@ public class SaveGame {
 				player.add(obj);
 			}
 
-			//JSONObject players = new JSONObject();
 			cityarea.put("players", player);
-			
+
 			JSONArray gCard = new JSONArray();
-			
+
 			for(int g=0; g < greenCard.size(); g++)
 			{
 				JSONObject gObj = new JSONObject();
 				gObj.put("id", greenCard.get(g).id);
 				gObj.put("name", greenCard.get(g).name);
 				JSONArray gSymbol = new JSONArray();
-				for(int a=0; a < greenCard.; a++)
+				for(int a=0; a < greenCard.get(g).symbol.size(); a++)
 				{
-					gSymbol.add(bc.symbol.get(a).name());
+					gSymbol.add(greenCard.get(g).symbol.get(a).name());
 				}
+				gObj.put("symbol", gSymbol);
+				gObj.put("money", greenCard.get(g).dollar);
 				gObj.put("description", greenCard.get(g).des);
+				gCard.add(gObj);
 			}
+
+			cityarea.put("greenCard", gCard);
+
+			JSONArray bCard = new JSONArray();
+
+			for(int b=0; b < brownCard.size(); b++)
+			{
+				JSONObject bObj = new JSONObject();
+				bObj.put("id", brownCard.get(b).id);
+				bObj.put("name", brownCard.get(b).name);
+				JSONArray bSymbol = new JSONArray();
+				for(int a=0; a < brownCard.get(b).symbol.size(); a++)
+				{
+					bSymbol.add(brownCard.get(b).symbol.get(a).name());
+				}
+				bObj.put("symbol", bSymbol);
+				bObj.put("money", greenCard.get(b).dollar);
+				bObj.put("description", greenCard.get(b).des);
+				gCard.add(bObj);
+			}
+
+			cityarea.put("brownCard", bCard);
+
 			cityarea.put("bank", Master.bank());
 
 			// end
@@ -180,8 +205,8 @@ public class SaveGame {
 			String line = SaveGame.base64Decode(reader.readLine());
 			reader.close();
 			Object obj = parser.parse(line);
-			
-			
+
+
 			JSONObject jsonObject = (JSONObject) obj;
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
 			String jsonOutput = gson.toJson(jsonObject);
@@ -254,8 +279,51 @@ public class SaveGame {
 				Player p = new Player(id, money, color, minion, build, pCard, holdingCards);
 				gamer.add(p);
 			}
+			
+			JSONArray gCard = new JSONArray();
+			Vector<BoardCard> greenCard = new Vector<BoardCard>(gCard.size());
+			for(int g=0; g<gCard.size(); g++)
+			{
+				JSONObject gObj = new JSONObject();
+				int gId = ((Long)gObj.get("id")).intValue();
+				String gName = (String)gObj.get("name");
+				JSONArray gSymbol = (JSONArray)gObj.get("symbol");
+				String symbolStr = "";
+				for(int z=0; z < gSymbol.size(); z++)
+				{
+					symbolStr += ((String)gSymbol.get(z)).substring(0,1);
+				}
+				int gMoney = ((Long)gObj.get("money")).intValue();
+				String gDesc = (String)gObj.get("description");
+				BoardCard b = new BoardCard(gId, gName, symbolStr, gMoney, gDesc);
+				greenCard.add(b);
+			}
+			
+			JSONArray bCard = new JSONArray();
+			Vector<BoardCard> brownCard = new Vector<BoardCard>(bCard.size());
+			for(int b=0; b<bCard.size(); b++)
+			{
+				JSONObject bObj = new JSONObject();
+				int bId = ((Long)bObj.get("id")).intValue();
+				String bName = (String)bObj.get("name");
+				JSONArray bSymbol = (JSONArray)bObj.get("symbol");
+				String symbolStr = "";
+				for(int z=0; z < bSymbol.size(); z++)
+				{
+					symbolStr += ((String)bSymbol.get(z)).substring(0,1);
+				}
+				int bMoney = ((Long)bObj.get("money")).intValue();
+				String bDesc = (String)bObj.get("description");
+				BoardCard a = new BoardCard(bId, bName, symbolStr, bMoney, bDesc);
+				brownCard.add(a);
+			}
 
 			int bank = ((Long)jsonObject.get("bank")).intValue();
+			Master.bank=bank;
+			Master.cityCards=city;
+			Master.playerList=gamer;
+			Master.greenCard=greenCard;
+			Master.brownCard=brownCard;
 			/*FileInputStream fstream = new  FileInputStream(f);
 			DataInputStream in = new DataInputStream(fstream);
 			BufferedReader br = new BufferedReader(new InputStreamReader(in));
