@@ -1,12 +1,9 @@
 package discworld;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.InputStreamReader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -16,6 +13,9 @@ import java.util.Vector;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * The saveGame class saves the file of the game and loads the game.
@@ -35,7 +35,8 @@ public class SaveGame {
 	 * @param gamer
 	 */
 	@SuppressWarnings("unchecked")
-	public static void save(Vector<CityCard> city, ArrayList<Player> gamer){
+	public static void save(Vector<CityCard> city, ArrayList<Player> gamer, Vector<BoardCard> greenCard, Vector<BoardCard> brownCard)
+	{
 		try{
 			scan = new Scanner(System.in);
 			File f;
@@ -64,10 +65,11 @@ public class SaveGame {
 					minions.add(mi[j]);
 				}
 				jo.put("minions",minions);
-				jo.put("troublemaker", city.get(i).isTroubleMaker());
+				jo.put("troublemaker", city.get(i).containTroubleMaker());
 				jo.put("building", city.get(i).isBuilding());
 				jo.put("demons", city.get(i).getDemons());
 				jo.put("trolls", city.get(i).getTrolls());
+				System.out.println(city.get(i).getTrolls());
 
 				JSONArray near = new JSONArray();
 				byte[] b = city.get(i).getNearestCity();
@@ -99,9 +101,15 @@ public class SaveGame {
 				for(int k = 0; k < gamer.get(j).getHoldingCards().size(); k++)
 				{
 					JSONObject hObj = new JSONObject();
-					hObj.put("id", gamer.get(j).getHoldingCards().get(k).id);
-					hObj.put("name", gamer.get(j).getHoldingCards().get(k).name);
-					hObj.put("ability", gamer.get(j).getHoldingCards().get(k).ability);
+					BoardCard bc = gamer.get(j).getHoldingCards().get(k);
+					hObj.put("id", bc.id);
+					hObj.put("name", bc.name);
+					JSONArray gSymbol = new JSONArray();
+					for(int a=0; a < bc.symbol.size(); a++)
+					{
+						gSymbol.add(bc.symbol.get(a).name());
+					}
+					hObj.put("symbol", gSymbol);
 					hObj.put("money", gamer.get(j).getHoldingCards().get(k).money);
 					hObj.put("description", gamer.get(j).getHoldingCards().get(k).des);
 					hArr.add(hObj);
@@ -112,6 +120,21 @@ public class SaveGame {
 
 			//JSONObject players = new JSONObject();
 			cityarea.put("players", player);
+			
+			JSONArray gCard = new JSONArray();
+			
+			for(int g=0; g < greenCard.size(); g++)
+			{
+				JSONObject gObj = new JSONObject();
+				gObj.put("id", greenCard.get(g).id);
+				gObj.put("name", greenCard.get(g).name);
+				JSONArray gSymbol = new JSONArray();
+				for(int a=0; a < greenCard.; a++)
+				{
+					gSymbol.add(bc.symbol.get(a).name());
+				}
+				gObj.put("description", greenCard.get(g).des);
+			}
 			cityarea.put("bank", Master.bank());
 
 			// end
@@ -134,10 +157,14 @@ public class SaveGame {
 		}
 	}
 
-	/**  This method loads the game.*/
+	/**
+	 * 
+	 * This method loads the game.
+	 * 
+	 */
 	public static void load(){
 		Vector<CityCard> city = new Vector<CityCard>();
-		
+
 		JSONParser parser = new JSONParser();
 		try{
 			scan = new Scanner(System.in);
@@ -148,31 +175,27 @@ public class SaveGame {
 				System.out.println("File not exists. Please give another name!!!");
 				SaveGame.load();
 			}
-			
-			
+
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String line = SaveGame.base64Decode(reader.readLine());
 			reader.close();
-			
-
 			Object obj = parser.parse(line);
 			
 			
-			
 			JSONObject jsonObject = (JSONObject) obj;
-			
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			String jsonOutput = gson.toJson(jsonObject);
+			System.out.println(jsonOutput);
 			JSONArray cityarea = (JSONArray)jsonObject.get("cityarea");
-			
+
 			for(int i = 0; i < cityarea.size(); i++)
-			{
-				
+			{	
 				JSONObject cityObj = (JSONObject)cityarea.get(i);
 				int owner = ((Long)cityObj.get("owner")).intValue();
 				String name = (String)cityObj.get("name");
 				int id = ((Long)cityObj.get("id")).intValue();
-				//boolean TM = Boolean.getBoolean((String)cityObj.get("troublemaker"));
 				boolean TM = (Boolean)cityObj.get("troublemaker");
-				
+
 				JSONArray cityArray = (JSONArray)cityObj.get("minions");
 				Vector<Integer> minions = new Vector<Integer>();
 				for(int k=0; k < cityArray.size(); k++)
@@ -186,12 +209,12 @@ public class SaveGame {
 				byte[] nCity = new byte[cArray.size()];
 				for(int m=0; m < cArray.size(); m++)
 				{
-					nCity[m] = Byte.parseByte((String)cArray.get(m));
+					nCity[m] = ((Long)cArray.get(m)).byteValue();
 				}
-				CityCard c = new CityCard(id, name, owner, minions, TM, build, demons, trolls,nCity);
+				CityCard c = new CityCard(id, name, owner, minions, TM, build, demons, trolls,null);
 				city.add(c);
 			}
-			
+
 			JSONArray player = (JSONArray)jsonObject.get("players");
 			ArrayList<Player> gamer = new ArrayList<Player>();
 			for(int j=0; j < player.size(); j++)
@@ -202,9 +225,9 @@ public class SaveGame {
 				int id = ((Long)playerObj.get("id")).intValue();
 				int minion = ((Long)playerObj.get("minion")).intValue();
 				JSONObject PC = (JSONObject)playerObj.get("personalityCard");
-				PersonalityCard pCard = new PersonalityCard(Integer.parseInt((String)PC.get("id")),(String)PC.get("name"));
+				PersonalityCard pCard = new PersonalityCard(((Long)PC.get("id")).intValue(),(String)PC.get("name"));
 				int build = ((Long)playerObj.get("building")).intValue();
-				JSONArray holdC = (JSONArray)player.get(j);
+				JSONArray holdC = (JSONArray)playerObj.get("holdingCards");
 				ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
 				for(int k=0;k<holdC.size();k++)
 				{
@@ -213,19 +236,25 @@ public class SaveGame {
 					int hId = ((Long)hCardObj.get("id")).intValue();
 					String hName = (String)hCardObj.get("name");
 					String hDesc = (String)hCardObj.get("description");
-					JSONArray hAbility = (JSONArray)hCardObj.get("ability");
-					Vector<Boolean> ability=new Vector<Boolean>(7);
-					for(int l=0;l<hAbility.size();l++)
+					JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
+					String symbolStr = "";
+					for(int m=0;m<hSymbol.size();m++)
 					{
-						ability.add(Boolean.parseBoolean((String)hAbility.get(l)));
+						symbolStr += ((String)hSymbol.get(m)).substring(0,1);
 					}
-					BoardCard b = new BoardCard(hName, hId, ability, hDesc, hMoney);
+					/*JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
+					Vector<Boolean> symbol=new Vector<Boolean>(7);
+					for(int l=0;l<hSymbol.size();l++)
+					{
+						symbol.add(Boolean.parseBoolean((String)hSymbol.get(l)));
+					}*/
+					BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
 					holdingCards.add(b);
 				}
 				Player p = new Player(id, money, color, minion, build, pCard, holdingCards);
 				gamer.add(p);
 			}
-			
+
 			int bank = ((Long)jsonObject.get("bank")).intValue();
 			/*FileInputStream fstream = new  FileInputStream(f);
 			DataInputStream in = new DataInputStream(fstream);
@@ -242,14 +271,14 @@ public class SaveGame {
 			e.printStackTrace();
 		}
 	}
+
 	public static String base64Encode(String token) {
-	    byte[] encodedBytes = Base64.getEncoder().encode(token.getBytes());
-	    return new String(encodedBytes, Charset.forName("UTF-8"));
+		byte[] encodedBytes = Base64.getEncoder().encode(token.getBytes());
+		return new String(encodedBytes, Charset.forName("UTF-8"));
 	}
 
-
 	public static String base64Decode(String token) {
-	    byte[] decodedBytes = Base64.getDecoder().decode(token.getBytes());
-	    return new String(decodedBytes, Charset.forName("UTF-8"));
+		byte[] decodedBytes = Base64.getDecoder().decode(token.getBytes());
+		return new String(decodedBytes, Charset.forName("UTF-8"));
 	}
 }
