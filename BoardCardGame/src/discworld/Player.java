@@ -75,13 +75,12 @@ public class Player {
 	 * @param greencard
 	 * @param browncard
 	 */
-	public Player(String information,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
-		String[] info=information.split("-");
+	public Player(String information,CardColor cardcolor,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
 		int numGreenCard = 0,numBrownCard = 0;
-		this.id=Integer.parseInt(info[0].substring(6,7));
+		this.id=Integer.parseInt(information.substring(6,7));
 		money=10;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
-		this.color=info[1];
+		this.color=cardcolor.name();
 		minion=12;
 		building=6;
 		personalityCard=this.gain_personalityCard(personalitycards);
