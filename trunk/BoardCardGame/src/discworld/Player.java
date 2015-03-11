@@ -396,9 +396,7 @@ public class Player {
 				do{
 
 					for(int i=0;i<12;i++)
-						System.out.println((i
-
-								+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
 				}while(indexCity>0 &&indexCity<12 && Master.cityCards.get
 
@@ -409,13 +407,9 @@ public class Player {
 			}else if(s==BoardCard.Symbols.Minion){
 				do{
 					for(int i=0;i<12;i++)
-						System.out.println((i
-
-								+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity>0 &&indexCity<12 && this.putMinion
-
-						(Master.cityCards.get(indexCity-1), Master.cityCards));
+				}while(indexCity>0 &&indexCity<12 && this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
 

@@ -708,6 +708,11 @@ public class Master {
 					for(int i=0;i<tempList.size();i++)
 						System.out.println((i+1)+". "+tempList);
 					Scanner s=new Scanner(System.in);
+					int indexCard;
+					System.out.println("Chooing a card")
+					do{
+						index
+					}while(index);
 				}else
 					System.out.println("You have already play a card.");
 				break;
