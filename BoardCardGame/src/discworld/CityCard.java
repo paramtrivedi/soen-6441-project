@@ -12,7 +12,7 @@ import java.util.Vector;
  */
 public class CityCard 
 {	
-	protected int benifit;
+	protected int benefit;
 	/** It gives the id for the city card. */
 	protected int id;	
 	/** It gives the name to the city card.	*/	
@@ -41,7 +41,7 @@ public class CityCard
 	 * @param nearestCity
 	 * 
 	 */
-	public CityCard(int id, String name, byte [] nearestCity,int benifit){
+	public CityCard(int id, String name, byte [] nearestCity,int benefit){
 		this.id=id;
 		this.name=name;
 		this.nearestCity=nearestCity;
@@ -54,7 +54,7 @@ public class CityCard
 		setBuilding(false);
 		demons=0;
 		trolls=0;
-		this.benifit=benifit;
+		this.benefit=benefit;
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class CityCard
 	 * @param nearestCity Adjacent cities to the given city
 	 */
 
-	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls,byte [] nearestCity){
+	public CityCard(int id, String name, int owner,Vector<Integer> minions, boolean troublemaker, boolean building,int demons,int trolls,byte [] nearestCity, int benefit){
 		this.id=id;
 		this.name=name;
 		this.setOwner(owner);
@@ -83,6 +83,7 @@ public class CityCard
 		this.demons=demons;
 		this.trolls=trolls;
 		this.nearestCity = nearestCity;
+		this.benefit = benefit;
 	}
 
 	/**
@@ -395,7 +396,7 @@ public class CityCard
 	public void setOwner(int owner) {
 		this.owner = owner;
 	}
-	public int getBenifit(){
-		return benifit;
+	public int getBenefit(){
+		return benefit;
 	}
 }

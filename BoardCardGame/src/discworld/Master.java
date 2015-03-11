@@ -688,7 +688,7 @@ public class Master {
 			int benifit=0;
 			for(int i=0;i<12;i++)
 				if(cityCards.get(i).getOwner()==num)
-					benifit+=cityCards.get(i).benifit;
+					benifit+=cityCards.get(i).benefit;
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
