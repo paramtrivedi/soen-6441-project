@@ -134,11 +134,7 @@ public class SaveGame {
 		}
 	}
 
-	/**
-	 * 
-	 * This method loads the game.
-	 * 
-	 */
+	/**  This method loads the game.*/
 	public static void load(){
 		Vector<CityCard> city = new Vector<CityCard>();
 		
