@@ -129,7 +129,7 @@ public class CityCard
 	 */
 	public boolean putTM(){
 		if(containTroubleMaker()){
-			System.out.println("One trouble maker already exists in "+name);
+			//System.out.println("One trouble maker already exists in "+name);
 			return false;
 		}
 		else{
@@ -148,7 +148,7 @@ public class CityCard
 	 */
 	public boolean removeTM(){
 		if(!containTroubleMaker()){
-			System.out.println("No trouble maker exists in "+name);
+			//System.out.println("No trouble maker exists in "+name);
 			return false;
 		}
 		else{

@@ -61,18 +61,18 @@ public class Master {
 		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12},18));
 		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11},12));
 
-		eventCards.add(new EventCard("The Dragon"));
-		eventCards.add(new EventCard("Flood"));
-		eventCards.add(new EventCard("Fire"));
-		eventCards.add(new EventCard("Fog"));
-		eventCards.add(new EventCard("Riots"));
-		eventCards.add(new EventCard("Explosion"));
-		eventCards.add(new EventCard("Mysterious Murders!"));
-		eventCards.add(new EventCard("Demons from the Dungeon Dimensions"));
-		eventCards.add(new EventCard("Subsidence"));
-		eventCards.add(new EventCard("Bloody Stupid Johnson"));
-		eventCards.add(new EventCard("Trolls"));
-		eventCards.add(new EventCard("Earthquake"));
+		eventCards.add(new EventCard(1,"The Dragon"));
+		eventCards.add(new EventCard(2,"Flood"));
+		eventCards.add(new EventCard(3,"Fire"));
+		eventCards.add(new EventCard(4,"Fog"));
+		eventCards.add(new EventCard(5,"Riots"));
+		eventCards.add(new EventCard(6,"Explosion"));
+		eventCards.add(new EventCard(7,"Mysterious Murders!"));
+		eventCards.add(new EventCard(8,"Demons from the Dungeon Dimensions"));
+		eventCards.add(new EventCard(9,"Subsidence"));
+		eventCards.add(new EventCard(10,"Bloody Stupid Johnson"));
+		eventCards.add(new EventCard(11,"Trolls"));
+		eventCards.add(new EventCard(12,"Earthquake"));
 		Collections.shuffle(eventCards);
 		greenCard.clear();
 		brownCard.clear();
@@ -588,10 +588,10 @@ public class Master {
 				}
 			}
 			int maxPlayer=-1,max=0;
-			Master rollDice = new Master();
+			//Master rollDice = new Master();
 			for(int i=0; i<players; i++){
 				System.out.println("Player "+(i+1)+ " rolls the dice: ");
-				int num = rollDice.roll();
+				int num = roll();
 				System.out.println("Player "+(i+1)+ " got the number: "+num);
 				if(num > max) 
 				{
@@ -755,18 +755,19 @@ public class Master {
 		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12},18));
 		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11},12));
 		eventCards.clear();
-		eventCards.add(new EventCard("The Dragon"));
-		eventCards.add(new EventCard("Flood"));
-		eventCards.add(new EventCard("Fire"));
-		eventCards.add(new EventCard("Fog"));
-		eventCards.add(new EventCard("Riots"));
-		eventCards.add(new EventCard("Explosion"));
-		eventCards.add(new EventCard("Mysterious Murders!"));
-		eventCards.add(new EventCard("Demons from the Dungeon Dimensions"));
-		eventCards.add(new EventCard("Subsidence"));
-		eventCards.add(new EventCard("Bloody Stupid Johnson"));
-		eventCards.add(new EventCard("Trolls"));
-		eventCards.add(new EventCard("Earthquake"));
+		eventCards.add(new EventCard(1,"The Dragon"));
+		eventCards.add(new EventCard(2,"Flood"));
+		eventCards.add(new EventCard(3,"Fire"));
+		eventCards.add(new EventCard(4,"Fog"));
+		eventCards.add(new EventCard(5,"Riots"));
+		eventCards.add(new EventCard(6,"Explosion"));
+		eventCards.add(new EventCard(7,"Mysterious Murders!"));
+		eventCards.add(new EventCard(8,"Demons from the Dungeon Dimensions"));
+		eventCards.add(new EventCard(9,"Subsidence"));
+		eventCards.add(new EventCard(10,"Bloody Stupid Johnson"));
+		eventCards.add(new EventCard(11,"Trolls"));
+		eventCards.add(new EventCard(12,"Earthquake"));
+		Collections.shuffle(eventCards);
 
 		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
 		String line;
@@ -793,7 +794,7 @@ public class Master {
 	 * 
 	 * @return integer
 	 */
-	public int roll()
+	public static int roll()
 	{
 		Random ran = new Random();
 
