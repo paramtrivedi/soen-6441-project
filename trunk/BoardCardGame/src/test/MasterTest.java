@@ -22,7 +22,6 @@ public class MasterTest {
 	@Before
 	public void initialize(){
 		m=new Master();
-		new Player(2,200,CardColor.Blue,2,3,p,holdingCards);
 		player = new Player(2,200,CardColor.Blue,2,3,p,holdingCards);
 	}
 	
