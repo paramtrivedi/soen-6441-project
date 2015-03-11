@@ -12,6 +12,7 @@ import java.util.Vector;
  */
 public class CityCard 
 {	
+	protected int benifit;
 	/** It gives the id for the city card. */
 	protected int id;	
 	/** It gives the name to the city card.	*/	
