@@ -35,7 +35,7 @@ public class CityCard
 	 * Constructs an instance of CityCard class with the given parameters.
 	 * 
 	 * This constructor will create a particular CityCard with the id, the name and the nearest cities to it.
-	 * 
+	 * @version 2.0
 	 * @param id
 	 * @param name
 	 * @param nearestCity
@@ -62,6 +62,7 @@ public class CityCard
 	 * This constructor will create a particular CityCard with id, name.
 	 * the owner, number of minions for each player, existence of trouble maker and building,
 	 * number of demons and trolls
+	 * @version 2.0 
 	 * @param id 	The id of the city
 	 * @param name	The name of the city
 	 * @param owner	The owner of the city
