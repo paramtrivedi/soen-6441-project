@@ -403,7 +403,7 @@ public class CityCard
 	public int getBenefit(){
 		return benefit;
 	}
-
+	
 	public void removeAllMinion() {
 		Vector<Integer> minions=new Vector<Integer>(4);
 		minions.add(0);
