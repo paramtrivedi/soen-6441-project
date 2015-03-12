@@ -383,22 +383,7 @@ public class Player {
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=Master.scan.nextInt();
-					int indexPlayer;
-					do{
-						System.out.println("Choose a player:");
-						for(int i =0;i<Master.playerList.size();i++)
-						{
-							if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
-								System.out.println("Player "+Master.playerList.get(i).getId());
-						}
-						indexPlayer=Master.scan.nextInt();
-						Master.scan.nextLine();
-					}while(indexPlayer<=0||indexPlayer>4);
-					if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
-						if(!Master.playerList.get(indexPlayer-1).interrupt())
-							b.Assassination(Master.cityCards.get(indexCity-1), Master.playerList.get(indexPlayer-1));
-						else System.out.println("Player "+indexPlayer+" Interrupt.");
-					else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
+					
 				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(0);
