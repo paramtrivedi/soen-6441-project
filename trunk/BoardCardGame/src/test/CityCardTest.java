@@ -45,7 +45,6 @@ public class CityCardTest {
     {
 		boolean res = c.putMinion(player);
 		assertTrue(res);
-		assertEquals(c.minionNum(player),1);
     }
     
     /**
@@ -54,8 +53,9 @@ public class CityCardTest {
     @Test
     public void removeMinionTest()
     {
+    	c.putMinion(player);
     	boolean res = c.removeMinion(player);
-		assertFalse(res);
+		assertTrue(res);
     }
     
     /**
@@ -72,22 +72,13 @@ public class CityCardTest {
      * This method checks whether the building needs to destroy or change the owner of the building successfully or not.
      */
     @Test
-    public void destroyTest()
+    public void destroyTest1()
     {
     	boolean res = c.destroy();
     	assertFalse(res);
     }
-    
-    /**
-     * This method checks whether the adjacent city has minion or not.
-     */
-    @Test
-    public void adjacentCheckTest()
-    {
-    	boolean res = c.adjacentCheck(cityCard, player);
-    	assertTrue(res);
-    }
-    
+      
+      
     /**
      * This method checks whether the Player put the demons to a specific area or not.
      */
@@ -102,10 +93,18 @@ public class CityCardTest {
      * This method checks whether the Player remove the demons from a specific area or not.
      */
     @Test
-    public void removeDemonTest()
+    public void removeDemonTest1()
     {
     	boolean res = c.removeDemon();
     	assertFalse(res);
+    }
+    @Test
+    public void removeDemonTest2()
+    {
+    	c.putDemon();
+    	assertEquals(1,c.getDemons());
+    	boolean res = c.removeDemon();
+    	assertTrue(res);
     }
     
     /**
@@ -122,8 +121,15 @@ public class CityCardTest {
      * This method checks whether the Player remove the trolls from a specific area or not.
      */
     @Test
-    public void removeTrollTest()
+    public void removeTrollTest1()
     {
+    	boolean res = c.removeTrolls();
+    	assertFalse(res);
+    }
+    @Test
+    public void removeTrollTest2()
+    {
+    	c.putTrolls();
     	boolean res = c.removeTrolls();
     	assertTrue(res);
     }
