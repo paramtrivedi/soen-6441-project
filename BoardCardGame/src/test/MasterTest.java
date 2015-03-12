@@ -15,14 +15,14 @@ import discworld.PersonalityCard;
 
 
 public class MasterTest {
-	private Master m;
+	//private Master m;
 	private Player player;
 	private PersonalityCard p;
 	ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
 	@Before
 	public void initialize(){
-		m=new Master();
-		player = new Player(2,200,CardColor.Blue,2,3,p,holdingCards);
+		//m=new Master();
+		player = new Player(2,200,CardColor.blue,2,3,p,holdingCards);
 	}
 	
 	@Test
@@ -52,7 +52,7 @@ public class MasterTest {
 	@Test
 	public void roll()
 	{
-		int result = m.roll();
+		int result = Master.roll();
 		boolean res;
 		if(result>0){
 			res = true;
@@ -65,7 +65,7 @@ public class MasterTest {
 	@Test
 	public void winCheck()
 	{
-		boolean res = m.winCheck(player);
-		assertTrue(res);
+		boolean res = Master.winCheck(player);
+		assertFalse(res);
 	}
 }
