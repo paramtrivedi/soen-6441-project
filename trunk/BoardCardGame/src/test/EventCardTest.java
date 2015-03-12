@@ -32,6 +32,9 @@ public class EventCardTest {
 		assertTrue(e.equals("The Dragon"));
 	}
 	
+	/**
+	 * 
+	 */
 	@Test
 	public void actionTest()
 	{

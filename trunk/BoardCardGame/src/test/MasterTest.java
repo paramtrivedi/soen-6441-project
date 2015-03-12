@@ -31,25 +31,7 @@ public class MasterTest {
 		
 	}
 	
-	/*@Test
-	public void newGame ()
-	{
-		
-	}
-	
-	@Test
-	public void ChooseCity()
-	{
-		
-	}
-	
-	@Test
-	public void playGames()
-	{
-		
-	}*/
-	
-	/* 
+	/**
 	 * The method checks that whether the number we got from roll() function 
 	 * of the dice is greater than Zero or Not 
 	 */
@@ -66,6 +48,9 @@ public class MasterTest {
 		assertTrue(res);
 	}
 	
+	/**
+	 * This method checks whether the winning condition of an player shows or not.
+	 */
 	@Test
 	public void winCheck()
 	{

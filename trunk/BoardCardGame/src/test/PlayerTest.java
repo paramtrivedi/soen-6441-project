@@ -17,8 +17,10 @@ public class PlayerTest {
 	private Player player;
 	private PersonalityCard p;
 	private CityCard c;
+	Vector<PersonalityCard> personalitycards;
+	Vector<BoardCard> brownCard;
+	Vector<BoardCard> greenCard;
 	
-	Vector<PersonalityCard>personalitycards = new Vector<PersonalityCard>(7);
 	@Before
 	public void initialize(){
 		c = new CityCard(1, "Dolly Sister",new byte[]{2,3,12},6);
@@ -26,6 +28,9 @@ public class PlayerTest {
 		p = new PersonalityCard(2,"MARS");
 		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
 		player=new Player(2,200,CardColor.blue,2,3,p,holdingCards);
+		greenCard = new Vector<BoardCard>(48);
+		brownCard = new Vector<BoardCard>(53);
+		personalitycards = new Vector<PersonalityCard>(7);
 		for (int i=0; i<7; i++){
 			String dummy = cards[i];
 			PersonalityCard temp = new PersonalityCard (1,dummy);
@@ -45,24 +50,36 @@ public class PlayerTest {
 		assertEquals(5,player.getHoldingCards().size());
 	}
 	
+	/**
+	 * This method checks whether each player gets a random board card or not.
+	 */
 	@Test
 	public void gain_boardcard()
 	{
 		
 	}
 	
+	/**
+	 * This method checks whether each player gets a personality card or not.
+	 */
 	@Test
 	public void gain_personalityCard()
 	{
 		//boolean res = player.gain_personalityCard(personalitycards);
 	}
 	
+	/**
+	 * This method checks if the player interrupts or plays his card
+	 */
 	@Test
-	public void refill(Vector<BoardCard> g,Vector<BoardCard> b)
+	public void interrrupt()
 	{
-		
+		boolean res = p.
 	}
 	
+	/**
+	 * This method checks whether a player builds a building in a specific city or not.
+	 */
 	@Test
 	public void putBuilding()
 	{
