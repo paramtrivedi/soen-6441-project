@@ -365,13 +365,31 @@ public class Player {
 						if(Master.cityCards.get(i).containTroubleMaker())
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=scan.nextInt();
-				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity).containTroubleMaker());
+					scan.nextLine();
+				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
 				
-				b.Assassination(Master.cityCards.get(indexCity), this);
+				
 				for(int i=0;i<indexSym;i++)
 				{
 					b.allSymbols().remove(i);
 				}
+				int indexPlayer;
+				do{
+					System.out.println("Choose a player:");
+					for(int i =0;i<Master.playerList.size();i++)
+					{
+						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
+							System.out.println("Player "+Master.playerList.get(i).getId());
+					}
+					indexPlayer=scan.nextInt();
+					scan.nextLine();
+					
+				}while(indexPlayer<=0||indexPlayer>4);
+				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
+					if(!Master.playerList.get(indexPlayer-1).interrupt())
+						b.Assassination(Master.cityCards.get(indexCity-1), Master.playerList.get(indexPlayer-1));
+					else System.out.println("Player "+indexPlayer+" Interrupt.");
+				else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
 			}
 			else if (s==BoardCard.Symbols.Building)
 			{
@@ -415,12 +433,7 @@ public class Player {
 			{
 				playNextCard=true;
 			}
-
-			if(rondomEventFlag){
-				System.out.println(Master.eventCards.get(0).toString()+" happens.");
-				Master.eventCards.remove(0);
-			}
-			
+	
 			con="J";
 			while(!(con.equals("Y")||con.equals("N")))
 			{
@@ -428,6 +441,10 @@ public class Player {
 				con=scan.next().trim().toUpperCase();
 			};
 		}while(!b.allSymbols().isEmpty() && con.equals("N"));
+		if(rondomEventFlag){
+			System.out.println(Master.eventCards.get(0).toString()+" happens.");
+			Master.eventCards.remove(0);
+		}
 		scan.close();
 		return playNextCard;
 

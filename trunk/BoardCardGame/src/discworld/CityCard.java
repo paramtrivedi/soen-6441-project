@@ -148,7 +148,7 @@ public class CityCard
 	 */
 	public boolean removeTM(){
 		if(!containTroubleMaker()){
-			//System.out.println("No trouble maker exists in "+name);
+			System.out.println("No trouble maker exists in "+name);
 			return false;
 		}
 		else{
