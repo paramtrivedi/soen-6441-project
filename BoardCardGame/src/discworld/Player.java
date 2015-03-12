@@ -360,13 +360,18 @@ public class Player {
 			if (s== BoardCard.Symbols.Assassination)
 			{
 				do{
-
+					System.out.println("Choose a city from following: ");
 					for(int i=0;i<12;i++)
-						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+						if(Master.cityCards.get(i).containTroubleMaker())
+							System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
-				}while(indexCity<=0 ||indexCity>12 ||! b.Assassination(Master.cityCards.get(indexCity), this));
+				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity).containTroubleMaker());
+				
+				b.Assassination(Master.cityCards.get(indexCity), this);
 				for(int i=0;i<indexSym;i++)
+				{
 					b.allSymbols().remove(i);
+				}
 			}
 			else if (s==BoardCard.Symbols.Building)
 			{
@@ -417,6 +422,7 @@ public class Player {
 				System.out.println(Master.eventCards.get(0).toString()+" happens.");
 				Master.eventCards.remove(0);
 			}
+			
 			con=null;
 			while(!(con.equals("Y")||con.equals("N")))
 			{
