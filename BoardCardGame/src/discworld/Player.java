@@ -333,7 +333,11 @@ public class Player {
 		}
 		return true;
 	}
-
+	/** 
+	 * This method allows player to play a card
+	 * @param b
+	 */
+		
 	public boolean playCard(BoardCard b){
 		int numSym=0;
 		boolean playNextCard=false;
