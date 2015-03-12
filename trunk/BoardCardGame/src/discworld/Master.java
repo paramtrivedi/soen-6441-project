@@ -632,7 +632,7 @@ public class Master {
 			if (input < 0){
 				System.out.println("Please enter a positive number!!!");
 			}
-		} while (input <= -1 || input>5);
+		} while (input < 0 || input > 5);
 		return input;
 	}
 
