@@ -357,4 +357,7 @@ public class SaveGame {
 		byte[] decodedBytes = Base64.getDecoder().decode(token.getBytes());
 		return new String(decodedBytes, Charset.forName("UTF-8"));
 	}
+	public static void loadCheck(){
+		
+	}
 }
