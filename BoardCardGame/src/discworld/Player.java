@@ -363,7 +363,7 @@ public class Player {
 					System.out.println("Choose a city from following: ");
 					for(int i=0;i<12;i++)
 						if(Master.cityCards.get(i).containTroubleMaker())
-							System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
+							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=scan.nextInt();
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity).containTroubleMaker());
 				
@@ -423,13 +423,13 @@ public class Player {
 				Master.eventCards.remove(0);
 			}
 			
-			con=null;
+			con="J";
 			while(!(con.equals("Y")||con.equals("N")))
 			{
 				System.out.println("Do you want to use other Symbols of the card?(Y/N)");
 				con=scan.next().trim().toUpperCase();
 			};
-		}while(!b.allSymbols().isEmpty() || con.equals("Y"));
+		}while(!b.allSymbols().isEmpty() && con.equals("N"));
 		scan.close();
 		return playNextCard;
 
