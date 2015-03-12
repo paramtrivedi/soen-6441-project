@@ -70,14 +70,14 @@ public class Player {
 	 * 
 	 * The Player constructor shows all the information,name of personality cards,
 	 * greencard and browncard 
-	 * @param information
+	 * @param id
 	 * @param personalitycards
 	 * @param greencard
 	 * @param browncard
 	 */
-	public Player(String information,CardColor cardcolor,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
+	public Player(int id,CardColor cardcolor,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
 		int numGreenCard = 0,numBrownCard = 0;
-		this.id=Integer.parseInt(information.substring(6,7));
+		this.id=id;
 		money=10;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
 		this.color=cardcolor;
@@ -121,7 +121,7 @@ public class Player {
 
 	public Player(int id, int money, CardColor color, int minion, int building,
 			PersonalityCard personalityCard, ArrayList<BoardCard> holdingCards) {
-		super();
+		//super();
 		this.id = id;
 		this.money = money;
 		this.color = color;
@@ -353,7 +353,7 @@ public class Player {
 					System.out.println((i+1)+". "+s.name());
 				}
 				indexSym=scan.nextInt();
-			}while(indexSym>0 && indexSym<=numSym);
+			}while(indexSym<=0 || indexSym>numSym);
 
 
 			s=b.allSymbols().get(indexSym-1);
@@ -362,9 +362,7 @@ public class Player {
 				do{
 
 					for(int i=0;i<12;i++)
-						System.out.println((i
-
-								+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getId());
 					indexCity=scan.nextInt();
 				}while(indexCity<=0 ||indexCity>12 ||! b.Assassination(Master.cityCards.get(indexCity), this));
 				for(int i=0;i<indexSym;i++)
