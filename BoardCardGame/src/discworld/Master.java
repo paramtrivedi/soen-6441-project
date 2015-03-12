@@ -128,6 +128,7 @@ public class Master {
 			}
 		}while(!quit);
 		System.out.println("Bye-bye!!!");
+		scan.close();
 	}
 
 	public static CardColor getColor(String color)
@@ -619,7 +620,7 @@ public class Master {
 		System.out.println(" 1. Save Game");
 		System.out.println(" 2. Load Game");
 		System.out.println(" 3. Play a Card");
-		System.out.println(" 4. Get the benifits");
+		System.out.println(" 4. Get the benefits");
 		System.out.println(" 5. Finish this turn and refill the card");
 		do{	
 			while (!scan.hasNextInt()){
