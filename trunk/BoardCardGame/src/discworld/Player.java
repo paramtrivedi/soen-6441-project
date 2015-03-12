@@ -75,9 +75,9 @@ public class Player {
 	 * @param greencard
 	 * @param browncard
 	 */
-	public Player(int id,CardColor cardcolor,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
+	public Player(String s,CardColor cardcolor,Vector<PersonalityCard> personalitycards,Vector<BoardCard> greencard, Vector<BoardCard>browncard){
 		int numGreenCard = 0,numBrownCard = 0;
-		this.id=id;
+		this.id=Integer.parseInt(s.substring(6, 7));
 		money=10;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
 		this.color=cardcolor;
