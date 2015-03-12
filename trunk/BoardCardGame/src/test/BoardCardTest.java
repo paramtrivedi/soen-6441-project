@@ -18,12 +18,13 @@ public class BoardCardTest {
 	private PersonalityCard p;
 	@Before
 	public void initialize(){
-		c=new CityCard(2,"SSS",new byte[]{2,3,12},6);
+		c=new CityCard(2,"The Hippo",new byte[]{2,3,12},6);
 		b=new BoardCard(2,"SSS","MR",3,null);
 		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
-		p = new PersonalityCard(2,"MARS");
+		p = new PersonalityCard(2,"Lord Rust");
 		player=new Player(2,200,CardColor.blue,2,3,p,holdingCards);
 	}
+	
 	@Test
 	public void ConstructorTest()
 	{
@@ -32,6 +33,10 @@ public class BoardCardTest {
 		assertEquals(BoardCard.Symbols.Minion,b.allSymbols().get(1));
 		assertEquals(3, b.dollar());
 	}
+	
+	/**
+	 * This method checks one minion of other players has been assassinated or not.
+	 */
 	@Test
 	public void AssassinationTest()
 	{

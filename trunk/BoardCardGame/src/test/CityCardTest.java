@@ -22,8 +22,8 @@ public class CityCardTest {
 	@Before
 	public void initialize(){
 		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
-		c=new CityCard(2,"SSS",new byte[]{2,3,12},12);
-		p = new PersonalityCard(2,"MARS");
+		c=new CityCard(2,"The Hippo",new byte[]{2,3,12},12);
+		p = new PersonalityCard(2,"Lord Rust");
 		player = new Player(2,200,CardColor.blue,2,3,p,holdingCards);
 		cityCard = new Vector<CityCard>(12);
 	}
@@ -32,7 +32,7 @@ public class CityCardTest {
 	public void ConstructorTest()
 	{
 		assertEquals(2, c.getId());
-		assertTrue(c.Name().equals("SSS"));
+		assertTrue(c.Name().equals("The Hippo"));
 		assertEquals(3, c.getNearestCity().length);	
 		assertEquals(3, c.getNearestCity()[1]);	
 	}
