@@ -311,7 +311,7 @@ public class Player {
 			System.out.println("You need to remove one building from following cities:");
 			for(int i=0;i<12;i++)
 				if(cities.get(i).isBuilding() && cities.get(i).getOwner()==this.id )
-					System.out.println(cities.get(i).getId()+"/t"+cities.get(i).Name());
+					System.out.println(cities.get(i).getId()+". "+cities.get(i).Name());
 			int input;
 			do{
 				input=Master.scan.nextInt();
