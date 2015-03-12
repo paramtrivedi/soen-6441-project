@@ -55,7 +55,7 @@ public class CityCardTest {
     public void removeMinionTest()
     {
     	boolean res = c.removeMinion(player);
-		assertTrue(res);
+		assertFalse(res);
     }
     
     /**
@@ -75,7 +75,7 @@ public class CityCardTest {
     public void destroyTest()
     {
     	boolean res = c.destroy();
-    	assertTrue(res);
+    	assertFalse(res);
     }
     
     /**
@@ -105,7 +105,7 @@ public class CityCardTest {
     public void removeDemonTest()
     {
     	boolean res = c.removeDemon();
-    	assertTrue(res);
+    	assertFalse(res);
     }
     
     /**
