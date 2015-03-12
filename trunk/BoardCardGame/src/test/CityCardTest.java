@@ -2,6 +2,7 @@ package test;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Vector;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -16,6 +17,7 @@ public class CityCardTest {
 	private CityCard c;
 	private Player player;
 	private PersonalityCard p;
+	Vector<CityCard> cityCard;
 	
 	@Before
 	public void initialize(){
@@ -23,6 +25,7 @@ public class CityCardTest {
 		c=new CityCard(2,"SSS",new byte[]{2,3,12},12);
 		p = new PersonalityCard(2,"MARS");
 		player = new Player(2,200,CardColor.blue,2,3,p,holdingCards);
+		cityCard = new Vector<CityCard>(12);
 	}
 	
 	@Test
@@ -34,34 +37,93 @@ public class CityCardTest {
 		assertEquals(3, c.getNearestCity()[1]);	
 	}
 	
+	/*
+	 * This method checks whether the Player put the minions at a specific area or not.
+	 */
     @Test
-    public void putMinion()
+    public void putMinionTest()
     {
 		boolean res = c.putMinion(player);
 		assertTrue(res);
     }
     
+    /*
+     * This method checks whether the Player remove the minions from a specific area or not.
+     */
     @Test
-    public void removeMinion()
+    public void removeMinionTest()
     {
-    	
+    	boolean res = c.removeMinion(player);
+		assertTrue(res);
     }
     
+    /*
+     * This method checks whether the building needs to build or change the owner of the building successfully or not.
+     */
     @Test
-    public void build()
+    public void buildTest()
     {
-    	
+    	boolean res = c.build(player);
+    	assertTrue(res);
     }
     
+    /*
+     * This method checks whether the building needs to destroy or change the owner of the building successfully or not.
+     */
     @Test
-    public void destroy()
+    public void destroyTest()
     {
-    	//c.de
+    	boolean res = c.destroy(player);
+    	assertTrue(res);
     }
     
+    /*
+     * This method checks whether the adjacent city has minion or not.
+     */
     @Test
-    public void adjacentCheck()
+    public void adjacentCheckTest()
     {
-    	
+    	boolean res = c.adjacentCheck(cityCard, player);
+    	assertTrue(res);
+    }
+    
+    /*
+     * This method checks whether the Player put the demons to a specific area or not.
+     */
+    @Test
+    public void putDemonTest()
+    {
+    	boolean res = c.putDemon();
+    	assertTrue(res);
+    }
+    
+    /*
+     * This method checks whether the Player remove the demons from a specific area or not.
+     */
+    @Test
+    public void removeDemonTest()
+    {
+    	boolean res = c.removeDemon();
+    	assertTrue(res);
+    }
+    
+    /*
+     * This method checks whether the Player put the trolls from a specific area or not
+     */
+    @Test
+    public void putTrollTest()
+    {
+    	boolean res = c.putTrolls();
+    	assertTrue(res);
+    }
+    
+    /*
+     * This method checks whether the Player remove the trolls from a specific area or not.
+     */
+    @Test
+    public void removeTrollTest()
+    {
+    	boolean res = c.removeTrolls();
+    	assertTrue(res);
     }
 }
