@@ -27,7 +27,7 @@ public class Master {
 	public static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	public static ArrayList<Player> playerList=new ArrayList<Player>();
 	public static int bank = 120;
-	public static int numPlayer=0;
+	public static int numPlayer = 0;
 
 	/**
 	 * 
@@ -116,7 +116,7 @@ public class Master {
 
 			case 2:
 				SaveGame.load();
-				dis();
+				playGames(numPlayer, playerList);
 				break;
 
 			case 0:
@@ -213,7 +213,7 @@ public class Master {
 							second = scan.nextLine();
 						}
 						colors[i] = "player" + (i+1) + "-" + second;
-						
+
 						Player gamer2 = new Player (colors[i], Master.getColor(second),card, greenCard, brownCard);
 						playerList.add(gamer2);
 						bank = bank - 10;
@@ -687,14 +687,14 @@ public class Master {
 		System.out.println("Player "+num+" Start to Play:");
 		display(cityCards,playerList.get(num-1));
 		do{
-			
+
 			input=Menu();
 			boolean playCard=true;
 			int benefit=0;
 			for(int i=0;i<12;i++)
 				if(cityCards.get(i).getOwner()==num)
 					benefit+=cityCards.get(i).benefit;
-			
+
 			winCheck(playerList.get(num-1));
 			switch (input) {
 			case 1:
@@ -705,7 +705,7 @@ public class Master {
 
 			case 2:
 				SaveGame.load();
-				dis();
+				playGames(numPlayer, playerList);
 				break;
 
 			case 3:
@@ -714,10 +714,10 @@ public class Master {
 					ArrayList <BoardCard> tempList=playerList.get(num-1).getHoldingCards();
 					for(int i=0;i<tempList.size();i++)
 						System.out.println((i+1)+". "+tempList.get(i).Name());
-					
+
 					int indexCard;
 					System.out.println("Chooing a card(1-"+tempList.size()+")");
-					
+
 					do{
 						indexCard=scan.nextInt();
 					}while(indexCard<1 && indexCard>=tempList.size());
@@ -731,9 +731,9 @@ public class Master {
 				if(benefit==0){
 					System.out.println("You do not have any benefits.");
 				}else{
-				playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benefit);
-				bank-=bank-benefit;
-				break;
+					playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benefit);
+					bank-=bank-benefit;
+					break;
 				}
 
 			case 5:
@@ -878,19 +878,11 @@ public class Master {
 	public static int bank(){
 		return bank;
 	}
-	public static void dis(){
-		System.out.println(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\t  Trouble Maker\tBuilding\tDemon\tTroll\n");
-		System.out.println(Master.cityCards.size());
-		System.out.println(Master.cityCards.get(0).getMinions().size());
-		for(int i=0; i < 12; i++){
-			System.out.println(Master.cityCards.get(i)+"\n");
-		}
-		for(int i=0;i<Master.playerList.size();i++)
-		{
-			System.out.println(Master.playerList.get(i)+"\n");
-		}
-		
+
+	public static int numPlayer(){
+		return numPlayer;
 	}
+
 	/**
 	 * Displaying the game state in beginning and ending of the game
 	 * 
@@ -903,7 +895,7 @@ public class Master {
 			System.out.println(city.get(i).toString()+"\n");
 		}
 		System.out.println(player+"\n");
-		
+
 		int bank = Master.bank();
 		System.out.println("Total Bank have " + bank + " Ankh-Morpork dollars.");
 	}
