@@ -33,6 +33,8 @@ public class SaveGame {
 	 * 
 	 * @param city
 	 * @param gamer
+	 * @param greenCard
+	 * @param brownCard
 	 */
 	@SuppressWarnings("unchecked")
 	public static void save(Vector<CityCard> city, ArrayList<Player> gamer, Vector<BoardCard> greenCard, Vector<BoardCard> brownCard)
@@ -119,7 +121,7 @@ public class SaveGame {
 			}
 
 			cityarea.put("players", player);
-			
+
 			JSONArray gCard = new JSONArray();
 
 			for(int g=0; g < greenCard.size(); g++)
@@ -159,20 +161,10 @@ public class SaveGame {
 			}
 
 			cityarea.put("brownCard", bCard);
-			
+
 			cityarea.put("bank", Master.bank());
 
-			// end
 			BufferedWriter output = new BufferedWriter(new FileWriter(f));
-			/*output.write(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\t  Trouble Maker\tBuilding\tDemon\tTroll\n");
-			for(int i=0; i < 12; i++){
-				output.write(city.get(i).toString()+"\n");
-			}
-			for(int j=0; j < gamer.size(); j++){
-				output.write(gamer.get(j)+"\n");
-			}
-			int bank = Master.bank();
-			output.write("Total Bank have " + bank + " Ankh-Morpork dollars.");*/
 
 			output.write(SaveGame.base64Encode(cityarea.toString()));
 			output.close();
@@ -207,14 +199,13 @@ public class SaveGame {
 			Object obj;
 			try
 			{
-				 obj = parser.parse(line);
+				obj = parser.parse(line);
 			}
 			catch(Exception e)
 			{
-				System.out.println("FIle is not  proper pl. try again");
+				System.out.println("This file is not proper. Please try again!!!");
 				return;
 			}
-
 
 			JSONObject jsonObject = (JSONObject) obj;
 			Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -276,25 +267,19 @@ public class SaveGame {
 					String symbolStr = "";
 					if(hSymbol != null)
 					{
-					
-					for(int m=0;m<hSymbol.size();m++)
-					{
-						symbolStr += ((String)hSymbol.get(m)).substring(0,1);
+
+						for(int m=0;m<hSymbol.size();m++)
+						{
+							symbolStr += ((String)hSymbol.get(m)).substring(0,1);
+						}
 					}
-					}
-					/*JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
-					Vector<Boolean> symbol=new Vector<Boolean>(7);
-					for(int l=0;l<hSymbol.size();l++)
-					{
-						symbol.add(Boolean.parseBoolean((String)hSymbol.get(l)));
-					}*/
 					BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
 					holdingCards.add(b);
 				}
 				Player p = new Player(id, money, pColor, minion, build, pCard, holdingCards);
 				gamer.add(p);
 			}
-			
+
 			JSONArray gCard = (JSONArray)jsonObject.get("greenCard");
 			Vector<BoardCard> greenCard = new Vector<BoardCard>();
 			for(int g=0; g<gCard.size(); g++)
@@ -306,33 +291,33 @@ public class SaveGame {
 				String symbolStr = "";
 				if(gSymbol != null)
 				{
-				for(int z=0; z < gSymbol.size(); z++)
-				{
-					symbolStr += ((String)gSymbol.get(z)).substring(0,1);
-				}
+					for(int z=0; z < gSymbol.size(); z++)
+					{
+						symbolStr += ((String)gSymbol.get(z)).substring(0,1);
+					}
 				}
 				int gMoney = ((Long)gObj.get("money")).intValue();
 				String gDesc = (String)gObj.get("description");
 				BoardCard b = new BoardCard(gId, gName, symbolStr, gMoney, gDesc);
 				greenCard.add(b);
 			}
-			
+
 			JSONArray bCard = (JSONArray)jsonObject.get("brownCard");
 			Vector<BoardCard> brownCard = new Vector<BoardCard>();
 			for(int b=0; b<bCard.size(); b++)
 			{
 				JSONObject bObj = (JSONObject)bCard.get(b);
-				
+
 				int bId = ((Long)bObj.get("id")).intValue();
 				String bName = (String)bObj.get("name");
 				JSONArray bSymbol = (JSONArray)bObj.get("symbol");
 				String symbolStr = "";
 				if(bSymbol != null)
 				{
-				for(int z=0; z < bSymbol.size(); z++)
-				{
-					symbolStr += ((String)bSymbol.get(z)).substring(0,1);
-				}
+					for(int z=0; z < bSymbol.size(); z++)
+					{
+						symbolStr += ((String)bSymbol.get(z)).substring(0,1);
+					}
 				}
 				int bMoney = ((Long)bObj.get("money")).intValue();
 				String bDesc = (String)bObj.get("description");
@@ -346,27 +331,24 @@ public class SaveGame {
 			Master.playerList=gamer;
 			Master.greenCard=greenCard;
 			Master.brownCard=brownCard;
-			/*FileInputStream fstream = new  FileInputStream(f);
-			DataInputStream in = new DataInputStream(fstream);
-			BufferedReader br = new BufferedReader(new InputStreamReader(in));
-			String strLine;
-
-			System.out.println("Loading....");
-			while ((strLine = br.readLine()) != null){
-				System.out.println (strLine);
-			}
-
-			in.close();*/
 		} catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 
+	/**
+	 * this method encodes the data
+	 * @param token
+	 */
 	public static String base64Encode(String token) {
 		byte[] encodedBytes = Base64.getEncoder().encode(token.getBytes());
 		return new String(encodedBytes, Charset.forName("UTF-8"));
 	}
 
+	/**
+	 * this method decodes the data
+	 * @param token
+	 */
 	public static String base64Decode(String token) {
 		byte[] decodedBytes = Base64.getDecoder().decode(token.getBytes());
 		return new String(decodedBytes, Charset.forName("UTF-8"));
