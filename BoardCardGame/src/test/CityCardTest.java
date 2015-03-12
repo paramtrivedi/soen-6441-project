@@ -73,7 +73,7 @@ public class CityCardTest {
     @Test
     public void destroyTest()
     {
-    	boolean res = c.destroy(player);
+    	boolean res = c.destroy();
     	assertTrue(res);
     }
     
