@@ -116,6 +116,7 @@ public class Master {
 
 			case 2:
 				SaveGame.load();
+				dis();
 				break;
 
 			case 0:
@@ -703,6 +704,7 @@ public class Master {
 
 			case 2:
 				SaveGame.load();
+				dis();
 				break;
 
 			case 3:
@@ -875,7 +877,19 @@ public class Master {
 	public static int bank(){
 		return bank;
 	}
-
+	public static void dis(){
+		System.out.println(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\t  Trouble Maker\tBuilding\tDemon\tTroll\n");
+		System.out.println(Master.cityCards.size());
+		System.out.println(Master.cityCards.get(0).getMinions().size());
+		for(int i=0; i < 12; i++){
+			System.out.println(Master.cityCards.get(i)+"\n");
+		}
+		for(int i=0;i<Master.playerList.size();i++)
+		{
+			System.out.println(Master.playerList.get(i)+"\n");
+		}
+		
+	}
 	/**
 	 * Displaying the game state in beginning and ending of the game
 	 * 
