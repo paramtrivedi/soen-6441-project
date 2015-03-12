@@ -76,6 +76,7 @@ public class CityCard
 		this.trolls=trolls;
 		this.nearestCity = nearestCity;
 		this.benefit = benefit;
+		this.minions=minions;
 	}
 
 	/**

@@ -27,7 +27,7 @@ public class EventCard {
 		case 1:
 			die=Master.roll();
 			tempCity=Master.cityCards.get(die-1);
-			//
+			
 			break;
 		case 4:
 			int size=p.getHoldingCards().size();
@@ -45,8 +45,18 @@ public class EventCard {
 			die=Master.roll();
 			Master.cityCards.get(die-1).destroy();
 			break;
-		
-			
+		case 11:
+			for(int i=0;i<3;i++)
+			{
+				die=Master.roll();
+				Master.cityCards.get(die-1).putTrolls();
+			}
+		case 8:
+			for(int i=0;i<4;i++)
+			{
+				die=Master.roll();
+				Master.cityCards.get(die-1).putDemon();
+			}
 			
 		}
 		return true;
