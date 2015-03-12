@@ -37,6 +37,15 @@ public class EventCard {
 				System.out.println(p.getHoldingCards().get(size)+"is picked up and throwd.");
 				p.getHoldingCards().remove(size);
 			}
+			break;
+		case 12:
+			die=Master.roll();
+			Master.cityCards.get(die-1).destroy();
+		case 6:
+			die=Master.roll();
+			Master.cityCards.get(die-1).destroy();
+			break;
+		
 			
 			
 		}

@@ -193,11 +193,11 @@ public class CityCard
 	 * @param player
 	 * @return If one building is destroyed, then return true.
 	 */
-	public boolean destroy(Player player){
+	public boolean destroy(){
 		if(isBuilding()){
 			System.out.println("Player "+getOwner()+"'s building is destoried in "+name);
 			setBuilding(false);
-			player.setBuilding(+1);
+			Master.playerList.get(getOwner()-1).setBuilding(+1);
 			setOwner(-1);
 			return true;
 		}
