@@ -141,4 +141,7 @@ public class BoardCard {
 	public ArrayList<Symbols> allSymbols(){
 		return symbol;
 	}
+	public void setSymbol(ArrayList<Symbols> sym){
+		this.symbol=sym;
+	}
 }
