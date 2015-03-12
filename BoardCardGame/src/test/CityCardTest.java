@@ -37,7 +37,7 @@ public class CityCardTest {
 		assertEquals(3, c.getNearestCity()[1]);	
 	}
 	
-	/*
+	/**
 	 * This method checks whether the Player put the minions at a specific area or not.
 	 */
     @Test
@@ -47,7 +47,7 @@ public class CityCardTest {
 		assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the Player remove the minions from a specific area or not.
      */
     @Test
@@ -57,7 +57,7 @@ public class CityCardTest {
 		assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the building needs to build or change the owner of the building successfully or not.
      */
     @Test
@@ -67,7 +67,7 @@ public class CityCardTest {
     	assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the building needs to destroy or change the owner of the building successfully or not.
      */
     @Test
@@ -77,7 +77,7 @@ public class CityCardTest {
     	assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the adjacent city has minion or not.
      */
     @Test
@@ -87,7 +87,7 @@ public class CityCardTest {
     	assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the Player put the demons to a specific area or not.
      */
     @Test
@@ -97,7 +97,7 @@ public class CityCardTest {
     	assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the Player remove the demons from a specific area or not.
      */
     @Test
@@ -107,7 +107,7 @@ public class CityCardTest {
     	assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the Player put the trolls from a specific area or not
      */
     @Test
@@ -117,7 +117,7 @@ public class CityCardTest {
     	assertTrue(res);
     }
     
-    /*
+    /**
      * This method checks whether the Player remove the trolls from a specific area or not.
      */
     @Test
