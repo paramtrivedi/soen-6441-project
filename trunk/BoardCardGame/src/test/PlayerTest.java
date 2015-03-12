@@ -25,7 +25,7 @@ public class PlayerTest {
 		c = new CityCard(1, "Dolly Sister",new byte[]{2,3,12},6);
 		String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 		p = new PersonalityCard(2,"MARS");
-		player=new Player(2,200,CardColor.Blue,2,3,p,holdingCards);
+		player=new Player(2,200,CardColor.blue,2,3,p,holdingCards);
 		for (int i=0; i<7; i++){
 			String dummy = cards[i];
 			PersonalityCard temp = new PersonalityCard (1,dummy);
@@ -38,11 +38,11 @@ public class PlayerTest {
 	{
 		assertEquals(2, player.getID());
 		assertEquals(200, player.getMoney());
-		assertEquals(CardColor.Blue,player.getColor());
+		assertEquals(CardColor.blue,player.getColor());
 		assertEquals(2, player.getMinion());
 		assertEquals(3, player.getBuilding());
 		assertEquals(p,player.getPersonalityCard());
-		//assertEquals(holdingCards,player.getHoldingCards());
+		assertEquals(5,player.getHoldingCards().size());
 	}
 	
 	@Test

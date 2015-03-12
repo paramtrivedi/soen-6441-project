@@ -10,11 +10,12 @@ public class EventCardTest {
 	private EventCard e;
 	@Before
 	public void initialize(){
-		 e=new EventCard("The Dragon");
+		 e=new EventCard(2,"The Dragon");
 	}
 	@Test
 	public void ConstructorTest()
 	{
+		//assertEquals(2,e);
 		assertTrue(e.equals("The Dragon"));
 	}
 }
