@@ -15,7 +15,7 @@ public class EventCardTest {
 	@Test
 	public void ConstructorTest()
 	{
-		//assertEquals(2,e);
+		//assertEquals(2,);
 		assertTrue(e.equals("The Dragon"));
 	}
 }

@@ -49,6 +49,10 @@ public class MasterTest {
 		
 	}*/
 	
+	/* 
+	 * The method checks that whether the number we got from roll() function 
+	 * of the dice is greater than Zero or Not 
+	 */
 	@Test
 	public void roll()
 	{
