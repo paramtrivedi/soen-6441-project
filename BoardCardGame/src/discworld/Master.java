@@ -22,8 +22,8 @@ public class Master {
 	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 	public static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
 	public static ArrayList<EventCard> eventCards = new ArrayList<EventCard>(12);
-	public static Vector<BoardCard> greenCard = new Vector<BoardCard>(48);
-	public static Vector<BoardCard> brownCard = new Vector<BoardCard>(53);
+	public static Vector<BoardCard> greenCard = new Vector<BoardCard>();
+	public static Vector<BoardCard> brownCard = new Vector<BoardCard>();
 	public static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	public static ArrayList<Player> playerList=new ArrayList<Player>();
 	public static int bank = 120;
