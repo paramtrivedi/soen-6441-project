@@ -174,6 +174,8 @@ public class CityCard
 			p.setBuilding(-1);
 			setBuilding(true);
 			setOwner(p.getID());
+			p.setMoney(p.getMoney()-this.benefit);
+			Master.bank+=benefit;
 			return true;
 		}
 		else{
