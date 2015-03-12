@@ -378,9 +378,7 @@ public class Player {
 				do{
 
 					for(int i=0;i<12;i++)
-						System.out.println((i
-
-								+1)+"."+Master.cityCards.get(i).getId());
+						System.out.println((i+1)+"."+Master.cityCards.get(i).getName());
 					indexCity=scan.nextInt();
 				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
