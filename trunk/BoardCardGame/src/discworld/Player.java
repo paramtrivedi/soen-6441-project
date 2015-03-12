@@ -8,7 +8,7 @@ import java.util.Vector;
  * Player class is to give each player a personality card, fifty dollars, 
  * green cards and brown cards.
  * 
- * @author Shu Liu and Zixi Quan
+ * @author Shu Liu, Zixi Quan and Jay Tanna
  * @version 2.00, 12 March 2015
  *
  */
@@ -230,6 +230,7 @@ public class Player {
 			int input;
 			do{
 				input=scan.nextInt();
+				scan.nextLine();
 			}while(input<13 && input >0 && cityCards.get(input-1).getMinions().get(this.id-1)>0);
 			scan.close();
 			city.putMinion(this);
@@ -262,7 +263,7 @@ public class Player {
 			Scanner scan=new Scanner(System.in);
 			String input;
 			do{
-				input=scan.next().toUpperCase();
+				input=scan.nextLine().toUpperCase();
 			}while(input.length()==1 && (input.equals("Y")|| input.equals("N")));
 			if(input.equals("Y"))
 			{
@@ -275,6 +276,7 @@ public class Player {
 				int num;
 				do{
 					num=scan.nextInt();
+					scan.nextLine();
 				}while(num>=0 && num<holdingCards.size()&&holdingCards.get(num).Interrupt());
 				scan.close();
 				holdingCards.remove(num);
@@ -287,8 +289,6 @@ public class Player {
 			}
 		}
 		return false;
-
-
 	}
 	/** 
 	 * It will refill the player holdingCards by 5.
@@ -301,7 +301,6 @@ public class Player {
 		{
 			System.out.println("Player "+this.getID()+" needs to refill");
 			holdingCards.add(gain_boardcard(g,b));
-
 		}
 
 	}
@@ -322,11 +321,11 @@ public class Player {
 			int input;
 			do{
 				input=scan.nextInt();
+				scan.nextLine();
 			}while(input<13 && input >0 && cities.get(input).getOwner()==this.id);
 			scan.close();
 			city.build(this);
 			cities.get(input-1).destroy(this);
-
 		}
 		else{
 			city.putMinion(this);
@@ -343,7 +342,6 @@ public class Player {
 		String con;
 		int indexSym, indexCity;
 		do{
-
 			numSym=b.allSymbols().size();
 			do{
 				System.out.println("Choose a symbol from following(1-"+numSym+"):");
@@ -353,9 +351,8 @@ public class Player {
 					System.out.println((i+1)+". "+s.name());
 				}
 				indexSym=scan.nextInt();
+				scan.nextLine();
 			}while(indexSym<=0 || indexSym>numSym);
-
-
 			s=b.allSymbols().get(indexSym-1);
 			if (s== BoardCard.Symbols.Assassination)
 			{
@@ -367,8 +364,6 @@ public class Player {
 					indexCity=scan.nextInt();
 					scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
-				
-				
 				for(int i=0;i<indexSym;i++)
 				{
 					b.allSymbols().remove(i);
@@ -383,7 +378,6 @@ public class Player {
 					}
 					indexPlayer=scan.nextInt();
 					scan.nextLine();
-					
 				}while(indexPlayer<=0||indexPlayer>4);
 				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
 					if(!Master.playerList.get(indexPlayer-1).interrupt())
@@ -394,10 +388,25 @@ public class Player {
 			else if (s==BoardCard.Symbols.Building)
 			{
 				do{
-
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=scan.nextInt();
+					int indexPlayer;
+				do{
+					System.out.println("Choose a player:");
+					for(int i =0;i<Master.playerList.size();i++)
+					{
+						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
+							System.out.println("Player "+Master.playerList.get(i).getId());
+					}
+					indexPlayer=scan.nextInt();
+					scan.nextLine();
+				}while(indexPlayer<=0||indexPlayer>4);
+				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
+					if(!Master.playerList.get(indexPlayer-1).interrupt())
+						b.Assassination(Master.cityCards.get(indexCity-1), Master.playerList.get(indexPlayer-1));
+					else System.out.println("Player "+indexPlayer+" Interrupt.");
+				else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
 				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
@@ -409,38 +418,35 @@ public class Player {
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
 			{
 				do{
-
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=scan.nextInt();
+					scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
-
 			}else if(s==BoardCard.Symbols.Minion){
 				do{
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=scan.nextInt();
+					scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(i);
-
 			}else if(s==BoardCard.Symbols.Scroll){
 				System.out.println("Scroll");
-				;//now do nothing
 			}else if (s==BoardCard.Symbols.PlayCard)
 			{
 				playNextCard=true;
 			}
-	
 			con="J";
 			while(!(con.equals("Y")||con.equals("N")))
 			{
 				System.out.println("Do you want to use other Symbols of the card?(Y/N)");
-				con=scan.next().trim().toUpperCase();
-			};
-		}while(!b.allSymbols().isEmpty() && con.equals("N"));
+				con=scan.nextLine().trim().toUpperCase();
+			}
+		}while(!b.allSymbols().isEmpty() && con.equals("Y"));
 		if(rondomEventFlag){
 			System.out.println(Master.eventCards.get(0).toString()+" happens.");
 			Master.eventCards.remove(0);
