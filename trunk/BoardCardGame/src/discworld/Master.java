@@ -17,7 +17,7 @@ import java.util.Vector;
 
 public class Master {
 
-	private static Scanner scan;
+	public static Scanner scan;
 	private static String [] colors;
 	private static String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 	public static Vector<PersonalityCard> card = new Vector<PersonalityCard>(7);
@@ -683,14 +683,18 @@ public class Master {
 
 		int input = 0;
 		boolean quit = false;
+		System.out.println("Player "+num+" Start to Play:");
+		display(cityCards,playerList.get(num-1));
 		do{
-			System.out.println("Player "+num+" Start to Play:");
+			
 			input=Menu();
 			boolean playCard=true;
-			int benifit=0;
+			int benefit=0;
 			for(int i=0;i<12;i++)
 				if(cityCards.get(i).getOwner()==num)
-					benifit+=cityCards.get(i).benefit;
+					benefit+=cityCards.get(i).benefit;
+			
+			winCheck(playerList.get(num-1));
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
@@ -721,9 +725,13 @@ public class Master {
 				break;
 
 			case 4:
-				playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benifit);
-				bank-=bank-benifit;
+				if(benefit==0){
+					System.out.println("You do not have any benefits.");
+				}else{
+				playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benefit);
+				bank-=bank-benefit;
 				break;
+				}
 
 			case 5:
 				playerList.get(num-1).refill(greenCard, brownCard);
@@ -740,6 +748,8 @@ public class Master {
 			{
 				display(cityCards,playerList.get(num-1));
 				num=num%playerList.size()+1;
+				System.out.println("Player "+num+" Start to Play:");
+				display(cityCards,playerList.get(num-1));
 			}
 		}while(!quit);
 		bank = 120;

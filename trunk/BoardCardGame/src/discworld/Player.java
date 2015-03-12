@@ -259,25 +259,24 @@ public class Player {
 			}
 
 		if(flag){
-			System.out.println("Do you want to interrupt?(Y/N)");
+			System.out.println("Do Player"+this.ID() +" want to interrupt?(Y/N)");
 			Scanner scan=new Scanner(System.in);
 			String input;
 			do{
 				input=scan.nextLine().toUpperCase();
-			}while(input.length()==1 && (input.equals("Y")|| input.equals("N")));
+			}while(!input.equals("Y") && !input.equals("N"));
 			if(input.equals("Y"))
 			{
 				for(int i=0;i<holdingCards.size();i++)
 					if(holdingCards.get(i).Interrupt())
 					{
-						System.out.println(i+"/t"+holdingCards.get(i).Name());
-
+						System.out.println((i+1)+". "+holdingCards.get(i).Name());
 					}
 				int num;
 				do{
 					num=scan.nextInt();
 					scan.nextLine();
-				}while(num>=0 && num<holdingCards.size()&&holdingCards.get(num).Interrupt());
+				}while(num<0 || num>=holdingCards.size()||!holdingCards.get(num).Interrupt());
 				scan.close();
 				holdingCards.remove(num);
 				return true;
@@ -336,7 +335,7 @@ public class Player {
 	public boolean playCard(BoardCard b){
 		int numSym=0;
 		boolean playNextCard=false;
-		Scanner scan=new Scanner(System.in);
+		
 		BoardCard.Symbols s;
 		boolean rondomEventFlag=b.Event();
 		String con;
@@ -350,8 +349,8 @@ public class Player {
 					s=b.allSymbols().get(i);
 					System.out.println((i+1)+". "+s.name());
 				}
-				indexSym=scan.nextInt();
-				scan.nextLine();
+				indexSym=Master.scan.nextInt();
+				Master.scan.nextLine();
 			}while(indexSym<=0 || indexSym>numSym);
 			s=b.allSymbols().get(indexSym-1);
 			if (s== BoardCard.Symbols.Assassination)
@@ -361,8 +360,8 @@ public class Player {
 					for(int i=0;i<12;i++)
 						if(Master.cityCards.get(i).containTroubleMaker())
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=scan.nextInt();
-					scan.nextLine();
+					indexCity=Master.scan.nextInt();
+					Master.scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
 				for(int i=0;i<indexSym;i++)
 				{
@@ -376,8 +375,8 @@ public class Player {
 						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
 							System.out.println("Player "+Master.playerList.get(i).getId());
 					}
-					indexPlayer=scan.nextInt();
-					scan.nextLine();
+					indexPlayer=Master.scan.nextInt();
+					Master.scan.nextLine();
 				}while(indexPlayer<=0||indexPlayer>4);
 				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
 					if(!Master.playerList.get(indexPlayer-1).interrupt())
@@ -390,7 +389,7 @@ public class Player {
 				do{
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=scan.nextInt();
+					indexCity=Master.scan.nextInt();
 					int indexPlayer;
 				do{
 					System.out.println("Choose a player:");
@@ -399,8 +398,8 @@ public class Player {
 						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
 							System.out.println("Player "+Master.playerList.get(i).getId());
 					}
-					indexPlayer=scan.nextInt();
-					scan.nextLine();
+					indexPlayer=Master.scan.nextInt();
+					Master.scan.nextLine();
 				}while(indexPlayer<=0||indexPlayer>4);
 				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
 					if(!Master.playerList.get(indexPlayer-1).interrupt())
@@ -409,31 +408,31 @@ public class Player {
 				else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
 				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
 				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(i);
+					b.allSymbols().remove(0);
 			}else if(s==BoardCard.Symbols.Dollar){
 				money+=b.dollar();
 				Master.bank-=b.dollar();
 				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(i);
+					b.allSymbols().remove(0);
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
 			{
 				do{
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=scan.nextInt();
-					scan.nextLine();
+					indexCity=Master.scan.nextInt();
+					Master.scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
 				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(i);
+					b.allSymbols().remove(0);
 			}else if(s==BoardCard.Symbols.Minion){
 				do{
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=scan.nextInt();
-					scan.nextLine();
+					indexCity=Master.scan.nextInt();
+					Master.scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
 				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(i);
+					b.allSymbols().remove(0);
 			}else if(s==BoardCard.Symbols.Scroll){
 				System.out.println("Scroll");
 			}else if (s==BoardCard.Symbols.PlayCard)
@@ -444,14 +443,14 @@ public class Player {
 			while(!(con.equals("Y")||con.equals("N")))
 			{
 				System.out.println("Do you want to use other Symbols of the card?(Y/N)");
-				con=scan.nextLine().trim().toUpperCase();
+				con=Master.scan.next().trim().toUpperCase();
 			}
 		}while(!b.allSymbols().isEmpty() && con.equals("Y"));
 		if(rondomEventFlag){
 			System.out.println(Master.eventCards.get(0).toString()+" happens.");
 			Master.eventCards.remove(0);
 		}
-		scan.close();
+		
 		return playNextCard;
 
 	}
