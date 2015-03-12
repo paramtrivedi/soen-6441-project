@@ -161,6 +161,8 @@ public class SaveGame {
 			}
 
 			cityarea.put("brownCard", bCard);
+			
+			cityarea.put("numPlayer", Master.numPlayer());
 
 			cityarea.put("bank", Master.bank());
 
@@ -220,7 +222,6 @@ public class SaveGame {
 				String name = (String)cityObj.get("name");
 				int id = ((Long)cityObj.get("id")).intValue();
 				boolean TM = (Boolean)cityObj.get("troublemaker");
-
 				JSONArray cityArray = (JSONArray)cityObj.get("minions");
 				Vector<Integer> minions = new Vector<Integer>();
 				for(int k=0; k < cityArray.size(); k++)
@@ -326,11 +327,14 @@ public class SaveGame {
 			}
 
 			int bank = ((Long)jsonObject.get("bank")).intValue();
-			Master.bank=bank;
-			Master.cityCards=city;
-			Master.playerList=gamer;
-			Master.greenCard=greenCard;
-			Master.brownCard=brownCard;
+			int numPlayer = ((Long)jsonObject.get("numPlayer")).intValue();
+			System.out.println(numPlayer);
+			Master.numPlayer = numPlayer;
+			Master.bank = bank;
+			Master.cityCards = city;
+			Master.playerList = gamer;
+			Master.greenCard = greenCard;
+			Master.brownCard = brownCard;
 		} catch(Exception e){
 			e.printStackTrace();
 		}
