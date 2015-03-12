@@ -27,7 +27,7 @@ public class Master {
 	public static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	public static ArrayList<Player> playerList=new ArrayList<Player>();
 	public static int bank = 120;
-
+	public static int numPlayer=0;
 
 	/**
 	 * 
@@ -699,6 +699,7 @@ public class Master {
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
+				numPlayer=num;
 				SaveGame.save(cityCards, playerList, greenCard, brownCard);
 				break;
 
