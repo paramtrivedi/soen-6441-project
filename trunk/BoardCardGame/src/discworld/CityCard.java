@@ -30,7 +30,7 @@ public class CityCard
 	 * @param id
 	 * @param name
 	 * @param nearestCity
-	 * 
+	 * @param benefit
 	 */
 	public CityCard(int id, String name, byte [] nearestCity,int benefit){
 		this.id=id;
@@ -82,7 +82,6 @@ public class CityCard
 	/**
 	 * 
 	 * The method put the minions in the game.
-	 * 
 	 * @param p	The player whose minions is put in the city.
 	 * @return If the player put a minion then return true, otherwise return false.
 	 */
@@ -102,7 +101,6 @@ public class CityCard
 
 	/**
 	 * This method is used for removing one minion for a player.
-	 * 
 	 * @param p The player whose minions is removed
 	 * @return  If the player' minions is removed then return true, otherwise return false.
 	 */
@@ -122,10 +120,8 @@ public class CityCard
 	}
 
 	/**
-	 * 
 	 * If there is no trouble maker in the city, then put one. 
 	 * Otherwise, output trouble maker exists 
-	 * 
 	 * @return If trouble maker is put, then return true, otherwise return false.
 	 */
 	public boolean putTM(){
@@ -141,10 +137,8 @@ public class CityCard
 	}
 
 	/**
-	 * 
 	 * If there is a trouble maker in the city, then remove it. 
 	 * Otherwise, output trouble maker does not exist. 
-	 * 
 	 * @return If trouble maker is removed, then return true, otherwise return false.
 	 */
 	public boolean removeTM(){
@@ -160,14 +154,11 @@ public class CityCard
 	}
 
 	/**
-	 * 
 	 * If there is no building in the city, 
 	 * then build one for the player and change the owner for the city. 
 	 * Otherwise, output building exists. 
-	 * 
 	 * @param p The player who want to build a building.
 	 * @return If building is built, then return true, otherwise return false.
-	 * 
 	 */
 	public boolean build(Player p){
 		if(!isBuilding()&&!containTroubleMaker()){
@@ -210,7 +201,7 @@ public class CityCard
 	}
 
 	/**
-	 * The method add demons.
+	 * The method add demons in a particular city.
 	 * @return true or false
 	 */
 	public boolean putDemon(){
@@ -243,7 +234,7 @@ public class CityCard
 	}
 
 	/** 
-	 * This method add trolls.
+	 * This method add trolls in the city.
 	 *  @return true or false
 	 */
 	public boolean putTrolls(){

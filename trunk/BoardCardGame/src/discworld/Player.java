@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.Vector;
 
 /**
- * Player class is to give each player a personality card, fifty dollars, 
+ * Player class is to give each player a personality card, ten dollars, 
  * green cards and brown cards.
  * 
  * @author Shu Liu, Zixi Quan and Jay Tanna
