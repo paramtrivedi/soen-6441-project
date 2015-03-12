@@ -45,6 +45,7 @@ public class CityCardTest {
     {
 		boolean res = c.putMinion(player);
 		assertTrue(res);
+		assertEquals(c.minionNum(player),1);
     }
     
     /**

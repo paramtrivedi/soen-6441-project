@@ -28,17 +28,8 @@ public class EventCardTest {
 	@Test
 	public void ConstructorTest()
 	{
-		//assertEquals(2,);
+		assertEquals(2,e.getId());
 		assertTrue(e.equals("The Dragon"));
 	}
 	
-	/**
-	 * 
-	 */
-	@Test
-	public void actionTest()
-	{
-		boolean res = e.action(player);
-		assertTrue(res);
-	}
 }
