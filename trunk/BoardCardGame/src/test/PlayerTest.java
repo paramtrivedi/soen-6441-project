@@ -74,7 +74,8 @@ public class PlayerTest {
 	@Test
 	public void interrrupt()
 	{
-		boolean res = p.
+		boolean res = player.interrupt();
+		assertFalse(res);
 	}
 	
 	/**
