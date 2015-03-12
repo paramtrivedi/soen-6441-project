@@ -438,6 +438,7 @@ public class Player {
 			}
 		}while(!b.allSymbols().isEmpty() && con.equals("Y"));
 		if(rondomEventFlag){
+			Master.eventCards.get(0).action(this);
 			System.out.println(Master.eventCards.get(0).toString()+" happens.");
 			Master.eventCards.remove(0);
 		}
