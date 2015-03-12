@@ -274,7 +274,6 @@ public class Player {
 				int num;
 				do{
 					num=Master.scan.nextInt();
-					Master.scan.nextLine();
 				}while(num<0 || num>=holdingCards.size()||!holdingCards.get(num).Interrupt());
 				holdingCards.remove(num);
 				return true;
