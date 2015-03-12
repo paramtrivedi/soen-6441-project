@@ -4,7 +4,7 @@ package discworld;
  * This class provides information of event cards.
  * 
  * @author Zixi Quan
- * @version 1.00, 1 February 2015
+ * @version 2.00, 12 March 2015
  *
  */
 public class EventCard {

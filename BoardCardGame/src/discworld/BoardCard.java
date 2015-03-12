@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * This class generates board cards.
  * 
  * @author Shu Liu and Zixi Quan
- * @version 2.00, 10 March 2015
+ * @version 2.00, 12 March 2015
  *
  */
 public class BoardCard {
