@@ -94,7 +94,7 @@ public class CityCard
 		{
 			tempSumMin+=getMinions().get(i);
 		}
-		if(tempSumMin>1 )
+		if(tempSumMin>1 || this.demons>=1||this.trolls>=1 )
 			putTM();
 		return true;
 	}
@@ -169,7 +169,7 @@ public class CityCard
 	 * 
 	 */
 	public boolean build(Player p){
-		if(!isBuilding()){
+		if(!isBuilding()&&!containTroubleMaker()){
 			System.out.println("One building is built in "+name);
 			p.setBuilding(-1);
 			setBuilding(true);
@@ -177,7 +177,9 @@ public class CityCard
 			return true;
 		}
 		else{
-			System.out.println("There is one building existing in "+name);
+			if(containTroubleMaker())
+				System.out.println("This city has a trouble make.");
+			else System.out.println("There is one building existing in "+name);
 			return false;
 		}
 	}
@@ -211,6 +213,13 @@ public class CityCard
 	public boolean putDemon(){
 		demons++;
 		System.out.println("One demon comes to "+name);
+		int tempSumMin=0;
+		for(int i=0;i<4;i++)
+		{
+			tempSumMin+=getMinions().get(i);
+		}
+		if(tempSumMin>1 || this.demons>=1||this.trolls>=1 )
+			putTM();
 		return true;
 	}
 
@@ -222,6 +231,7 @@ public class CityCard
 		if(demons>0){
 			demons--;
 			System.out.println("One demon is beaten in "+name);
+			removeTM();
 			return true;
 		}else {
 			System.out.println("No demon can be remove from "+name);
@@ -236,6 +246,13 @@ public class CityCard
 	public boolean putTrolls(){
 		trolls++;
 		System.out.println("One troll is added to "+name);
+		int tempSumMin=0;
+		for(int i=0;i<4;i++)
+		{
+			tempSumMin+=getMinions().get(i);
+		}
+		if(tempSumMin>1 || this.demons>=1||this.trolls>=1 )
+			putTM();
 		return true;
 	}
 
@@ -247,6 +264,7 @@ public class CityCard
 		if(trolls>0){
 			trolls--;
 			System.out.println("One troll is remove from "+name);
+			removeTM();
 			return true;
 		} else {
 			System.out.println("No troll can be remove from "+name);
