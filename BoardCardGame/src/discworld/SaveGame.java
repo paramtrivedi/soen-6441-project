@@ -176,7 +176,7 @@ public class SaveGame {
 
 	/**
 	 * 
-	 * This method loads the game.
+	 * This method loads the game and stores the citycard information in city, players information in player, greencard information in greencard, browncard information in browncard
 	 * 
 	 */
 	public static void load(){
