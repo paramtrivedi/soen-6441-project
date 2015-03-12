@@ -885,7 +885,6 @@ public class Master {
 
 	/**
 	 * Displaying the game state in beginning and ending of the game
-	 * 
 	 * @param city
 	 * @param player
 	 */
