@@ -308,7 +308,7 @@ public class Player {
 	public boolean putBuilding(CityCard city,ArrayList<CityCard> cities){
 		if(building==0 )
 		{
-			System.out.println("You need to remove one minion from following cities:");
+			System.out.println("You need to remove one building from following cities:");
 			for(int i=0;i<12;i++)
 				if(cities.get(i).isBuilding() && cities.get(i).getOwner()==this.id )
 					System.out.println(cities.get(i).getId()+"/t"+cities.get(i).Name());
@@ -317,11 +317,19 @@ public class Player {
 				input=Master.scan.nextInt();
 				Master.scan.nextLine();
 			}while(input<13 && input >0 && cities.get(input).getOwner()==this.id);
-			city.build(this);
-			cities.get(input-1).destroy();
+			if(money>=city.getBenefit())
+			{
+				city.build(this);
+				cities.get(input-1).destroy();
+			}else
+				System.out.print("Your money is not enough.");
 		}
 		else{
-			city.putMinion(this);
+			if(money>=city.getBenefit())
+			{
+				city.build(this);
+			}else
+				System.out.print("Your money is not enough.");
 		}
 		return true;
 	}
