@@ -25,11 +25,6 @@ public class MasterTest {
 		player = new Player(2,200,CardColor.blue,2,3,p,holdingCards);
 	}
 	
-	@Test
-	public void ConstructorTest()
-	{
-		
-	}
 	
 	/**
 	 * The method checks that whether the number we got from roll() function 
@@ -48,13 +43,5 @@ public class MasterTest {
 		assertTrue(res);
 	}
 	
-	/**
-	 * This method checks whether the winning condition of an player shows or not.
-	 */
-	@Test
-	public void winCheck()
-	{
-		boolean res = Master.winCheck(player);
-		assertFalse(res);
-	}
+	
 }

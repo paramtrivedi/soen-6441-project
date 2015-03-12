@@ -29,7 +29,7 @@ public class EventCardTest {
 	public void ConstructorTest()
 	{
 		assertEquals(2,e.getId());
-		assertTrue(e.equals("The Dragon"));
+		assertTrue(e.toString().equals("The Dragon"));
 	}
 	
 }

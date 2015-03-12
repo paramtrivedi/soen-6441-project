@@ -19,7 +19,7 @@ public class PersonalityCardTest {
 	public void ConstructorTest()
 	{
 		assertEquals(2, p.ID());
-		assertTrue(p.equals("Lord Rust"));
+		assertTrue(p.toString().equals("Lord Rust"));
 	}
 	
 }
