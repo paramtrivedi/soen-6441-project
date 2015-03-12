@@ -27,7 +27,11 @@ public class EventCard {
 		case 1:
 			die=Master.roll();
 			tempCity=Master.cityCards.get(die-1);
-			
+			tempCity.removeTrolls();
+			tempCity.removeDemon();
+			tempCity.removeAllMinion();
+			tempCity.destroy();
+			tempCity.removeTM();
 			break;
 		case 4:
 			int size=p.getHoldingCards().size();
@@ -57,6 +61,18 @@ public class EventCard {
 				die=Master.roll();
 				Master.cityCards.get(die-1).putDemon();
 			}
+		case 3://fire
+			boolean flag=false;
+			die=Master.roll();
+			while(Master.cityCards.get(die-1).isBuilding()){
+				flag=Master.cityCards.get(die-1).destroy();
+				if(flag){
+					die=Master.roll();
+				}
+			}
+		 
+			break;
+			
 			
 		}
 		return true;
