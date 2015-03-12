@@ -185,7 +185,7 @@ public class Master {
 						System.out.println("Please choose color from Blue, Red, Green and Yellow!!! Please try again...");
 						first = scan.nextLine();
 					}
-					colors[i] = "player" + (i+1);
+					colors[i] = "player" + (i+1) + "-" + first;
 					Player gamer1 = new Player (colors[i],Master.getColor(first) ,card, greenCard, brownCard);
 					playerList.add(gamer1);
 					bank = bank - 10;
@@ -199,7 +199,7 @@ public class Master {
 							System.out.println("Please choose color from Red, Green and Yellow!!! Please try again...");
 							second = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i],Master.getColor(second), card, greenCard, brownCard);
 						playerList.add(gamer2);
 						bank = bank - 10;
@@ -211,7 +211,8 @@ public class Master {
 							System.out.println("Please choose color from Blue, Green and Yellow!!! Please try again...");
 							second = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + second;
+						
 						Player gamer2 = new Player (colors[i], Master.getColor(second),card, greenCard, brownCard);
 						playerList.add(gamer2);
 						bank = bank - 10;
@@ -223,7 +224,7 @@ public class Master {
 							System.out.println("Please choose color from Blue, Red and Yellow!!! Please try again...");
 							second = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i], Master.getColor(second), card, greenCard, brownCard);
 						playerList.add(gamer2);
 						bank = bank - 10;
@@ -235,7 +236,7 @@ public class Master {
 							System.out.println("Please choose color from Blue, Red and Green!!! Please try again...");
 							second = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + second;
 						Player gamer2 = new Player (colors[i], Master.getColor(second), card, greenCard, brownCard);
 						playerList.add(gamer2);
 						bank = bank - 10;
@@ -251,7 +252,7 @@ public class Master {
 							System.out.println("Please choose color from Green and Yellow!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -263,7 +264,7 @@ public class Master {
 							System.out.println("Please choose color from Red and Yellow!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -275,7 +276,7 @@ public class Master {
 							System.out.println("Please choose color from Red and Green!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -287,7 +288,7 @@ public class Master {
 							System.out.println("Please choose color from Blue and Yellow!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -299,7 +300,7 @@ public class Master {
 							System.out.println("Please choose color from Blue and Green!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -311,7 +312,7 @@ public class Master {
 							System.out.println("Please choose color from Green and Yellow!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -323,7 +324,7 @@ public class Master {
 							System.out.println("Please choose color from Blue and Red!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -335,7 +336,7 @@ public class Master {
 							System.out.println("Please choose color from Red and Yellow!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -347,7 +348,7 @@ public class Master {
 							System.out.println("Please choose color from Blue and Yellow!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -359,7 +360,7 @@ public class Master {
 							System.out.println("Please choose color from Red and Green!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -371,7 +372,7 @@ public class Master {
 							System.out.println("Please choose color from Blue and Green!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -383,7 +384,7 @@ public class Master {
 							System.out.println("Please choose color from Blue and Red!!! Please try again...");
 							third = scan.nextLine();
 						}
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + third;
 						Player gamer3 = new Player (colors[i], Master.getColor(third), card, greenCard, brownCard);
 						playerList.add(gamer3);
 						bank = bank - 10;
@@ -396,7 +397,7 @@ public class Master {
 					if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
 						fourth = "yellow";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -404,7 +405,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -412,7 +413,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
 						fourth = "red";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -420,7 +421,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
 						fourth = "yellow";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -428,7 +429,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -436,7 +437,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("blue") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
 						fourth = "red";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -444,7 +445,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
 						fourth = "blue";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -452,7 +453,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
 						fourth = "yellow";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -460,7 +461,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -468,7 +469,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
 						fourth = "blue";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -476,7 +477,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
 						fourth = "yellow";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -484,7 +485,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("red") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -492,7 +493,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -500,7 +501,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("yellow") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
 						fourth = "blue";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -508,7 +509,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
 						fourth = "yellow";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -516,7 +517,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
 						fourth = "red";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -524,7 +525,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("yellow")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
 						fourth = "blue";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -532,7 +533,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("green") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Yellow color...");
 						fourth = "yellow";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -540,7 +541,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -548,7 +549,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("blue") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
 						fourth = "red";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -556,7 +557,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("green")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
 						fourth = "blue";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -564,7 +565,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("red") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Green color...");
 						fourth = "green";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -572,7 +573,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("red")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Blue color...");
 						fourth = "blue";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
@@ -580,7 +581,7 @@ public class Master {
 					} else if (dummy[1].equalsIgnoreCase("yellow") && parts[1].equalsIgnoreCase("green") && values[1].equalsIgnoreCase("blue")){
 						System.out.println("\nPlayer "+ (i+1) + " left with Red color...");
 						fourth = "red";
-						colors[i] = "player" + (i+1);
+						colors[i] = "player" + (i+1) + "-" + fourth;
 						Player gamer4 = new Player (colors[i], Master.getColor(fourth), card, greenCard, brownCard);
 						playerList.add(gamer4);
 						bank = bank - 10;
