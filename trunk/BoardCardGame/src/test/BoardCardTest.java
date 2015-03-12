@@ -47,6 +47,7 @@ public class BoardCardTest {
 	public void AssassinationTest2()
 	{
 		c.putMinion(player);
+		c.putMinion(player);
 		boolean res = b.Assassination(c, player);
 		assertTrue(res);
 	}
