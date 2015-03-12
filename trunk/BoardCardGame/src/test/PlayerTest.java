@@ -1,6 +1,10 @@
 package test;
 import static org.junit.Assert.*;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Vector;
 
@@ -10,6 +14,7 @@ import org.junit.Test;
 import discworld.BoardCard;
 import discworld.CardColor;
 import discworld.CityCard;
+import discworld.Master;
 import discworld.PersonalityCard;
 import discworld.Player;
 
@@ -22,14 +27,31 @@ public class PlayerTest {
 	Vector<BoardCard> greenCard;
 	
 	@Before
-	public void initialize(){
+	public void initialize() throws IOException{
 		c = new CityCard(1, "Dolly Sister",new byte[]{2,3,12},6);
 		String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 		p = new PersonalityCard(2,"MARS");
 		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
 		player=new Player(2,200,CardColor.blue,2,3,p,holdingCards);
-		greenCard = new Vector<BoardCard>(48);
-		brownCard = new Vector<BoardCard>(53);
+		greenCard = new Vector<BoardCard>();
+		brownCard = new Vector<BoardCard>();
+		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
+		String line;
+		String[] info;
+		BoardCard bc;
+		int counter=0;
+		while((line=br.readLine())!=null)
+		{
+			info=line.split(" ");
+			bc=new BoardCard(counter,info[0],info[1],Integer.parseInt(info[2]),info[3]);
+			if(counter < 48){
+				greenCard.add(bc);
+			} else {
+				brownCard.add(bc);
+			}
+			counter++;
+		}
+		br.close();
 		personalitycards = new Vector<PersonalityCard>(7);
 		for (int i=0; i<7; i++){
 			String dummy = cards[i];
@@ -47,7 +69,7 @@ public class PlayerTest {
 		assertEquals(2, player.getMinion());
 		assertEquals(3, player.getBuilding());
 		assertEquals(p,player.getPersonalityCard());
-		assertEquals(5,player.getHoldingCards().size());
+		
 	}
 	
 	/**
@@ -56,27 +78,13 @@ public class PlayerTest {
 	@Test
 	public void gain_boardcard()
 	{
-		
+		 player.gain_boardcard(greenCard, brownCard);
+		 
+		 assertEquals(0,player.getHoldingCards().size());
 	}
 	
-	/**
-	 * This method checks whether each player gets a personality card or not.
-	 */
-	@Test
-	public void gain_personalityCard()
-	{
-		//boolean res = player.gain_personalityCard(personalitycards);
-	}
 	
-	/**
-	 * This method checks if the player interrupts or plays his card
-	 */
-	@Test
-	public void interrrupt()
-	{
-		boolean res = player.interrupt();
-		assertFalse(res);
-	}
+	
 	
 	/**
 	 * This method checks whether a player builds a building in a specific city or not.
