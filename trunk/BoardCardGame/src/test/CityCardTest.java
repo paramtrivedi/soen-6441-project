@@ -11,7 +11,7 @@ public class CityCardTest {
 	private CityCard c;
 	@Before
 	public void initialize(){
-		c=new CityCard(2,"SSS",new byte[]{2,3,12},12);
+		c=new CityCard(2,"SSS",new byte[]{2,3,12});
 	}
 	
 	@Test
