@@ -16,9 +16,15 @@ public class EventCard {
 		this.name=name;
 	}
 	
+	public int getId()
+	{
+	    return id;
+	}
+	
 	public String toString(){
 		return name;
 	}
+	
 	public boolean action(Player p){
 		int die;
 		CityCard tempCity;
