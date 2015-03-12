@@ -866,6 +866,12 @@ public class Master {
 		return bank;
 	}
 
+	/**
+	 * Displaying the game state in beginning and ending of the game
+	 * 
+	 * @param city
+	 * @param player
+	 */
 	public static void display(Vector<CityCard> city, Player player){
 		System.out.println(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\t  Trouble Maker\tBuilding\tDemon\tTroll\n");
 		for(int i=0; i < 12; i++){
