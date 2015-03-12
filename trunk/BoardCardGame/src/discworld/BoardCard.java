@@ -25,7 +25,8 @@ public class BoardCard {
 	 * 
 	 * @param id
 	 * @param name
-	 * @param num_ablity
+	 * @param s_symbols
+	 * @param dollar
 	 * @param des
 	 */
 	public BoardCard(int id, String name, String s_Symbols,int dollar,String des){
@@ -61,10 +62,10 @@ public class BoardCard {
 	 * @param id
 	 * @param sym
 	 * @param des
+	 * @param dollar
 	 */
 	
-	public BoardCard(String name, int id,  ArrayList<Symbols> sym, String des,
-			int dollar) {
+	public BoardCard(String name, int id,  ArrayList<Symbols> sym, String des,int dollar) {
 		super();
 		this.name = name;
 		this.id = id;
