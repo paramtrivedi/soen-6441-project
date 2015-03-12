@@ -715,6 +715,7 @@ public class Master {
 						indexCard=scan.nextInt();
 					}while(indexCard<1 && indexCard>=tempList.size());
 					playCard=playerList.get(num-1).playCard(tempList.get(indexCard-1));
+					playerList.get(num-1).getHoldingCards().remove(indexCard-1);
 				}else
 					System.out.println("You have already play a card.");
 				break;
