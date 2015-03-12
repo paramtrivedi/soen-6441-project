@@ -90,7 +90,7 @@ public class SaveGame {
 				JSONObject obj = new JSONObject();
 				obj.put("id", gamer.get(j).getId());
 				obj.put("money", gamer.get(j).getMoney());
-				obj.put("color", gamer.get(j).getColor());
+				obj.put("color", gamer.get(j).getColor().toString());
 				obj.put("minion", gamer.get(j).getMinion());
 				obj.put("building", gamer.get(j).getBuilding());
 				JSONObject pcObj = new JSONObject();
@@ -119,7 +119,7 @@ public class SaveGame {
 			}
 
 			cityarea.put("players", player);
-
+			
 			JSONArray gCard = new JSONArray();
 
 			for(int g=0; g < greenCard.size(); g++)
@@ -153,13 +153,13 @@ public class SaveGame {
 					bSymbol.add(brownCard.get(b).symbol.get(a).name());
 				}
 				bObj.put("symbol", bSymbol);
-				bObj.put("money", greenCard.get(b).dollar);
-				bObj.put("description", greenCard.get(b).des);
-				gCard.add(bObj);
+				bObj.put("money", brownCard.get(b).dollar);
+				bObj.put("description", brownCard.get(b).des);
+				bCard.add(bObj);
 			}
 
 			cityarea.put("brownCard", bCard);
-
+			
 			cityarea.put("bank", Master.bank());
 
 			// end
@@ -204,7 +204,16 @@ public class SaveGame {
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String line = SaveGame.base64Decode(reader.readLine());
 			reader.close();
-			Object obj = parser.parse(line);
+			Object obj;
+			try
+			{
+				 obj = parser.parse(line);
+			}
+			catch(Exception e)
+			{
+				System.out.println("FIle is not  proper pl. try again");
+				return;
+			}
 
 
 			JSONObject jsonObject = (JSONObject) obj;
@@ -265,9 +274,13 @@ public class SaveGame {
 					String hDesc = (String)hCardObj.get("description");
 					JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
 					String symbolStr = "";
+					if(hSymbol != null)
+					{
+					
 					for(int m=0;m<hSymbol.size();m++)
 					{
 						symbolStr += ((String)hSymbol.get(m)).substring(0,1);
+					}
 					}
 					/*JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
 					Vector<Boolean> symbol=new Vector<Boolean>(7);
@@ -282,18 +295,21 @@ public class SaveGame {
 				gamer.add(p);
 			}
 			
-			JSONArray gCard = new JSONArray();
-			Vector<BoardCard> greenCard = new Vector<BoardCard>(gCard.size());
+			JSONArray gCard = (JSONArray)jsonObject.get("greenCard");
+			Vector<BoardCard> greenCard = new Vector<BoardCard>();
 			for(int g=0; g<gCard.size(); g++)
 			{
-				JSONObject gObj = new JSONObject();
+				JSONObject gObj = (JSONObject)gCard.get(g);
 				int gId = ((Long)gObj.get("id")).intValue();
 				String gName = (String)gObj.get("name");
 				JSONArray gSymbol = (JSONArray)gObj.get("symbol");
 				String symbolStr = "";
+				if(gSymbol != null)
+				{
 				for(int z=0; z < gSymbol.size(); z++)
 				{
 					symbolStr += ((String)gSymbol.get(z)).substring(0,1);
+				}
 				}
 				int gMoney = ((Long)gObj.get("money")).intValue();
 				String gDesc = (String)gObj.get("description");
@@ -301,18 +317,22 @@ public class SaveGame {
 				greenCard.add(b);
 			}
 			
-			JSONArray bCard = new JSONArray();
-			Vector<BoardCard> brownCard = new Vector<BoardCard>(bCard.size());
+			JSONArray bCard = (JSONArray)jsonObject.get("brownCard");
+			Vector<BoardCard> brownCard = new Vector<BoardCard>();
 			for(int b=0; b<bCard.size(); b++)
 			{
-				JSONObject bObj = new JSONObject();
+				JSONObject bObj = (JSONObject)bCard.get(b);
+				
 				int bId = ((Long)bObj.get("id")).intValue();
 				String bName = (String)bObj.get("name");
 				JSONArray bSymbol = (JSONArray)bObj.get("symbol");
 				String symbolStr = "";
+				if(bSymbol != null)
+				{
 				for(int z=0; z < bSymbol.size(); z++)
 				{
 					symbolStr += ((String)bSymbol.get(z)).substring(0,1);
+				}
 				}
 				int bMoney = ((Long)bObj.get("money")).intValue();
 				String bDesc = (String)bObj.get("description");
