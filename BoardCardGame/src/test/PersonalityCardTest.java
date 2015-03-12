@@ -10,14 +10,16 @@ public class PersonalityCardTest {
 
 	private PersonalityCard p;
 	@Before
-	public void initialize(){
-		p=new PersonalityCard(2,"SSS");
+	public void initialize()
+	{
+		p=new PersonalityCard(2,"Lord Rust");
 	}
+	
 	@Test
 	public void ConstructorTest()
 	{
 		assertEquals(2, p.ID());
-		assertTrue(p.equals("SSS"));
+		assertTrue(p.equals("Lord Rust"));
 	}
 	
 }

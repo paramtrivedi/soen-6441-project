@@ -21,10 +21,10 @@ public class PlayerTest {
 	Vector<PersonalityCard>personalitycards = new Vector<PersonalityCard>(7);
 	@Before
 	public void initialize(){
-		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
 		c = new CityCard(1, "Dolly Sister",new byte[]{2,3,12},6);
 		String[] cards = {"Lord Selachii", "Lord Rust", "Lord de Worde", "Lord Vetinari", "Commander Vimes", "Dragon King of Arms", "Chrysopsase"};
 		p = new PersonalityCard(2,"MARS");
+		ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
 		player=new Player(2,200,CardColor.blue,2,3,p,holdingCards);
 		for (int i=0; i<7; i++){
 			String dummy = cards[i];
