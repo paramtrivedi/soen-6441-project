@@ -1,101 +1,101 @@
-people MAB 1 null
-history BAR 1  null
-way ARE 1  null
-art AIB 1  null
-world AIB 1  null
-information AIB 1  null
-map AIB 1  null
-two AIB 1  null
-family AIB 1  null
-government AIB 1  null
-health AIB 1  null
-system AIB 1  null
-computer AIB 1  null
-meat AIB 1  null
-year AIB 1  null
-thanks RES 1  null
-music AIB 1  null
-person AIB 1  null
-reading AIB 1  null
-method ABR 1  null
-data ABR 1  null
-food ABR 1  null
-understanding ABR 1  null
-theory ABR 1  null
-law ABR 1  null
-bird ABR 1  null
-literature ABR 1  null
-problem PIDR 1  null
-software PIDR 1  null
-control PIDR 1  null
-knowledge PIDR 1  null
-power PIDR 1  null
-ability PIDR 1  null
-economics PIDR 1  null
-love PIDR 1  null
-internet PIDR 1  null
-television PIDR 1  null
-science PIDR 1  null
-library PIDR 1  null
-nature PIDR 1  null
-fact PIDR 1  null
-product PIDR 1 null
-idea PIDR 1 null
-temperature PIDR 1  null
-investment PIDR 1  null
-area PIDR 1  null
-society ABR 1 null
-activity ABR 1 null
-story ABR 1  null
-industry ABR 1  null
-media ABR 1  null
-thing ABR 1  null
-oven ABR 1  null
-community ABD 1  null
-definition ABR 1  null
-safety ABD 1 null
-quality ABD 1  null
-development ABD 1  null
-language ABD 1  null
-management ABD 1  null
-player ABD 1  null
-variety ABD 1  null
-video ASP 1  null
-week ABD 1  null
-security ABD 1  null
-country BID 1  null
-exam BID 1  null
-movie BID 1  null
-organization BID 1  null
-equipment BID 1  null
-physics BID 1  null
-analysis BID 1  null
-policy BID 1  null
-series BID 1  null
-thought BID 1  null
-basis BID 1  null
-boyfriend BID 1  null
-direction BID 1  null
-strategy BID 1  null
-technology BID 1  null
-army BID 1  null
-camera BID 1  null
-freedom BID 1  null
-paper BID 1  null
-environment BID 1  null
-child BID 1  null
-instance BID 1  null
-month BIRD 1  null
-truth BIRD 1  null
-marketing BIRD 1  null
-university BIRD 1  null
-writing BIRD 1  null
-article BIRD 1  null
-department BIRD 1 null
-difference AID 2 null
-goal ABD 3 null
-news AID 8 null
-audience AID 4 null
-fishing AID 3 null
-time AID 2 null
-killer AID 1  null
+Seargant Cheery SR 1 null
+Otto Chriek SB 1  null
+The Clacks SDP 1  null
+Seargeant Colon TM 1  null
+Cosmo Lavish SP 1  null
+The Dean ESP 1  null
+Hello AAB 1  null
+Burleigh & Stronginthearm SB 1  null
+Dorfl SP 1  null
+The Bursar ESP 1  null
+Seargeant Detritus TT 1  null
+Cable Street Particulars SM 1  null
+Deep Dwarves SP 1  null
+Canting Crew SM 1  null
+Adore Belle DearHeart SMB 1  null
+Carcer SP 1  null
+The Alchemists Guild SM 1  null
+The Chair of Indefinite Studies ESP 1  null
+The Auditors S 1  null
+Sir Charles Lavatory SB 1  null
+Buggy Swires T 1  null
+Susan I 1  null
+Archchancellor Ridcully ES 1  null
+Moist von Lipwig MDSP 1  null
+Sybil Vimes DS 1  null
+Ruby MB 1  null
+Doctor Mossy Lawn I 1  null
+Mr Teatime DAP 1  null
+The Senior Wrangler ESP 1  null
+Partricians Palace BDM 1  null
+The Watch BT 1  null
+Mr Shine S 1  null
+Ponder Stibbons ES 1  null
+Wee Mad Arthur S 1  null
+Mr Slant SB 1  null
+The Post Office SM 1  null
+William de worde MS 1  null
+The Smoking GNU SP 1  null
+Reacher Gilt S 1  null
+Willikins S 1  null
+Stanley SM 1  null
+Professor of recent runes ESP 1 null
+Doctor Hix ESP 1 null
+Hobson's Livery Stable SB 1  null
+Lord Downey ADB 1  null
+Hubert SM 1  null
+Dwarves MM 1 null
+Igor I 1 null
+Edward de Eath ADB 1  null
+The Luggage AS 1  null
+Errol SP 1  null
+The Mob SMP 1  null
+Gargoyles SB 1  null
+Mr Boggis SM 1  null
+the dysk BS 1  null
+groat M 1 null
+Mr Bent SP 1  null
+The Duckman S 1  null
+Gimlet's Dwarf Delicatessen DM 1  null
+The Beggars Guild SM 1  null
+Drumknott S 1  null
+Gaspode I 1  null
+The Bank of Ankh-Morpork SP 1  null
+CMOT Dibbler SP 1  null
+Fresh Start Club I 1  null
+The Ankh Morpork Sunshine Dragon Sanctuary SP 1  null
+Dr Cruces AD 1  null
+Foul Ole Ron SP 1  null
+Seargeant Angua TP 1  null
+Captain Carrot MTD 1  null
+The Fools Guild SM 1  null
+The Agony Aunts ADM 1  null
+Mrs Cake SDB 1  null
+The Fire Brigade SP 1  null
+Inigo Skimmer AD 1  null
+The Peeled Nuts   1  null
+Shonky Shop SB 1  null
+History Monks SM 1  null
+The Opera House BS 1  null
+Sacharissa Cripslock SM 1  null
+Hex SB 1  null
+Nobby Nobbs SP 1  null
+Rosie Palm MS 1  null
+Here'n'Now SP 1  null
+Modo SM 1  null
+Rincewind ESP 1  null
+Harry King MS 1  null
+The Mended Drum BD 1  null
+The Royal Mint BD 1  null
+Harga's House of Ribs DM 1  null
+Librarian S 1  null
+Queen Molly MS 1  null
+Mr Gryle AD 1 null
+Leonard of Quirm S 2 null
+Pink PussyCat Club DP 3 null
+Zorgo the Retro-phrenologist SB 8 null
+Dr Whiteface SM 4 null
+Wallace Sonky I 3 null
+The Seamstresses Guild SM 2 null
+Mr Pin & Mr Tulip AD 1  null
+The Thieves' Guild SM 1 null
