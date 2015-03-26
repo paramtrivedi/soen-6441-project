@@ -713,7 +713,7 @@ public class Master {
 				{
 					ArrayList <BoardCard> tempList=playerList.get(num-1).getHoldingCards();
 					for(int i=0;i<tempList.size();i++)
-						System.out.println((i+1)+". "+tempList.get(i).Name());
+						System.out.println((i+1)+". "+tempList.get(i).Name()+" "+tempList.get(i).allSymbols());
 
 					int indexCard;
 					System.out.println("Chooing a card(1-"+tempList.size()+")");
