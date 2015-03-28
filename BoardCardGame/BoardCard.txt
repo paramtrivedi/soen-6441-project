@@ -1,101 +1,101 @@
-Seargant Cheery SR 1 null
-Otto Chriek SB 1  null
-The Clacks SDP 1  null
-Seargeant Colon TM 1  null
-Cosmo Lavish SP 1  null
-The Dean ESP 1  null
+Seargant_Cheery SR 1 null
+Otto_Chriek SB 1  null
+The_Clacks SDP 1  null
+Seargeant_Colon TM 1  null
+Cosmo_Lavish SP 1  null
+The_Dean ESP 1  null
 Hello AAB 1  null
-Burleigh & Stronginthearm SB 1  null
+Burleigh_Stronginthearm SB 1  null
 Dorfl SP 1  null
-The Bursar ESP 1  null
-Seargeant Detritus TT 1  null
-Cable Street Particulars SM 1  null
-Deep Dwarves SP 1  null
-Canting Crew SM 1  null
-Adore Belle DearHeart SMB 1  null
+The_Bursar ESP 1  null
+Seargeant_Detritus TT 1  null
+Cable_Street_Particulars SM 1  null
+Deep_Dwarves SP 1  null
+Canting_Crew SM 1  null
+Adore_Belle_DearHeart SMB 1  null
 Carcer SP 1  null
-The Alchemists Guild SM 1  null
-The Chair of Indefinite Studies ESP 1  null
-The Auditors S 1  null
-Sir Charles Lavatory SB 1  null
-Buggy Swires T 1  null
+The_Alchemists_Guild SM 1  null
+The_Chair_of_Indefinite_Studies ESP 1  null
+The_Auditors S 1  null
+Sir_Charles_Lavatory SB 1  null
+Buggy_Swires T 1  null
 Susan I 1  null
-Archchancellor Ridcully ES 1  null
-Moist von Lipwig MDSP 1  null
-Sybil Vimes DS 1  null
+Archchancellor_Ridcully ES 1  null
+Moist_von_Lipwig MDSP 1  null
+Sybil_Vimes DS 1  null
 Ruby MB 1  null
-Doctor Mossy Lawn I 1  null
-Mr Teatime DAP 1  null
-The Senior Wrangler ESP 1  null
-Partricians Palace BDM 1  null
-The Watch BT 1  null
-Mr Shine S 1  null
-Ponder Stibbons ES 1  null
-Wee Mad Arthur S 1  null
-Mr Slant SB 1  null
-The Post Office SM 1  null
-William de worde MS 1  null
-The Smoking GNU SP 1  null
-Reacher Gilt S 1  null
+Doctor_Mossy_Lawn I 1  null
+Mr_Teatime DAP 1  null
+The_Senior_Wrangler ESP 1  null
+Partricians_Palace BDM 1  null
+The_Watch_BT 1  null
+Mr_Shine S 1  null
+Ponder_Stibbons ES 1  null
+Wee_Mad_Arthur S 1  null
+Mr_Slant SB 1  null
+The_Post_Office SM 1  null
+William_de_worde MS 1  null
+The_Smoking_GNU SP 1  null
+Reacher_Gilt S 1  null
 Willikins S 1  null
 Stanley SM 1  null
-Professor of recent runes ESP 1 null
-Doctor Hix ESP 1 null
-Hobson's Livery Stable SB 1  null
-Lord Downey ADB 1  null
+Professor_of_recent_runes ESP 1 null
+Doctor_Hix ESP 1 null
+Hobson's_Livery_Stable SB 1  null
+Lord_Downey ADB 1  null
 Hubert SM 1  null
 Dwarves MM 1 null
 Igor I 1 null
-Edward de Eath ADB 1  null
-The Luggage AS 1  null
+Edward_de_Eath ADB 1  null
+The_Luggage AS 1  null
 Errol SP 1  null
-The Mob SMP 1  null
+The_Mob SMP 1  null
 Gargoyles SB 1  null
-Mr Boggis SM 1  null
-the dysk BS 1  null
+Mr_Boggis SM 1  null
+the_dysk BS 1  null
 groat M 1 null
-Mr Bent SP 1  null
-The Duckman S 1  null
-Gimlet's Dwarf Delicatessen DM 1  null
-The Beggars Guild SM 1  null
+Mr_Bent SP 1  null
+The_Duckman S 1  null
+Gimlet's_Dwarf_Delicatessen DM 1  null
+The_Beggars_Guild SM 1  null
 Drumknott S 1  null
 Gaspode I 1  null
-The Bank of Ankh-Morpork SP 1  null
-CMOT Dibbler SP 1  null
-Fresh Start Club I 1  null
-The Ankh Morpork Sunshine Dragon Sanctuary SP 1  null
-Dr Cruces AD 1  null
-Foul Ole Ron SP 1  null
-Seargeant Angua TP 1  null
-Captain Carrot MTD 1  null
-The Fools Guild SM 1  null
-The Agony Aunts ADM 1  null
-Mrs Cake SDB 1  null
-The Fire Brigade SP 1  null
-Inigo Skimmer AD 1  null
-The Peeled Nuts   1  null
-Shonky Shop SB 1  null
-History Monks SM 1  null
-The Opera House BS 1  null
-Sacharissa Cripslock SM 1  null
+The_Bank_of_Ankh_Morpork SP 1  null
+CMOT_Dibbler SP 1  null
+Fresh_Start_Club I 1  null
+The_Ankh_Morpork_Sunshine_Dragon_Sanctuary SP 1  null
+Dr_Cruces AD 1  null
+Foul_Ole_Ron SP 1  null
+Seargeant_Angua TP 1  null
+Captain_Carrot MTD 1  null
+The_Fools_Guild SM 1  null
+The_Agony_Aunts ADM 1  null
+Mrs_Cake SDB 1  null
+The_Fire_Brigade SP 1  null
+Inigo_Skimmer AD 1  null
+The_Peeled_Nuts   1  null
+Shonky_Shop SB 1  null
+History_Monks SM 1  null
+The_Opera_House BS 1  null
+Sacharissa_Cripslock SM 1  null
 Hex SB 1  null
-Nobby Nobbs SP 1  null
-Rosie Palm MS 1  null
+Nobby_Nobbs SP 1  null
+Rosie_Palm MS 1  null
 Here'n'Now SP 1  null
 Modo SM 1  null
 Rincewind ESP 1  null
-Harry King MS 1  null
-The Mended Drum BD 1  null
-The Royal Mint BD 1  null
-Harga's House of Ribs DM 1  null
+Harry_King MS 1  null
+The_Mended_Drum BD 1  null
+The_Royal_Mint BD 1  null
+Harga's_House_of_Ribs DM 1  null
 Librarian S 1  null
-Queen Molly MS 1  null
-Mr Gryle AD 1 null
-Leonard of Quirm S 2 null
-Pink PussyCat Club DP 3 null
-Zorgo the Retro-phrenologist SB 8 null
-Dr Whiteface SM 4 null
-Wallace Sonky I 3 null
-The Seamstresses Guild SM 2 null
-Mr Pin & Mr Tulip AD 1  null
-The Thieves' Guild SM 1 null
+Queen_Molly MS 1  null
+Mr_Gryle AD 1 null
+Leonard_of_Quirm S 2 null
+Pink_PussyCat_Club DP 3 null
+Zorgo_the_Retro_phrenologist SB 8 null
+Dr_Whiteface SM 4 null
+Wallace_Sonky I 3 null
+The_Seamstresses_Guild SM 2 null
+Mr_Pin_Mr_Tulip AD 1  null
+The_Thieves'_Guild SM 1 null
