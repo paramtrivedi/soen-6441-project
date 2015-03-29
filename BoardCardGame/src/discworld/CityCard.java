@@ -373,6 +373,16 @@ public class CityCard
 		return nearestCity;
 	}
 
+	public String getNearestCitys()
+	{
+		String temp="";
+		for(int i=0;i<this.nearestCity.length;i++)
+			temp+=this.nearestCity[i]+",";
+		
+		temp = temp.substring(0, temp.length()-1);
+		return temp;
+	}
+	
 	public void setNearestCity(byte[] nearestCity) {
 		this.nearestCity = nearestCity;
 	}
