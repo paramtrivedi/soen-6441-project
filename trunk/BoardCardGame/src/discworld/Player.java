@@ -19,10 +19,6 @@ public class Player {
 	protected int money;
 	protected CardColor color;
 	protected int minion,building;
-	public int getId() {
-		return id;
-	}
-
 	public int getMoney() {
 		return money;
 	}
@@ -259,7 +255,7 @@ public class Player {
 			}
 
 		if(flag){
-			System.out.println("Do Player"+this.ID() +" want to interrupt?(Y/N)");
+			System.out.println("Do Player"+this.id +" want to interrupt?(Y/N)");
 			String input;
 			do{
 				input=Master.scan.nextLine().toUpperCase();
@@ -378,7 +374,7 @@ public class Player {
 					for(int i =0;i<Master.playerList.size();i++)
 					{
 						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
-							System.out.println("Player "+Master.playerList.get(i).getId());
+							System.out.println("Player "+Master.playerList.get(i).getID());
 					}
 					indexPlayer=Master.scan.nextInt();
 					Master.scan.nextLine();
@@ -457,10 +453,6 @@ public class Player {
 
 	public int personalityCard(){
 		return personalityCard.ID();
-	}
-
-	public int ID(){
-		return this.id;
 	}
 
 	public int Money() {

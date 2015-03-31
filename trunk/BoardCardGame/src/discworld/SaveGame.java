@@ -90,7 +90,7 @@ public class SaveGame {
 			for(int j=0; j < gamer.size(); j++)
 			{
 				JSONObject obj = new JSONObject();
-				obj.put("id", gamer.get(j).getId());
+				obj.put("id", gamer.get(j).getID());
 				obj.put("money", gamer.get(j).getMoney());
 				obj.put("color", gamer.get(j).getColor().toString());
 				obj.put("minion", gamer.get(j).getMinion());

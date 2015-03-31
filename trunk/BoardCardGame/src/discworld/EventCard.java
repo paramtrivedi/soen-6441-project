@@ -1,5 +1,7 @@
 package discworld;
 
+import java.util.ArrayList;
+
 /**
  * This class provides information of event cards.
  * 
@@ -28,18 +30,21 @@ public class EventCard {
 	public boolean action(Player p){
 		int die;
 		CityCard tempCity;
+		System.out.println(" A random event has occurred: "+this.name);
 		switch(this.id)
 		{
 		case 1:
 			die=Master.roll();
 			tempCity=Master.cityCards.get(die-1);
+			System.out .println("Die rolls: "+ die+" ,"+tempCity.getName());
+			
 			tempCity.removeTrolls();
 			tempCity.removeDemon();
 			tempCity.removeAllMinion();
 			tempCity.destroy();
 			tempCity.removeTM();
 			break;
-		case 4:
+		case 4://Event card: fog
 			int size=p.getHoldingCards().size();
 			for(int i=0;i<5;i++)
 			{
@@ -48,38 +53,93 @@ public class EventCard {
 				p.getHoldingCards().remove(size);
 			}
 			break;
-		case 12:
+		case 12://event earthquake
 			die=Master.roll();
+			tempCity=Master.cityCards.get(die-1);
+			System.out .println("Die rolls: "+ die+" ,"+tempCity.getName());
 			Master.cityCards.get(die-1).destroy();
-		case 6:
+		case 6://event explosion
 			die=Master.roll();
+			tempCity=Master.cityCards.get(die-1);
+			System.out .println("Die rolls: "+ die+" ,"+tempCity.getName());
 			Master.cityCards.get(die-1).destroy();
 			break;
-		case 11:
+		case 11://Event card: throlls
 			for(int i=0;i<3;i++)
 			{
 				die=Master.roll();
+				tempCity=Master.cityCards.get(die-1);
+				System.out .println("Die rolls: "+ die+" ,"+tempCity.getName());
 				Master.cityCards.get(die-1).putTrolls();
 			}
-		case 8:
+		case 8:// Event Card :demon
 			for(int i=0;i<4;i++)
 			{
 				die=Master.roll();
+				die=Master.roll();
+				tempCity=Master.cityCards.get(die-1);
+				System.out .println("Die rolls: "+ die+" ,"+tempCity.getName());
 				Master.cityCards.get(die-1).putDemon();
 			}
-		case 3://fire
-			boolean flag=false;
+			break;
+		case 3://Event Card:fire
 			die=Master.roll();
-			while(Master.cityCards.get(die-1).isBuilding()){
-				flag=Master.cityCards.get(die-1).destroy();
-				if(flag){
-					die=Master.roll();
+			ArrayList<Integer> list=new ArrayList<Integer>();
+			list.add(die-1);
+			while(!list.isEmpty()){
+				tempCity=Master.cityCards.get(list.get(0));
+				if(tempCity.isBuilding())
+				{
+					tempCity.destroy();
+					byte[]b=tempCity.getNearestCity();
+					for(int i=0;i<b.length;i++){
+						list.add((int)b[i]);
+					}
+					
 				}
 			}
-		 
 			break;
+		case 2://flood
 			
+			break;
+		case 5: //Roits
 			
+			break;
+		case 7:// Mysterious Murder
+			int num=Master.playerList.size(), counter=0;
+			while(counter<num){
+				die=Master.roll();
+				System.out.println("Player "+((p.getID()-1+counter)%num+1)+" rolls the die:"+die);
+				
+				counter++;
+			}
+			int indexCity;
+			do{
+				System.out.println("Choose a city from following: ");
+				for(int i=0;i<12;i++)
+					System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+				indexCity=Master.scan.nextInt();
+				Master.scan.nextLine();
+			}while(indexCity<=0 ||indexCity>12);
+			
+			int indexPlayer;
+			do{
+				System.out.println("Choose a player:");
+				for(int i =0;i<Master.playerList.size();i++)
+				{
+					if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
+						System.out.println("Player "+Master.playerList.get(i).getID());
+				}
+				indexPlayer=Master.scan.nextInt();
+				Master.scan.nextLine();
+			}while(indexPlayer<=0||indexPlayer>Master.playerList.size());
+			if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
+				Master.cityCards.get(indexCity-1).removeMinion(Master.playerList.get(indexPlayer-1));
+			else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
+			break;
+		case 9:
+			int 
+			break;
 		}
 		return true;
 	}
