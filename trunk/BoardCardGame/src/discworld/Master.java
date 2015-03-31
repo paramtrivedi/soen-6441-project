@@ -57,7 +57,7 @@ public class Master {
 		cityCards.add(new CityCard(7,"The Shades", new byte[]{5,6,8},6));
 		cityCards.add(new CityCard(8,"Dimwell", new byte[]{5,7,9},6));
 		cityCards.add(new CityCard(9,"Longwall", new byte[]{8,10,11},12));
-		cityCards.add(new CityCard(10,"isle of Gods", new byte[]{2,4,5,9,11},12));
+		cityCards.add(new CityCard(10,"The isle of Gods", new byte[]{2,4,5,9,11},12));
 		cityCards.add(new CityCard(11,"Seven Sleepers", new byte[]{2,9,10,12},18));
 		cityCards.add(new CityCard(12,"Nap Hill", new byte[]{1,2,11},12));
 
