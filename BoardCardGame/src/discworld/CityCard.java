@@ -320,7 +320,7 @@ public class CityCard
 	
 	public int minionNum(Player p)
 	{
-		return getMinions().get(p.ID()-1);
+		return getMinions().get(p.getID()-1);
 		
 	}
 	/**
@@ -329,7 +329,7 @@ public class CityCard
 	 * @return the number of minions
 	 */
 	public int pieces(Player p){
-		if(isBuilding() && getOwner()==p.ID())
+		if(isBuilding() && getOwner()==p.getID())
 			return minionNum(p)+1;
 		else return minionNum(p);
 	}

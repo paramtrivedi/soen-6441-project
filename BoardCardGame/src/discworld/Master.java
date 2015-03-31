@@ -842,7 +842,7 @@ public class Master {
 				if(tempCity.pieces(p)>tempCity.getTrolls() && tempCity.getDemons()==0)
 				{
 					for(int j=0;j<numPlayer;j++)
-						if(p.ID()!=j+1 && cityCards.get(i).pieces(p)<cityCards.get(i).pieces(playerList.get(j)))
+						if(p.getID()!=j+1 && cityCards.get(i).pieces(p)<cityCards.get(i).pieces(playerList.get(j)))
 							controlFlag=false;
 				}else controlFlag=false;
 				if(controlFlag) counter++;
