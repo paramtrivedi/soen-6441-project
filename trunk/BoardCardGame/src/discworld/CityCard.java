@@ -161,7 +161,7 @@ public class CityCard
 	 * @return If building is built, then return true, otherwise return false.
 	 */
 	public boolean build(Player p){
-		if(!isBuilding()&&!containTroubleMaker()){
+		if(!isBuilding()&&!containTroubleMaker()&&this.minionNum(p)>0){
 			System.out.println("One building is built in "+name);
 			p.setBuilding(-1);
 			setBuilding(true);
@@ -173,7 +173,9 @@ public class CityCard
 		else{
 			if(containTroubleMaker())
 				System.out.println("This city has a trouble make.");
-			else System.out.println("There is one building existing in "+name);
+			else if(this.minionNum(p)>0)
+				System.out.println("There is one building existing in "+name);
+			else System.out.println("Player "+p.getID()+", you dont have any minion in "+this.name);
 			return false;
 		}
 	}
