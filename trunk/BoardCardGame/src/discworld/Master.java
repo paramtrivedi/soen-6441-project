@@ -890,7 +890,7 @@ public class Master {
 	 */
 	public static void display(Vector<CityCard> city, Player player){
 		System.out.println(String.format("%20s", "City Area")+"\tOwner\tPlayer1\tPlayer2\tPlayer3\tPlayer4\t  Trouble Maker\tBuilding\tDemon\tTroll\n");
-		for(int i=0; i < 12; i++){
+		for(int i=0; i < Master.cityCards.size(); i++){
 			System.out.println(city.get(i).toString()+"\n");
 		}
 		System.out.println(player+"\n");
