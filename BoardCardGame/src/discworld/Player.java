@@ -189,10 +189,10 @@ public class Player {
 			temp=holdingCards.get(i);
 
 			if(temp.Id()<48){
-				greenInfo+=temp.Id()+"  "+temp.Name();
+				greenInfo+=temp.Id()+"  "+temp.Name()+" ";
 			}
 			else{
-				brownInfo+=temp.Id()+"  "+temp.Name();
+				brownInfo+=temp.Id()+"  "+temp.Name()+" ";
 			}
 		}
 		s=s+"Green Card: "+greenInfo+"\n";

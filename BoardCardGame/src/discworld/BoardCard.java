@@ -145,4 +145,24 @@ public class BoardCard {
 	public void setSymbol(ArrayList<Symbols> sym){
 		this.symbol=sym;
 	}
+	public boolean action(Player player){
+		switch(id){
+		case 1:
+			for(int i=0;i<Master.playerList.size();i++){
+				if(i!=player.getID()-1){
+					Master.playerList.get(i).setMoney(Master.playerList.get(i).getMoney()-2);
+					player.setMoney(player.getMoney()+2);
+					System.out.println("Get $2 from Player "+(i+1));
+				}
+			}
+			break;
+		case 2:
+			player.setMoney(player.getMoney()+Master.cityCards.get(9).minionNum(player));
+			Master.bank-=Master.cityCards.get(9).minionNum(player);
+			System.out.println("Get $"+Master.cityCards.get(9).minionNum(player)+" from The isle of Gods");
+			break;
+			
+		}
+		return true;
+	}
 }
