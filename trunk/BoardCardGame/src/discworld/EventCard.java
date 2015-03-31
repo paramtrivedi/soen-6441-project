@@ -138,7 +138,27 @@ public class EventCard {
 			else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
 			break;
 		case 9:
-			int 
+			String input;
+			for(int i=0;i<Master.cityCards.size();i++)
+			{
+				tempCity=Master.cityCards.get(i);
+				if(tempCity.isBuilding()){
+					System.out.println("Player "+tempCity.getOwner()+", do you want to pay $2 for the building in "+tempCity.getName());
+					do{
+						input=Master.scan.nextLine().toUpperCase();
+					}while(!input.equals("Y") && !input.equals("N"));	
+					if(input.equals("Y"))
+					{
+						Master.playerList.get(tempCity.getOwner()-1).setMoney(Master.playerList.get(tempCity.getOwner()-1).getMoney()-2);
+						Master.bank+=2;
+					}
+					else{
+						tempCity.destroy();
+					}
+				}
+			}
+			break;
+		case 10:
 			break;
 		}
 		return true;
