@@ -398,7 +398,7 @@ public class Player {
 			}else if(s==BoardCard.Symbols.Dollar){
 				money+=b.dollar();
 				Master.bank-=b.dollar();
-				System.out.println("You got "+ money + " dollars.");
+				System.out.println("You got "+ b.dollar + " dollars. Totally: "+money+" dollar.");
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(0);
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)

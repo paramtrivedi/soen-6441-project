@@ -100,10 +100,37 @@ public class EventCard {
 			}
 			break;
 		case 2://flood
+			die=Master.roll();
+			tempCity=Master.cityCards.get(die-1);
+			int die2=Master.roll();
+			byte[] c;
+			if(die!=3 ||die !=6){
+				System.out.println("Die roll: "+ die+" ,"+ tempCity.Name());
+				for(int i=0;i<Master.playerList.size();i++){
+					c=tempCity.getNearestCity();
+					if(tempCity.minionNum(Master.playerList.get(i))>0){
+						
+						for(int j=0;j<c.length;j++)
+						{
+							if(die2!=c[i]||c[j]==3||c[j]==6){
+								System.out.println();
+							}
+						}
+					}
+				}
+			}
+				
+			
 			
 			break;
 		case 5: //Roits
-			
+			int count = 0;
+			for(int i=0;i<Master.cityCards.size();i++){
+				if(Master.cityCards.get(i).containTroubleMaker())
+					count++;
+			}
+			if(count>=8)
+				return false;
 			break;
 		case 7:// Mysterious Murder
 			int num=Master.playerList.size(), counter=0;
