@@ -315,7 +315,7 @@ public class Player {
 				}
 				indexSym=Master.scan.nextInt();
 				Master.scan.nextLine();
-			}while((indexSym<=0 || indexSym>numSym)&&b.allSymbols().get(indexSym-1)!=BoardCard.Symbols.Event&&b.allSymbols().get(indexSym-1)!=BoardCard.Symbols.Interrupt);
+			}while((indexSym<=0 || indexSym>numSym)||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Event||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Interrupt);
 			s=b.allSymbols().get(indexSym-1);
 			for(int i=0;i<indexSym;i++)
 			{
