@@ -387,7 +387,7 @@ public class Player {
 					Master.scan.nextLine();
 					for(int i=0;i<Master.cityCards.get(indexCity-1).getNearestCity().length;i++)
 					{
-						if(Master.cityCards.get(Master.cityCards.get(indexCity-1).getNearestCity()[i]).minionNum(this)>0)
+						if(Master.cityCards.get(Master.cityCards.get(indexCity-1).getNearestCity()[i]-1).minionNum(this)>0)
 						{
 							flag=true;
 							break;
