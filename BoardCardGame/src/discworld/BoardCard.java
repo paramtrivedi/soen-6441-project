@@ -169,6 +169,7 @@ public class BoardCard {
 		case 4: case 10:// loan $10
 			player.setMoney(player.getMoney()+10);
 			Master.bank-=10;
+			System.out.println("Loan $10 form bank. ");
 			//player.setLoan(12);
 			break;
 		case 5:case 15: //move a minion of another player, meiwan
