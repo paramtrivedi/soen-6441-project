@@ -686,10 +686,11 @@ public class Master {
 		boolean quit = false;
 		System.out.println("Player "+num+" Start to Play:");
 		display(cityCards,playerList.get(num-1));
+		boolean playCard=true;
 		do{
 
 			input=Menu();
-			boolean playCard=true;
+			
 			int benefit=0;
 			for(int i=0;i<cityCards.size();i++)
 				if(cityCards.get(i).getOwner()==num)
@@ -754,6 +755,7 @@ public class Master {
 				num=num%playerList.size()+1;
 				System.out.println("Player "+num+" Start to Play:");
 				display(cityCards,playerList.get(num-1));
+				playCard=true;
 			}
 		}while(!quit);
 		bank = 120;
