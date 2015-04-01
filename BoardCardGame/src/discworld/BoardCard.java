@@ -100,9 +100,9 @@ public class BoardCard {
 	}
 	
 	public int dollar(){
-		if(symbol.contains(Symbols.Dollar))
-		return dollar;
-		else return 0;
+		
+			return dollar;
+		
 	}
 	public boolean Scroll(){
 		return symbol.contains(Symbols.Scroll);
