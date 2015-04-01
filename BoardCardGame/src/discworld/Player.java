@@ -430,7 +430,7 @@ public class Player {
 				for(int i=0;i<indexSym;i++)
 					b.allSymbols().remove(0);
 			}else if(s==BoardCard.Symbols.Scroll){
-				System.out.println("Scroll");
+				b.action(this);
 			}else if (s==BoardCard.Symbols.PlayCard)
 			{
 				playNextCard=true;
