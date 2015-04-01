@@ -150,6 +150,7 @@ public class BoardCard {
 	public boolean action(Player player){
 		CityCard tempCity=null;
 		int inputPlayer,inputCard;
+		int num;
 		switch(id+1){
 		case 1: case 48://
 			for(int i=0;i<Master.playerList.size();i++){
@@ -213,8 +214,7 @@ public class BoardCard {
 			}
 			break;
 		case 13:// 1$ or one card
-		case 12://interrupt
-		case 18: // refill
+		case 18:case 44: // refill
 		case 20: 
 			if(!Master.card.isEmpty())
 		{
@@ -227,11 +227,25 @@ public class BoardCard {
 		break;
 		
 		case 24://discard card
+			num=0;
+			for(int i=0 ;i<player.getHoldingCards().size();i++){
+				System.out.println("Do yout want to discard card "+player.getHoldingCards().get(i)+"?(Y/N)");
+				do{
+					input=Master.scan.nextLine().toUpperCase();
+				}while(!input.equals("Y") && !input.equals("N"));
+				if(input.equals("Y")){
+					player.getHoldingCards().remove(i);
+					num++;
+				}
+			}
+			player.setMoney(player.getMoney()+num);
+			Master.bank-=num;
+			System.out.println("Gain "+num+"dollar for discard "+num+"Card");
 			break;
 		case 25://discard card and draw4
 			break;
 		case 27:
-			int num=0;
+			num=0;
 			for(int i=0;i<Master.cityCards.size();i++){
 				if(Master.cityCards.get(i).containTroubleMaker())
 					num++;
@@ -246,7 +260,7 @@ public class BoardCard {
 			player.gain_boardcard(Master.greenCard, Master.brownCard);
 			player.gain_boardcard(Master.greenCard, Master.brownCard);
 			break;
-		case 29:
+		case 29: case 46:
 			for(int i=0;i<Master.playerList.size();i++){
 				if(i!=player.getID()-1){
 					System.out.println(i+":Player "+(i+1));
@@ -283,20 +297,54 @@ public class BoardCard {
 			break;
 		
 		case 32://discard one card
-			
+			System.out.println("Which card you want to discard?");
+			for(int i=0 ;i<player.getHoldingCards().size();i++){
+				System.out.println(i+" "+player.getHoldingCards().get(i));
+				
+			}
+			do{
+				inputCard=Master.scan.nextInt();
+			}while(inputCard<0 && inputCard>=player.getHoldingCards().size());
+			player.getHoldingCards().remove(inputCard);
 			break;
 		case 33://remove one minion
 			break;
 		case 34://discard card for 2$
+			num=0;
+			for(int i=0 ;i<player.getHoldingCards().size();i++){
+				System.out.println("Do yout want to discard card "+player.getHoldingCards().get(i)+"?(Y/N)");
+				do{
+					input=Master.scan.nextLine().toUpperCase();
+				}while(!input.equals("Y") && !input.equals("N"));
+				if(input.equals("Y")){
+					player.getHoldingCards().remove(i);
+					num++;
+				}
+			}
+			player.setMoney(player.getMoney()+2*num);
+			Master.bank-=2*num;
+			System.out.println("Gain "+(2*num)+"dollar for discard "+num+"Card");
+			
 			break;
-		case 38:case 41:// 4 card from drwa deck
+		case 38:case 41:// 4 card from draw deck
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			break;
+		case 43:
+			PersonalityCard p=player.getPersonalityCard();
+			player.gain_personalityCard(Master.card);
+			System.out.println("You gain another card"+player.getPersonalityCard());
+			Master.card.add(p);
 			break;
 		
+			
 		case 9:case 14: case 16: case 17:
 		case 19: case 22: case 23:
 		case 35: case 36: case 37:
 		case 3: case 6: case 40:
-		case 42:
+		case 42: case 45: case 47:
 			break;
 			
 			
