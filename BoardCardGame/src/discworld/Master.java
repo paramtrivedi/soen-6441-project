@@ -691,7 +691,7 @@ public class Master {
 			input=Menu();
 			boolean playCard=true;
 			int benefit=0;
-			for(int i=0;i<12;i++)
+			for(int i=0;i<cityCards.size();i++)
 				if(cityCards.get(i).getOwner()==num)
 					benefit+=cityCards.get(i).benefit;
 
@@ -733,6 +733,7 @@ public class Master {
 				}else{
 					playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benefit);
 					bank-=bank-benefit;
+					benefit=0;
 					break;
 				}
 
