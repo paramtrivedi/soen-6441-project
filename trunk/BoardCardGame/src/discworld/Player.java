@@ -363,7 +363,7 @@ public class Player {
 					System.out.println(Master.eventCards.get(0).toString()+" happens.");
 					Master.eventCards.remove(0);
 				}
-				b.allSymbols().remove(i);
+				b.allSymbols().remove(0);
 			}
 			if (s== BoardCard.Symbols.Assassination)
 			{
