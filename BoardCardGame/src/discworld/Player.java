@@ -339,7 +339,6 @@ public class Player {
 		int numSym=0;
 		boolean playNextCard=false;
 		BoardCard.Symbols s;
-		//boolean rondomEventFlag=b.Event();
 		String con;
 		int indexSym, indexCity;
 		do{
@@ -402,14 +401,12 @@ public class Player {
 					indexCity=Master.scan.nextInt();
 					
 				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
-				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(0);
+				
 			}else if(s==BoardCard.Symbols.Dollar){
 				money+=b.dollar();
 				Master.bank-=b.dollar();
 				System.out.println("You got "+ b.dollar + " dollars. Totally: "+money+" dollar.");
-				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(0);
+				
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
 			{
 				do{
@@ -418,8 +415,7 @@ public class Player {
 					indexCity=Master.scan.nextInt();
 					Master.scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
-				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(0);
+				
 			}else if(s==BoardCard.Symbols.Minion){
 				do{
 					for(int i=0;i<12;i++)
@@ -427,8 +423,7 @@ public class Player {
 					indexCity=Master.scan.nextInt();
 					Master.scan.nextLine();
 				}while(indexCity<=0 ||indexCity>12 ||! this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
-				for(int i=0;i<indexSym;i++)
-					b.allSymbols().remove(0);
+				
 			}else if(s==BoardCard.Symbols.Scroll){
 				b.action(this);
 			}else if (s==BoardCard.Symbols.PlayCard)
