@@ -379,12 +379,28 @@ public class Player {
 				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
 				
 			}else if(s==BoardCard.Symbols.Minion){
+				boolean flag=false;
 				do{
 					for(int i=0;i<12;i++)
 						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=Master.scan.nextInt();
 					Master.scan.nextLine();
-				}while(indexCity<=0 ||indexCity>12 ||! this.putMinion(Master.cityCards.get(indexCity-1), Master.cityCards));
+					for(int i=0;i<Master.cityCards.get(indexCity-1).getNearestCity().length;i++)
+					{
+						if(Master.cityCards.get(Master.cityCards.get(indexCity-1).getNearestCity()[i]).minionNum(this)>0)
+						{
+							flag=true;
+							break;
+						}
+							
+					}
+					if(flag)
+						putMinion(Master.cityCards.get(indexCity-1), Master.cityCards);
+					else System.out.println("You can only put a minion in neighbour city");
+				}while(indexCity<=0 ||indexCity>12 ||flag);
+				
+				
+				
 				
 			}else if(s==BoardCard.Symbols.Scroll){
 				b.action(this);
