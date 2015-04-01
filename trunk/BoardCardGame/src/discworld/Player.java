@@ -16,7 +16,7 @@ import java.util.Vector;
 public class Player {
 
 	protected int id;
-	protected int money;
+	protected int money,loan;
 	protected CardColor color;
 	protected int minion,building;
 	public int getMoney() {
@@ -77,6 +77,7 @@ public class Player {
 		money=10;
 		System.out.println("Player "+this.getID()+" has "+money+" Ankh-Morpork dollars.");
 		this.color=cardcolor;
+		loan=0;
 		minion=12;
 		building=6;
 		personalityCard=this.gain_personalityCard(personalitycards);

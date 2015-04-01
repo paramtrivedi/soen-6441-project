@@ -161,8 +161,12 @@ public class BoardCard {
 			Master.bank-=Master.cityCards.get(9).minionNum(player);
 			System.out.println("Get $"+Master.cityCards.get(9).minionNum(player)+" from The isle of Gods");
 			break;
+		case 4:
+			player.setMoney(player.getMoney()+10);
+			Master.bank-=10;
+			//player.setLoan(12);
+			break;
 		case 3:
-			
 			break;
 			
 			
