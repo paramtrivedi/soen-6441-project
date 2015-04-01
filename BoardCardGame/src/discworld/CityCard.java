@@ -107,8 +107,12 @@ public class CityCard
 			}
 			if(tempSumMin>1 || this.demons>=1||this.trolls>=1 )
 				putTM();
+			return true;
+		}else {
+			System.out.println("You can only put minions in the adjacent city.");
+			return false;
 		}
-		return true;
+		
 	}
 
 	/**
