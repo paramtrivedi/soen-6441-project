@@ -422,7 +422,7 @@ public class Player {
 	}
 
 	public void setMoney(int money) {
-		this.money = money;
+		this.money += money;
 	}
 
 	public CardColor getColor() {
