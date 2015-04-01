@@ -1,5 +1,7 @@
 package discworld;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 
 /**
@@ -146,27 +148,155 @@ public class BoardCard {
 		this.symbol=sym;
 	}
 	public boolean action(Player player){
-		switch(id){
-		case 1:
+		CityCard tempCity=null;
+		int inputPlayer,inputCard;
+		switch(id+1){
+		case 1: case 48://
 			for(int i=0;i<Master.playerList.size();i++){
-				if(i!=player.getID()-1){
+				if(i!=player.getID()-1&&Master.playerList.get(i).getMoney()>=2 ){
 					Master.playerList.get(i).setMoney(Master.playerList.get(i).getMoney()-2);
 					player.setMoney(player.getMoney()+2);
 					System.out.println("Get $2 from Player "+(i+1));
 				}
 			}
 			break;
-		case 2:
+		case 2:case 26:
 			player.setMoney(player.getMoney()+Master.cityCards.get(9).minionNum(player));
 			Master.bank-=Master.cityCards.get(9).minionNum(player);
 			System.out.println("Get $"+Master.cityCards.get(9).minionNum(player)+" from The isle of Gods");
 			break;
-		case 4:
+		case 4: case 10:// loan $10
 			player.setMoney(player.getMoney()+10);
 			Master.bank-=10;
 			//player.setLoan(12);
 			break;
-		case 3:
+		case 5:case 15: //move a minion of another player, meiwan
+		case 7: case 39://select one player, meiwan
+			for(int i=0;i<Master.playerList.size();i++){
+				if(i!=player.getID()-1){
+					System.out.println(i+":Player "+(i+1));
+				}
+			}
+			break;
+		case 8://player another two card, meiwan
+		case 11: case 31:
+			int die=Master.roll();
+			String input;
+			int inputCity;
+			if(die>=7){ 
+				player.setMoney(player.getMoney()+4);
+				Master.bank-=4;
+			}else if(die==1){
+				System.out.println("Do you want to pay 2 dollar? Otherwise remove one minion(Y/N)");
+				do{
+					input=Master.scan.nextLine().toUpperCase();
+				}while(!input.equals("Y") && !input.equals("N"));
+				if(input.equals("Y")){
+					player.setMoney(player.getMoney()-2);
+					Master.bank+=2;
+				}else{
+					System.out.println("Choose a city from following:");
+					for(int i=0;i<Master.cityCards.size();i++)
+					{
+						tempCity=Master.cityCards.get(i);
+						if( tempCity.minionNum(player)>=0)
+						{
+							System.out.println(i+" :"+tempCity.Name());
+						}
+						
+					}
+					do{
+						inputCity=Master.scan.nextInt();
+					}while(inputCity<0 || inputCity>=Master.cityCards.size()|| Master.cityCards.get(inputCity).minionNum(player)<=0);
+					Master.cityCards.get(inputCity).removeMinion(player);
+				}
+			}
+			break;
+		case 13:// 1$ or one card
+		case 12://interrupt
+		case 18: // refill
+		case 20: 
+			if(!Master.card.isEmpty())
+		{
+			int total=Master.card.size();
+			Random rn= new Random();
+			int randomNum=rn.nextInt(total);
+			System.out.println(Master.card.get(randomNum).toString());
+		}
+		case 21://choose one player, pay 5 or destoary building
+		break;
+		
+		case 24://discard card
+			break;
+		case 25://discard card and draw4
+			break;
+		case 27:
+			int num=0;
+			for(int i=0;i<Master.cityCards.size();i++){
+				if(Master.cityCards.get(i).containTroubleMaker())
+					num++;
+			}
+			
+			player.setMoney(player.getMoney()+num);
+			Master.bank-=num;
+			System.out.println("Get $"+num+" for "+num+"trouble makers on the board");
+			break;
+		case 28:
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			player.gain_boardcard(Master.greenCard, Master.brownCard);
+			break;
+		case 29:
+			for(int i=0;i<Master.playerList.size();i++){
+				if(i!=player.getID()-1){
+					System.out.println(i+":Player "+(i+1));
+				}
+			}
+			do{
+				inputPlayer=Master.scan.nextInt();
+			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()!=inputPlayer+1);
+			Master.playerList.get(inputPlayer).setMoney(Master.playerList.get(inputPlayer).getMoney()-3);
+			player.setMoney(player.getMoney()+3);
+			break;
+		case 30:
+			for(int i=0;i<Master.playerList.size();i++){
+				if(i!=player.getID()-1){
+					System.out.println(i+":Player "+(i+1));
+				}
+			}
+			do{
+				inputPlayer=Master.scan.nextInt();
+			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()!=inputPlayer+1);
+			for(int i=0;i<player.getHoldingCards().size();i++){
+				System.out.println(i+" "+player.getHoldingCards().get(i));
+			}
+			do{
+				inputCard=Master.scan.nextInt();
+			}while(inputCard<0 || inputCard>=player.getHoldingCards().size());
+			BoardCard b=player.getHoldingCards().get(inputCard);
+			player.getHoldingCards().remove(inputCard);
+			Master.playerList.get(inputPlayer).getHoldingCards().add(b);
+			System.out.println("Give the card "+b.Name()+" to Player "+(inputPlayer+1));
+			Master.playerList.get(inputPlayer).setMoney(Master.playerList.get(inputPlayer).getMoney()-2);
+			player.setMoney(player.getMoney()+2);
+			System.out.println("Get $2 from Player "+(inputPlayer+1));
+			break;
+		
+		case 32://discard one card
+			
+			break;
+		case 33://remove one minion
+			break;
+		case 34://discard card for 2$
+			break;
+		case 38:case 41:// 4 card from drwa deck
+			break;
+		
+		case 9:case 14: case 16: case 17:
+		case 19: case 22: case 23:
+		case 35: case 36: case 37:
+		case 3: case 6: case 40:
+		case 42:
 			break;
 			
 			
