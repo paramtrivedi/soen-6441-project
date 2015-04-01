@@ -706,7 +706,7 @@ public class Master {
 
 			case 2:
 				SaveGame.load();
-				playGames(numPlayer, playerList);
+				//playGames(numPlayer, playerList);
 				break;
 
 			case 3:
