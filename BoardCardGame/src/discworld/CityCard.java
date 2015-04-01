@@ -86,33 +86,18 @@ public class CityCard
 	 * @return If the player put a minion then return true, otherwise return false.
 	 */
 	public boolean putMinion(Player p){
-		boolean flag=false;
-		for(int i=0;i<this.nearestCity.length;i++)
-		{
-			if(Master.cityCards.get(nearestCity[i]-1).minionNum(p)>0)
-			{
-				flag=true;
-				break;
-			}
-
-		}
-		if(flag){
-			System.out.println("Player "+p.getID()+" added one minion in "+name);
-			p.setMinion(-1);
-			this.getMinions().set(p.getID()-1, getMinions().get(p.getID()-1)+1);
-			int tempSumMin=0;
-			for(int i=0;i<4;i++)
-			{
-				tempSumMin+=getMinions().get(i);
-			}
-			if(tempSumMin>1 || this.demons>=1||this.trolls>=1 )
-				putTM();
-			return true;
-		}else {
-			System.out.println("You can only put minions in the adjacent city.");
-			return false;
-		}
 		
+		System.out.println("Player "+p.getID()+" added one minion in "+name);
+		p.setMinion(-1);
+		this.getMinions().set(p.getID()-1, getMinions().get(p.getID()-1)+1);
+		int tempSumMin=0;
+		for(int i=0;i<4;i++)
+		{
+			tempSumMin+=getMinions().get(i);
+		}
+		if(tempSumMin>1 || this.demons>=1||this.trolls>=1 )
+			putTM();
+		return true;
 	}
 
 	/**
@@ -131,7 +116,7 @@ public class CityCard
 			return true;
 		}else {
 			System.out.println("Player "+p.getID()+" does not have any minions in "+name);
-
+			
 			return false;
 		}
 	}
@@ -192,7 +177,7 @@ public class CityCard
 				System.out.println("This city has a trouble make.");
 			else if(this.minionNum(p)==0)
 				System.out.println("Player "+p.getID()+", you dont have any minion in "+this.name);
-
+				
 			else if(benefit>p.getMoney())
 				System.out.println("You do not have enough money.");
 			else System.out.println("There is one building existing in "+name);
@@ -339,11 +324,11 @@ public class CityCard
 	 * Get the number of minions for a player.
 	 * @param p
 	 */
-
+	
 	public int minionNum(Player p)
 	{
 		return getMinions().get(p.getID()-1);
-
+		
 	}
 	/**
 	 * It gives the number of pieces by checking id and building for a player.
@@ -355,16 +340,16 @@ public class CityCard
 			return minionNum(p)+1;
 		else return minionNum(p);
 	}
-
+	
 	/**Check whether there is a trouble marker in a city or not .*/
 
 	public boolean containTroubleMaker()
 	{
-
+		
 		return this.troubleMaker;
 	}
 
-
+	
 
 	public void setTroubleMaker(boolean troubleMaker) {
 		this.troubleMaker = troubleMaker;
@@ -382,7 +367,7 @@ public class CityCard
 		return demons;
 	}
 
-
+	
 	public int getTrolls() {
 		return trolls;
 	}
@@ -400,11 +385,11 @@ public class CityCard
 		String temp="";
 		for(int i=0;i<this.nearestCity.length;i++)
 			temp+=this.nearestCity[i]+",";
-
+		
 		temp = temp.substring(0, temp.length()-1);
 		return temp;
 	}
-
+	
 	public void setNearestCity(byte[] nearestCity) {
 		this.nearestCity = nearestCity;
 	}
@@ -412,7 +397,7 @@ public class CityCard
 	public Vector<Integer> getMinions() {
 		return minions;
 	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -435,7 +420,7 @@ public class CityCard
 	public int getBenefit(){
 		return benefit;
 	}
-
+	
 	public void removeAllMinion() {
 		Vector<Integer> minions=new Vector<Integer>(4);
 		minions.add(0);
