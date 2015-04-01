@@ -397,7 +397,7 @@ public class Player {
 					if(flag)
 						putMinion(Master.cityCards.get(indexCity-1), Master.cityCards);
 					else System.out.println("You can only put a minion in neighbour city");
-				}while(indexCity<=0 ||indexCity>12 ||flag);
+				}while(indexCity<=0 ||indexCity>12 ||!flag);
 				
 				
 				
