@@ -871,7 +871,7 @@ public class Master {
 			if(counter>=8) return true;
 			else return false;
 		case 6:
-			return (p.Money()>50);
+			return (p.getMoney()>50);
 		}
 		return true;
 	}

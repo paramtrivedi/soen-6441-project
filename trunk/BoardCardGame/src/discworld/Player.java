@@ -19,45 +19,7 @@ public class Player {
 	protected int money,loan;
 	protected CardColor color;
 	protected int minion,building;
-	public int getMoney() {
-		return money;
-	}
-
-	public void setMoney(int money) {
-		this.money = money;
-	}
-
-	public CardColor getColor() {
-		return color;
-	}
-
-	public void setColor(CardColor color) {
-		this.color = color;
-	}
-
-	public PersonalityCard getPersonalityCard() {
-		return personalityCard;
-	}
-
-	public void setPersonalityCard(PersonalityCard personalityCard) {
-		this.personalityCard = personalityCard;
-	}
-
-	public ArrayList<BoardCard> getHoldingCards() {
-		return holdingCards;
-	}
-
-	public void setHoldingCards(ArrayList<BoardCard> holdingCards) {
-		this.holdingCards = holdingCards;
-	}
-
-	public int getMinion() {
-		return minion;
-	}
-
-	public int getBuilding() {
-		return building;
-	}
+	
 
 	private PersonalityCard personalityCard;
 	private ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
@@ -455,7 +417,43 @@ public class Player {
 		return personalityCard.ID();
 	}
 
-	public int Money() {
+	public int getMoney() {
 		return money;
+	}
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+
+	public CardColor getColor() {
+		return color;
+	}
+
+	public void setColor(CardColor color) {
+		this.color = color;
+	}
+
+	public PersonalityCard getPersonalityCard() {
+		return personalityCard;
+	}
+
+	public void setPersonalityCard(PersonalityCard personalityCard) {
+		this.personalityCard = personalityCard;
+	}
+
+	public ArrayList<BoardCard> getHoldingCards() {
+		return holdingCards;
+	}
+
+	public void setHoldingCards(ArrayList<BoardCard> holdingCards) {
+		this.holdingCards = holdingCards;
+	}
+
+	public int getMinion() {
+		return minion;
+	}
+
+	public int getBuilding() {
+		return building;
 	}
 }
