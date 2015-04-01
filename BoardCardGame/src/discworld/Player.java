@@ -349,11 +349,12 @@ public class Player {
 				for(int i=0;i<numSym;i++)
 				{
 					s=b.allSymbols().get(i);
+					if(s!=BoardCard.Symbols.Event&&s!=BoardCard.Symbols.Interrupt)
 					System.out.println((i+1)+". "+s.name());
 				}
 				indexSym=Master.scan.nextInt();
 				Master.scan.nextLine();
-			}while(indexSym<=0 || indexSym>numSym);
+			}while((indexSym<=0 || indexSym>numSym)&&b.allSymbols().get(indexSym-1)!=BoardCard.Symbols.Event&&b.allSymbols().get(indexSym-1)!=BoardCard.Symbols.Interrupt);
 			s=b.allSymbols().get(indexSym-1);
 			if (s== BoardCard.Symbols.Assassination)
 			{
