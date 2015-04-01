@@ -340,7 +340,7 @@ public class Player {
 		boolean playNextCard=false;
 		BoardCard.Symbols s;
 		String con;
-		int indexSym, indexCity;
+		int indexSym=0, indexCity;
 		do{
 			numSym=b.allSymbols().size();
 			do{
@@ -405,7 +405,7 @@ public class Player {
 			}else if(s==BoardCard.Symbols.Dollar){
 				money+=b.dollar();
 				Master.bank-=b.dollar();
-				System.out.println("You got "+ b.dollar + " dollars. Totally: "+money+" dollar.");
+				System.out.println("You got "+ b.dollar() + " dollars. Totally: "+money+" dollar.");
 				
 			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
 			{
