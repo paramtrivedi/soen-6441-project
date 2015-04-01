@@ -374,19 +374,19 @@ public class Player {
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=Master.scan.nextInt();
 					Master.scan.nextLine();
-				}while(indexCity<=0 ||indexCity>Master.card.size() ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
+				}while(indexCity<=0 ||indexCity>Master.cityCards.size() ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
 				
 				int indexPlayer;
 				do{
 					System.out.println("Choose a player:");
 					for(int i =0;i<Master.playerList.size();i++)
 					{
-						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0)
+						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0 && id!=i+1)
 							System.out.println("Player "+Master.playerList.get(i).getID());
 					}
 					indexPlayer=Master.scan.nextInt();
 					Master.scan.nextLine();
-				}while(indexPlayer<=0||indexPlayer>4);
+				}while((indexPlayer<=0||indexPlayer>Master.playerList.size())&&indexPlayer!=id);
 				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
 					if(!Master.playerList.get(indexPlayer-1).interrupt())
 						b.Assassination(Master.cityCards.get(indexCity-1), Master.playerList.get(indexPlayer-1));

@@ -111,10 +111,11 @@ public class CityCard
 			System.out.println("One minion of Player "+p.getID()+" removed from "+name);
 			this.getMinions().set(p.getID()-1, getMinions().get(p.getID()-1)-1);
 			p.setMinion(+1);
+			removeTM();
 			return true;
 		}else {
 			System.out.println("Player "+p.getID()+" does not have any minions in "+name);
-			removeTM();
+			
 			return false;
 		}
 	}
