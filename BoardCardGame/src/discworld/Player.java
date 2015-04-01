@@ -339,7 +339,7 @@ public class Player {
 		int numSym=0;
 		boolean playNextCard=false;
 		BoardCard.Symbols s;
-		boolean rondomEventFlag=b.Event();
+		//boolean rondomEventFlag=b.Event();
 		String con;
 		int indexSym, indexCity;
 		do{
@@ -356,6 +356,16 @@ public class Player {
 				Master.scan.nextLine();
 			}while((indexSym<=0 || indexSym>numSym)&&b.allSymbols().get(indexSym-1)!=BoardCard.Symbols.Event&&b.allSymbols().get(indexSym-1)!=BoardCard.Symbols.Interrupt);
 			s=b.allSymbols().get(indexSym-1);
+			for(int i=0;i<indexSym;i++)
+			{
+				if(b.allSymbols().get(i)==BoardCard.Symbols.Event)
+				{
+					Master.eventCards.get(0).action(this);
+					System.out.println(Master.eventCards.get(0).toString()+" happens.");
+					Master.eventCards.remove(0);
+				}
+				b.allSymbols().remove(i);
+			}
 			if (s== BoardCard.Symbols.Assassination)
 			{
 				do{
@@ -365,11 +375,8 @@ public class Player {
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 					indexCity=Master.scan.nextInt();
 					Master.scan.nextLine();
-				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
-				for(int i=0;i<indexSym;i++)
-				{
-					b.allSymbols().remove(i);
-				}
+				}while(indexCity<=0 ||indexCity>Master.card.size() ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
+				
 				int indexPlayer;
 				do{
 					System.out.println("Choose a player:");
@@ -435,12 +442,8 @@ public class Player {
 				con=Master.scan.next().trim().toUpperCase();
 			}
 		}while(!b.allSymbols().isEmpty() && con.equals("Y"));
-		if(rondomEventFlag){
-			Master.eventCards.get(0).action(this);
-			System.out.println(Master.eventCards.get(0).toString()+" happens.");
-			Master.eventCards.remove(0);
-		}
-
+		
+			
 		return playNextCard;
 
 	}
