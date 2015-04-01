@@ -89,7 +89,7 @@ public class CityCard
 		boolean flag=false;
 		for(int i=0;i<this.nearestCity.length;i++)
 		{
-			if(Master.cityCards.get(nearestCity[i]).minionNum(p)>0)
+			if(Master.cityCards.get(nearestCity[i]-1).minionNum(p)>0)
 			{
 				flag=true;
 				break;
