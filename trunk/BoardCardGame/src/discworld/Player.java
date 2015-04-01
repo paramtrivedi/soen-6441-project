@@ -357,7 +357,7 @@ public class Player {
 			s=b.allSymbols().get(indexSym-1);
 			for(int i=0;i<indexSym;i++)
 			{
-				if(b.allSymbols().get(i)==BoardCard.Symbols.Event)
+				if(b.allSymbols().get(0)==BoardCard.Symbols.Event)
 				{
 					Master.eventCards.get(0).action(this);
 					System.out.println(Master.eventCards.get(0).toString()+" happens.");
