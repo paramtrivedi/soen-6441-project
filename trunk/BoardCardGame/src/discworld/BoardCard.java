@@ -183,7 +183,7 @@ public class BoardCard {
 			System.out.println("Choos an owener of the minion:");
 			do{
 				inputPlayer=Master.scan.nextInt();
-			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()!=inputPlayer+1);
+			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()==inputPlayer);
 			Player tempP=Master.playerList.get(inputPlayer-1);
 			System.out.println("Moving from following city");
 			for(int i=0;i<Master.cityCards.size();i++){
@@ -216,7 +216,7 @@ public class BoardCard {
 			}
 			do{
 				inputPlayer=Master.scan.nextInt();
-			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()!=inputPlayer+1);
+			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()==inputPlayer+1);
 			System.out.println("Player "+inputPlayer+ " choose two card in your hand.");
 			for(int i=0;i<2;i++){
 				ArrayList<BoardCard> tempList=Master.playerList.get(inputPlayer-1).getHoldingCards();
