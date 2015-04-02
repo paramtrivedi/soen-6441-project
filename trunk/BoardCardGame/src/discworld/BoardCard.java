@@ -396,14 +396,15 @@ public class BoardCard {
 				if(Master.cityCards.get(i).containTroubleMaker())
 				System.out.println((i+1)+". "+Master.cityCards.get(i));
 			}
-			
+			System.out.println("Removing form following cities:");
 			do{
 				inputCity = Master.scan.nextInt();
 			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| !Master.cityCards.get(inputCity).containTroubleMaker());
 			
-			tempCity=Master.cityCards.get(inputCity);
+			tempCity=Master.cityCards.get(inputCity-1);
 			tempCity.removeMinion(player);
 			System.out.println("Put to one of following cities:");
+			
 			for(int i=0;i<tempCity.getNearestCity().length;i++){
 				System.out.println((i+1)+" "+Master.cityCards.get(i));
 			
@@ -412,7 +413,7 @@ public class BoardCard {
 				inputCity = Master.scan.nextInt();
 			}while(inputCity<0 || inputCity>=tempCity.getNearestCity().length);
 			
-			Master.cityCards.get(tempCity.getNearestCity()[inputCity]).putMinion(player);
+			Master.cityCards.get(tempCity.getNearestCity()[inputCity-1]).putMinion(player);
 			break;
 		case 34://discard card for 2$
 			num=0;
