@@ -690,7 +690,7 @@ public class Master {
 		if(winCheck(playerList.get(num-1))) return;
 		int benefit=0;
 		for(int i=0;i<cityCards.size();i++)
-			if(cityCards.get(i).getOwner()==num)
+			if(cityCards.get(i).getOwner()==num&&cityCards.get(i).getDemons()==0)
 				benefit+=cityCards.get(i).benefit;
 		boolean playCard=true;
 		do{
@@ -761,7 +761,7 @@ public class Master {
 				playCard=true;
 				if(winCheck(playerList.get(num-1)))break;
 				for(int i=0;i<cityCards.size();i++)
-					if(cityCards.get(i).getOwner()==num)
+					if(cityCards.get(i).getOwner()==num&&cityCards.get(i).getDemons()==0)
 						benefit+=cityCards.get(i).benefit;
 			}
 		}while(!quit);

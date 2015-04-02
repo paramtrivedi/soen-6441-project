@@ -177,13 +177,15 @@ public class BoardCard {
 		case 5:case 15: //move a minion of another player
 			for(int i=0;i<Master.playerList.size();i++){
 				if(i!=player.getID()-1){
-					System.out.println(i+":Player "+(i+1));
+					System.out.println((i+1)+":Player "+(i+1));
 				}
 			}
+			System.out.println("Choos an owener of the minion:");
 			do{
 				inputPlayer=Master.scan.nextInt();
 			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()!=inputPlayer+1);
-			Player tempP=Master.playerList.get(inputPlayer);
+			Player tempP=Master.playerList.get(inputPlayer-1);
+			System.out.println("Moving from following city");
 			for(int i=0;i<Master.cityCards.size();i++){
 				if(Master.cityCards.get(i).minionNum(tempP)>0)
 				System.out.println((i+1)+". "+Master.cityCards.get(i));
@@ -193,7 +195,7 @@ public class BoardCard {
 				inputCity = Master.scan.nextInt();
 			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| Master.cityCards.get(inputCity).minionNum(tempP)==0);
 			
-			tempCity=Master.cityCards.get(inputCity);
+			tempCity=Master.cityCards.get(inputCity-1);
 			tempCity.removeMinion(tempP);
 			System.out.println("Put to one of following cities:");
 			for(int i=0;i<tempCity.getNearestCity().length;i++){
@@ -204,7 +206,7 @@ public class BoardCard {
 				inputCity = Master.scan.nextInt();
 			}while(inputCity<0 || inputCity>=tempCity.getNearestCity().length);
 			
-			Master.cityCards.get(tempCity.getNearestCity()[inputCity]).putMinion(tempP);
+			Master.cityCards.get(tempCity.getNearestCity()[inputCity-1]).putMinion(tempP);
 			break;
 		case 7: case 39://select one player
 			for(int i=0;i<Master.playerList.size();i++){
