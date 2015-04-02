@@ -233,8 +233,8 @@ public class Player {
 				int num;
 				do{
 					num=Master.scan.nextInt();
-				}while(num<=0 || num>holdingCards.size()||!holdingCards.get(num).Interrupt());
-				holdingCards.remove(num);
+				}while(num<=0 || num>holdingCards.size()||!holdingCards.get(num-1).Interrupt());
+				holdingCards.remove(num-1);
 				return true;
 			}
 			else 
@@ -496,6 +496,8 @@ public class Player {
 	public void setHoldingCards(ArrayList<BoardCard> holdingCards) {
 		this.holdingCards = holdingCards;
 	}
+	
+	
 
 	public int getMinion() {
 		return minion;
