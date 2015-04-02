@@ -686,6 +686,7 @@ public class Master {
 		boolean quit = false;
 		System.out.println("Player "+num+" Start to Play:");
 		display(cityCards,playerList.get(num-1));
+		if(winCheck(playerList.get(num-1))) return;
 		boolean playCard=true;
 		do{
 
@@ -843,6 +844,7 @@ public class Master {
 		case 2:
 			for(int i=0;i<12;i++)
 			{
+				controlFlag=true;
 				tempCity=cityCards.get(i);
 				if(tempCity.pieces(p)>tempCity.getTrolls() && tempCity.getDemons()==0)
 				{
