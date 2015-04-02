@@ -381,8 +381,9 @@ public class Player {
 					do{
 						for(int i=0;i<12;i++)
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+						System.out.println(13+". Exit");
 						indexCity=Master.scan.nextInt();
-
+						if(indexCity==13) break;
 					}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
 
 				}else if(s==BoardCard.Symbols.Dollar){
