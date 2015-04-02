@@ -168,7 +168,7 @@ public class BoardCard {
 			player.setMoney(player.getMoney()+10);
 			Master.bank-=10;
 			System.out.println("Loan $10 form bank. ");
-			//player.setLoan(12);
+			player.setLoan(12);
 			break;
 		case 5:case 15: //move a minion of another player
 			for(int i=0;i<Master.playerList.size();i++){
@@ -306,7 +306,7 @@ public class BoardCard {
 		case 24://discard card
 			num=0;
 			for(int i=0 ;i<player.getHoldingCards().size();i++){
-				System.out.println("Do yout want to discard card "+player.getHoldingCards().get(i)+"?(Y/N)");
+				System.out.println("Do yout want to discard card "+player.getHoldingCards().get(i).Name()+"?(Y/N)");
 				do{
 					input=Master.scan.nextLine().toUpperCase();
 				}while(!input.equals("Y") && !input.equals("N"));
