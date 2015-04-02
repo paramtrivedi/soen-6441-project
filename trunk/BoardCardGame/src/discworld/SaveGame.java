@@ -16,14 +16,11 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 /**
  * The saveGame class saves the file of the game and loads the game.
  * 
  * @author Mohit Pujara
- * @version 2.00, 12 March 2015
+ * @version 3.00, 2 April 2015
  */
 
 public class SaveGame {
@@ -192,7 +189,7 @@ public class SaveGame {
 		boolean valid = false;
 		boolean building = false;
 		int bank = 0;
-		
+
 		try{
 			scan = new Scanner(System.in);
 			System.out.println("Enter file name to load the game:");
@@ -205,6 +202,7 @@ public class SaveGame {
 
 			String file2 = file+"1";
 			File f2 = new File(file2+".txt");
+			@SuppressWarnings("resource")
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String thisLine = "";
 			int playerCount = 0;
@@ -387,7 +385,6 @@ public class SaveGame {
 									String symbolStr = "";
 									if(hSymbol != null)
 									{
-
 										for(int m=0;m<hSymbol.size();m++)
 										{
 											symbolStr += ((String)hSymbol.get(m)).substring(0,1);
@@ -405,7 +402,7 @@ public class SaveGame {
 									colorobj = CardColor.green;
 								else if(acolor.get(i-1).equalsIgnoreCase("yellow"))
 									colorobj = CardColor.yellow;
-								
+
 								PersonalityCard pc = new PersonalityCard(i, acard.get(i-1));
 								int id = (i-1);
 								Player pl = new Player(id, money, colorobj, min, bu, pc, holdingCards);
@@ -416,47 +413,9 @@ public class SaveGame {
 								thisLine = reader.readLine();		
 							}
 						}
-						
 					}
 				}
 			}
-
-
-
-			/*Gson gson = new GsonBuilder().setPrettyPrinting().create();
-			String jsonOutput = gson.toJson(jsonObject);
-			System.out.println(jsonOutput);*/
-
-			/*JSONArray player = (JSONArray)jsonObject.get("players");
-			ArrayList<Player> gamer = new ArrayList<Player>();*/
-			/*for(int j=0; j < player.size(); j++)
-			{
-				JSONObject playerObj = (JSONObject)player.get(j);
-				JSONArray holdC = (JSONArray)playerObj.get("holdingCards");
-				ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
-				for(int k=0;k<holdC.size();k++)
-				{
-					JSONObject hCardObj = (JSONObject)holdC.get(k);
-					int hMoney = ((Long)hCardObj.get("money")).intValue();
-					int hId = ((Long)hCardObj.get("id")).intValue();
-					String hName = (String)hCardObj.get("name");
-					String hDesc = (String)hCardObj.get("description");
-					JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
-					String symbolStr = "";
-					if(hSymbol != null)
-					{
-
-						for(int m=0;m<hSymbol.size();m++)
-						{
-							symbolStr += ((String)hSymbol.get(m)).substring(0,1);
-						}
-					}
-					BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
-					holdingCards.add(b);
-				}
-				Player p = new Player(id, money, pColor, minion, build, pCard, holdingCards);
-				gamer.add(p);
-			}*/
 
 			JSONArray gCard = (JSONArray)jsonObject.get("greenCard");
 			Vector<BoardCard> greenCard = new Vector<BoardCard>();
@@ -502,7 +461,7 @@ public class SaveGame {
 				BoardCard a = new BoardCard(bId, bName, symbolStr, bMoney, bDesc);
 				brownCard.add(a);
 			}
-			
+
 			int numPlayer = ((Long)jsonObject.get("numPlayer")).intValue();
 			Master.numPlayer = numPlayer;
 			Master.bank = bank;
