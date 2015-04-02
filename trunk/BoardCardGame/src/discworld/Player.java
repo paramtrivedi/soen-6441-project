@@ -293,8 +293,10 @@ public class Player {
 		return true;
 	}
 	/** 
-	 * This method allows player to play a card
-	 * @param b
+	 * This method allows player to play a card.
+	 * 
+	 * @param b The boardcard which will be played.
+	 * @return If play this card successfully, then return true; otherwise return false;
 	 */
 		
 	public boolean playCard(BoardCard b){
