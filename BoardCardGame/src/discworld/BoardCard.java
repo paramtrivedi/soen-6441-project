@@ -94,13 +94,11 @@ public class BoardCard {
 			System.out.println(cityCard.getName()+" does not have any trouble maker.");
 			return false;
 		}
-		
 	}
 	
-	public int dollar(){
-		
+	public int dollar()
+	{	
 			return dollar;
-		
 	}
 	public boolean Scroll(){
 		return symbol.contains(Symbols.Scroll);
