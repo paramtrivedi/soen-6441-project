@@ -116,7 +116,7 @@ public class BoardCard {
 	/**
 	 * Gets the description in the board card.
 	 * 
-	 * @return description
+	 * @return description of the board card
 	 */
 	public String Description(){
 		return des;
@@ -124,7 +124,7 @@ public class BoardCard {
 	/**
 	 * Gets the name in the board card.
 	 * 
-	 * @return name
+	 * @return name of the board card
 	 */
 	public String Name(){
 		return name;
@@ -132,7 +132,7 @@ public class BoardCard {
 	/**
 	 * Gets the id in the board card.
 	 * 
-	 * @return id
+	 * @return id of the board card
 	 */
 	public int Id(){
 		return id;
