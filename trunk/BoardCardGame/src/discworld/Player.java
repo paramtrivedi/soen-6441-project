@@ -19,7 +19,7 @@ public class Player {
 	protected int money,loan;
 	protected CardColor color;
 	protected int minion,building;
-	
+
 
 	private PersonalityCard personalityCard;
 	private ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
@@ -298,12 +298,12 @@ public class Player {
 	 * @param b The boardcard which choose to play.
 	 * @return If play this card successfully, then return true; otherwise return false;
 	 */
-		
-	public boolean playCard(BoardCard b){
+
+	public boolean playCard(BoardCard b,int benefit){
 		int numSym=0;
 		boolean playNextCard=false;
 		BoardCard.Symbols s;
-		String con;
+		String con = null;
 		int indexSym=0, indexCity;
 		do{
 			numSym=b.allSymbols().size();
@@ -313,112 +313,132 @@ public class Player {
 				{
 					s=b.allSymbols().get(i);
 					if(s!=BoardCard.Symbols.Event&&s!=BoardCard.Symbols.Interrupt)
-					System.out.println((i+1)+". "+s.name());
+						System.out.println((i+1)+". "+s.name());
 				}
+				System.out.println((numSym+1)+". Get benefits");
 				indexSym=Master.scan.nextInt();
 				Master.scan.nextLine();
-			}while((indexSym<=0 || indexSym>numSym)||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Event||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Interrupt);
-			s=b.allSymbols().get(indexSym-1);
-			for(int i=0;i<indexSym;i++)
-			{
-				if(b.allSymbols().get(0)==BoardCard.Symbols.Event)
+			}while((indexSym<=0 || indexSym>numSym+1)||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Event||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Interrupt);
+			if(indexSym==numSym+1){
+				money+=benefit;
+				Master.bank-=benefit;
+				benefit=0;
+			}
+			else{
+				s=b.allSymbols().get(indexSym-1);
+				for(int i=0;i<indexSym;i++)
 				{
-					Master.eventCards.get(0).action(this);
-					System.out.println(Master.eventCards.get(0).toString()+" happens.");
-					Master.eventCards.remove(0);
+					if(b.allSymbols().get(0)==BoardCard.Symbols.Event)
+					{
+						Master.eventCards.get(0).action(this);
+						System.out.println(Master.eventCards.get(0).toString()+" happens.");
+						Master.eventCards.remove(0);
+					}
+					b.allSymbols().remove(0);
 				}
-				b.allSymbols().remove(0);
-			}
-			if (s== BoardCard.Symbols.Assassination)
-			{
-				do{
-					System.out.println("Choose a city from following: ");
-					for(int i=0;i<12;i++)
-						if(Master.cityCards.get(i).containTroubleMaker())
-							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=Master.scan.nextInt();
-					Master.scan.nextLine();
-				}while(indexCity<=0 ||indexCity>Master.cityCards.size() ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
-				
-				int indexPlayer;
-				do{
-					System.out.println("Choose a player:");
-					for(int i =0;i<Master.playerList.size();i++)
-					{
-						if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0 && id!=i+1)
-							System.out.println("Player "+Master.playerList.get(i).getID());
-					}
-					indexPlayer=Master.scan.nextInt();
-					Master.scan.nextLine();
-				}while((indexPlayer<=0||indexPlayer>Master.playerList.size())&&indexPlayer!=id);
-				if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
-					if(!Master.playerList.get(indexPlayer-1).interrupt())
-						b.Assassination(Master.cityCards.get(indexCity-1), Master.playerList.get(indexPlayer-1));
-					else System.out.println("Player "+indexPlayer+" Interrupt.");
-				else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
-			}
-			else if (s==BoardCard.Symbols.Building)
-			{
-				do{
-					for(int i=0;i<12;i++)
-						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=Master.scan.nextInt();
-					
-				}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
-				
-			}else if(s==BoardCard.Symbols.Dollar){
-				money+=b.dollar();
-				Master.bank-=b.dollar();
-				System.out.println("You got "+ b.dollar() + " dollars. Totally: "+money+" dollar.");
-				
-			}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
-			{
-				do{
-					for(int i=0;i<12;i++)
-						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=Master.scan.nextInt();
-					Master.scan.nextLine();
-				}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
-				
-			}else if(s==BoardCard.Symbols.Minion){
-				boolean flag=false;
-				do{
-					for(int i=0;i<12;i++)
-						System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
-					indexCity=Master.scan.nextInt();
-					Master.scan.nextLine();
-					for(int i=0;i<Master.cityCards.get(indexCity-1).getNearestCity().length;i++)
-					{
-						if(Master.cityCards.get(Master.cityCards.get(indexCity-1).getNearestCity()[i]-1).minionNum(this)>0)
+				if (s== BoardCard.Symbols.Assassination)
+				{
+					do{
+						System.out.println("Choose a city from following: ");
+						for(int i=0;i<12;i++)
+							if(Master.cityCards.get(i).containTroubleMaker())
+								System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+						indexCity=Master.scan.nextInt();
+						Master.scan.nextLine();
+					}while(indexCity<=0 ||indexCity>Master.cityCards.size() ||! Master.cityCards.get(indexCity-1).containTroubleMaker());
+
+					int indexPlayer;
+					do{
+						int i;
+						System.out.println("Choose a player:");
+						for( i =0;i<Master.playerList.size();i++)
 						{
-							flag=true;
-							break;
+							if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(i))>0 && id!=i+1)
+								System.out.println((i+1)+" Player "+Master.playerList.get(i).getID());
 						}
-							
+						if(Master.cityCards.get(indexCity-1).getDemons()>0)
+							System.out.println((i+1) +" Demon");
+						if(Master.cityCards.get(indexCity-1).getTrolls()>0)
+							System.out.println((i+2)+ " Troll");
+						indexPlayer=Master.scan.nextInt();
+						Master.scan.nextLine();
+					}while((indexPlayer<=0||indexPlayer>Master.playerList.size()+2)&&indexPlayer!=id);
+					if(indexPlayer==Master.playerList.size()+1)
+					{
+						Master.cityCards.get(indexCity-1).removeDemon();
+					}else if(indexPlayer==Master.playerList.size()+1)
+					{
+						Master.cityCards.get(indexCity-1).removeTrolls();
 					}
-					if(flag)
-						putMinion(Master.cityCards.get(indexCity-1), Master.cityCards);
-					else System.out.println("You can only put a minion in neighbour city");
-				}while(indexCity<=0 ||indexCity>12 ||!flag);
-				
-				
-				
-				
-			}else if(s==BoardCard.Symbols.Scroll){
-				b.action(this);
-			}else if (s==BoardCard.Symbols.PlayCard)
-			{
-				playNextCard=true;
-			}
-			con="J";
-			while(!(con.equals("Y")||con.equals("N")))
-			{
-				System.out.println("Do you want to use other Symbols of the card?(Y/N)");
-				con=Master.scan.next().trim().toUpperCase();
+					else if(Master.cityCards.get(indexCity-1).minionNum(Master.playerList.get(indexPlayer-1))>0)
+						if(!Master.playerList.get(indexPlayer-1).interrupt())
+							b.Assassination(Master.cityCards.get(indexCity-1), Master.playerList.get(indexPlayer-1));
+						else System.out.println("Player "+indexPlayer+" Interrupt.");
+					else System.out.println("Player "+indexPlayer+ " does not have ant minions.");
+				}
+				else if (s==BoardCard.Symbols.Building)
+				{
+					do{
+						for(int i=0;i<12;i++)
+							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+						indexCity=Master.scan.nextInt();
+
+					}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
+
+				}else if(s==BoardCard.Symbols.Dollar){
+					money+=b.dollar();
+					Master.bank-=b.dollar();
+					System.out.println("You got "+ b.dollar() + " dollars. Totally: "+money+" dollar.");
+
+				}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
+				{
+					do{
+						for(int i=0;i<12;i++)
+							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+						indexCity=Master.scan.nextInt();
+						Master.scan.nextLine();
+					}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
+
+				}else if(s==BoardCard.Symbols.Minion){
+					boolean flag=false;
+					do{
+						for(int i=0;i<12;i++)
+							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+						indexCity=Master.scan.nextInt();
+						Master.scan.nextLine();
+						for(int i=0;i<Master.cityCards.get(indexCity-1).getNearestCity().length;i++)
+						{
+							if(Master.cityCards.get(Master.cityCards.get(indexCity-1).getNearestCity()[i]-1).minionNum(this)>0)
+							{
+								flag=true;
+								break;
+							}
+
+						}
+						if(flag)
+							putMinion(Master.cityCards.get(indexCity-1), Master.cityCards);
+						else System.out.println("You can only put a minion in neighbour city");
+					}while(indexCity<=0 ||indexCity>12 ||!flag);
+
+
+
+
+				}else if(s==BoardCard.Symbols.Scroll){
+					b.action(this);
+				}else if (s==BoardCard.Symbols.PlayCard)
+				{
+					playNextCard=true;
+				}
+				con="J";
+				while(!(con.equals("Y")||con.equals("N")))
+				{
+					System.out.println("Do you want to use other Symbols of the card?(Y/N)");
+					con=Master.scan.next().trim().toUpperCase();
+				}
 			}
 		}while(!b.allSymbols().isEmpty() && con.equals("Y"));
-		
-			
+
+
 		return playNextCard;
 
 	}
