@@ -26,6 +26,7 @@ public class Master {
 	public static Vector<BoardCard> brownCard = new Vector<BoardCard>();
 	public static Vector<CityCard> cityCards=new Vector<CityCard>(12);
 	public static ArrayList<Player> playerList=new ArrayList<Player>();
+	public static CityCard blockCity=null;
 	public static int bank = 120;
 	public static int numPlayer = 0;
 
@@ -842,7 +843,7 @@ public class Master {
 		case 0:
 		case 1:
 		case 2:
-			for(int i=0;i<12;i++)
+			for(int i=0;i<Master.cityCards.size();i++)
 			{
 				controlFlag=true;
 				tempCity=cityCards.get(i);
