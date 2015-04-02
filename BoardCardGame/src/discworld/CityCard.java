@@ -82,6 +82,9 @@ public class CityCard
 	/**
 	 * 
 	 * The method put the minions in the game.
+	 * If the number of minions or demons or trolls in city area is more than or equal to one,
+	 * then put a minion in this area.
+	 * 
 	 * @param p	The player whose minions is put in the city.
 	 * @return If the player put a minion then return true, otherwise return false.
 	 */
@@ -102,6 +105,9 @@ public class CityCard
 
 	/**
 	 * This method is used for removing one minion for a player.
+	 * If the number of minions is more than or equal to one, then remove a minion from the area;
+	 * otherwise output there is no minion in this area.
+	 * 
 	 * @param p The player whose minions is removed
 	 * @return  If the player' minions is removed then return true, otherwise return false.
 	 */
@@ -123,7 +129,8 @@ public class CityCard
 
 	/**
 	 * If there is no trouble maker in the city, then put one. 
-	 * Otherwise, output trouble maker exists 
+	 * Otherwise, output trouble maker exists.
+	 * 
 	 * @return If trouble maker is put, then return true, otherwise return false.
 	 */
 	public boolean putTM(){
@@ -139,8 +146,9 @@ public class CityCard
 	}
 
 	/**
-	 * If there is a trouble maker in the city, then remove it. 
-	 * Otherwise, output trouble maker does not exist. 
+	 * If there is a trouble maker in the city, then remove it;
+	 * otherwise, output trouble maker does not exist. 
+	 * 
 	 * @return If trouble maker is removed, then return true, otherwise return false.
 	 */
 	public boolean removeTM(){
@@ -159,6 +167,7 @@ public class CityCard
 	 * If there is no building in the city, 
 	 * then build one for the player and change the owner for the city. 
 	 * Otherwise, output building exists. 
+	 * 
 	 * @param p The player who want to build a building.
 	 * @return If building is built, then return true, otherwise return false.
 	 */
@@ -189,7 +198,6 @@ public class CityCard
 	 * then destroy one for the player and change the owner for the city. 
 	 * Otherwise, output building does not exists. 
 	 * 
-	 * @param player
 	 * @return If one building is destroyed, then return true.
 	 */
 	public boolean destroy(){
@@ -208,8 +216,11 @@ public class CityCard
 	}
 
 	/**
-	 * The method add demons in a particular city.
-	 * @return true or false
+	 * The method add demons in a specific city area.
+	 * If the number of minions or demons or trolls in city area is more than or equal to one,
+	 * then put a demon in this area.
+	 * 
+	 * @return If the player put the demon in this area, then return true; otherwise return false.
 	 */
 	public boolean putDemon(){
 		demons++;
@@ -225,8 +236,11 @@ public class CityCard
 	}
 
 	/**
-	 * The method removes demons.
-	 * @return true or false
+	 * The method removes demons in a specific city area.
+	 * If there is a demon in the city area, then remove a demon and a trouble maker;
+	 * otherwise, output demon does not exist. 
+	 * 
+	 * @return If the player remove the demon in this area, then return true; otherwise return false.
 	 */
 	public boolean removeDemon(){
 		if(demons>0){
@@ -242,7 +256,10 @@ public class CityCard
 
 	/** 
 	 * This method add trolls in the city.
-	 *  @return true or false
+	 * If the number of minions or demons or trolls in city area is more than or equal to one,
+	 * then put a troll in this area.
+	 * 
+	 *  @return If the player put a troll in this area, then return true; otherwise return false.
 	 */
 	public boolean putTrolls(){
 		trolls++;
@@ -258,8 +275,11 @@ public class CityCard
 	}
 
 	/**
-	 * The method removes the trolls.
-	 * @return true or false.
+	 * The method removes the trolls in a specific city area.
+	 * If there is a troll in the city area, then remove a troll;
+	 * otherwise, output troll does not exist.
+	 * 
+	 * @return If the player remove a troll in this area, then return true; otherwise return false.
 	 */
 	public boolean removeTrolls(){
 		if(trolls>0){
@@ -275,8 +295,9 @@ public class CityCard
 
 	/**
 	 * Checking the adjacent city that has minion or not
-	 * @param CityCards
-	 * @param p
+	 * @param CityCards The city which is adjacent needs to check.
+	 * @param player The player who plays the game
+	 * 
 	 * @return true or false
 	 */
 
