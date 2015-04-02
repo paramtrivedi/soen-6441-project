@@ -1,0 +1,74 @@
+Game State
+----------
+
+There are 4 players:
+Player 1 (red) is playing as Lord Vetinari.
+Player 2 (yellow) is playing as Chrysopsase.
+Player 3 (green) is playing as Dragon King of Arms.
+Player 4 (blue) is playing as Lord de Worde.
+
+Current state of the game board:
+
+                area         minions        trouble?       building?          demons          trolls         benefit    nearest City
+        Dolly Sister    [1, 1, 1, 1]            true              -1               0               0               6          2,3,12
+       Unreal Estate    [1, 0, 0, 0]           false              -1               0               0              18  1,3,4,10,11,12
+    Dragon's Landing    [2, 0, 0, 0]            true              -1               0               0              12           1,2,4
+          Small Gods    [0, 0, 0, 0]           false              -1               0               0              18      2,3,5,6,10
+          The Scours    [0, 1, 0, 3]            true               2               1               0               6        4,6,7,10
+           The Hippo    [0, 0, 0, 1]           false               4               0               1              12           4,5,7
+          The Shades    [0, 1, 0, 1]            true               2               0               0               6           5,6,8
+             Dimwell    [1, 0, 1, 0]           false               1               0               0               6           5,7,9
+            Longwall    [0, 0, 1, 2]            true              -1               0               0              12         8,10,11
+    The isle of Gods    [1, 0, 0, 0]           false              -1               0               0              12      2,4,5,9,11
+      Seven Sleepers    [1, 1, 1, 0]            true               2               0               0              18       2,9,10,12
+            Nap Hill    [1, 0, 0, 1]           false              -1               0               1              12          1,2,11
+
+Player 1's current inventory:
+
+- 4 minions, 5 buildings, 15 Ankh-Morpork dollars
+
+- Player cards:
+Captain_Carrot
+Fresh_Start_Club
+Mr_Pin_Mr_Tulip
+Shonky_Shop
+The_Peeled_Nuts
+The_Thieves'_Guild
+
+Player 2's current inventory:
+
+- 8 minions, 3 buildings, 22 Ankh-Morpork dollars
+
+- Player cards:
+Inigo_Skimmer
+Modo
+Queen_Molly
+The_Duckman
+The_dysk
+
+Player 3's current inventory:
+
+- 8 minions, 6 buildings, 17 Ankh-Morpork dollars
+
+- Player cards:
+Dr_Cruces
+Foul_Ole_Ron
+Mr_Boggis
+Mrs_Cake
+Seargeant_Angua
+
+Player 4's current inventory:
+
+- 3 minions, 5 buildings, 18 Ankh-Morpork dollars
+
+- Player cards:
+Gaspode
+Mr_Gryle
+Rincewind
+Sacharissa_Cripslock
+The_Opera_House
+Zorgo_the_Retro_phrenologist
+
+The bank has 48 Ankh-Morpork dollars.
+
+numPlayer: 1
