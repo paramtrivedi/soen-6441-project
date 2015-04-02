@@ -294,11 +294,11 @@ public class CityCard
 	}
 
 	/**
-	 * Checking the adjacent city that has minion or not
+	 * Checking the adjacent city that has minion or not.
 	 * @param CityCards The city which is adjacent needs to check.
 	 * @param player The player who plays the game
 	 * 
-	 * @return true or false
+	 * @return If the adjacent city has minions, then return true; otherwise return false.
 	 */
 
 	public boolean adjacentCheck(Vector<CityCard> CityCards, Player p){
