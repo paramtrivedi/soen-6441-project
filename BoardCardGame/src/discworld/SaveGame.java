@@ -178,7 +178,8 @@ public class SaveGame {
 
 	/**
 	 * 
-	 * This method loads the game and stores the citycard information in city, players information in player, greencard information in greencard, browncard information in browncard
+	 * This method loads the game and stores the citycard information in city, 
+	 * players information in player, greencard information in greencard, browncard information in browncard.
 	 * 
 	 */
 	public static void load(){
@@ -341,7 +342,7 @@ public class SaveGame {
 	}
 
 	/**
-	 * this method encodes the data
+	 * This method encodes the data.
 	 * @param token
 	 */
 	public static String base64Encode(String token) {
@@ -350,7 +351,7 @@ public class SaveGame {
 	}
 
 	/**
-	 * this method decodes the data
+	 * This method decodes the data.
 	 * @param token
 	 */
 	public static String base64Decode(String token) {
