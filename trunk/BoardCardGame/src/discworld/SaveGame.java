@@ -130,6 +130,14 @@ public class SaveGame {
 		}
 		br.close();
 
+		ArrayList<String> personality = new ArrayList<String>();
+		personality.add("Lord Selachii");
+		personality.add("Lord Rust");
+		personality.add("Lord de Worde");
+		personality.add("Lord Vetinari");
+		personality.add("Commander Vimes");
+		personality.add("Dragon King of Arms");
+		personality.add("Chrysopsase");
 		try{
 			scan = new Scanner(System.in);
 			System.out.println("Enter file name to load the game:");
@@ -170,8 +178,9 @@ public class SaveGame {
 							++playerCount;
 							Pattern r1 = Pattern.compile("\\((blue|green|red|yellow)\\)");
 							Matcher m1 = r1.matcher(thisLine);
-							int ind = thisLine.lastIndexOf("as");
-							acard.add(thisLine.substring(ind+2, thisLine.length()-1).trim());
+							String []cp = thisLine.split("as ");
+							cp[1] = cp[1].replaceAll("\\.", "");
+							acard.add(cp[1].trim());
 							if(m1.find())
 							{
 								String color = m1.group().substring(1);
@@ -369,9 +378,55 @@ public class SaveGame {
 								else if(acolor.get(i-1).equalsIgnoreCase("yellow"))
 									colorobj = CardColor.yellow;
 
-								PersonalityCard pc = new PersonalityCard(i, acard.get(i-1));
-								Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
-								gamer.add(pl);
+								if(acard.get(i-1).equals(personality.get(0)))
+								{
+									PersonalityCard pc = new PersonalityCard(0, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
+								else if(acard.get(i-1).equals(personality.get(1)))
+								{
+									PersonalityCard pc = new PersonalityCard(1, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
+								else if(acard.get(i-1).equals(personality.get(2)))
+								{
+									PersonalityCard pc = new PersonalityCard(2, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
+								else if(acard.get(i-1).equals(personality.get(3)))
+								{
+									PersonalityCard pc = new PersonalityCard(3, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
+								else if(acard.get(i-1).equals(personality.get(4)))
+								{
+									PersonalityCard pc = new PersonalityCard(4, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
+								else if(acard.get(i-1).equals(personality.get(5)))
+								{
+									PersonalityCard pc = new PersonalityCard(5, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
+								else if(acard.get(i-1).equals(personality.get(6)))
+								{
+									PersonalityCard pc = new PersonalityCard(6, acard.get(i-1));
+									System.out.println(pc);
+									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
+									gamer.add(pl);
+								}
 							}
 							else
 							{
