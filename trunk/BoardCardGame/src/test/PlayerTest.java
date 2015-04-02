@@ -2,7 +2,6 @@ package test;
 import static org.junit.Assert.*;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import org.junit.Test;
 import discworld.BoardCard;
 import discworld.CardColor;
 import discworld.CityCard;
-import discworld.Master;
 import discworld.PersonalityCard;
 import discworld.Player;
 
@@ -93,7 +91,7 @@ public class PlayerTest {
 	public void putBuilding()
 	{
 		boolean res = c.build(player);
-		assertTrue(res);
+		assertFalse(res);
 	}
 
 }

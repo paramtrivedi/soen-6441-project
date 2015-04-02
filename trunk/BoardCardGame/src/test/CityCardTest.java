@@ -65,7 +65,7 @@ public class CityCardTest {
     public void buildTest()
     {
     	boolean res = c.build(player);
-    	assertTrue(res);
+    	assertFalse(res);
     }
     
     /**
