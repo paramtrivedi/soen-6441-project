@@ -419,7 +419,7 @@ public class BoardCard {
 		case 34://discard card for 2$
 			num=0;
 			for(int i=0 ;i<player.getHoldingCards().size();i++){
-				System.out.println("Do yout want to discard card "+player.getHoldingCards().get(i)+"?(Y/N)");
+				System.out.println("Do yout want to discard card "+player.getHoldingCards().get(i).Name()+player.getHoldingCards().get(i).allSymbols()+"?(Y/N)");
 				do{
 					input=Master.scan.nextLine().toUpperCase();
 				}while(!input.equals("Y") && !input.equals("N"));
