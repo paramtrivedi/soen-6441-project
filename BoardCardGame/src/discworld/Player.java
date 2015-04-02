@@ -303,12 +303,12 @@ public class Player {
 		int numSym=0;
 		boolean playNextCard=false;
 		BoardCard.Symbols s;
-		String con = null;
+		String con = "J";
 		int indexSym=0, indexCity;
 		do{
 			numSym=b.allSymbols().size();
 			do{
-				System.out.println("Choose a symbol from following(1-"+numSym+"):");
+				System.out.println("Choose a symbol from following(1-"+(numSym+1)+"):");
 				for(int i=0;i<numSym;i++)
 				{
 					s=b.allSymbols().get(i);
