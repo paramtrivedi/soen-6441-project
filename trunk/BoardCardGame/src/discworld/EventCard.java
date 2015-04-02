@@ -127,9 +127,7 @@ public class EventCard {
 						}
 					}
 				}
-			}
-				
-			
+			}		
 			
 			break;
 		case 5: //Roits
