@@ -219,9 +219,13 @@ public class SaveGame {
 
 						String build = line.substring(53, 68).trim();
 						int owner = Integer.parseInt(build);
-						if(!build.equals("-1"))
+						if(!build.trim().equals("-1"))
 						{
 							building = true;
+						}
+						else
+						{
+							building = false;
 						}
 
 						String demons = line.substring(69, 84).trim();
