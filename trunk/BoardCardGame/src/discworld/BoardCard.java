@@ -193,18 +193,18 @@ public class BoardCard {
 			
 			do{
 				inputCity = Master.scan.nextInt();
-			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| Master.cityCards.get(inputCity).minionNum(tempP)==0);
+			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| Master.cityCards.get(inputCity-1).minionNum(tempP)==0);
 			
 			tempCity=Master.cityCards.get(inputCity-1);
 			tempCity.removeMinion(tempP);
 			System.out.println("Put to one of following cities:");
 			for(int i=0;i<tempCity.getNearestCity().length;i++){
-				System.out.println((i+1)+" "+Master.cityCards.get(i));
+				System.out.println((i+1)+" "+Master.cityCards.get(tempCity.getNearestCity()[i]));
 			
 			}
 			do{
 				inputCity = Master.scan.nextInt();
-			}while(inputCity<0 || inputCity>=tempCity.getNearestCity().length);
+			}while(inputCity<=0 || inputCity>tempCity.getNearestCity().length);
 			
 			Master.cityCards.get(tempCity.getNearestCity()[inputCity-1]).putMinion(tempP);
 			break;
