@@ -335,24 +335,38 @@ public class SaveGame {
 										{
 											thisLine = thisLine.trim().substring(1, thisLine.length()).trim();
 											String arr[] = thisLine.split(",");
-											for(int j=0;j<arr.length;j++)
+											if(arr[0].contains("minions"))
 											{
-												String abc = arr[j].trim();
-												if(abc.contains("minions"))
+												String []a1 = arr[0].split(" ");
+												int ab = Integer.parseInt(a1[0]);
+												if(ab < 0 || ab > 12)
 												{
-													String a = abc.substring(0, 1);
-													min = Integer.parseInt(a);
+													System.out.println("Invalid minion number!!! Please load the correct file!!!");
+													load();
 												}
-												else if(abc.contains("buildings"))
+												else
 												{
-													String b = abc.substring(0, 1);
-													bu = Integer.parseInt(b);
+													min = ab;
 												}
-												else if(abc.contains("Ankh-Morpork dollars"))
+											}
+											if(arr[1].trim().contains("buildings"))
+											{
+												String []b1 = arr[1].trim().split(" ");
+												int bc = Integer.parseInt(b1[0]);
+												if(bc < 0 || bc > 6)
 												{
-													String c = abc.substring(0, 2);
-													money = Integer.parseInt(c);
+													System.out.println("Invalid building number!!! Please load the correct file!!!");
+													load();
 												}
+												else
+												{
+													bu = bc;
+												}
+											}
+											if(arr[2].trim().contains("Ankh-Morpork dollars"))
+											{
+												String []c1 = arr[2].split(" ");
+												money = Integer.parseInt(c1[1]);
 											}
 											firstTime = false;
 										}
@@ -404,8 +418,7 @@ public class SaveGame {
 									colorobj = CardColor.yellow;
 
 								PersonalityCard pc = new PersonalityCard(i, acard.get(i-1));
-								int id = (i-1);
-								Player pl = new Player(id, money, colorobj, min, bu, pc, holdingCards);
+								Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 								gamer.add(pl);
 							}
 							else
