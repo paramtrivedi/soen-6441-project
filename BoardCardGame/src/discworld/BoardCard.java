@@ -147,7 +147,7 @@ public class BoardCard {
 	}
 	public boolean action(Player player){
 		CityCard tempCity=null;
-		int inputPlayer,inputCard;
+		int inputPlayer,inputCard,inputCity;
 		int num;
 		switch(id+1){
 		case 1: case 48://
@@ -179,10 +179,28 @@ public class BoardCard {
 			do{
 				inputPlayer=Master.scan.nextInt();
 			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()!=inputPlayer+1);
+			Player tempP=Master.playerList.get(inputPlayer);
+			for(int i=0;i<Master.cityCards.size();i++){
+				if(Master.cityCards.get(i).minionNum(tempP)>0)
+				System.out.println((i+1)+". "+Master.cityCards.get(i));
+			}
 			
+			do{
+				inputCity = Master.scan.nextInt();
+			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| Master.cityCards.get(inputCity).minionNum(tempP)==0);
 			
+			tempCity=Master.cityCards.get(inputCity);
+			tempCity.removeMinion(tempP);
+			System.out.println("Put to one of following cities:");
+			for(int i=0;i<tempCity.getNearestCity().length;i++){
+				System.out.println((i+1)+" "+Master.cityCards.get(i));
 			
+			}
+			do{
+				inputCity = Master.scan.nextInt();
+			}while(inputCity<0 || inputCity>=tempCity.getNearestCity().length);
 			
+			Master.cityCards.get(tempCity.getNearestCity()[inputCity]).putMinion(tempP);
 			break;
 		case 7: case 39://select one player
 			for(int i=0;i<Master.playerList.size();i++){
@@ -212,7 +230,7 @@ public class BoardCard {
 		case 11: case 31:
 			int die=Master.roll();
 			String input;
-			int inputCity;
+			
 			if(die>=7){ 
 				player.setMoney(player.getMoney()+4);
 				Master.bank-=4;
@@ -368,15 +386,27 @@ public class BoardCard {
 			player.getHoldingCards().remove(inputCard);
 			break;
 		case 33://remove one minion
-			System.out.println("Choose a city:");
-			for(int i=0 ;i<Master.cityCards.size();i++){
+			for(int i=0;i<Master.cityCards.size();i++){
 				if(Master.cityCards.get(i).containTroubleMaker())
-					System.out.println((i+1)+" "+Master.cityCards.get(i));
-				
+				System.out.println((i+1)+". "+Master.cityCards.get(i));
+			}
+			
+			do{
+				inputCity = Master.scan.nextInt();
+			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| !Master.cityCards.get(inputCity).containTroubleMaker());
+			
+			tempCity=Master.cityCards.get(inputCity);
+			tempCity.removeMinion(player);
+			System.out.println("Put to one of following cities:");
+			for(int i=0;i<tempCity.getNearestCity().length;i++){
+				System.out.println((i+1)+" "+Master.cityCards.get(i));
+			
 			}
 			do{
-				inputCity=Master.scan.nextInt();
-			}while(inputCity<=0 || inputCity>Master.cityCards.size());
+				inputCity = Master.scan.nextInt();
+			}while(inputCity<0 || inputCity>=tempCity.getNearestCity().length);
+			
+			Master.cityCards.get(tempCity.getNearestCity()[inputCity]).putMinion(player);
 			break;
 		case 34://discard card for 2$
 			num=0;
