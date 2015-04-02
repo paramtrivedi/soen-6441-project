@@ -504,4 +504,7 @@ public class Player {
 	public int getBuilding() {
 		return building;
 	}
+	public void setLoan(int i) {
+		loan+=i;
+	}
 }
