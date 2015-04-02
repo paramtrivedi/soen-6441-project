@@ -381,7 +381,7 @@ public class BoardCard {
 		case 32://discard one card
 			System.out.println("Which card you want to discard?");
 			for(int i=0 ;i<player.getHoldingCards().size();i++){
-				System.out.println(i+" "+player.getHoldingCards().get(i));
+				System.out.println(i+" "+player.getHoldingCards().get(i).Name());
 				
 			}
 			do{
