@@ -5,9 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.Scanner;
 import java.util.Vector;
 import java.util.regex.Matcher;
@@ -395,23 +393,5 @@ public class SaveGame {
 			e.printStackTrace();
 		}
 		return valid;
-	}
-
-	/**
-	 * This method encodes the data.
-	 * @param token
-	 */
-	public static String base64Encode(String token) {
-		byte[] encodedBytes = Base64.getEncoder().encode(token.getBytes());
-		return new String(encodedBytes, Charset.forName("UTF-8"));
-	}
-
-	/**
-	 * This method decodes the data.
-	 * @param token
-	 */
-	public static String base64Decode(String token) {
-		byte[] decodedBytes = Base64.getDecoder().decode(token.getBytes());
-		return new String(decodedBytes, Charset.forName("UTF-8"));
 	}
 }
