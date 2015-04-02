@@ -211,25 +211,25 @@ public class BoardCard {
 		case 7: case 39://select one player
 			for(int i=0;i<Master.playerList.size();i++){
 				if(i!=player.getID()-1){
-					System.out.println(i+":Player "+(i+1));
+					System.out.println((i+1)+":Player "+(i+1));
 				}
 			}
 			do{
 				inputPlayer=Master.scan.nextInt();
-			}while(inputPlayer<0 || inputPlayer>=Master.playerList.size()|| player.getID()==inputPlayer+1);
+			}while(inputPlayer<=0 || inputPlayer>Master.playerList.size()|| player.getID()==inputPlayer);
 			System.out.println("Player "+inputPlayer+ " choose two card in your hand.");
 			for(int i=0;i<2;i++){
 				ArrayList<BoardCard> tempList=Master.playerList.get(inputPlayer-1).getHoldingCards();
 				System.out.println("Choose one from following:");
 				for(int j=0;j<tempList.size();j++)
 				{
-					System.out.println((j+1)+". "+tempList.get(j));
+					System.out.println((j+1)+". "+tempList.get(j).Name()+tempList.get(j).allSymbols());
 				}
 				do{
 					inputCard=Master.scan.nextInt();
-				}while(inputCard<0 || inputCard>=tempList.size());
-				player.getHoldingCards().add(tempList.get(inputCard));
-				tempList.remove(inputCard);
+				}while(inputCard<=0 || inputCard>tempList.size());
+				player.getHoldingCards().add(tempList.get(inputCard-1));
+				tempList.remove(inputCard-1);
 			}
 			break;
 		case 8://player another two card, meiwan
@@ -274,8 +274,9 @@ public class BoardCard {
 			int total=Master.card.size();
 			Random rn= new Random();
 			int randomNum=rn.nextInt(total);
-			System.out.println(Master.card.get(randomNum).toString());
+			System.out.println(Master.card.get(randomNum).name);
 		}
+			break;
 		case 21://choose one player, pay 5 or destoary building
 			for(int i=0;i<Master.playerList.size();i++){
 				if(i!=player.getID()-1){
