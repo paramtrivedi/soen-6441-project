@@ -80,6 +80,7 @@ public class EventCard {
 				System.out .println("Die rolls: "+ die+" ,"+tempCity.getName());
 				Master.cityCards.get(die-1).putTrolls();
 			}
+			break;
 		case 8:// Event Card :demon
 			for(int i=0;i<4;i++)
 			{
@@ -178,7 +179,7 @@ public class EventCard {
 			{
 				tempCity=Master.cityCards.get(i);
 				if(tempCity.isBuilding()){
-					System.out.println("Player "+tempCity.getOwner()+", do you want to pay $2 for the building in "+tempCity.getName());
+					System.out.println("Player "+tempCity.getOwner()+", do you want to pay $2 for the building in "+tempCity.getName()+"(Y/N)");
 					do{
 						input=Master.scan.nextLine().toUpperCase();
 					}while(!input.equals("Y") && !input.equals("N"));	

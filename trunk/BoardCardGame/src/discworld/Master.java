@@ -688,17 +688,15 @@ public class Master {
 		System.out.println("Player "+num+" Start to Play:");
 		display(cityCards,playerList.get(num-1));
 		if(winCheck(playerList.get(num-1))) return;
+		int benefit=0;
+		for(int i=0;i<cityCards.size();i++)
+			if(cityCards.get(i).getOwner()==num)
+				benefit+=cityCards.get(i).benefit;
 		boolean playCard=true;
 		do{
 
 			input=Menu();
-			
-			int benefit=0;
-			for(int i=0;i<cityCards.size();i++)
-				if(cityCards.get(i).getOwner()==num)
-					benefit+=cityCards.get(i).benefit;
-
-			
+						
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
@@ -737,7 +735,9 @@ public class Master {
 				}else{
 					playerList.get(num-1).setMoney(playerList.get(num-1).getMoney()+benefit);
 					bank-=bank-benefit;
+					System.out.println("Get $"+benefit);
 					benefit=0;
+					
 					break;
 				}
 
@@ -760,6 +760,9 @@ public class Master {
 				display(cityCards,playerList.get(num-1));
 				playCard=true;
 				if(winCheck(playerList.get(num-1)))break;
+				for(int i=0;i<cityCards.size();i++)
+					if(cityCards.get(i).getOwner()==num)
+						benefit+=cityCards.get(i).benefit;
 			}
 		}while(!quit);
 		bank = 120;
