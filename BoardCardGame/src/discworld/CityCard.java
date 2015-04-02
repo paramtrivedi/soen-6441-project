@@ -7,7 +7,7 @@ import java.util.Vector;
  * This class generates the city cards and owner of the city areas
  * 
  * @author Shu Liu, Mohit Pujara
- * @version 2.00, 12 March 2015
+ * @version 3.00, 2 April 2015
  *
  */
 public class CityCard 

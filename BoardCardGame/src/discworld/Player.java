@@ -9,7 +9,7 @@ import java.util.Vector;
  * green cards and brown cards.
  * 
  * @author Shu Liu, Zixi Quan and Jay Tanna
- * @version 2.00, 12 March 2015
+ * @version 3.00, 2 April 2015
  *
  */
 
