@@ -318,6 +318,7 @@ public class Player {
 				System.out.println((numSym+1)+". Get benefits");
 				indexSym=Master.scan.nextInt();
 				Master.scan.nextLine();
+				if(indexSym==numSym+1)break;
 			}while((indexSym<=0 || indexSym>numSym+1)||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Event||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Interrupt);
 			if(indexSym==numSym+1){
 				money+=benefit;
