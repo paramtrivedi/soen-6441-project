@@ -17,7 +17,10 @@ public class EventCard {
 		this.id=id;
 		this.name=name;
 	}
-	
+	/**
+	 * This method gets the id of current event card.
+	 * @return number of id
+	 */
 	public int getId()
 	{
 	    return id;
@@ -26,7 +29,12 @@ public class EventCard {
 	public String toString(){
 		return name;
 	}
-	
+	/**
+	 * This method plays the function of the event card.
+	 * 
+	 * @param p The current player who plays the card.
+	 * @return If the event card works well, then return true; otherwise return false.
+	 */
 	public boolean action(Player p){
 		int die;
 		CityCard tempCity;
