@@ -325,8 +325,9 @@ public class Player {
 				else{
 					money+=benefit;
 				Master.bank-=benefit;
-				benefit=0;
 				System.out.println("You get $"+benefit);
+				benefit=0;
+				
 				}
 			}
 			else{
