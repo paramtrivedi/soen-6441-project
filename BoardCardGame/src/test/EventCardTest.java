@@ -14,6 +14,7 @@ import discworld.Player;
 
 public class EventCardTest {
 	private EventCard e;
+	@SuppressWarnings("unused")
 	private Player player; 
 	private PersonalityCard p;
 	

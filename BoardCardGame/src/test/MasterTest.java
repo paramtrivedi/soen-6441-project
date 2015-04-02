@@ -1,7 +1,6 @@
 package test;
 import static org.junit.Assert.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -16,6 +15,7 @@ import discworld.PersonalityCard;
 
 public class MasterTest {
 	//private Master m;
+	@SuppressWarnings("unused")
 	private Player player;
 	private PersonalityCard p;
 	ArrayList<BoardCard> holdingCards = new ArrayList<BoardCard>();
