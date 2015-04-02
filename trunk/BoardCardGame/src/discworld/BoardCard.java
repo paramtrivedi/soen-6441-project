@@ -23,8 +23,8 @@ public class BoardCard {
 	 * This constructor will create a particular board card with the id,
 	 * the name, the ability and the description.
 	 * 
-	 * @param id
-	 * @param name
+	 * @param id ID for the boardcard
+	 * @param name Name for the boardcard
 	 * @param s_symbols
 	 * @param dollar
 	 * @param des
