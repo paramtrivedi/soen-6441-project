@@ -23,11 +23,11 @@ public class BoardCard {
 	 * This constructor will create a particular board card with the id,
 	 * the name, the ability and the description.
 	 * 
-	 * @param id ID for the boardcard
-	 * @param name Name for the boardcard
-	 * @param s_symbols
-	 * @param dollar
-	 * @param des
+	 * @param id ID for the boardcard.
+	 * @param name Name for the boardcard.
+	 * @param s_symbols A vector of symbols on the boardcard.
+	 * @param dollar The money can get from the bank.
+	 * @param des The description of boardcard.
 	 */
 	public BoardCard(int id, String name, String s_Symbols,int dollar,String des){
 		this.id=id;
@@ -58,11 +58,11 @@ public class BoardCard {
 	 * This constructor will create a particular board card with the name,
 	 * the id, the sym and the description.
 	 * 
-	 * @param name
-	 * @param id
-	 * @param sym
-	 * @param des
-	 * @param dollar
+	 * @param name Name for the boardcard.
+	 * @param id   ID for the boardcard.
+	 * @param sym  The Arraylist of the symbols.
+	 * @param des  The description of the boardcard.
+	 * @param dollar  The money can get by player.
 	 */
 	
 	public BoardCard(String name, int id,  ArrayList<Symbols> sym, String des,int dollar) {
@@ -79,9 +79,9 @@ public class BoardCard {
 	 *******************************************************************/
 	/** 
 	 * This method will assassinate a minion of another player
-	 * @author zixi quan
-	 * @param cityCard
-	 * @param p 
+	 * @author Zixi Quan
+	 * @param cityCard The citycard plays by the player.
+	 * @param p The current player who plays the game.
 	 * */
 	public boolean Assassination(CityCard cityCard, Player p){
 		if(cityCard.containTroubleMaker())
@@ -145,6 +145,12 @@ public class BoardCard {
 	public void setSymbol(ArrayList<Symbols> sym){
 		this.symbol=sym;
 	}
+	/**
+	 * This method plays the function of the board card.
+	 * 
+	 * @param p The current player who plays the card.
+	 * @return If the board card works well, then return true; otherwise return false.
+	 */
 	public boolean action(Player player){
 		CityCard tempCity=null;
 		int inputPlayer,inputCard,inputCity;
