@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -12,9 +13,7 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
+import discworld.BoardCard.Symbols;
 
 /**
  * The saveGame class saves the file of the game and loads the game.
@@ -35,14 +34,13 @@ public class SaveGame {
 	 * @param greenCard
 	 * @param brownCard
 	 */
-	@SuppressWarnings("unchecked")
+
 	public static void save(Vector<CityCard> city, ArrayList<Player> gamer, Vector<BoardCard> greenCard, Vector<BoardCard> brownCard)
 	{
 		try{
 			scan = new Scanner(System.in);
 			String file;
 			File f;
-			File f2;
 			do
 			{
 				System.out.println("Enter file name to save the game state:");
@@ -53,9 +51,6 @@ public class SaveGame {
 					System.out.println("File already exists. Please give another name!!!");
 				}
 			}while(f.exists());
-
-			String file2 = file+"1";
-			f2 = new File(file2+".txt");
 
 			BufferedWriter output = new BufferedWriter(new FileWriter(f));
 
@@ -90,85 +85,10 @@ public class SaveGame {
 				}
 			}
 
-			output.write("The bank has "+ Master.bank() +" Ankh-Morpork dollars.");
+			output.write("\nThe bank has "+ Master.bank() +" Ankh-Morpork dollars.\n");
+			output.write("\nnumPlayer: "+Master.numPlayer());
 			output.close();
 
-			JSONObject cityarea = new JSONObject();
-
-			JSONArray player = new JSONArray();
-
-			for(int j=0; j < gamer.size(); j++)
-			{
-				JSONObject obj = new JSONObject();
-				JSONArray hArr = new JSONArray();
-				for(int k = 0; k < gamer.get(j).getHoldingCards().size(); k++)
-				{
-					JSONObject hObj = new JSONObject();
-					BoardCard bc = gamer.get(j).getHoldingCards().get(k);
-					hObj.put("id", bc.id);
-					hObj.put("name", bc.name);
-					JSONArray gSymbol = new JSONArray();
-					for(int a=0; a < bc.symbol.size(); a++)
-					{
-						gSymbol.add(bc.symbol.get(a).name());
-					}
-					hObj.put("symbol", gSymbol);
-					hObj.put("money", gamer.get(j).getHoldingCards().get(k).dollar);
-					hObj.put("description", gamer.get(j).getHoldingCards().get(k).des);
-					hArr.add(hObj);
-				}
-				obj.put("holdingCards",hArr);
-				player.add(obj);
-			}
-
-			cityarea.put("players", player);
-
-			JSONArray gCard = new JSONArray();
-
-			for(int g=0; g < greenCard.size(); g++)
-			{
-				JSONObject gObj = new JSONObject();
-				gObj.put("id", greenCard.get(g).id);
-				gObj.put("name", greenCard.get(g).name);
-				JSONArray gSymbol = new JSONArray();
-				for(int a=0; a < greenCard.get(g).symbol.size(); a++)
-				{
-					gSymbol.add(greenCard.get(g).symbol.get(a).name());
-				}
-				gObj.put("symbol", gSymbol);
-				gObj.put("money", greenCard.get(g).dollar);
-				gObj.put("description", greenCard.get(g).des);
-				gCard.add(gObj);
-			}
-
-			cityarea.put("greenCard", gCard);
-
-			JSONArray bCard = new JSONArray();
-
-			for(int b=0; b < brownCard.size(); b++)
-			{
-				JSONObject bObj = new JSONObject();
-				bObj.put("id", brownCard.get(b).id);
-				bObj.put("name", brownCard.get(b).name);
-				JSONArray bSymbol = new JSONArray();
-				for(int a=0; a < brownCard.get(b).symbol.size(); a++)
-				{
-					bSymbol.add(brownCard.get(b).symbol.get(a).name());
-				}
-				bObj.put("symbol", bSymbol);
-				bObj.put("money", brownCard.get(b).dollar);
-				bObj.put("description", brownCard.get(b).des);
-				bCard.add(bObj);
-			}
-
-			cityarea.put("brownCard", bCard);
-
-			cityarea.put("numPlayer", Master.numPlayer());
-
-			BufferedWriter output2 = new BufferedWriter(new FileWriter(f2));
-
-			output2.write(SaveGame.base64Encode(cityarea.toString()));
-			output2.close();
 			System.out.println("file is created!!!");
 		} catch(Exception e){
 			e.printStackTrace();
@@ -179,16 +99,38 @@ public class SaveGame {
 	 * 
 	 * This method loads the game and stores the citycard information in city, 
 	 * players information in player, greencard information in greencard, browncard information in browncard.
+	 * @throws IOException 
 	 * 
 	 */
-	public static boolean load(){
+	public static boolean load() throws IOException{
 		Vector<CityCard> city = new Vector<CityCard>();
 		ArrayList<Player> gamer = new ArrayList<Player>();
+		ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
 
-		JSONParser parser = new JSONParser();
 		boolean valid = false;
 		boolean building = false;
 		int bank = 0;
+		int numPlayer=0;
+
+		Vector<BoardCard> grCard = new Vector<BoardCard>();
+		Vector<BoardCard> brCard = new Vector<BoardCard>();
+		BufferedReader br=new BufferedReader(new FileReader("BoardCard.txt"));
+		String li;
+		String[] info;
+		BoardCard board;
+		int counter=0;
+		while((li=br.readLine())!=null)
+		{
+			info=li.split(" ");
+			board=new BoardCard(counter,info[0],info[1],Integer.parseInt(info[2]),info[3]);
+			if(counter < 48){
+				grCard.add(board);
+			} else {
+				brCard.add(board);
+			}
+			counter++;
+		}
+		br.close();
 
 		try{
 			scan = new Scanner(System.in);
@@ -200,29 +142,12 @@ public class SaveGame {
 				SaveGame.load();
 			}
 
-			String file2 = file+"1";
-			File f2 = new File(file2+".txt");
 			@SuppressWarnings("resource")
 			BufferedReader reader = new BufferedReader(new FileReader(f));
 			String thisLine = "";
 			int playerCount = 0;
 			int players = 0;
 
-			BufferedReader reader2 = new BufferedReader(new FileReader(f2));
-			String line2 = SaveGame.base64Decode(reader2.readLine());
-			reader2.close();
-			Object obj = null;
-			try
-			{
-				obj = parser.parse(line2);
-			}
-			catch(Exception e)
-			{
-				System.out.println(file2+".txt"+" is not proper. Please try again!!!");
-				load();
-			}
-
-			JSONObject jsonObject = (JSONObject) obj;
 			while ((thisLine = reader.readLine()) != null) 
 			{
 				if(Pattern.matches("There are [2-4] players:+", thisLine))
@@ -241,6 +166,7 @@ public class SaveGame {
 						String pattern = "Player [1-4]+ \\((blue|green|red|yellow)\\) is playing as .+";
 						Pattern r = Pattern.compile(pattern);
 						Matcher m = r.matcher(thisLine);
+
 						if(m.find())
 						{
 							++playerCount;
@@ -313,7 +239,6 @@ public class SaveGame {
 					}
 					reader.readLine();
 					thisLine = reader.readLine();
-					JSONArray player = (JSONArray)jsonObject.get("players");
 					int min=0;
 					int bu=0;
 					int money=0;
@@ -327,6 +252,7 @@ public class SaveGame {
 								boolean firstTime = true;
 								System.out.println(thisLine);
 
+								holdingCards=new  ArrayList<BoardCard>();
 								while((thisLine != null) && !(Pattern.matches("Player [1-4]'s current inventory:+", thisLine)))
 								{
 									if(!(thisLine.trim().equals("")))
@@ -375,37 +301,65 @@ public class SaveGame {
 											if(!thisLine.equals("- Player cards:"))
 											{
 												String e = thisLine.trim();
+												for(int k = 0; k < grCard.size(); k++)
+												{
+													if(e.equals(grCard.get(k).name))
+													{
+														int hMoney = grCard.get(k).dollar;
+														int hId = grCard.get(k).id;
+														String hName = grCard.get(k).name;
+														String hDesc = grCard.get(k).des;
+														ArrayList<Symbols> hSym = grCard.get(k).symbol;
+														String symbolStr = "";
+														if (hSym != null)
+														{
+															for (int v=0; v<hSym.size(); v++)
+															{
+																symbolStr += hSym.get(v).name();
+															}
+														}
+														BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
+														holdingCards.add(b);
+														grCard.remove(k);
+													}
+												}
+												for(int t = 0; t < brCard.size(); t++)
+												{
+													if(e.equals(brCard.get(t).name))
+													{
+														int hMoney = brCard.get(t).dollar;
+														int hId = brCard.get(t).id;
+														String hName = brCard.get(t).name;
+														String hDesc = brCard.get(t).des;
+														ArrayList<Symbols> hSym = brCard.get(t).symbol;
+														String symbolStr = "";
+														if (hSym != null)
+														{
+															for (int v=0; v<hSym.size(); v++)
+															{
+																symbolStr += hSym.get(v).name();
+															}
+														}
+														BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
+														holdingCards.add(b);
+														grCard.remove(t);
+													}
+												}
 												if(e.contains("Ankh-Morpork dollars"))
 												{
 													String []g = e.split(" ");
 													bank = Integer.parseInt(g[3]);
 												}
+												if(e.contains("numPlayer:"))
+												{
+													String []h = e.split(" ");
+													System.out.println(h[1]);
+													numPlayer = Integer.parseInt(h[1]);
+												}
 											}
 										}
 									}
 									thisLine = reader.readLine();
-								}
-								JSONObject playerObj = (JSONObject)player.get(i-1);
-								JSONArray holdC = (JSONArray)playerObj.get("holdingCards");
-								ArrayList<BoardCard> holdingCards=new  ArrayList<BoardCard>();
-								for(int k=0;k<holdC.size();k++)
-								{
-									JSONObject hCardObj = (JSONObject)holdC.get(k);
-									int hMoney = ((Long)hCardObj.get("money")).intValue();
-									int hId = ((Long)hCardObj.get("id")).intValue();
-									String hName = (String)hCardObj.get("name");
-									String hDesc = (String)hCardObj.get("description");
-									JSONArray hSymbol = (JSONArray)hCardObj.get("symbol");
-									String symbolStr = "";
-									if(hSymbol != null)
-									{
-										for(int m=0;m<hSymbol.size();m++)
-										{
-											symbolStr += ((String)hSymbol.get(m)).substring(0,1);
-										}
-									}
-									BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
-									holdingCards.add(b);
 								}
 								CardColor colorobj=null;
 								if(acolor.get(i-1).equalsIgnoreCase("blue"))
@@ -430,58 +384,12 @@ public class SaveGame {
 				}
 			}
 
-			JSONArray gCard = (JSONArray)jsonObject.get("greenCard");
-			Vector<BoardCard> greenCard = new Vector<BoardCard>();
-			for(int g=0; g<gCard.size(); g++)
-			{
-				JSONObject gObj = (JSONObject)gCard.get(g);
-				int gId = ((Long)gObj.get("id")).intValue();
-				String gName = (String)gObj.get("name");
-				JSONArray gSymbol = (JSONArray)gObj.get("symbol");
-				String symbolStr = "";
-				if(gSymbol != null)
-				{
-					for(int z=0; z < gSymbol.size(); z++)
-					{
-						symbolStr += ((String)gSymbol.get(z)).substring(0,1);
-					}
-				}
-				int gMoney = ((Long)gObj.get("money")).intValue();
-				String gDesc = (String)gObj.get("description");
-				BoardCard b = new BoardCard(gId, gName, symbolStr, gMoney, gDesc);
-				greenCard.add(b);
-			}
-
-			JSONArray bCard = (JSONArray)jsonObject.get("brownCard");
-			Vector<BoardCard> brownCard = new Vector<BoardCard>();
-			for(int b=0; b<bCard.size(); b++)
-			{
-				JSONObject bObj = (JSONObject)bCard.get(b);
-
-				int bId = ((Long)bObj.get("id")).intValue();
-				String bName = (String)bObj.get("name");
-				JSONArray bSymbol = (JSONArray)bObj.get("symbol");
-				String symbolStr = "";
-				if(bSymbol != null)
-				{
-					for(int z=0; z < bSymbol.size(); z++)
-					{
-						symbolStr += ((String)bSymbol.get(z)).substring(0,1);
-					}
-				}
-				int bMoney = ((Long)bObj.get("money")).intValue();
-				String bDesc = (String)bObj.get("description");
-				BoardCard a = new BoardCard(bId, bName, symbolStr, bMoney, bDesc);
-				brownCard.add(a);
-			}
-
-			int numPlayer = ((Long)jsonObject.get("numPlayer")).intValue();
 			Master.numPlayer = numPlayer;
 			Master.bank = bank;
 			Master.cityCards = city;
 			Master.playerList = gamer;
-			Master.greenCard = greenCard;
-			Master.brownCard = brownCard;
+			Master.greenCard = grCard;
+			Master.brownCard = brCard;
 			reader.close();
 		} catch(Exception e){
 			e.printStackTrace();
