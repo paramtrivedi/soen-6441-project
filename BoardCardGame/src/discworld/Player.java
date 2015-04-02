@@ -295,7 +295,7 @@ public class Player {
 	/** 
 	 * This method allows player to play a card.
 	 * 
-	 * @param b The boardcard which will be played.
+	 * @param b The boardcard which choose to play.
 	 * @return If play this card successfully, then return true; otherwise return false;
 	 */
 		
