@@ -403,9 +403,13 @@ public class Player {
 				}else if(s==BoardCard.Symbols.Minion){
 					boolean flag=false;
 					do{
-						for(int i=0;i<12;i++)
+						for(int i=0;i<Master.cityCards.size();i++)
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
+						System.out.println((Master.cityCards.size()+1)+". Exit");
+						
 						indexCity=Master.scan.nextInt();
+						
+						if(indexCity==Master.cityCards.size()+1) break;
 						Master.scan.nextLine();
 						for(int i=0;i<Master.cityCards.get(indexCity-1).getNearestCity().length;i++)
 						{
