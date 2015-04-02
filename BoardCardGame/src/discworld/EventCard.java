@@ -151,11 +151,11 @@ public class EventCard {
 			int indexCity;
 			do{
 				System.out.println("Choose a city from following: ");
-				for(int i=0;i<12;i++)
+				for(int i=0;i<Master.cityCards.size();i++)
 					System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 				indexCity=Master.scan.nextInt();
 				Master.scan.nextLine();
-			}while(indexCity<=0 ||indexCity>12);
+			}while(indexCity<=0 ||indexCity>Master.cityCards.size());
 			
 			int indexPlayer;
 			do{
@@ -194,6 +194,10 @@ public class EventCard {
 			}
 			break;
 		case 10:
+			die=Master.roll();
+			Master.blockCity=Master.cityCards.get(die);
+			Master.cityCards.remove(die);
+			Master.blockCity.removeMinion(p);
 			break;
 		}
 		return true;

@@ -182,7 +182,7 @@ public class Player {
 		if(minion==0 )
 		{
 			System.out.println("You need to remove one minion from following cities:");
-			for(int i=0;i<12;i++)
+			for(int i=0;i<Master.cityCards.size();i++)
 				if(cityCards.get(i).getMinions().get(this.id-1)>0)
 					System.out.println(cityCards.get(i).getId()+"/t"+cityCards.get(i).Name());
 			Scanner scan = new Scanner(System.in);
@@ -268,7 +268,7 @@ public class Player {
 		if(building==0 )
 		{
 			System.out.println("You need to remove one building from following cities:");
-			for(int i=0;i<12;i++)
+			for(int i=0;i<Master.cityCards.size();i++)
 				if(cities.get(i).isBuilding() && cities.get(i).getOwner()==this.id )
 					System.out.println(cities.get(i).getId()+". "+cities.get(i).Name());
 			int input;
@@ -345,7 +345,7 @@ public class Player {
 				{
 					do{
 						System.out.println("Choose a city from following: ");
-						for(int i=0;i<12;i++)
+						for(int i=0;i<Master.cityCards.size();i++)
 							if(Master.cityCards.get(i).containTroubleMaker())
 								System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 						indexCity=Master.scan.nextInt();
@@ -384,12 +384,12 @@ public class Player {
 				else if (s==BoardCard.Symbols.Building)
 				{
 					do{
-						for(int i=0;i<12;i++)
+						for(int i=0;i<Master.cityCards.size();i++)
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 						System.out.println(13+". Exit");
 						indexCity=Master.scan.nextInt();
 						if(indexCity==13) break;
-					}while(indexCity<=0 ||indexCity>12 || !Master.cityCards.get(indexCity-1).build(this));
+					}while(indexCity<=0 ||indexCity>Master.cityCards.size() || !Master.cityCards.get(indexCity-1).build(this));
 
 				}else if(s==BoardCard.Symbols.Dollar){
 					money+=b.dollar();
@@ -399,11 +399,11 @@ public class Player {
 				}else if(s==BoardCard.Symbols.RemoveTroubleMaker)
 				{
 					do{
-						for(int i=0;i<12;i++)
+						for(int i=0;i<Master.cityCards.size();i++)
 							System.out.println((i+1)+". "+Master.cityCards.get(i).getName());
 						indexCity=Master.scan.nextInt();
 						Master.scan.nextLine();
-					}while(indexCity<=0 ||indexCity>12 ||! Master.cityCards.get(indexCity-1).removeTM());
+					}while(indexCity<=0 ||indexCity>Master.cityCards.size() ||! Master.cityCards.get(indexCity-1).removeTM());
 
 				}else if(s==BoardCard.Symbols.Minion){
 					boolean flag=false;
@@ -428,7 +428,7 @@ public class Player {
 						if(flag)
 							putMinion(Master.cityCards.get(indexCity-1), Master.cityCards);
 						else System.out.println("You can only put a minion in neighbour city");
-					}while(indexCity<=0 ||indexCity>12 ||!flag);
+					}while(indexCity<=0 ||indexCity>Master.cityCards.size() ||!flag);
 
 
 
