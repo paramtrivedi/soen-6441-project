@@ -11,8 +11,6 @@ import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import discworld.BoardCard.Symbols;
-
 /**
  * The saveGame class saves the file of the game and loads the game.
  * 
@@ -312,20 +310,7 @@ public class SaveGame {
 												{
 													if(e.equals(grCard.get(k).name))
 													{
-														int hMoney = grCard.get(k).dollar;
-														int hId = grCard.get(k).id;
-														String hName = grCard.get(k).name;
-														String hDesc = grCard.get(k).des;
-														ArrayList<Symbols> hSym = grCard.get(k).symbol;
-														String symbolStr = "";
-														if (hSym != null)
-														{
-															for (int v=0; v<hSym.size(); v++)
-															{
-																symbolStr += hSym.get(v).name();
-															}
-														}
-														BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
+														BoardCard b = grCard.get(k);
 														holdingCards.add(b);
 														grCard.remove(k);
 													}
@@ -334,22 +319,9 @@ public class SaveGame {
 												{
 													if(e.equals(brCard.get(t).name))
 													{
-														int hMoney = brCard.get(t).dollar;
-														int hId = brCard.get(t).id;
-														String hName = brCard.get(t).name;
-														String hDesc = brCard.get(t).des;
-														ArrayList<Symbols> hSym = brCard.get(t).symbol;
-														String symbolStr = "";
-														if (hSym != null)
-														{
-															for (int v=0; v<hSym.size(); v++)
-															{
-																symbolStr += hSym.get(v).name();
-															}
-														}
-														BoardCard b = new BoardCard(hId, hName, symbolStr, hMoney, hDesc);
+														BoardCard b = brCard.get(t);
 														holdingCards.add(b);
-														grCard.remove(t);
+														brCard.remove(t);
 													}
 												}
 												if(e.contains("Ankh-Morpork dollars"))
