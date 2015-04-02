@@ -696,7 +696,7 @@ public class Master {
 				if(cityCards.get(i).getOwner()==num)
 					benefit+=cityCards.get(i).benefit;
 
-			winCheck(playerList.get(num-1));
+			
 			switch (input) {
 			case 1:
 				System.out.println("Saving...");
@@ -706,6 +706,7 @@ public class Master {
 
 			case 2:
 				SaveGame.load();
+				if(winCheck(playerList.get(num-1))) break;
 				//playGames(numPlayer, playerList);
 				break;
 
@@ -756,6 +757,7 @@ public class Master {
 				System.out.println("Player "+num+" Start to Play:");
 				display(cityCards,playerList.get(num-1));
 				playCard=true;
+				if(winCheck(playerList.get(num-1)))break;
 			}
 		}while(!quit);
 		bank = 120;
