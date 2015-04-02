@@ -235,9 +235,11 @@ public class BoardCard {
 		case 8://player another two card, meiwan
 		case 11: case 31:
 			int die=Master.roll();
+			System.out.println("die rolls");
 			String input;
 			
 			if(die>=7){ 
+				
 				player.setMoney(player.getMoney()+4);
 				Master.bank-=4;
 			}else if(die==1){
@@ -400,7 +402,7 @@ public class BoardCard {
 			System.out.println("Removing form following cities:");
 			do{
 				inputCity = Master.scan.nextInt();
-			}while(inputCity<0 || inputCity>=Master.cityCards.size()|| !Master.cityCards.get(inputCity).containTroubleMaker());
+			}while(inputCity<=0 || inputCity>Master.cityCards.size()|| !Master.cityCards.get(inputCity-1).containTroubleMaker());
 			
 			tempCity=Master.cityCards.get(inputCity-1);
 			tempCity.removeMinion(player);
@@ -412,7 +414,7 @@ public class BoardCard {
 			}
 			do{
 				inputCity = Master.scan.nextInt();
-			}while(inputCity<0 || inputCity>=tempCity.getNearestCity().length);
+			}while(inputCity<=0 || inputCity>tempCity.getNearestCity().length);
 			
 			Master.cityCards.get(tempCity.getNearestCity()[inputCity-1]).putMinion(player);
 			break;
