@@ -166,7 +166,8 @@ public class SaveGame {
 					}
 					ArrayList<String> acolor = new ArrayList<String>();
 					ArrayList<String> acard = new ArrayList<String>();
-					for(int i=1; i <= players && ((thisLine = reader.readLine()) != null); i++) {
+					for(int i=1; i <= players && ((thisLine = reader.readLine()) != null); i++) 
+					{
 						String pattern = "Player [1-4]+ \\((blue|green|red|yellow)\\) is playing as .+";
 						Pattern r = Pattern.compile(pattern);
 						Matcher m = r.matcher(thisLine);
@@ -255,7 +256,6 @@ public class SaveGame {
 							{
 								thisLine = reader.readLine();
 								boolean firstTime = true;
-								System.out.println(thisLine);
 
 								holdingCards=new  ArrayList<BoardCard>();
 								while((thisLine != null) && !(Pattern.matches("Player [1-4]'s current inventory:+", thisLine)))
@@ -332,7 +332,6 @@ public class SaveGame {
 												if(e.contains("numPlayer:"))
 												{
 													String []h = e.split(" ");
-													System.out.println(h[1]);
 													numPlayer = Integer.parseInt(h[1]);
 												}
 											}
