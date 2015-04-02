@@ -353,49 +353,42 @@ public class SaveGame {
 								if(acard.get(i-1).equals(personality.get(0)))
 								{
 									PersonalityCard pc = new PersonalityCard(0, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
 								else if(acard.get(i-1).equals(personality.get(1)))
 								{
 									PersonalityCard pc = new PersonalityCard(1, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
 								else if(acard.get(i-1).equals(personality.get(2)))
 								{
 									PersonalityCard pc = new PersonalityCard(2, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
 								else if(acard.get(i-1).equals(personality.get(3)))
 								{
 									PersonalityCard pc = new PersonalityCard(3, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
 								else if(acard.get(i-1).equals(personality.get(4)))
 								{
 									PersonalityCard pc = new PersonalityCard(4, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
 								else if(acard.get(i-1).equals(personality.get(5)))
 								{
 									PersonalityCard pc = new PersonalityCard(5, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
 								else if(acard.get(i-1).equals(personality.get(6)))
 								{
 									PersonalityCard pc = new PersonalityCard(6, acard.get(i-1));
-									System.out.println(pc);
 									Player pl = new Player(i, money, colorobj, min, bu, pc, holdingCards);
 									gamer.add(pl);
 								}
