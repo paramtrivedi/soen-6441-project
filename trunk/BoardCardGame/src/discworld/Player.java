@@ -176,7 +176,7 @@ public class Player {
 	 * This method allows the player to put a minion in a city
 	 * @param city
 	 * @param cityCards
-	 * @return
+	 * @return If the player put a minion then return true, otherwise return false.
 	 */
 	public boolean putMinion(CityCard city,Vector<CityCard> cityCards){
 		if(minion==0 )
@@ -246,7 +246,7 @@ public class Player {
 	}
 	/** 
 	 * It will refill the player holdingCards by 5.
-	 *  @author Jay Tanna
+	 * @author Jay Tanna
 	 * @param g
 	 * @param b
 	 */
