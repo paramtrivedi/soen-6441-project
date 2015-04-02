@@ -321,9 +321,13 @@ public class Player {
 				if(indexSym==numSym+1)break;
 			}while((indexSym<=0 || indexSym>numSym+1)||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Event||b.allSymbols().get(indexSym-1)==BoardCard.Symbols.Interrupt);
 			if(indexSym==numSym+1){
-				money+=benefit;
+				if(benefit==0) System.out.println("You do not have any benefits");
+				else{
+					money+=benefit;
 				Master.bank-=benefit;
 				benefit=0;
+				System.out.println("You get $"+benefit);
+				}
 			}
 			else{
 				s=b.allSymbols().get(indexSym-1);
