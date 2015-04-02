@@ -11,7 +11,7 @@ public class PersonalityCard {
 	/** It gives the id to the personality card. */
 	protected int id;
 	/** It gives the name to the personality card.	*/
-	private String name;
+	protected String name;
 	/** 
 	 * It  construct the personality card with the id and name.
 	 * @param id
