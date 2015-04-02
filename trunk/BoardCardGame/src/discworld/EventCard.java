@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * This class provides information of event cards.
  * 
  * @author Zixi Quan
- * @version 2.00, 12 March 2015
+ * @version 3.00, 2 April 2015
  *
  */
 public class EventCard {
